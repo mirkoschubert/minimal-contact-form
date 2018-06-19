@@ -35,10 +35,10 @@ SOFTWARE.
 */
 
 // Disable direct access
-if (!defined( 'ABSPATH' )) exit;
+if (!defined( 'ABSPATH' )) exit();
 
 $mcf_wp_version = '4.1';
-$mcf_version = '0.1.0';
+$mcf_version = '0.2.0';
 $mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
 $mcf_options = get_option('scf_options');
 $mcf_path    = plugin_basename(__FILE__);
@@ -46,7 +46,7 @@ $mcf_path    = plugin_basename(__FILE__);
 
 /**
  * Loads the text domain of the plugin
- * @version 0.1.0
+ * @since 0.1.0
  */
 if (!function_exists('mcf_init')) {
   function mcf_init() {
@@ -57,8 +57,8 @@ if (!function_exists('mcf_init')) {
 
 
 /**
- * Enqueues plugin scripts
- * @version 0.1.0
+ * Enqueues plugin frontend scripts
+ * @since 0.1.0
  */
 if (!function_exists('mcf_scripts')) {
   function mcf_scripts() {
@@ -70,5 +70,19 @@ if (!function_exists('mcf_scripts')) {
 }
 
 
+/**
+ * Enqueues plugin admin scripts
+ * @since 0.2.0
+ */
+if (!function_exists('mcf_admin_scripts')) {
+  function mcf_admin_scripts($hook) {
+    if($hook !== 'settings_page_mcf') return;
+    wp_enqueue_style('mcf-admin-style', plugins_url('/css/admin.css',__FILE__));
+  }
+  add_action('admin_enqueue_scripts', 'mcf_admin_scripts');
+}
+
+
+include 'mcf-options.php';
 
 ?>
