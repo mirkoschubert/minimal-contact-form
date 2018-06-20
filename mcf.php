@@ -38,13 +38,14 @@ SOFTWARE.
 if (!defined( 'ABSPATH' )) exit();
 
 $mcf_wp_version = '4.9.6';
-$mcf_version = '0.3.0';
+$mcf_version = '0.4.0';
 $mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
 $mcf_slug = dirname(plugin_basename(__FILE__));
 $mcf_path    = plugin_basename(__FILE__);
 $mcf_options = get_option('mcf_options');
 
 include 'mcf-options.php';
+include 'mcf-form.php';
 
 
 /**
@@ -89,40 +90,37 @@ register_uninstall_hook (__FILE__, 'mcf_plugin_uninstall');
  * Loads the text domain of the plugin
  * @since 0.1.0
  */
-if (!function_exists('mcf_init')) {
-  function mcf_init() {
-    global $mcf_slug;
-    load_plugin_textdomain('mcf', false, $mcf_slug .'/languages/');
-  }
-  add_action( 'plugins_loaded', 'mcf_init' );
+function mcf_init() {
+  global $mcf_slug;
+  load_plugin_textdomain('mcf', false, $mcf_slug .'/languages/');
 }
+add_action( 'plugins_loaded', 'mcf_init' );
 
 
 /**
  * Enqueues plugin frontend scripts
  * @since 0.1.0
  */
-if (!function_exists('mcf_scripts')) {
-  function mcf_scripts() {
-    if(!is_admin())	{
-      wp_enqueue_style('mcf-style', plugins_url('/css/style.css',__FILE__));
-    }
+function mcf_scripts() {
+  if(!is_admin())	{
+    wp_enqueue_script( 'mcf-script', plugins_url( '/js/main.js', __FILE__ ), 'jquery', true);
+    wp_enqueue_style('mcf-style', plugins_url('/css/style.css',__FILE__));
   }
-  add_action('wp_enqueue_scripts', 'mcf_scripts');
 }
+add_action('wp_enqueue_scripts', 'mcf_scripts');
 
 
 /**
  * Enqueues plugin admin scripts
  * @since 0.2.0
  */
-if (!function_exists('mcf_admin_scripts')) {
-  function mcf_admin_scripts($hook) {
-    if($hook !== 'settings_page_mcf') return;
-    wp_enqueue_style('mcf-admin-style', plugins_url('/css/admin.css',__FILE__));
-  }
-  add_action('admin_enqueue_scripts', 'mcf_admin_scripts');
+function mcf_admin_scripts($hook) {
+  global $mcf_slug;
+
+  if($hook !== 'settings_page_' . $mcf_slug) return;
+  wp_enqueue_style('mcf-admin-style', plugins_url('/css/admin.css',__FILE__));
 }
+add_action('admin_enqueue_scripts', 'mcf_admin_scripts');
 
 
 /**

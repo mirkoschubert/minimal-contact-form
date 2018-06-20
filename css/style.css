@@ -1,0 +1,17 @@
+#minimal-contact-form {
+  margin-bottom: 20px;
+}
+
+#minimal-contact-form input,
+#minimal-contact-form textarea {
+  margin-bottom: 20px;
+}
+
+#minimal-contact-form input::placeholder,
+#minimal-contact-form textarea::placeholder {
+  color: #ccc;
+}
+
+#minimal-contact-form input.phone {
+  display: none;
+}
