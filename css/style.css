@@ -2,14 +2,26 @@
   margin-bottom: 20px;
 }
 
-#minimal-contact-form input,
-#minimal-contact-form textarea {
+#minimal-contact-form .notice {}
+
+#minimal-contact-form .notice .success {
+  color: #46b450;
+}
+
+#minimal-contact-form .notice .warning {
+  color: #ffb900;
+}
+
+#minimal-contact-form .notice .error {
+  color: #dc3232;
+}
+
+#minimal-contact-form input, #minimal-contact-form textarea {
   margin-bottom: 20px;
 }
 
-#minimal-contact-form input::placeholder,
-#minimal-contact-form textarea::placeholder {
-  color: #ccc;
+#minimal-contact-form input::placeholder, #minimal-contact-form textarea::placeholder {
+  color: #999;
 }
 
 #minimal-contact-form input.phone {

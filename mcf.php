@@ -103,8 +103,10 @@ add_action( 'plugins_loaded', 'mcf_init' );
  */
 function mcf_scripts() {
   if(!is_admin())	{
-    wp_enqueue_script( 'mcf-script', plugins_url( '/js/main.js', __FILE__ ), 'jquery', true);
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('mcf-script', plugins_url( '/js/mcf-script.js', __FILE__ ), 'jquery', true);
     wp_enqueue_style('mcf-style', plugins_url('/css/style.css',__FILE__));
+    wp_localize_script( 'mcf-script', 'minimal_contact_form', array( 'mcf_ajaxurl' => admin_url( 'admin-ajax.php')));
   }
 }
 add_action('wp_enqueue_scripts', 'mcf_scripts');
