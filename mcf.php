@@ -37,11 +37,52 @@ SOFTWARE.
 // Disable direct access
 if (!defined( 'ABSPATH' )) exit();
 
-$mcf_wp_version = '4.1';
-$mcf_version = '0.2.0';
+$mcf_wp_version = '4.9.6';
+$mcf_version = '0.3.0';
 $mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
-$mcf_options = get_option('scf_options');
+$mcf_slug = dirname(plugin_basename(__FILE__));
 $mcf_path    = plugin_basename(__FILE__);
+$mcf_options = get_option('mcf_options');
+
+include 'mcf-options.php';
+
+
+/**
+ * Activation Hook
+ * @since 0.3.0
+ */
+function mcf_plugin_activation() {
+
+  // Write default options to database
+  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'spam' => 0), '', 'yes');
+  
+}
+register_activation_hook( __FILE__, 'mcf_plugin_activation' );
+
+
+/**
+ * Deactivation Hook
+ * @since 0.3.0
+ */
+function mcf_plugin_deactivation() {
+
+  // FOR TESTING: delete options from database
+  delete_option('mcf_options');
+  
+}
+register_deactivation_hook( __FILE__, 'mcf_plugin_deactivation' );
+
+
+/**
+ * Uninstallation Hook
+ * @since 0.3.0
+ */
+function mcf_plugin_uninstall() {
+
+  // delete options from database
+  delete_option('mcf_options');
+}
+register_uninstall_hook (__FILE__, 'mcf_plugin_uninstall');
 
 
 /**
@@ -50,7 +91,8 @@ $mcf_path    = plugin_basename(__FILE__);
  */
 if (!function_exists('mcf_init')) {
   function mcf_init() {
-    load_plugin_textdomain('mcf', false, dirname(plugin_basename(__FILE__)) .'/languages/');
+    global $mcf_slug;
+    load_plugin_textdomain('mcf', false, $mcf_slug .'/languages/');
   }
   add_action( 'plugins_loaded', 'mcf_init' );
 }
@@ -83,6 +125,20 @@ if (!function_exists('mcf_admin_scripts')) {
 }
 
 
-include 'mcf-options.php';
+/**
+ * Sets a link to the settings page in the plugin list
+ * @since 0.3.0
+ */
+function mcf_plugin_action_links($links, $file) {
+	
+	global $mcf_path, $mcf_slug;
+	
+	if ($file == $mcf_path) array_unshift($links, '<a href="'. get_admin_url() .'options-general.php?page='. $mcf_slug .'">'. esc_html__('Settings', 'mcf') .'</a>');
+	return $links;
+}
+add_filter ('plugin_action_links', 'mcf_plugin_action_links', 10, 2);
+
+
+
 
 ?>
