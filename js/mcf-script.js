@@ -61,18 +61,17 @@ jQuery(document).ready(function(e) {
           data: data,
         },
         success: function(t) {
-          // reset form
-          e('#minimal-contact-form input.name').val('');
-          e('#minimal-contact-form input.email').val('');
-          e('#minimal-contact-form input.phone').val('');
-          e('#minimal-contact-form input.subject').val('');
-          e('#minimal-contact-form textarea.message').val('');
-          // thank you message
-          e('#minimal-contact-form .notice')
-              .html(
-                  '<p class="success">Thank you for sending us a message! You will hear from us shortly.</p>');
+          // success message
+          e('#minimal-contact-form .notice').html(t);
 
-          console.log(t);
+          // reset form
+          if (t.indexOf('success') !== -1) {
+            e('#minimal-contact-form input.name').val('');
+            e('#minimal-contact-form input.email').val('');
+            e('#minimal-contact-form input.phone').val('');
+            e('#minimal-contact-form input.subject').val('');
+            e('#minimal-contact-form textarea.message').val('');
+          }
         }
       })
     } else {

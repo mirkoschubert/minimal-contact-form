@@ -18,7 +18,10 @@ function mcf_shortcode_init() {
 add_action('init', 'mcf_shortcode_init');
 
 
-
+/**
+ * Displays the contact form at the frontend
+ * @since 0.4.0
+ */
 function mcf_display_contact_form() {
 
   global $mcf_options;
@@ -57,6 +60,10 @@ function mcf_display_contact_form() {
 }
 
 
+/**
+ * Sends an email and answers with an AJAX response
+ * @since 0.5.0
+ */
 function mcf_send_mail() {
   global $mcf_options;
 
@@ -73,29 +80,42 @@ function mcf_send_mail() {
   $date    = get_date_from_gmt(current_time('mysql', true), 'r');
 
   // E-Mail Headers
-  $headers  = "X-Mailer: Minimal Contact Form \n";
-  $headers .= "Date: $date\n"; // Thu, 21 Jun 2018 12:41:47 +0000
-  $headers .= "From: $name <$email>\n";
+  $headers  = "From: $name <$email>\n";
   $headers .= "Sender: $name <$email>\n";
   $headers .= "Reply-To: $name <$email>\n";
-  $headers .= "To: $user->display_name <$user->user_email>\n";
-  $headers .= "MIME-Version: 1.0\n";
+  //$headers .= "MIME-Version: 1.0\n"; // not wp_mail()
+  //$headers .= "X-Mailer: PHP/". phpversion() . "\n"; // not wp_mail()
   $headers .= "Content-Type: text/plain; charset=$charset\n";
-  $headers .= "Subject: $subject\n";
 
-
-  $message  = "\n";
-  $message .= ($mcf_options['gdpr'] === 1) ? ($consent === 1 ? "[x] " . __('The user has agreed to the data collection.!', 'mcf') . "\n\n" : "[ ] " . __('The user has not agreed to the data collection.!', 'mcf') . "\n\n") : "";
+  $message  = "";
+  $message .= ($mcf_options['gdpr'] === 1) ? ($consent === 1 ? "[x] " . __('The user has agreed to the data collection.', 'mcf') . "\n\n" : "[ ] " . __('The user has not agreed to the data collection.', 'mcf') . "\n\n") : "";
   $message .= wp_strip_all_tags($msg) . "\n";
+
+  //$success = mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
+  $success = wp_mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
+
+  if ($success)
+    echo '<p class="success">' . __('Thank you for sending us a message! You will hear from us shortly.', 'mcf') . '</p>';
+  else
+    echo '<p class="error">' . __("Sorry! Your message couldn't be sent. Please try again later.", 'mcf') . '</p>';
   
-  echo $headers;
-  echo $message;
-
-  echo mb_detect_encoding($msg) . "\n";
-  echo get_option('timezone_string') . "\n";
-  echo get_date_from_gmt(current_time('mysql', true), 'r');
-
   die();
 }
 add_action('wp_ajax_mcf_send_mail', 'mcf_send_mail');
 add_action('wp_ajax_nopriv_mcf_send_mail', 'mcf_send_mail');
+
+function get_mail_example() {
+  // example message
+  $example  = "The quick brown fox jumps over a lazy dog.\n";
+  $example .= "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich.\n";
+  $example .= "Byxfjärmat föl gick på duvshowen.\n";
+  $example .= "Pijamalı hasta yağız şoföre çabucak güvendi.\n";
+  $example .= "Ζαφείρι δέξου πάγκαλο, βαθῶν ψυχῆς τὸ σῆμα.\n";
+  $example .= "Съешь же ещё этих мягких французских булок, да выпей чаю.\n";
+  $example .= "कः खगौघाङचिच्छौजा झाञ्ज्ञोऽटौठीडडण्ढणः। तथोदधीन् पफर्बाभीर्मयोऽरिल्वाशिषां सहः।।\n";
+  $example .= "นายสังฆภัณฑ์ เฮงพิทักษ์ฝั่ง ผู้เฒ่าซึ่งมีอาชีพเป็นฅนขายฃวด ถูกตำรวจปฏิบัติการจับฟ้องศาล ฐานลักนาฬิกาคุณหญิงฉัตรชฎา ฌานสมาธิ\n";
+  $example .= "とりなくこゑす ゆめさませ みよあけわたる ひんかしを そらいろはえて おきつへに ほふねむれゐぬ もやのうち\n";
+  $example .= "微風迎客，軟語伴茶\n";
+
+  return $example;
+}

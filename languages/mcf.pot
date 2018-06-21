@@ -1,0 +1,152 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Minimal Contact Form\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-21 13:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: mcf-form.php:30 mcf-form.php:31 mcf-form.php:34 mcf-form.php:42
+msgid " (required)"
+msgstr ""
+
+#. Description of the plugin
+msgid "A WordPress Plugin for a simple, clean and secure contact form."
+msgstr ""
+
+#: mcf-options-page.php:48
+msgid "Antispam"
+msgstr ""
+
+#: mcf-form.php:42
+msgid ""
+"By sending us a message via this contact form you agree that your personal "
+"data will be processed."
+msgstr ""
+
+#: mcf-form.php:45
+msgid ""
+"By sending us a message via this contact form you understand that your "
+"personal data will be processed."
+msgstr ""
+
+#: mcf-options.php:15
+msgid "Contact Form"
+msgstr ""
+
+#: mcf-form.php:42 mcf-form.php:45
+msgid "For further information please visit our"
+msgstr ""
+
+#: mcf-options-page.php:41
+msgid "GDPR"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/mirkoschubert/minimal-contact-form"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://mirkoschubert.de/"
+msgstr ""
+
+#: mcf-options-page.php:13
+msgid "is a secure contact form that&rsquo;s fast and flexible."
+msgstr ""
+
+#. Name of the plugin
+#: mcf.php:42 mcf-options-page.php:3
+msgid "Minimal Contact Form"
+msgstr ""
+
+#. Author of the plugin
+msgid "Mirko Schubert"
+msgstr ""
+
+#: mcf-options-page.php:20
+msgid "Options"
+msgstr ""
+
+#: mcf-options-page.php:9
+msgid "Overview"
+msgstr ""
+
+#: mcf-form.php:42 mcf-form.php:45 mcf-options-page.php:34
+msgid "Privacy Policy"
+msgstr ""
+
+#: mcf-options-page.php:36
+msgid "Privacy Settings"
+msgstr ""
+
+#: mcf.php:136
+msgid "Settings"
+msgstr ""
+
+#: mcf-form.php:67
+msgid "Someone left you a message!"
+msgstr ""
+
+#: mcf-form.php:33
+msgid "Subject"
+msgstr ""
+
+#: mcf-form.php:52
+msgid "Submit"
+msgstr ""
+
+#: mcf-options-page.php:29
+msgid "The administrator or editor who should receive the emails."
+msgstr ""
+
+#: mcf-form.php:88
+msgid "The user has agreed to the data collection.!"
+msgstr ""
+
+#: mcf-form.php:88
+msgid "The user has not agreed to the data collection.!"
+msgstr ""
+
+#: mcf-options-page.php:14
+msgid "To display the form on any WP Post or Page, add the shortcode:"
+msgstr ""
+
+#: mcf-options-page.php:51
+msgid "Use honeypot to protect against SPAM emails."
+msgstr ""
+
+#: mcf-options-page.php:44
+msgid "Use Opt-In instead of infoming the visitor about the GDPR."
+msgstr ""
+
+#: mcf-options-page.php:26
+msgid "User"
+msgstr ""
+
+#: mcf-options-page.php:36
+msgid "You have to set a privacy policy page in the"
+msgstr ""
+
+#: mcf-form.php:31
+msgid "Your Email Address"
+msgstr ""
+
+#: mcf-form.php:34
+msgid "Your Message"
+msgstr ""
+
+#: mcf-form.php:30
+msgid "Your Name"
+msgstr ""
+
+#: mcf-form.php:32
+msgid "Your Phone Number"
+msgstr ""
