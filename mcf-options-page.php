@@ -51,6 +51,13 @@
                       <span class="mm-item-caption"><?php esc_html_e('Use honeypot to protect against SPAM emails.', 'mcf'); ?></span>
                     </td>
                   </tr>
+                  <tr>
+                    <th scope="row"><label class="" for="mcf_options[phpmail]"><?php esc_html_e('Mailer', 'mcf'); ?></label></th>
+                    <td>
+                      <input name="mcf_options[phpmail]" type="checkbox" value="1" <?php if (isset($mcf_options['phpmail'])) { checked('1', $mcf_options['phpmail']); } ?> />
+                      <span class="mm-item-caption"><?php esc_html_e('Use PHP mail function instead of WordPress PHPMailer.', 'mcf'); ?></span>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>

@@ -71,6 +71,7 @@ jQuery(document).ready(function(e) {
             e('#minimal-contact-form input.phone').val('');
             e('#minimal-contact-form input.subject').val('');
             e('#minimal-contact-form textarea.message').val('');
+            e('#minimal-contact-form input.consent').prop('checked', false);
           }
         }
       })

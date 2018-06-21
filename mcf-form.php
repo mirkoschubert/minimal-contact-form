@@ -83,16 +83,18 @@ function mcf_send_mail() {
   $headers  = "From: $name <$email>\n";
   $headers .= "Sender: $name <$email>\n";
   $headers .= "Reply-To: $name <$email>\n";
-  //$headers .= "MIME-Version: 1.0\n"; // not wp_mail()
-  //$headers .= "X-Mailer: PHP/". phpversion() . "\n"; // not wp_mail()
+  $headers .= ($mcf_options['phpmail'] === 1) ? "MIME-Version: 1.0\n" : ""; // not wp_mail()
+  $headers .= ($mcf_options['phpmail'] === 1) ? "X-Mailer: PHP/". phpversion() . "\n" : ""; // not wp_mail()
   $headers .= "Content-Type: text/plain; charset=$charset\n";
 
   $message  = "";
   $message .= ($mcf_options['gdpr'] === 1) ? ($consent === 1 ? "[x] " . __('The user has agreed to the data collection.', 'mcf') . "\n\n" : "[ ] " . __('The user has not agreed to the data collection.', 'mcf') . "\n\n") : "";
   $message .= wp_strip_all_tags($msg) . "\n";
 
-  //$success = mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
-  $success = wp_mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
+  if ($mcf_options['phpmail'] === 1)
+    $success = mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
+  else
+    $success = wp_mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
 
   if ($success)
     echo '<p class="success">' . __('Thank you for sending us a message! You will hear from us shortly.', 'mcf') . '</p>';

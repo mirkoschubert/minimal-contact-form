@@ -47,6 +47,9 @@ function mcf_validate_options($input) {
   // spam
   if (!isset($input['spam'])) $input['spam'] = 0;
   $validated['spam'] = ($input['spam'] == 1) ? 1 : 0;
+  // phpmail
+  if (!isset($input['phpmail'])) $input['phpmail'] = 0;
+  $validated['phpmail'] = ($input['phpmail'] == 1) ? 1 : 0;
 
   return $validated;
 }

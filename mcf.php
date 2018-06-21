@@ -55,7 +55,7 @@ include 'mcf-form.php';
 function mcf_plugin_activation() {
 
   // Write default options to database
-  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'spam' => 0), '', 'yes');
+  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'spam' => 0, 'phpmail' => 0), '', 'yes');
   
 }
 register_activation_hook( __FILE__, 'mcf_plugin_activation' );
