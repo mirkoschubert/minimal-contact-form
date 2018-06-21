@@ -1,8 +1,10 @@
 #minimal-contact-form {
-  margin-bottom: 20px;
+  width: 100%;
 }
 
-#minimal-contact-form .notice {}
+#minimal-contact-form .notice {
+  color: #333;
+}
 
 #minimal-contact-form .notice .success {
   color: #46b450;
@@ -16,8 +18,18 @@
   color: #dc3232;
 }
 
-#minimal-contact-form input, #minimal-contact-form textarea {
-  margin-bottom: 20px;
+#minimal-contact-form input[type="text"], #minimal-contact-form input[type="email"], #minimal-contact-form textarea {
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #666;
+  display: block;
+  font-weight: 400;
+  height: inherit;
+  margin-bottom: 1.5em;
+  padding: 0.7em;
+  width: 100%;
 }
 
 #minimal-contact-form input::placeholder, #minimal-contact-form textarea::placeholder {
@@ -27,17 +39,56 @@
 #minimal-contact-form input[type="checkbox"] {
   float: left;
   line-height: normal;
-  margin: 6px 0 0;
+  margin: 0.35em 0 0;
 }
 
 #minimal-contact-form label.consent-caption {
+  color: #333;
   display: block;
-  margin-left: 25px;
-  margin-bottom: 20px;
+  margin-left: 1.625em;
+  margin-bottom: 1.5em;
   font-weight: normal;
   max-width: 100%;
 }
 
 #minimal-contact-form input.phone {
   display: none;
+}
+
+#minimal-contact-form button {
+  background-color: #222;
+  border: 0;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 1.5em;
+  padding: 1em 2em;
+  text-shadow: none;
+  transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  -webkit-appearance: button;
+}
+
+#minimal-contact-form button:hover {
+  background-color: #767676;
+}
+
+@media screen and (min-width: 30em) {
+  #minimal-contact-form input[type="checkbox"] {
+    margin: 0.4em 0 0;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  #minimal-contact-form {
+    max-width: 36em;
+  }
+  #minimal-contact-form input[type="checkbox"] {
+    margin: 0.3em 0 0;
+  }
 }
