@@ -58,13 +58,42 @@ function mcf_display_contact_form() {
 
 
 function mcf_send_mail() {
-  $data = $_POST['data'];
-  $data['name'] = sanitize_text_field($data['name']);
-  $data['email'] = sanitize_email($data['email']);
-  $data['subject'] = sanitize_text_field($data['subject']);
-  $data['message'] = sanitize_textarea_field($data['message']);
+  global $mcf_options;
 
-  var_dump($data);
+  $data = $_POST['data'];
+  // AJAX data
+  $name = sanitize_text_field($data['name']);
+  $email = sanitize_email($data['email']);
+  $subject = ($data['subject'] !== '') ? sanitize_text_field($data['subject']) : __('Someone left you a message!', 'mcf');
+  $msg = sanitize_textarea_field($data['message']);
+  $consent = (int)$data['consent'];
+  // Plugin data
+  $user = get_userdata($mcf_options['user']); 
+  $charset = get_option('blog_charset', 'UTF-8');
+  $date    = get_date_from_gmt(current_time('mysql', true), 'r');
+
+  // E-Mail Headers
+  $headers  = "X-Mailer: Minimal Contact Form \n";
+  $headers .= "Date: $date\n"; // Thu, 21 Jun 2018 12:41:47 +0000
+  $headers .= "From: $name <$email>\n";
+  $headers .= "Sender: $name <$email>\n";
+  $headers .= "Reply-To: $name <$email>\n";
+  $headers .= "To: $user->display_name <$user->user_email>\n";
+  $headers .= "MIME-Version: 1.0\n";
+  $headers .= "Content-Type: text/plain; charset=$charset\n";
+  $headers .= "Subject: $subject\n";
+
+
+  $message  = "\n";
+  $message .= ($mcf_options['gdpr'] === 1) ? ($consent === 1 ? "[x] " . __('The user has agreed to the data collection.!', 'mcf') . "\n\n" : "[ ] " . __('The user has not agreed to the data collection.!', 'mcf') . "\n\n") : "";
+  $message .= wp_strip_all_tags($msg) . "\n";
+  
+  echo $headers;
+  echo $message;
+
+  echo mb_detect_encoding($msg) . "\n";
+  echo get_option('timezone_string') . "\n";
+  echo get_date_from_gmt(current_time('mysql', true), 'r');
 
   die();
 }
