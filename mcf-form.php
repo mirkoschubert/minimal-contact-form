@@ -61,10 +61,27 @@ function mcf_display_contact_form() {
 
 
 /**
+ * HELPER: Send translated validation message via AJAX
+ * @since 0.5.1
+ */
+function mcf_ajax_translate_message() {
+  $type = $_POST['type'];
+
+  if ($type !== '') {
+    if ($type === 'validation_error') echo __('Sorry! Please fill up all required fields correctly.', 'mcf');
+  }
+
+  die();
+}
+add_action('wp_ajax_mcf_ajax_translate_message', 'mcf_ajax_translate_message');
+add_action('wp_ajax_nopriv_mcf_ajax_translate_message', 'mcf_ajax_translate_message');
+
+
+/**
  * Sends an email and answers with an AJAX response
  * @since 0.5.0
  */
-function mcf_send_mail() {
+function mcf_ajax_send_mail() {
   global $mcf_options;
 
   $data = $_POST['data'];
@@ -103,8 +120,10 @@ function mcf_send_mail() {
   
   die();
 }
-add_action('wp_ajax_mcf_send_mail', 'mcf_send_mail');
-add_action('wp_ajax_nopriv_mcf_send_mail', 'mcf_send_mail');
+add_action('wp_ajax_mcf_ajax_send_mail', 'mcf_ajax_send_mail');
+add_action('wp_ajax_nopriv_mcf_ajax_send_mail', 'mcf_ajax_send_mail');
+
+
 
 function get_mail_example() {
   // example message

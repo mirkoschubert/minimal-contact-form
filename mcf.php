@@ -38,7 +38,7 @@ SOFTWARE.
 if (!defined( 'ABSPATH' )) exit();
 
 $mcf_wp_version = '4.9.6';
-$mcf_version = '0.5.0';
+$mcf_version = '0.5.1';
 $mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
 $mcf_slug = dirname(plugin_basename(__FILE__));
 $mcf_path    = plugin_basename(__FILE__);
@@ -55,7 +55,7 @@ include 'mcf-form.php';
 function mcf_plugin_activation() {
 
   // Write default options to database
-  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'spam' => 0, 'phpmail' => 0), '', 'yes');
+  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'spam' => 1, 'phpmail' => 0), '', 'yes');
   
 }
 register_activation_hook( __FILE__, 'mcf_plugin_activation' );

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minimal Contact Form\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-21 17:35+0000\n"
+"POT-Creation-Date: 2018-06-21 17:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -66,27 +66,23 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: mcf-form.php:71
-msgid "Sorry! Please fill up all required fields correctly."
-msgstr ""
-
-#: mcf-form.php:91
+#: mcf-form.php:89
 msgid "Someone left you a message!"
 msgstr ""
 
-#: mcf-form.php:108
+#: mcf-form.php:106
 msgid "The user has agreed to the data collection."
 msgstr ""
 
-#: mcf-form.php:108
+#: mcf-form.php:106
 msgid "The user has not agreed to the data collection."
 msgstr ""
 
-#: mcf-form.php:117
+#: mcf-form.php:115
 msgid "Thank you for sending us a message! You will hear from us shortly."
 msgstr ""
 
-#: mcf-form.php:119
+#: mcf-form.php:117
 msgid "Sorry! Your message couldn't be sent. Please try again later."
 msgstr ""
 

@@ -57,7 +57,7 @@ jQuery(document).ready(function(e) {
         type: 'POST',
         url: minimal_contact_form.mcf_ajaxurl,
         data: {
-          action: 'mcf_send_mail',
+          action: 'mcf_ajax_send_mail',
           data: data,
         },
         success: function(t) {
@@ -74,9 +74,19 @@ jQuery(document).ready(function(e) {
             e('#minimal-contact-form input.consent').prop('checked', false);
           }
         }
-      })
+      });
     } else {
       // Something went wrong
+      e.ajax({
+        type: 'POST',
+        url: minimal_contact_form.mcf_ajaxurl,
+        data: {action: 'mcf_ajax_translate_message', type: 'validation_error'},
+        success: function(t) {
+          console.log(t);
+          e('#minimal-contact-form .notice')
+              .html('<p class="error">' + t + '</p>');
+        }
+      });
 
       e('#minimal-contact-form .notice')
           .html(
