@@ -38,7 +38,7 @@ SOFTWARE.
 if (!defined( 'ABSPATH' )) exit();
 
 $mcf_wp_version = '4.9.6';
-$mcf_version = '0.5.1';
+$mcf_version = '0.6.0';
 $mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
 $mcf_slug = dirname(plugin_basename(__FILE__));
 $mcf_path    = plugin_basename(__FILE__);
@@ -137,8 +137,3 @@ function mcf_plugin_action_links($links, $file) {
 	return $links;
 }
 add_filter ('plugin_action_links', 'mcf_plugin_action_links', 10, 2);
-
-
-
-
-?>

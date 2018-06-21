@@ -67,7 +67,7 @@ msgstr ""
 
 #: mcf-form.php:71
 msgid "Sorry! Please fill up all required fields correctly."
-msgstr "Sorry! Bitte füllen Sie alle Pflichtfelder korrekt aus."
+msgstr "Entschuldigung! Bitte füllen Sie alle Pflichtfelder korrekt aus."
 
 #: mcf-form.php:91
 msgid "Someone left you a message!"

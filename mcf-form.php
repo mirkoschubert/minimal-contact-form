@@ -88,6 +88,7 @@ function mcf_ajax_send_mail() {
   // AJAX data
   $name = sanitize_text_field($data['name']);
   $email = sanitize_email($data['email']);
+  $phone = ($mcf_options['spam'] === 1) ? sanitize_text_field($data['phone']) : false; // honeypot
   $subject = ($data['subject'] !== '') ? sanitize_text_field($data['subject']) : __('Someone left you a message!', 'mcf');
   $msg = sanitize_textarea_field($data['message']);
   $consent = (int)$data['consent'];
@@ -108,15 +109,19 @@ function mcf_ajax_send_mail() {
   $message .= ($mcf_options['gdpr'] === 1) ? ($consent === 1 ? "[x] " . __('The user has agreed to the data collection.', 'mcf') . "\n\n" : "[ ] " . __('The user has not agreed to the data collection.', 'mcf') . "\n\n") : "";
   $message .= wp_strip_all_tags($msg) . "\n";
 
-  if ($mcf_options['phpmail'] === 1)
-    $success = mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
-  else
-    $success = wp_mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
-
-  if ($success)
-    echo '<p class="success">' . __('Thank you for sending us a message! You will hear from us shortly.', 'mcf') . '</p>';
-  else
-    echo '<p class="error">' . __("Sorry! Your message couldn't be sent. Please try again later.", 'mcf') . '</p>';
+  if ($phone === false || $phone === '') {
+    if ($mcf_options['phpmail'] === 1)
+      $success = mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
+    else
+      $success = wp_mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
+  
+    if ($success)
+      echo '<p class="success">' . __('Thank you for sending us a message! You will hear from us shortly.', 'mcf') . '</p>';
+    else
+      echo '<p class="error">' . __("Sorry! Your message couldn't be sent. Please try again later.", 'mcf') . '</p>';
+  } else {
+    echo '<p class="warning">' . __("You're a bot!") . '</p>';
+  }
   
   die();
 }
