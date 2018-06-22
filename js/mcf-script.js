@@ -52,7 +52,6 @@ jQuery(document).ready(function(e) {
 
     if (data.name !== '' && data.email !== '' && is_email &&
         data.message !== '' && data.consent === 1) {
-      // console.log(data);
       e.ajax({
         type: 'POST',
         url: minimal_contact_form.mcf_ajaxurl,
@@ -82,7 +81,6 @@ jQuery(document).ready(function(e) {
         url: minimal_contact_form.mcf_ajaxurl,
         data: {action: 'mcf_ajax_translate_message', type: 'validation_error'},
         success: function(t) {
-          // console.log(t);
           e('#minimal-contact-form .notice')
               .html('<p class="error">' + t + '</p>');
         }

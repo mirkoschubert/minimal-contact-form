@@ -11,10 +11,12 @@
             <div class="main">
               <p><strong><?php echo $mcf_plugin; ?></strong> <?php esc_html_e('is a simple, clean and secure contact form.', 'mcf'); ?></p>
               <p><?php esc_html_e('This plugin was developed with usability in mind and uses data that already exists. It provides security features to prevent the receipt of spam without passing on data to third parties. In addition, it automatically inserts a corresponding notice to comply with the requirements of the GDPR.', 'mcf'); ?></p>
-              <h4><?php esc_html_e('About the settings'); ?></h4>
-              <p>- <?php esc_html_e('If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should you tick the relevant checkbox.', 'mcf'); ?></p>
-              <p>- <?php esc_html_e("The WordPress PHPmailer (SMTP) should be used by default. If you encounter an error, please turn on the PHP mail function. However, the emails will end up in the recipient's spam folder more likely.", 'mcf'); ?></p>
-              <p>- <?php esc_html_e('To display the form on any WP Post or Page, simply add the shortcode:', 'mcf'); ?>  <code>[minimal_contact_form]</code>.</p>
+              <h4><?php esc_html_e('About the settings', 'mcf'); ?></h4>
+              <ul>
+                <li><?php esc_html_e('If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should you tick the relevant checkbox.', 'mcf'); ?></li>
+                <li><?php esc_html_e("The WordPress PHPmailer (SMTP) should be used by default. If you encounter an error, please turn on the PHP mail function. However, the emails will end up in the recipient's spam folder more likely.", 'mcf'); ?></li>
+                <li><?php esc_html_e('To display the form on any WP Post or Page, simply add the shortcode:', 'mcf'); ?>  <code>[minimal_contact_form]</code>.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -25,7 +27,7 @@
               <table class="form-table">
                 <tbody>
                   <tr>
-                    <th scope="row"><label class="" for="mcf_options[user]"><?php esc_html_e('User', 'mcf'); ?></label></th>
+                    <th scope="row"><label class="" for="mcf_options[user]"><?php esc_html_e('Recipient', 'mcf'); ?></label></th>
                     <td>
                       <?php wp_dropdown_users(array('name' => 'mcf_options[user]', 'selected' => $mcf_options['user'], 'include_selected' => true, 'role__in' => array('administrator', 'editor'))); ?>
                       <p class="description"><?php esc_html_e('Select the administrator or editor who should receive the emails.', 'mcf'); ?></p>
@@ -35,7 +37,7 @@
                   <tr>
                     <th scope="row"><label class=""><?php esc_html_e('Privacy Policy', 'mcf'); ?></label></th>
                     <td>
-                      <p class="description"><?php esc_html_e('You have to set a privacy policy page in the', 'mcf') ?> <a href="<?php echo get_admin_url(); ?>privacy.php"><?php esc_html_e('Privacy Settings', 'mcf') ?></a>!</p>
+                      <p class="description"><?php printf(__('You have to set a privacy policy page in the %1$s!', 'mcf'), '<a href="' . get_admin_url() . 'privacy.php">' . esc_html__('Privacy Settings', 'mcf') . '</a>'); ?></p>
                     </td>
                   </tr>
                   <?php endif; ?>

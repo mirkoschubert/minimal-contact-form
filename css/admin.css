@@ -3,3 +3,8 @@
   font-size: 12px;
   line-height: 12px;
 }
+
+#mcf-plugin ul {
+  list-style-type: disc;
+  padding-left: 3em;
+}
