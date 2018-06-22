@@ -42,10 +42,10 @@ function mcf_display_contact_form() {
     if ($mcf_options['gdpr'] === 1) {
       // Opt-In
       $content .= '<input class="consent" name="consent" type="checkbox" value="1" />';
-      $content .= '<label class="consent-caption" for="consent">' . __('By sending us a message via this contact form you agree that your personal data will be processed.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.<span class="required">' . __(' (required)', 'mcf') . '<span></label>';
+      $content .= '<label class="consent-caption" for="consent">' . __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.<span class="required">' . __(' (required)', 'mcf') . '<span></label>';
     } else {
       // Only Information
-      $content .= '<p class="privacy">' . __('By sending us a message via this contact form you understand that your personal data will be processed.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.</p>';
+      $content .= '<p class="privacy">' . __('Your submitted information will only be processed to respond to your inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.</p>';
 
     }
 
@@ -68,7 +68,7 @@ function mcf_ajax_translate_message() {
   $type = $_POST['type'];
 
   if ($type !== '') {
-    if ($type === 'validation_error') echo __('Sorry! Please fill up all required fields correctly.', 'mcf');
+    if ($type === 'validation_error') echo __('Sorry! Please fill in all required fields correctly.', 'mcf');
   }
 
   die();
@@ -127,21 +127,3 @@ function mcf_ajax_send_mail() {
 }
 add_action('wp_ajax_mcf_ajax_send_mail', 'mcf_ajax_send_mail');
 add_action('wp_ajax_nopriv_mcf_ajax_send_mail', 'mcf_ajax_send_mail');
-
-
-
-function get_mail_example() {
-  // example message
-  $example  = "The quick brown fox jumps over a lazy dog.\n";
-  $example .= "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich.\n";
-  $example .= "Byxfjärmat föl gick på duvshowen.\n";
-  $example .= "Pijamalı hasta yağız şoföre çabucak güvendi.\n";
-  $example .= "Ζαφείρι δέξου πάγκαλο, βαθῶν ψυχῆς τὸ σῆμα.\n";
-  $example .= "Съешь же ещё этих мягких французских булок, да выпей чаю.\n";
-  $example .= "कः खगौघाङचिच्छौजा झाञ्ज्ञोऽटौठीडडण्ढणः। तथोदधीन् पफर्बाभीर्मयोऽरिल्वाशिषां सहः।।\n";
-  $example .= "นายสังฆภัณฑ์ เฮงพิทักษ์ฝั่ง ผู้เฒ่าซึ่งมีอาชีพเป็นฅนขายฃวด ถูกตำรวจปฏิบัติการจับฟ้องศาล ฐานลักนาฬิกาคุณหญิงฉัตรชฎา ฌานสมาธิ\n";
-  $example .= "とりなくこゑす ゆめさませ みよあけわたる ひんかしを そらいろはえて おきつへに ほふねむれゐぬ もやのうち\n";
-  $example .= "微風迎客，軟語伴茶\n";
-
-  return $example;
-}

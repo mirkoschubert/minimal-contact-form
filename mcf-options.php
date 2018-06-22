@@ -66,4 +66,3 @@ function mcf_render_options_page() {
   include_once('mcf-options-page.php');
 }
 
-?>
