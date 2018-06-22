@@ -41,11 +41,11 @@ All this with a total of **four** settings!
 
 = Translations =
 
-If you want to translate this plugin into another language, you are welcome! English and German (informal) is already there. I used the plugin [Loco Translate](https://wordpress.org/plugins/loco-translate/), but I suppose that other ways are compatible as well.
+If you want to translate this plugin into another language, you are welcome! English and German (informal) are already there. I used the plugin [Loco Translate](https://wordpress.org/plugins/loco-translate/), but I suppose that other ways should be compatible as well.
 
 = See room for improvement? =
 
-Great! There are several ways you can get involved to help make FakerPress better:
+Great! There are several ways you can get involved to help make this plugin better:
 
 1. **Report Bugs:** If you find a bug, error or other problem, please report it! You can do this by [creating a new topic](http://wordpress.org/support/plugin/minimal-contact-form) in the plugin forum or [creating an issue](https://github.com/mirkoschubert/minimal-contact-form/issues) on Github.
 2. **Suggest New Features:** Have an awesome idea? Please share it! Simply [create a new topic](https://wordpress.org/support/plugin/minimal-contact-form) in the plugin forum to express your thoughts on why the feature should be included and get a discussion going around your idea.
