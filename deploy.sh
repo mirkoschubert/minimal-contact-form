@@ -51,7 +51,8 @@ fi
 cd $GITPATH
 echo -e "Enter a commit message for this new version: \c"
 read COMMITMSG
-git commit -am "$COMMITMSG"
+git add -a
+git commit -m "$COMMITMSG"
 
 echo "Tagging new version in git"
 git tag -a "v$NEWVERSION1" -m "Tagging version $NEWVERSION1"
@@ -66,9 +67,6 @@ svn co $SVNURL $SVNPATH
 
 echo "Clearing svn repo so we can overwrite it"
 svn rm $SVNPATH/trunk/*
-
-echo "Copying asset files"
-cp $CURRENTDIR/assets/* $SVNPATH/assets/
 
 echo "Exporting the HEAD of master from git to the trunk of SVN"
 git checkout-index -a -f --prefix=$SVNPATH/trunk/
@@ -85,6 +83,12 @@ cd $SVNPATH/trunk/
 # Add all new files that are not set to be ignored
 svn status | grep -v "^.[ \t]*\..*" | grep "^?" | awk '{print $2}' | xargs svn add
 svn commit --username=$SVNUSER -m "$COMMITMSG"
+
+echo "Copying asset files & committing it"
+cd $SVNPATH
+svn copy trunk/assets/ assets/
+cd $SVNPATH/assets
+svn commit --username=$SVNUSER -m "Updating the assets"
 
 echo "Creating new SVN tag & committing it"
 cd $SVNPATH
