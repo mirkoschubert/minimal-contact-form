@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/mirkoschubert
 Requires at least: 4.9.6
 Tested up to: 4.9.6
 Requires PHP: 5.2.4
-Stable tag: 0.6.2
+Stable tag: 0.6.3
 License: GPL2
 License URI: https://tldrlegal.com/license/gnu-general-public-license-v2
 
@@ -78,6 +78,10 @@ If you have any questions, please use the [support forum](https://wordpress.org/
 2. Minimal Contact Form Settings
 
 == Changelog ==
+
+= 0.6.3 =
+
+* This is the first release on WordPress repository. Sorry, no other changes yet.
 
 = 0.6.2 =
 
