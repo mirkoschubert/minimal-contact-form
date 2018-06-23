@@ -40,7 +40,7 @@ if [ "$NEWVERSION1" != "$NEWVERSION2" ]; then echo "Version in readme.txt & $MAI
 
 echo "Versions match in readme.txt and $MAINFILE. Let's proceed..."
 
-if git show-ref --tags --quiet --verify -- "refs/tags/$NEWVERSION1"
+if git show-ref --tags --quiet --verify -- "refs/tags/v$NEWVERSION1"
 	then 
 		echo "Version $NEWVERSION1 already exists as git tag. Exiting...."; 
 		exit 1; 
@@ -54,7 +54,7 @@ read COMMITMSG
 git commit -am "$COMMITMSG"
 
 echo "Tagging new version in git"
-git tag -a "$NEWVERSION1" -m "Tagging version $NEWVERSION1"
+git tag -a "v$NEWVERSION1" -m "Tagging version $NEWVERSION1"
 
 echo "Pushing latest commit to origin, with tags"
 git push origin master
@@ -67,12 +67,16 @@ svn co $SVNURL $SVNPATH
 echo "Clearing svn repo so we can overwrite it"
 svn rm $SVNPATH/trunk/*
 
+echo "Copying asset files"
+cp $CURRENTDIR/assets/* $SVNPATH/assets/
+
 echo "Exporting the HEAD of master from git to the trunk of SVN"
 git checkout-index -a -f --prefix=$SVNPATH/trunk/
 
 echo "Ignoring github specific files and deployment script"
 svn propset svn:ignore "deploy.sh
 README.md
+LICENSE.md
 .git
 .gitignore" "$SVNPATH/trunk/"
 
