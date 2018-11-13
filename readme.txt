@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/mirkoschubert
 Requires at least: 4.9.6
 Tested up to: 4.9.6
 Requires PHP: 5.2.4
-Stable tag: 0.7.0
+Stable tag: 0.7.2
 License: GPL3
 License URI: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 
