@@ -94,6 +94,7 @@ svn stat svn
 
 # Commit to SVN
 #svn ci --no-auth-cache --username $WP_ORG_USERNAME --password $WP_ORG_PASSWORD svn -m "Deploy version $VERSION"
+tree --depth=1 svn
 
 # Remove SVN temp dir
 rm -fR svn
