@@ -3,7 +3,7 @@
 Plugin Name:  Minimal Contact Form
 Plugin URI:   https://github.com/mirkoschubert/minimal-contact-form
 Description:  A WordPress Plugin for a simple, clean and secure contact form.
-Version:      0.7.1
+Version:      0.7.2
 Author:       Mirko Schubert
 Author URI:   https://mirkoschubert.de/
 License:      GPL 3.0
