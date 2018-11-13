@@ -9,4 +9,11 @@ php:
   - 7.2
 script:
   # run scripts here
-  - echo "Tested."
+  - echo "No tests yet."
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: ./scripts/deploy.sh
+  on:
+    branch: master
+    php: 7.2
