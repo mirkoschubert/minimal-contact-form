@@ -79,10 +79,9 @@ If you have any questions, please use the [support forum](https://wordpress.org/
 
 == Changelog ==
 
-= 0.7.0 =
+= 0.7.2 =
 
 * New language: German (formal)
-* Automated deployment with Travis CI
 
 = 0.6.4 =
 
