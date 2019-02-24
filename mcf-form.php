@@ -88,7 +88,7 @@ function mcf_ajax_send_mail() {
   // AJAX data
   $name = sanitize_text_field($data['name']);
   $email = sanitize_email($data['email']);
-  $phone = sanitize_text_field($data['phone']);
+  $phone = ($mcf_options['phone'] === 1) ? sanitize_text_field($data['phone']) : false;
   $address = ($mcf_options['spam'] === 1) ? sanitize_text_field($data['address']) : false; // honeypot
   $subject = ($data['subject'] !== '') ? sanitize_text_field($data['subject']) : __('Someone left you a message!', 'mcf');
   $msg = sanitize_textarea_field($data['message']);

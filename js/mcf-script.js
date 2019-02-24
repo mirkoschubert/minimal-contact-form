@@ -46,8 +46,10 @@ jQuery(document).ready(function(e) {
       data.consent = 1;
 
     var is_email = data.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) !== null;
-    var is_phone = data.phone.match(/^[\+\(]?[0-9\ ]*[\)\/]?[0-9\ ]*$/) !== null;
-    console.log(is_phone);
+    if (data.phone !== undefined) {
+      var is_phone = data.phone.match(/^[\+\(]?[0-9\ ]*[\)\/]?[0-9\ ]*$/) !== null;
+      console.log('Is phone number:',is_phone);
+    }
 
     if (data.name !== '' && data.email !== '' && is_email &&
         data.message !== '' && data.consent === 1) {
