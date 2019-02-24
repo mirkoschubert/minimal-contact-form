@@ -69,6 +69,7 @@ function mcf_ajax_translate_message() {
 
   if ($type !== '') {
     if ($type === 'validation_error') echo __('Sorry! Please fill in all required fields correctly.', 'mcf');
+    if ($type === 'validation_phone_error') echo __('Sorry! Please enter a valid phone number.', 'mcf');
   }
 
   die();

@@ -44,12 +44,12 @@ jQuery(document).ready(function(e) {
     data.address = (typeof data.address === 'undefined') ? '' : data.address;
     data.subject = e('#minimal-contact-form input.subject').val();
     data.message = e('#minimal-contact-form textarea.message').val();
-    if (typeof e('#minimal-contact-form input.consent') !== 'undefined' &&
-        e('#minimal-contact-form input.consent').length > 0) {
-      data.consent =
-          (e('#minimal-contact-form input.consent').prop('checked')) ? 1 : 0;
-    } else
+
+    if (typeof e('#minimal-contact-form input.consent') !== 'undefined' && e('#minimal-contact-form input.consent').length > 0) {
+      data.consent = (e('#minimal-contact-form input.consent').prop('checked')) ? 1 : 0;
+    } else {
       data.consent = 1;
+    }
 
     var is_email = data.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) !== null;
     if (data.phone !== undefined) {
@@ -57,8 +57,7 @@ jQuery(document).ready(function(e) {
       console.log('Is phone number:',is_phone);
     }
 
-    if (data.name !== '' && data.email !== '' && is_email &&
-        data.message !== '' && data.consent === 1) {
+    if (data.name !== '' && data.email !== '' && is_email && data.message !== '' && data.consent === 1 && (data.phone === undefined || data.phone === '' || (data.phone !== '' && is_phone))) {
       e.ajax({
         type: 'POST',
         url: minimal_contact_form.mcf_ajaxurl,
@@ -80,6 +79,17 @@ jQuery(document).ready(function(e) {
             e('#minimal-contact-form textarea.message').val('');
             e('#minimal-contact-form input.consent').prop('checked', false);
           }
+        }
+      });
+    } else if (data.phone !== undefined && data.phone !== '' && !is_phone) {
+      // phone number isn't valid
+      e.ajax({
+        type: 'POST',
+        url: minimal_contact_form.mcf_ajaxurl,
+        data: {action: 'mcf_ajax_translate_message', type: 'validation_phone_error'},
+        success: function(t) {
+          e('#minimal-contact-form .notice')
+              .html('<p class="error">' + t + '</p>');
         }
       });
     } else {
