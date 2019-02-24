@@ -36,7 +36,8 @@ jQuery(document).ready(function(e) {
     data.name = e('#minimal-contact-form input.name').val();
     data.email = e('#minimal-contact-form input.email').val();
     data.phone = e('#minimal-contact-form input.phone').val();
-    data.phone = (typeof data.phone === 'undefined') ? '' : data.phone;
+    data.address = e('#minimal-contact-form input.address').val();
+    data.address = (typeof data.address === 'undefined') ? '' : data.address;
     data.subject = e('#minimal-contact-form input.subject').val();
     data.message = e('#minimal-contact-form textarea.message').val();
     if (typeof e('#minimal-contact-form input.consent') !== 'undefined' &&
@@ -46,9 +47,9 @@ jQuery(document).ready(function(e) {
     } else
       data.consent = 1;
 
-    var is_email =
-        data.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) !==
-        null;
+    var is_email = data.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) !== null;
+    var is_phone = data.phone.match(/^[\+\(]?[0-9\ ]*[\)\/]?[0-9\ ]*$/) !== null;
+    console.log(is_phone);
 
     if (data.name !== '' && data.email !== '' && is_email &&
         data.message !== '' && data.consent === 1) {
@@ -68,6 +69,7 @@ jQuery(document).ready(function(e) {
             e('#minimal-contact-form input.name').val('');
             e('#minimal-contact-form input.email').val('');
             e('#minimal-contact-form input.phone').val('');
+            e('#minimal-contact-form input.address').val('');
             e('#minimal-contact-form input.subject').val('');
             e('#minimal-contact-form textarea.message').val('');
             e('#minimal-contact-form input.consent').prop('checked', false);

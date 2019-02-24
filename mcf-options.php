@@ -41,6 +41,9 @@ function mcf_validate_options($input) {
 
   // user
   $validated['user'] = (isset($input['user'])) ? (int)$input['user'] : 1;
+  // phone
+  if (!isset($input['phone'])) $input['phone'] = 0;
+  $validated['phone'] = ($input['phone'] == 1) ? 1 : 0;
   // gdpr
   if (!isset($input['gdpr'])) $input['gdpr'] = 0;
   $validated['gdpr'] = ($input['gdpr'] == 1) ? 1 : 0;

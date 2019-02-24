@@ -32,7 +32,8 @@ function mcf_display_contact_form() {
 
   $content .= '    <input class="name" name="name" placeholder="' . __('Your Name', 'mcf') . __(' (required)', 'mcf')  . '" type="text" required>';
   $content .= '    <input class="email" name="email" placeholder="' . __('Your Email Address', 'mcf') . __(' (required)', 'mcf')  . '" type="email" required>';
-  $content .= ($mcf_options['spam'] === 1) ? '    <input class="phone" name="phone" placeholder="' . __('Your Phone Number', 'mcf') . '" type="text">' : '';
+  $content .= ($mcf_options['phone'] === 1) ? '    <input class="phone" name="phone" placeholder="' . __('Your Phone Number', 'mcf') . '" type="text">' : '';
+  $content .= ($mcf_options['spam'] === 1) ? '    <input class="address" name="address" placeholder="' . __('Your Address', 'mcf') . '" type="text">' : '';
   $content .= '    <input class="subject" name="subject" placeholder="' . __('Subject', 'mcf') . '" type="text">';
   $content .= '    <textarea class="message" name="message" placeholder="' . __('Your Message', 'mcf') . __(' (required)', 'mcf')  . '" rows="5" required></textarea>';
 
@@ -50,7 +51,6 @@ function mcf_display_contact_form() {
     }
 
   }
-
 
   $content .= '    <button class="submit" type="button">' . __('Submit', 'mcf') . '</button>';
   $content .= '  </form>';
@@ -88,7 +88,8 @@ function mcf_ajax_send_mail() {
   // AJAX data
   $name = sanitize_text_field($data['name']);
   $email = sanitize_email($data['email']);
-  $phone = ($mcf_options['spam'] === 1) ? sanitize_text_field($data['phone']) : false; // honeypot
+  $phone = sanitize_text_field($data['phone']);
+  $address = ($mcf_options['spam'] === 1) ? sanitize_text_field($data['address']) : false; // honeypot
   $subject = ($data['subject'] !== '') ? sanitize_text_field($data['subject']) : __('Someone left you a message!', 'mcf');
   $msg = sanitize_textarea_field($data['message']);
   $consent = (int)$data['consent'];
@@ -107,9 +108,10 @@ function mcf_ajax_send_mail() {
 
   $message  = "";
   $message .= ($mcf_options['gdpr'] === 1) ? ($consent === 1 ? "[x] " . __('The user has agreed to the data collection.', 'mcf') . "\n\n" : "[ ] " . __('The user has not agreed to the data collection.', 'mcf') . "\n\n") : "";
+  $message .= ($mcf_options['phone'] === 1 && $phone !== '') ? "[x] " . __('Phone Number', 'mcf') . ": " . $phone . "\n\n" : "";
   $message .= wp_strip_all_tags($msg) . "\n";
 
-  if ($phone === false || $phone === '') {
+  if ($address === false || $address === '') {
     if ($mcf_options['phpmail'] === 1)
       $success = mail("$user->display_name <$user->user_email>", $subject, $message, $headers);
     else

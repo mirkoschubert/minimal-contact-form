@@ -42,6 +42,13 @@
                   </tr>
                   <?php endif; ?>
                   <tr>
+                    <th scope="row"><label class="" for="mcf_options[phone]"><?php esc_html_e('Phone Number', 'mcf'); ?></label></th>
+                    <td>
+                      <input name="mcf_options[phone]" type="checkbox" value="1" <?php if (isset($mcf_options['phone'])) { checked('1', $mcf_options['phone']); } ?> />
+                      <span class="mm-item-caption"><?php esc_html_e('Add a phone number field to the contact form.', 'mcf'); ?></span>
+                    </td>
+                  </tr>
+                  <tr>
                     <th scope="row"><label class="" for="mcf_options[gdpr]"><?php esc_html_e('GDPR', 'mcf'); ?></label></th>
                     <td>
                       <input name="mcf_options[gdpr]" type="checkbox" value="1" <?php if (isset($mcf_options['gdpr'])) { checked('1', $mcf_options['gdpr']); } ?> />

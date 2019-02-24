@@ -3,7 +3,7 @@
 Plugin Name:  Minimal Contact Form
 Plugin URI:   https://github.com/mirkoschubert/minimal-contact-form
 Description:  A WordPress Plugin for a simple, clean and secure contact form.
-Version:      0.7.2
+Version:      0.8.0
 Author:       Mirko Schubert
 Author URI:   https://mirkoschubert.de/
 License:      GPL 3.0
@@ -29,7 +29,7 @@ along with Minimal Contact Form. If not, see https://github.com/mirkoschubert/mi
 if (!defined( 'ABSPATH' )) exit();
 
 $mcf_wp_version = '4.9.6';
-$mcf_version = '0.6.4';
+$mcf_version = '0.8.0';
 $mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
 $mcf_slug = dirname(plugin_basename(__FILE__));
 $mcf_path    = plugin_basename(__FILE__);
@@ -46,7 +46,7 @@ include 'mcf-form.php';
 function mcf_plugin_activation() {
   
   // Write default options to database
-  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'spam' => 1, 'phpmail' => 0), '', 'yes');  
+  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'phone' => 0, 'spam' => 1, 'phpmail' => 0), '', 'yes');  
 }
 register_activation_hook( __FILE__, 'mcf_plugin_activation' );
 
@@ -96,10 +96,14 @@ function mcf_check_version() {
 
   $wp_version = get_bloginfo('version');
 
-  if ($pagenow === 'plugins.php' || ($pagenow === 'options-general.php' && $_GET['page'] === $mcf_slug)) {
-    if (version_compare($wp_version, $mcf_wp_version, '<')) {
-      if (is_plugin_active($mcf_path)) add_action( 'admin_notices', 'mcf_version__error' );
-    }  
+  if ($pagenow === 'plugins.php') {
+    if (is_plugin_active($mcf_path) && version_compare($wp_version, $mcf_wp_version, '<')) {
+      add_action('admin_notices', 'mcf_version__error');
+    }
+  } else if ($pagenow === 'options-general.php' && isset($_GET['page'])) {
+    if ($_GET['page'] === $mcf_slug && is_plugin_active($mcf_path) && version_compare($wp_version, $mcf_wp_version, '<')) {
+      add_action('admin_notices', 'mcf_version__error');
+    }
   }
 }
 add_action('admin_init', 'mcf_check_version');
