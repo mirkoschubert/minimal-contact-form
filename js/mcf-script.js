@@ -3,6 +3,7 @@ jQuery(document).ready(function(e) {
   e('#minimal-contact-form button.submit').click(function() {
     var name = e('#minimal-contact-form input.name');
     var email = e('#minimal-contact-form input.email');
+    var phone = e('#minimal-contact-form input.phone');
     var message = e('#minimal-contact-form textarea.message');
     var consent = e('#minimal-contact-form label.consent-caption');
 
@@ -15,6 +16,11 @@ jQuery(document).ready(function(e) {
       email.addClass('not-valid');
     } else {
       email.removeClass('not-valid');
+    }
+    if (phone.val() !== undefined && phone.val() !== '' && phone.val().match(/^[\+\(]?[0-9\ ]*[\)\/-]?[0-9\ ]*$/) === null) {
+      phone.addClass('not-valid');
+    } else {
+      phone.removeClass('not-valid');
     }
     if (message.val() === null || message.val() === '') {
       message.addClass('not-valid');
@@ -47,7 +53,7 @@ jQuery(document).ready(function(e) {
 
     var is_email = data.email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) !== null;
     if (data.phone !== undefined) {
-      var is_phone = data.phone.match(/^[\+\(]?[0-9\ ]*[\)\/]?[0-9\ ]*$/) !== null;
+      var is_phone = (data.phone !== '' && data.phone.match(/^[\+\(]?[0-9\ ]*[\)\/-]?[0-9\ ]*$/) !== null);
       console.log('Is phone number:',is_phone);
     }
 
