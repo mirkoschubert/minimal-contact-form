@@ -81,6 +81,7 @@ If you have any questions, please use the [support forum](https://wordpress.org/
 
 = 0.8.0 =
 
+* Design changes for validation
 * Optional field for phone numbers
 * Bugfix: Version number update
 

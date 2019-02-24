@@ -51,6 +51,10 @@
   max-width: 100%;
 }
 
+#minimal-contact-form label.consent-caption .required {
+  color: #999;
+}
+
 #minimal-contact-form input.address {
   display: none;
 }
@@ -76,6 +80,16 @@
 
 #minimal-contact-form button:hover {
   background-color: #767676;
+}
+
+#minimal-contact-form input[type="text"].not-valid,
+#minimal-contact-form input[type="email"].not-valid,
+#minimal-contact-form textarea.not-valid {
+  border-color: #dc3232;
+}
+
+#minimal-contact-form label.consent-caption.not-valid {
+  color: #dc3232;
 }
 
 @media screen and (min-width: 30em) {

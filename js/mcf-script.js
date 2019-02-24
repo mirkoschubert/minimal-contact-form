@@ -4,30 +4,28 @@ jQuery(document).ready(function(e) {
     var name = e('#minimal-contact-form input.name');
     var email = e('#minimal-contact-form input.email');
     var message = e('#minimal-contact-form textarea.message');
-    var consent =
-        e('#minimal-contact-form label.consent-caption span.required');
-    name.css({
-      'background-color':
-          (name.val() === null || name.val() === '') ? '#fdc3c4' : 'inherit'
-    });
-    email.css({
-      'background-color':
-          (email.val() === null || email.val() === '' ||
-           email.val().match(
-               /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) === null) ?
-          '#fdc3c4' :
-          'inherit'
-    });
-    message.css({
-      'background-color': (message.val() === null || message.val() === '') ?
-          '#fdc3c4' :
-          'inherit'
-    });
-    consent.css({
-      'color': (e('#minimal-contact-form input.consent').prop('checked')) ?
-          'inherit' :
-          '#dc3232'
-    });
+    var consent = e('#minimal-contact-form label.consent-caption');
+
+    if (name.val() === null || name.val() === '') {
+      name.addClass('not-valid');
+    } else {
+      name.removeClass('not-valid');
+    }
+    if (email.val() === null || email.val() === '' || email.val().match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/) === null) {
+      email.addClass('not-valid');
+    } else {
+      email.removeClass('not-valid');
+    }
+    if (message.val() === null || message.val() === '') {
+      message.addClass('not-valid');
+    } else {
+      message.removeClass('not-valid');
+    }
+    if (!e('#minimal-contact-form input.consent').prop('checked')) {
+      consent.addClass('not-valid');
+    } else {
+      consent.removeClass('not-valid');
+    }
   });
 
   // AJAX
