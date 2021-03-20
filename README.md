@@ -1,7 +1,7 @@
 <h1 align="center">Minimal Contact Form</h1>
 
 <p align="center">
-  <img src="https://assets-cdn.github.com/favicon.ico" width=24 height=24/>
+  <img src="https://github.githubassets.com/favicons/favicon-dark.svg" width=24 height=24/>
   <a href="https://github.com/mirkoschubert/minimal-contact-form/blob/master/LICENSE.md">
     <img src="https://img.shields.io/github/license/mirkoschubert/minimal-contact-form.svg" />
   </a>
@@ -13,7 +13,7 @@
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mirkoschubert/minimal-contact-form/master/assets/banner-1544x500.png" />
+  <img src="https://raw.githubusercontent.com/mirkoschubert/minimal-contact-form/master/.wordpress-org/banner-1544x500.png" />
 </p>
 
 Almost everyone needs a contact form for their website. But you quickly realize that it is not that easy to find a suitable plugin.
