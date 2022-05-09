@@ -8,6 +8,9 @@
 </p>
 
 <p align="center">Minimal Contact Form is a simple, clean and secure contact form that meets the requirements of the GDPR.</p>
+
+<p align="center"><a href="https://www.buymeacoffee.com/musikuss" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a></p>
+
 <p align="center">You can also download the plugin at the <a href="https://wordpress.org/plugins/minimal-contact-form/" target="_blank">WordPress Repository</a>!</p>
 
 ---
