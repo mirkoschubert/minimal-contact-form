@@ -3,9 +3,9 @@ Contributors: mirkoschubert
 Tags: contact, contact form, email, feedback, form, gdpr, dsgvo, simple, minimal
 Donate link: https://www.paypal.me/mirkoschubert
 Requires at least: 4.9.6
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 0.8.3
+Stable tag: 0.9.0
 License: GPL3
 License URI: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 
@@ -79,6 +79,14 @@ If you have any questions, please use the [support forum](https://wordpress.org/
 2. Minimal Contact Form Settings
 
 == Changelog ==
+
+= 0.9.0 =
+
+* Tested up to WordPress 6.1
+* Moved overview to contextual help
+* New styling options
+* Better default styles
+* Custom CSS
 
 = 0.8.3 =
 
