@@ -5,21 +5,6 @@
   <?php settings_fields( 'mcf_plugin_options' ); ?>
     <div class="metabox-holder">
       <div class="meta-box-sortables ui-sortable">
-        <div class="postbox panel-overview">
-          <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Overview', 'mcf'); ?></h2>
-          <div class="inside">
-            <div class="main">
-              <p><strong><?php echo $mcf_plugin; ?></strong> <?php esc_html_e('is a simple, clean and secure contact form.', 'mcf'); ?></p>
-              <p><?php esc_html_e('This plugin was developed with usability in mind and uses data that already exists. It provides security features to prevent the receipt of spam without passing on data to third parties. In addition, it automatically inserts a corresponding notice to comply with the requirements of the GDPR.', 'mcf'); ?></p>
-              <h4><?php esc_html_e('About the settings', 'mcf'); ?></h4>
-              <ul>
-                <li><?php esc_html_e('If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should you tick the relevant checkbox.', 'mcf'); ?></li>
-                <li><?php esc_html_e("The WordPress PHPmailer (SMTP) should be used by default. If you encounter an error, please turn on the PHP mail function. However, the emails will end up in the recipient's spam folder more likely.", 'mcf'); ?></li>
-                <li><?php esc_html_e('To display the form on any WP Post or Page, simply add the shortcode:', 'mcf'); ?>  <code>[minimal_contact_form]</code>.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div class="postbox panel-options">
           <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Options', 'mcf'); ?></h2>
           <div class="inside">
@@ -41,13 +26,6 @@
                     </td>
                   </tr>
                   <?php endif; ?>
-                  <tr>
-                    <th scope="row"><label class="" for="mcf_options[phone]"><?php esc_html_e('Phone Number', 'mcf'); ?></label></th>
-                    <td>
-                      <input name="mcf_options[phone]" type="checkbox" value="1" <?php if (isset($mcf_options['phone'])) { checked('1', $mcf_options['phone']); } ?> />
-                      <span class="mm-item-caption"><?php esc_html_e('Add a phone number field to the contact form.', 'mcf'); ?></span>
-                    </td>
-                  </tr>
                   <tr>
                     <th scope="row"><label class="" for="mcf_options[gdpr]"><?php esc_html_e('GDPR', 'mcf'); ?></label></th>
                     <td>
@@ -74,6 +52,24 @@
             </div>
           </div>
         </div>
+        <div class="postbox panel-options">
+          <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Styling', 'mcf'); ?></h2>
+          <div class="inside">
+            <div class="main">
+              <table class="form-table">
+                <tbody>
+                  <tr>
+                    <th scope="row"><label class="" for="mcf_options[phone]"><?php esc_html_e('Phone Number', 'mcf'); ?></label></th>
+                    <td>
+                      <input name="mcf_options[phone]" type="checkbox" value="1" <?php if (isset($mcf_options['phone'])) { checked('1', $mcf_options['phone']); } ?> />
+                      <span class="mm-item-caption"><?php esc_html_e('Add a phone number field to the contact form.', 'mcf'); ?></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div>
       </div>
     </div>
   <?php submit_button(); ?>

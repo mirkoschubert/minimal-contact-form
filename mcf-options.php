@@ -9,14 +9,20 @@ if (!defined( 'ABSPATH' )) exit();
  * @since 0.2.0
  */
 function mcf_options_page() {
-  global $mcf_plugin, $mcf_slug;
-  add_options_page(
+  global $mcf_plugin, $mcf_slug, $plugin_hook;
+
+  $plugin_hook = add_options_page(
     $mcf_plugin,
     __( 'Contact Form', 'mcf' ),
     'manage_options',
     $mcf_slug,
     'mcf_render_options_page'
   );
+
+  if ($plugin_hook) {
+    add_action( 'load-' . $plugin_hook, 'mcf_add_contextual_help');
+  }
+
 }
 add_action( 'admin_menu', 'mcf_options_page' );
 
@@ -30,6 +36,31 @@ function mcf_options_init() {
 }
 add_action( 'admin_init', 'mcf_options_init' );
 
+
+/**
+ * Add the contextual help to the settings
+ * @since 0.9.0
+ */
+function mcf_add_contextual_help() {
+  global $mcf_plugin;
+
+  $current_screen = get_current_screen();
+
+  $about = '<p><strong>' . $mcf_plugin . '</strong> ' . esc_html('is a simple, clean and secure contact form.', 'mcf') . '</p><p>' . esc_html('This plugin was developed with usability in mind and uses data that already exists. It provides security features to prevent the receipt of spam without passing on data to third parties. In addition, it automatically inserts a corresponding notice to comply with the requirements of the GDPR.', 'mcf') . '</p>';
+
+  $settings = '<h4>' . esc_html('About the settings', 'mcf') . '</h4><ul><li>' . esc_html('If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should you tick the relevant checkbox.', 'mcf') . '</li><li>' . esc_html("The WordPress PHPmailer (SMTP) should be used by default. If you encounter an error, please turn on the PHP mail function. However, the emails will end up in the recipient's spam folder more likely.", 'mcf') . '</li><li>' . esc_html('To display the form on any WP Post or Page, simply add the shortcode:', 'mcf') . ' <code>[minimal_contact_form]</code>.</li></ul>';
+
+  $current_screen->add_help_tab(array(
+    'id' => 'mcf-about-help-tab',
+    'title' => __('About'),
+    'content' => $about
+  ));
+  $current_screen->add_help_tab(array(
+    'id' => 'mcf-settings-help-tab',
+    'title' => __('Settings'),
+    'content' => $settings
+  ));
+}
 
 /**
  * Validates Options
@@ -68,4 +99,5 @@ function mcf_render_options_page() {
 
   include_once('mcf-options-page.php');
 }
+
 
