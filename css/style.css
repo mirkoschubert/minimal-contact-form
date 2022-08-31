@@ -2,6 +2,20 @@
   width: 100%;
 }
 
+#minimal-contact-form * {
+  box-sizing: border-box;
+}
+
+#minimal-contact-form form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#minimal-contact-form .item {
+  width: 100%;
+}
+
 #minimal-contact-form .notice {
   color: #333;
 }
@@ -18,21 +32,23 @@
   color: #dc3232;
 }
 
-#minimal-contact-form input[type="text"],
-#minimal-contact-form input[type="email"],
-#minimal-contact-form input[type="phone"],
+
+#minimal-contact-form input,
 #minimal-contact-form textarea {
   background: #fff;
   border: 1px solid #bbb;
   border-radius: 3px;
   -webkit-border-radius: 3px;
-  color: #666;
+  color: #333;
   display: block;
+  font-family: inherit;
+  font-size: inherit;
   font-weight: 400;
   height: inherit;
-  margin-bottom: 1.5em;
-  padding: 0.7em;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
   width: 100%;
+  
 }
 
 #minimal-contact-form input::placeholder, #minimal-contact-form textarea::placeholder {
@@ -43,6 +59,20 @@
   float: left;
   line-height: normal;
   margin: 0.35em 0 0;
+  width: auto;
+}
+
+#minimal-contact-form label.label,
+#minimal-contact-form label.no-label {
+  display: none;
+}
+
+#minimal-contact-form.with-labels label.label {
+  display: block;
+}
+
+#minimal-contact-form label .required {
+  color: #dc3232;
 }
 
 #minimal-contact-form label.consent-caption {
@@ -54,12 +84,17 @@
   max-width: 100%;
 }
 
-#minimal-contact-form label.consent-caption .required {
-  color: #999;
+#minimal-contact-form p.privacy {
+  margin: 0 0 1.5rem;
 }
 
 #minimal-contact-form input.address {
   display: none;
+}
+
+#minimal-contact-form .item-submit {
+  display: flex;
+  flex-direction: column;
 }
 
 #minimal-contact-form button {
@@ -73,8 +108,10 @@
   cursor: pointer;
   display: inline-block;
   font-weight: 700;
-  margin-bottom: 1.5em;
-  padding: 1em 2em;
+  font-size: inherit;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  padding: 1rem 2rem;
   text-shadow: none;
   transition: background 0.2s;
   -webkit-transition: background 0.2s;
@@ -82,7 +119,7 @@
 }
 
 #minimal-contact-form button:hover {
-  background-color: #767676;
+  background-color: #555;
 }
 
 #minimal-contact-form input[type="text"].not-valid,
@@ -99,6 +136,14 @@
 @media screen and (min-width: 30em) {
   #minimal-contact-form input[type="checkbox"] {
     margin: 0.4em 0 0;
+  }
+  #minimal-contact-form.one-line .item-name,
+  #minimal-contact-form.one-line .item-email {
+    width: calc(50% - .75rem);
+  }
+
+  #minimal-contact-form.one-line .item-name {
+    margin-right: 1.5rem;
   }
 }
 

@@ -49,3 +49,1003 @@
 2022/08/31 11:12:26 [3674] .d..t.... languages/
 2022/08/31 11:12:26 [3674] sent 4.95K bytes  received 372 bytes  3.54K bytes/sec
 2022/08/31 11:12:26 [3674] total size is 1.32M  speedup is 247.74
+2022/08/31 11:22:25 [4107] building file list
+2022/08/31 11:22:25 [4107] 134 files to consider
+2022/08/31 11:22:25 [4107] <f.st.... .gitignore
+2022/08/31 11:22:25 [4107] <f.st.... mcf-options-page.php
+2022/08/31 11:22:25 [4107] <f.st.... mcf-options.php
+2022/08/31 11:22:25 [4107] <f.st.... mcf.php
+2022/08/31 11:22:25 [4107] <f.st.... rsync.log
+2022/08/31 11:22:25 [4107] .d..t.... .git/
+2022/08/31 11:22:25 [4107] <f.st.... .git/COMMIT_EDITMSG
+2022/08/31 11:22:25 [4107] <f.st.... .git/index
+2022/08/31 11:22:25 [4107] <f.st.... .git/logs/HEAD
+2022/08/31 11:22:25 [4107] <f.st.... .git/logs/refs/heads/master
+2022/08/31 11:22:25 [4107] .d..t.... .git/objects/
+2022/08/31 11:22:25 [4107] .d..t.... .git/objects/0c/
+2022/08/31 11:22:25 [4107] <f+++++++ .git/objects/0c/fdf9f7bc65d7741965a5f3a688f41cc942d677
+2022/08/31 11:22:25 [4107] cd+++++++ .git/objects/4e/
+2022/08/31 11:22:25 [4107] <f+++++++ .git/objects/4e/4027ed5d9038599784c72e8e8ebe9d36152bc1
+2022/08/31 11:22:25 [4107] .d..t.... .git/objects/67/
+2022/08/31 11:22:25 [4107] <f+++++++ .git/objects/67/162454c51d6bf8147ccd128f94bfdd40971659
+2022/08/31 11:22:25 [4107] .d..t.... .git/objects/b1/
+2022/08/31 11:22:25 [4107] <f+++++++ .git/objects/b1/019ad8d9ca23ab72e7dadb8884c454d41f0b36
+2022/08/31 11:22:25 [4107] cd+++++++ .git/objects/c8/
+2022/08/31 11:22:25 [4107] <f+++++++ .git/objects/c8/162a88f4d7de380ce1348a49e15134d101e39a
+2022/08/31 11:22:25 [4107] <f+++++++ .git/objects/c8/d0ad530f7c784fd88b38dfbb6c853ea2545931
+2022/08/31 11:22:25 [4107] cd+++++++ .git/objects/de/
+2022/08/31 11:22:25 [4107] <f+++++++ .git/objects/de/7f75df8ca64ff0d9f8867702b6b122904da05f
+2022/08/31 11:22:25 [4107] .d..t.... .git/refs/heads/
+2022/08/31 11:22:25 [4107] <f..t.... .git/refs/heads/master
+2022/08/31 11:22:25 [4107] sent 12.92K bytes  received 634 bytes  27.12K bytes/sec
+2022/08/31 11:22:25 [4107] total size is 1.33M  speedup is 97.91
+2022/08/31 11:29:11 [4319] building file list
+2022/08/31 11:29:11 [4319] 134 files to consider
+2022/08/31 11:29:11 [4319] <f.st.... mcf-options-page.php
+2022/08/31 11:29:11 [4319] <f.st.... mcf-options.php
+2022/08/31 11:29:11 [4319] <f.st.... mcf.php
+2022/08/31 11:29:11 [4319] <f.st.... rsync.log
+2022/08/31 11:29:11 [4319] .d..t.... .git/
+2022/08/31 11:29:11 [4319] sent 4.65K bytes  received 282 bytes  3.29K bytes/sec
+2022/08/31 11:29:11 [4319] total size is 1.33M  speedup is 269.18
+2022/08/31 11:32:51 [4472] building file list
+2022/08/31 11:32:51 [4472] 134 files to consider
+2022/08/31 11:32:51 [4472] <f.st.... mcf-options-page.php
+2022/08/31 11:32:51 [4472] <f.st.... rsync.log
+2022/08/31 11:32:51 [4472] .d..t.... .git/
+2022/08/31 11:32:52 [4472] sent 4.08K bytes  received 160 bytes  2.83K bytes/sec
+2022/08/31 11:32:52 [4472] total size is 1.33M  speedup is 313.42
+2022/08/31 11:34:15 [4596] building file list
+2022/08/31 11:34:15 [4596] 134 files to consider
+2022/08/31 11:34:15 [4596] <f.st.... mcf-options-page.php
+2022/08/31 11:34:15 [4596] <f.st.... rsync.log
+2022/08/31 11:34:15 [4596] .d..t.... .git/
+2022/08/31 11:34:15 [4596] sent 4.27K bytes  received 166 bytes  2.96K bytes/sec
+2022/08/31 11:34:15 [4596] total size is 1.33M  speedup is 299.89
+2022/08/31 11:38:52 [4791] building file list
+2022/08/31 11:38:52 [4791] 134 files to consider
+2022/08/31 11:38:52 [4791] <f.st.... mcf-options-page.php
+2022/08/31 11:38:52 [4791] <f.st.... mcf.php
+2022/08/31 11:38:52 [4791] <f.st.... rsync.log
+2022/08/31 11:38:52 [4791] .d..t.... .git/
+2022/08/31 11:38:52 [4791] sent 4.47K bytes  received 248 bytes  3.15K bytes/sec
+2022/08/31 11:38:52 [4791] total size is 1.33M  speedup is 282.15
+2022/08/31 11:41:52 [4940] building file list
+2022/08/31 11:41:52 [4940] 134 files to consider
+2022/08/31 11:41:52 [4940] <f.st.... mcf-options-page.php
+2022/08/31 11:41:52 [4940] <f.st.... rsync.log
+2022/08/31 11:41:52 [4940] .d..t.... .git/
+2022/08/31 11:41:53 [4940] sent 3.96K bytes  received 178 bytes  2.76K bytes/sec
+2022/08/31 11:41:53 [4940] total size is 1.33M  speedup is 322.14
+2022/08/31 11:42:49 [5066] building file list
+2022/08/31 11:42:49 [5066] 134 files to consider
+2022/08/31 11:42:49 [5066] <f.st.... rsync.log
+2022/08/31 11:42:49 [5066] .d..t.... .git/
+2022/08/31 11:42:49 [5066] <f.st.... css/admin.css
+2022/08/31 11:42:49 [5066] sent 3.92K bytes  received 136 bytes  2.70K bytes/sec
+2022/08/31 11:42:49 [5066] total size is 1.33M  speedup is 328.61
+2022/08/31 11:44:29 [5215] building file list
+2022/08/31 11:44:29 [5215] 134 files to consider
+2022/08/31 11:44:29 [5215] <f..t.... mcf-options-page.php
+2022/08/31 11:44:29 [5215] <f.st.... rsync.log
+2022/08/31 11:44:29 [5215] .d..t.... .git/
+2022/08/31 11:44:29 [5215] <f.st.... css/admin.css
+2022/08/31 11:44:29 [5215] sent 4.15K bytes  received 218 bytes  8.74K bytes/sec
+2022/08/31 11:44:29 [5215] total size is 1.33M  speedup is 305.07
+2022/08/31 11:45:50 [5335] building file list
+2022/08/31 11:45:50 [5335] 134 files to consider
+2022/08/31 11:45:50 [5335] <f.st.... rsync.log
+2022/08/31 11:45:50 [5335] .d..t.... .git/
+2022/08/31 11:45:50 [5335] <f.st.... css/admin.css
+2022/08/31 11:45:50 [5335] sent 3.97K bytes  received 142 bytes  2.74K bytes/sec
+2022/08/31 11:45:50 [5335] total size is 1.33M  speedup is 324.43
+2022/08/31 11:49:53 [5494] building file list
+2022/08/31 11:49:53 [5494] 134 files to consider
+2022/08/31 11:49:53 [5494] <f.st.... mcf-options.php
+2022/08/31 11:49:53 [5494] <f.st.... rsync.log
+2022/08/31 11:49:53 [5494] .d..t.... .git/
+2022/08/31 11:49:54 [5494] sent 4.00K bytes  received 166 bytes  2.78K bytes/sec
+2022/08/31 11:49:54 [5494] total size is 1.33M  speedup is 319.80
+2022/08/31 11:51:14 [5615] building file list
+2022/08/31 11:51:14 [5615] 134 files to consider
+2022/08/31 11:51:14 [5615] <f.st.... mcf-options.php
+2022/08/31 11:51:14 [5615] <f.st.... rsync.log
+2022/08/31 11:51:14 [5615] .d..t.... .git/
+2022/08/31 11:51:14 [5615] sent 3.97K bytes  received 172 bytes  2.76K bytes/sec
+2022/08/31 11:51:14 [5615] total size is 1.33M  speedup is 322.06
+2022/08/31 11:52:08 [5735] building file list
+2022/08/31 11:52:08 [5735] 134 files to consider
+2022/08/31 11:52:08 [5735] <f.st.... mcf-options-page.php
+2022/08/31 11:52:08 [5735] <f.st.... rsync.log
+2022/08/31 11:52:08 [5735] .d..t.... .git/
+2022/08/31 11:52:08 [5735] sent 3.88K bytes  received 208 bytes  2.72K bytes/sec
+2022/08/31 11:52:08 [5735] total size is 1.33M  speedup is 326.49
+2022/08/31 11:53:57 [5868] building file list
+2022/08/31 11:53:57 [5868] 134 files to consider
+2022/08/31 11:53:57 [5868] <f.st.... mcf-options.php
+2022/08/31 11:53:57 [5868] <f.st.... rsync.log
+2022/08/31 11:53:57 [5868] .d..t.... .git/
+2022/08/31 11:53:57 [5868] sent 4.05K bytes  received 178 bytes  2.82K bytes/sec
+2022/08/31 11:53:57 [5868] total size is 1.33M  speedup is 315.84
+2022/08/31 11:55:13 [5999] building file list
+2022/08/31 11:55:13 [5999] 134 files to consider
+2022/08/31 11:55:14 [5999] <f.st.... mcf-options-page.php
+2022/08/31 11:55:14 [5999] <f.st.... mcf-options.php
+2022/08/31 11:55:14 [5999] <f.st.... rsync.log
+2022/08/31 11:55:14 [5999] .d..t.... .git/
+2022/08/31 11:55:14 [5999] sent 4.17K bytes  received 266 bytes  2.95K bytes/sec
+2022/08/31 11:55:14 [5999] total size is 1.34M  speedup is 301.31
+2022/08/31 11:56:26 [6121] building file list
+2022/08/31 11:56:26 [6121] 134 files to consider
+2022/08/31 11:56:26 [6121] <f.st.... mcf-options-page.php
+2022/08/31 11:56:26 [6121] <f.st.... rsync.log
+2022/08/31 11:56:26 [6121] .d..t.... .git/
+2022/08/31 11:56:26 [6121] sent 3.94K bytes  received 214 bytes  8.31K bytes/sec
+2022/08/31 11:56:26 [6121] total size is 1.34M  speedup is 321.27
+2022/08/31 11:59:27 [6261] building file list
+2022/08/31 11:59:27 [6261] 134 files to consider
+2022/08/31 11:59:27 [6261] <f.st.... rsync.log
+2022/08/31 11:59:27 [6261] .d..t.... .git/
+2022/08/31 11:59:27 [6261] <f.st.... css/admin.css
+2022/08/31 11:59:27 [6261] sent 4.02K bytes  received 166 bytes  2.79K bytes/sec
+2022/08/31 11:59:27 [6261] total size is 1.34M  speedup is 319.31
+2022/08/31 12:00:51 [6383] building file list
+2022/08/31 12:00:51 [6383] 134 files to consider
+2022/08/31 12:00:51 [6383] <f.st.... rsync.log
+2022/08/31 12:00:51 [6383] .d..t.... .git/
+2022/08/31 12:00:51 [6383] <f.st.... css/admin.css
+2022/08/31 12:00:51 [6383] sent 4.08K bytes  received 166 bytes  2.83K bytes/sec
+2022/08/31 12:00:51 [6383] total size is 1.34M  speedup is 314.97
+2022/08/31 12:02:46 [6512] building file list
+2022/08/31 12:02:46 [6512] 134 files to consider
+2022/08/31 12:02:46 [6512] <f.st.... rsync.log
+2022/08/31 12:02:46 [6512] .d..t.... .git/
+2022/08/31 12:02:46 [6512] <f.st.... css/admin.css
+2022/08/31 12:02:46 [6512] sent 4.02K bytes  received 172 bytes  2.79K bytes/sec
+2022/08/31 12:02:46 [6512] total size is 1.34M  speedup is 318.81
+2022/08/31 12:08:24 [6696] building file list
+2022/08/31 12:08:24 [6696] 134 files to consider
+2022/08/31 12:08:24 [6696] <f.st.... mcf-form.php
+2022/08/31 12:08:24 [6696] <f.st.... rsync.log
+2022/08/31 12:08:24 [6696] .d..t.... .git/
+2022/08/31 12:08:24 [6696] sent 4.24K bytes  received 220 bytes  2.97K bytes/sec
+2022/08/31 12:08:24 [6696] total size is 1.34M  speedup is 300.10
+2022/08/31 12:09:08 [6806] building file list
+2022/08/31 12:09:08 [6806] 134 files to consider
+2022/08/31 12:09:09 [6806] <f.st.... mcf-form.php
+2022/08/31 12:09:09 [6806] <f.st.... rsync.log
+2022/08/31 12:09:09 [6806] .d..t.... .git/
+2022/08/31 12:09:09 [6806] sent 4.17K bytes  received 226 bytes  2.93K bytes/sec
+2022/08/31 12:09:09 [6806] total size is 1.34M  speedup is 304.35
+2022/08/31 12:12:38 [6956] building file list
+2022/08/31 12:12:38 [6956] 134 files to consider
+2022/08/31 12:12:38 [6956] <f.st.... mcf-form.php
+2022/08/31 12:12:38 [6956] <f.st.... rsync.log
+2022/08/31 12:12:38 [6956] .d..t.... .git/
+2022/08/31 12:12:38 [6956] sent 4.30K bytes  received 232 bytes  3.02K bytes/sec
+2022/08/31 12:12:38 [6956] total size is 1.34M  speedup is 295.52
+2022/08/31 12:13:53 [7077] building file list
+2022/08/31 12:13:53 [7077] 134 files to consider
+2022/08/31 12:13:53 [7077] <f.st.... mcf-form.php
+2022/08/31 12:13:53 [7077] <f.st.... rsync.log
+2022/08/31 12:13:53 [7077] .d..t.... .git/
+2022/08/31 12:13:54 [7077] sent 4.34K bytes  received 232 bytes  3.05K bytes/sec
+2022/08/31 12:13:54 [7077] total size is 1.34M  speedup is 292.64
+2022/08/31 12:15:36 [7202] building file list
+2022/08/31 12:15:36 [7202] 134 files to consider
+2022/08/31 12:15:36 [7202] <f.st.... mcf-form.php
+2022/08/31 12:15:36 [7202] <f.st.... rsync.log
+2022/08/31 12:15:36 [7202] .d..t.... .git/
+2022/08/31 12:15:36 [7202] sent 4.17K bytes  received 238 bytes  2.94K bytes/sec
+2022/08/31 12:15:36 [7202] total size is 1.34M  speedup is 303.70
+2022/08/31 12:16:07 [7308] building file list
+2022/08/31 12:16:07 [7308] 134 files to consider
+2022/08/31 12:16:07 [7308] <f.st.... mcf-form.php
+2022/08/31 12:16:07 [7308] <f.st.... rsync.log
+2022/08/31 12:16:07 [7308] .d..t.... .git/
+2022/08/31 12:16:07 [7308] sent 4.04K bytes  received 238 bytes  2.85K bytes/sec
+2022/08/31 12:16:07 [7308] total size is 1.34M  speedup is 313.38
+2022/08/31 12:18:00 [7433] building file list
+2022/08/31 12:18:00 [7433] 134 files to consider
+2022/08/31 12:18:00 [7433] <f.st.... mcf-form.php
+2022/08/31 12:18:00 [7433] <f.st.... rsync.log
+2022/08/31 12:18:00 [7433] .d..t.... .git/
+2022/08/31 12:18:00 [7433] sent 4.15K bytes  received 244 bytes  2.93K bytes/sec
+2022/08/31 12:18:00 [7433] total size is 1.34M  speedup is 304.65
+2022/08/31 12:21:22 [7582] building file list
+2022/08/31 12:21:22 [7582] 134 files to consider
+2022/08/31 12:21:22 [7582] <f.st.... mcf-form.php
+2022/08/31 12:21:22 [7582] <f.st.... rsync.log
+2022/08/31 12:21:22 [7582] .d..t.... .git/
+2022/08/31 12:21:22 [7582] sent 4.19K bytes  received 244 bytes  2.96K bytes/sec
+2022/08/31 12:21:22 [7582] total size is 1.34M  speedup is 302.09
+2022/08/31 12:23:12 [7722] building file list
+2022/08/31 12:23:12 [7722] 134 files to consider
+2022/08/31 12:23:12 [7722] <f.st.... mcf-form.php
+2022/08/31 12:23:12 [7722] <f.st.... rsync.log
+2022/08/31 12:23:12 [7722] .d..t.... .git/
+2022/08/31 12:23:12 [7722] sent 4.17K bytes  received 256 bytes  2.95K bytes/sec
+2022/08/31 12:23:12 [7722] total size is 1.34M  speedup is 302.87
+2022/08/31 12:24:13 [7839] building file list
+2022/08/31 12:24:13 [7839] 134 files to consider
+2022/08/31 12:24:13 [7839] <f.st.... mcf-form.php
+2022/08/31 12:24:13 [7839] <f.st.... rsync.log
+2022/08/31 12:24:13 [7839] .d..t.... .git/
+2022/08/31 12:24:13 [7839] sent 4.18K bytes  received 256 bytes  2.96K bytes/sec
+2022/08/31 12:24:13 [7839] total size is 1.34M  speedup is 302.21
+2022/08/31 12:24:31 [7948] building file list
+2022/08/31 12:24:31 [7948] 134 files to consider
+2022/08/31 12:24:31 [7948] <f.st.... mcf-form.php
+2022/08/31 12:24:31 [7948] <f.st.... rsync.log
+2022/08/31 12:24:31 [7948] .d..t.... .git/
+2022/08/31 12:24:31 [7948] sent 4.15K bytes  received 262 bytes  2.94K bytes/sec
+2022/08/31 12:24:31 [7948] total size is 1.34M  speedup is 304.08
+2022/08/31 12:25:16 [8058] building file list
+2022/08/31 12:25:16 [8058] 134 files to consider
+2022/08/31 12:25:16 [8058] <f.st.... mcf-form.php
+2022/08/31 12:25:16 [8058] <f.st.... rsync.log
+2022/08/31 12:25:16 [8058] .d..t.... .git/
+2022/08/31 12:25:17 [8058] sent 4.20K bytes  received 262 bytes  8.93K bytes/sec
+2022/08/31 12:25:17 [8058] total size is 1.34M  speedup is 300.49
+2022/08/31 12:26:20 [8182] building file list
+2022/08/31 12:26:20 [8182] 134 files to consider
+2022/08/31 12:26:20 [8182] <f.st.... mcf-form.php
+2022/08/31 12:26:20 [8182] <f.st.... rsync.log
+2022/08/31 12:26:20 [8182] .d..t.... .git/
+2022/08/31 12:26:20 [8182] sent 4.15K bytes  received 268 bytes  2.95K bytes/sec
+2022/08/31 12:26:20 [8182] total size is 1.34M  speedup is 303.63
+2022/08/31 12:26:57 [8287] building file list
+2022/08/31 12:26:57 [8287] 134 files to consider
+2022/08/31 12:26:57 [8287] <f.st.... mcf-form.php
+2022/08/31 12:26:57 [8287] <f.st.... rsync.log
+2022/08/31 12:26:57 [8287] .d..t.... .git/
+2022/08/31 12:26:57 [8287] sent 4.12K bytes  received 274 bytes  2.93K bytes/sec
+2022/08/31 12:26:57 [8287] total size is 1.34M  speedup is 305.52
+2022/08/31 12:28:41 [8415] building file list
+2022/08/31 12:28:41 [8415] 134 files to consider
+2022/08/31 12:28:41 [8415] <f.st.... mcf-form.php
+2022/08/31 12:28:41 [8415] <f.st.... rsync.log
+2022/08/31 12:28:41 [8415] .d..t.... .git/
+2022/08/31 12:28:41 [8415] sent 4.16K bytes  received 274 bytes  2.96K bytes/sec
+2022/08/31 12:28:41 [8415] total size is 1.34M  speedup is 302.72
+2022/08/31 12:30:06 [8540] building file list
+2022/08/31 12:30:06 [8540] 134 files to consider
+2022/08/31 12:30:06 [8540] <f.st.... mcf-form.php
+2022/08/31 12:30:06 [8540] <f.st.... rsync.log
+2022/08/31 12:30:06 [8540] .d..t.... .git/
+2022/08/31 12:30:06 [8540] sent 4.30K bytes  received 280 bytes  3.05K bytes/sec
+2022/08/31 12:30:06 [8540] total size is 1.34M  speedup is 293.29
+2022/08/31 12:30:40 [8660] building file list
+2022/08/31 12:30:40 [8660] 134 files to consider
+2022/08/31 12:30:40 [8660] <f.st.... mcf-form.php
+2022/08/31 12:30:40 [8660] <f.st.... rsync.log
+2022/08/31 12:30:40 [8660] .d..t.... .git/
+2022/08/31 12:30:40 [8660] sent 4.02K bytes  received 280 bytes  2.86K bytes/sec
+2022/08/31 12:30:40 [8660] total size is 1.34M  speedup is 312.83
+2022/08/31 12:32:28 [8793] building file list
+2022/08/31 12:32:28 [8793] 134 files to consider
+2022/08/31 12:32:28 [8793] <f.st.... mcf-form.php
+2022/08/31 12:32:28 [8793] <f.st.... rsync.log
+2022/08/31 12:32:28 [8793] .d..t.... .git/
+2022/08/31 12:32:28 [8793] sent 4.08K bytes  received 286 bytes  2.91K bytes/sec
+2022/08/31 12:32:28 [8793] total size is 1.34M  speedup is 307.85
+2022/08/31 12:33:40 [8912] building file list
+2022/08/31 12:33:40 [8912] 134 files to consider
+2022/08/31 12:33:40 [8912] <f.st.... mcf-form.php
+2022/08/31 12:33:40 [8912] <f.st.... rsync.log
+2022/08/31 12:33:40 [8912] .d..t.... .git/
+2022/08/31 12:33:40 [8912] sent 4.22K bytes  received 286 bytes  3.00K bytes/sec
+2022/08/31 12:33:40 [8912] total size is 1.34M  speedup is 298.66
+2022/08/31 12:35:40 [9044] building file list
+2022/08/31 12:35:40 [9044] 134 files to consider
+2022/08/31 12:35:40 [9044] <f.st.... rsync.log
+2022/08/31 12:35:40 [9044] .d..t.... .git/
+2022/08/31 12:35:40 [9044] <f.st.... css/style.css
+2022/08/31 12:35:40 [9044] sent 4.01K bytes  received 256 bytes  8.53K bytes/sec
+2022/08/31 12:35:40 [9044] total size is 1.35M  speedup is 315.58
+2022/08/31 12:36:54 [9160] building file list
+2022/08/31 12:36:54 [9160] 134 files to consider
+2022/08/31 12:36:54 [9160] <f.st.... rsync.log
+2022/08/31 12:36:54 [9160] .d..t.... .git/
+2022/08/31 12:36:54 [9160] <f.st.... css/style.css
+2022/08/31 12:36:54 [9160] sent 4.06K bytes  received 256 bytes  8.63K bytes/sec
+2022/08/31 12:36:54 [9160] total size is 1.35M  speedup is 311.74
+2022/08/31 12:38:39 [9289] building file list
+2022/08/31 12:38:39 [9289] 134 files to consider
+2022/08/31 12:38:39 [9289] <f.st.... rsync.log
+2022/08/31 12:38:39 [9289] .d..t.... .git/
+2022/08/31 12:38:39 [9289] <f.st.... css/style.css
+2022/08/31 12:38:39 [9289] sent 4.02K bytes  received 262 bytes  2.86K bytes/sec
+2022/08/31 12:38:39 [9289] total size is 1.35M  speedup is 314.25
+2022/08/31 12:43:46 [9470] building file list
+2022/08/31 12:43:46 [9470] 134 files to consider
+2022/08/31 12:43:46 [9470] <f.st.... mcf-form.php
+2022/08/31 12:43:46 [9470] <f.st.... rsync.log
+2022/08/31 12:43:46 [9470] .d..t.... .git/
+2022/08/31 12:43:46 [9470] <f.st.... css/style.css
+2022/08/31 12:43:47 [9470] sent 4.38K bytes  received 344 bytes  3.15K bytes/sec
+2022/08/31 12:43:47 [9470] total size is 1.35M  speedup is 284.82
+2022/08/31 12:47:02 [9639] building file list
+2022/08/31 12:47:02 [9639] 134 files to consider
+2022/08/31 12:47:02 [9639] <f.st.... mcf-form.php
+2022/08/31 12:47:02 [9639] <f.st.... rsync.log
+2022/08/31 12:47:02 [9639] .d..t.... .git/
+2022/08/31 12:47:02 [9639] <f.st.... css/style.css
+2022/08/31 12:47:02 [9639] sent 4.17K bytes  received 350 bytes  3.01K bytes/sec
+2022/08/31 12:47:02 [9639] total size is 1.35M  speedup is 298.36
+2022/08/31 12:48:33 [9766] building file list
+2022/08/31 12:48:33 [9766] 134 files to consider
+2022/08/31 12:48:33 [9766] <f.st.... rsync.log
+2022/08/31 12:48:33 [9766] .d..t.... .git/
+2022/08/31 12:48:33 [9766] <f.st.... css/style.css
+2022/08/31 12:48:33 [9766] sent 3.98K bytes  received 274 bytes  2.83K bytes/sec
+2022/08/31 12:48:33 [9766] total size is 1.35M  speedup is 317.00
+2022/08/31 12:50:29 [9918] building file list
+2022/08/31 12:50:29 [9918] 134 files to consider
+2022/08/31 12:50:29 [9918] <f.st.... mcf-form.php
+2022/08/31 12:50:29 [9918] <f.st.... rsync.log
+2022/08/31 12:50:29 [9918] .d..t.... .git/
+2022/08/31 12:50:29 [9918] <f.st.... css/style.css
+2022/08/31 12:50:29 [9918] sent 4.66K bytes  received 356 bytes  3.34K bytes/sec
+2022/08/31 12:50:29 [9918] total size is 1.35M  speedup is 268.78
+2022/08/31 12:58:18 [10129] building file list
+2022/08/31 12:58:18 [10129] 134 files to consider
+2022/08/31 12:58:18 [10129] <f.st.... mcf-form.php
+2022/08/31 12:58:18 [10129] <f.st.... rsync.log
+2022/08/31 12:58:18 [10129] .d..t.... .git/
+2022/08/31 12:58:18 [10129] sent 4.53K bytes  received 316 bytes  3.23K bytes/sec
+2022/08/31 12:58:18 [10129] total size is 1.35M  speedup is 278.53
+2022/08/31 12:59:22 [10251] building file list
+2022/08/31 12:59:22 [10251] 134 files to consider
+2022/08/31 12:59:22 [10251] <f.st.... mcf-form.php
+2022/08/31 12:59:22 [10251] <f.st.... rsync.log
+2022/08/31 12:59:22 [10251] .d..t.... .git/
+2022/08/31 12:59:22 [10251] sent 4.11K bytes  received 322 bytes  2.95K bytes/sec
+2022/08/31 12:59:22 [10251] total size is 1.35M  speedup is 304.66
+2022/08/31 13:00:25 [10463] building file list
+2022/08/31 13:00:25 [10463] 134 files to consider
+2022/08/31 13:00:26 [10463] <f.st.... mcf-form.php
+2022/08/31 13:00:26 [10463] <f.st.... rsync.log
+2022/08/31 13:00:26 [10463] .d..t.... .git/
+2022/08/31 13:00:26 [10463] sent 4.07K bytes  received 328 bytes  2.93K bytes/sec
+2022/08/31 13:00:26 [10463] total size is 1.35M  speedup is 306.90
+2022/08/31 13:03:20 [10605] building file list
+2022/08/31 13:03:20 [10605] 134 files to consider
+2022/08/31 13:03:20 [10605] <f.st.... mcf-form.php
+2022/08/31 13:03:20 [10605] <f.st.... rsync.log
+2022/08/31 13:03:20 [10605] .d..t.... .git/
+2022/08/31 13:03:20 [10605] sent 4.05K bytes  received 334 bytes  2.92K bytes/sec
+2022/08/31 13:03:20 [10605] total size is 1.35M  speedup is 308.19
+2022/08/31 13:04:11 [10719] building file list
+2022/08/31 13:04:11 [10719] 134 files to consider
+2022/08/31 13:04:11 [10719] <f.st.... mcf-form.php
+2022/08/31 13:04:11 [10719] <f.st.... rsync.log
+2022/08/31 13:04:11 [10719] .d..t.... .git/
+2022/08/31 13:04:12 [10719] sent 4.05K bytes  received 334 bytes  2.92K bytes/sec
+2022/08/31 13:04:12 [10719] total size is 1.35M  speedup is 307.93
+2022/08/31 13:04:38 [10828] building file list
+2022/08/31 13:04:38 [10828] 134 files to consider
+2022/08/31 13:04:38 [10828] <f.st.... mcf-form.php
+2022/08/31 13:04:38 [10828] <f.st.... rsync.log
+2022/08/31 13:04:38 [10828] .d..t.... .git/
+2022/08/31 13:04:38 [10828] sent 4.01K bytes  received 340 bytes  2.90K bytes/sec
+2022/08/31 13:04:38 [10828] total size is 1.35M  speedup is 310.78
+2022/08/31 13:06:04 [10947] building file list
+2022/08/31 13:06:04 [10947] 134 files to consider
+2022/08/31 13:06:04 [10947] <f.st.... mcf-form.php
+2022/08/31 13:06:04 [10947] <f.st.... rsync.log
+2022/08/31 13:06:04 [10947] .d..t.... .git/
+2022/08/31 13:06:04 [10947] sent 4.02K bytes  received 340 bytes  2.91K bytes/sec
+2022/08/31 13:06:04 [10947] total size is 1.35M  speedup is 309.80
+2022/08/31 13:06:37 [11060] building file list
+2022/08/31 13:06:37 [11060] 134 files to consider
+2022/08/31 13:06:37 [11060] <f.st.... mcf-form.php
+2022/08/31 13:06:37 [11060] <f.st.... rsync.log
+2022/08/31 13:06:37 [11060] .d..t.... .git/
+2022/08/31 13:06:37 [11060] sent 3.98K bytes  received 346 bytes  2.89K bytes/sec
+2022/08/31 13:06:37 [11060] total size is 1.35M  speedup is 312.04
+2022/08/31 13:10:48 [11230] building file list
+2022/08/31 13:10:48 [11230] 134 files to consider
+2022/08/31 13:10:48 [11230] <f.st.... mcf-form.php
+2022/08/31 13:10:48 [11230] <f.st.... rsync.log
+2022/08/31 13:10:48 [11230] .d..t.... .git/
+2022/08/31 13:10:48 [11230] sent 4.08K bytes  received 346 bytes  8.86K bytes/sec
+2022/08/31 13:10:48 [11230] total size is 1.35M  speedup is 305.16
+2022/08/31 13:17:13 [11488] building file list
+2022/08/31 13:17:13 [11488] 134 files to consider
+2022/08/31 13:17:13 [11488] <f.st.... mcf-form.php
+2022/08/31 13:17:13 [11488] <f.st.... rsync.log
+2022/08/31 13:17:13 [11488] .d..t.... .git/
+2022/08/31 13:17:13 [11488] sent 4.07K bytes  received 352 bytes  2.94K bytes/sec
+2022/08/31 13:17:13 [11488] total size is 1.35M  speedup is 306.08
+2022/08/31 13:19:35 [11719] building file list
+2022/08/31 13:19:35 [11719] 134 files to consider
+2022/08/31 13:19:35 [11719] <f.st.... mcf-form.php
+2022/08/31 13:19:35 [11719] <f.st.... rsync.log
+2022/08/31 13:19:35 [11719] .d..t.... .git/
+2022/08/31 13:19:35 [11719] sent 4.03K bytes  received 352 bytes  2.92K bytes/sec
+2022/08/31 13:19:35 [11719] total size is 1.35M  speedup is 308.37
+2022/08/31 13:20:48 [11855] building file list
+2022/08/31 13:20:48 [11855] 134 files to consider
+2022/08/31 13:20:48 [11855] <f.st.... mcf-form.php
+2022/08/31 13:20:48 [11855] <f.st.... rsync.log
+2022/08/31 13:20:48 [11855] .d..t.... .git/
+2022/08/31 13:20:48 [11855] sent 4.07K bytes  received 352 bytes  2.95K bytes/sec
+2022/08/31 13:20:48 [11855] total size is 1.35M  speedup is 305.69
+2022/08/31 13:22:36 [11990] building file list
+2022/08/31 13:22:36 [11990] 134 files to consider
+2022/08/31 13:22:36 [11990] <f.st.... mcf-form.php
+2022/08/31 13:22:36 [11990] <f.st.... rsync.log
+2022/08/31 13:22:36 [11990] .d..t.... .git/
+2022/08/31 13:22:36 [11990] sent 4.01K bytes  received 364 bytes  2.91K bytes/sec
+2022/08/31 13:22:36 [11990] total size is 1.35M  speedup is 309.62
+2022/08/31 13:24:21 [12131] building file list
+2022/08/31 13:24:21 [12131] 134 files to consider
+2022/08/31 13:24:21 [12131] <f.st.... mcf-form.php
+2022/08/31 13:24:21 [12131] <f.st.... rsync.log
+2022/08/31 13:24:21 [12131] .d..t.... .git/
+2022/08/31 13:24:21 [12131] sent 4.08K bytes  received 364 bytes  2.96K bytes/sec
+2022/08/31 13:24:21 [12131] total size is 1.35M  speedup is 304.78
+2022/08/31 13:24:40 [12236] building file list
+2022/08/31 13:24:40 [12236] 134 files to consider
+2022/08/31 13:24:40 [12236] <f.st.... mcf-form.php
+2022/08/31 13:24:40 [12236] <f.st.... rsync.log
+2022/08/31 13:24:40 [12236] .d..t.... .git/
+2022/08/31 13:24:40 [12236] sent 4.00K bytes  received 370 bytes  2.91K bytes/sec
+2022/08/31 13:24:40 [12236] total size is 1.35M  speedup is 310.03
+2022/08/31 13:25:41 [12355] building file list
+2022/08/31 13:25:41 [12355] 134 files to consider
+2022/08/31 13:25:41 [12355] <f.st.... mcf-form.php
+2022/08/31 13:25:41 [12355] <f.st.... rsync.log
+2022/08/31 13:25:41 [12355] .d..t.... .git/
+2022/08/31 13:25:42 [12355] sent 4.02K bytes  received 370 bytes  8.78K bytes/sec
+2022/08/31 13:25:42 [12355] total size is 1.35M  speedup is 308.57
+2022/08/31 13:26:59 [12477] building file list
+2022/08/31 13:26:59 [12477] 134 files to consider
+2022/08/31 13:27:00 [12477] <f.st.... mcf-form.php
+2022/08/31 13:27:00 [12477] <f.st.... rsync.log
+2022/08/31 13:27:00 [12477] .d..t.... .git/
+2022/08/31 13:27:00 [12477] sent 4.05K bytes  received 376 bytes  2.95K bytes/sec
+2022/08/31 13:27:00 [12477] total size is 1.36M  speedup is 305.88
+2022/08/31 13:28:11 [12595] building file list
+2022/08/31 13:28:11 [12595] 134 files to consider
+2022/08/31 13:28:11 [12595] <f.st.... mcf-form.php
+2022/08/31 13:28:11 [12595] <f.st.... rsync.log
+2022/08/31 13:28:11 [12595] .d..t.... .git/
+2022/08/31 13:28:12 [12595] sent 4.07K bytes  received 376 bytes  2.96K bytes/sec
+2022/08/31 13:28:12 [12595] total size is 1.36M  speedup is 304.80
+2022/08/31 13:28:27 [12704] building file list
+2022/08/31 13:28:27 [12704] 134 files to consider
+2022/08/31 13:28:27 [12704] <f..t.... mcf-form.php
+2022/08/31 13:28:27 [12704] <f.st.... rsync.log
+2022/08/31 13:28:27 [12704] .d..t.... .git/
+2022/08/31 13:28:27 [12704] sent 4.03K bytes  received 382 bytes  2.94K bytes/sec
+2022/08/31 13:28:27 [12704] total size is 1.36M  speedup is 307.03
+2022/08/31 13:28:51 [12811] building file list
+2022/08/31 13:28:51 [12811] 134 files to consider
+2022/08/31 13:28:51 [12811] <f.st.... mcf-form.php
+2022/08/31 13:28:51 [12811] <f.st.... rsync.log
+2022/08/31 13:28:51 [12811] .d..t.... .git/
+2022/08/31 13:28:52 [12811] sent 4.07K bytes  received 382 bytes  8.91K bytes/sec
+2022/08/31 13:28:52 [12811] total size is 1.36M  speedup is 304.43
+2022/08/31 13:30:43 [12939] building file list
+2022/08/31 13:30:43 [12939] 134 files to consider
+2022/08/31 13:30:43 [12939] <f.st.... mcf-form.php
+2022/08/31 13:30:43 [12939] <f.st.... rsync.log
+2022/08/31 13:30:43 [12939] .d..t.... .git/
+2022/08/31 13:30:43 [12939] sent 4.04K bytes  received 388 bytes  2.95K bytes/sec
+2022/08/31 13:30:43 [12939] total size is 1.36M  speedup is 306.25
+2022/08/31 13:30:57 [13042] building file list
+2022/08/31 13:30:57 [13042] 134 files to consider
+2022/08/31 13:30:57 [13042] <f.st.... mcf-form.php
+2022/08/31 13:30:57 [13042] <f.st.... rsync.log
+2022/08/31 13:30:57 [13042] .d..t.... .git/
+2022/08/31 13:30:57 [13042] sent 3.97K bytes  received 394 bytes  2.91K bytes/sec
+2022/08/31 13:30:57 [13042] total size is 1.36M  speedup is 310.68
+2022/08/31 13:31:29 [13153] building file list
+2022/08/31 13:31:29 [13153] 134 files to consider
+2022/08/31 13:31:29 [13153] <f.st.... mcf-form.php
+2022/08/31 13:31:29 [13153] <f.st.... rsync.log
+2022/08/31 13:31:29 [13153] .d..t.... .git/
+2022/08/31 13:31:29 [13153] sent 4.03K bytes  received 394 bytes  2.95K bytes/sec
+2022/08/31 13:31:29 [13153] total size is 1.36M  speedup is 307.12
+2022/08/31 13:32:09 [13261] building file list
+2022/08/31 13:32:09 [13261] 134 files to consider
+2022/08/31 13:32:10 [13261] <f.st.... mcf-form.php
+2022/08/31 13:32:10 [13261] <f.st.... rsync.log
+2022/08/31 13:32:10 [13261] .d..t.... .git/
+2022/08/31 13:32:10 [13261] sent 3.99K bytes  received 400 bytes  2.93K bytes/sec
+2022/08/31 13:32:10 [13261] total size is 1.36M  speedup is 309.31
+2022/08/31 13:35:05 [13410] building file list
+2022/08/31 13:35:05 [13410] 134 files to consider
+2022/08/31 13:35:06 [13410] <f.st.... mcf-form.php
+2022/08/31 13:35:06 [13410] <f.st.... rsync.log
+2022/08/31 13:35:06 [13410] .d..t.... .git/
+2022/08/31 13:35:06 [13410] sent 4.37K bytes  received 400 bytes  3.18K bytes/sec
+2022/08/31 13:35:06 [13410] total size is 1.36M  speedup is 284.92
+2022/08/31 13:36:53 [13563] building file list
+2022/08/31 13:36:53 [13563] 134 files to consider
+2022/08/31 13:36:53 [13563] <f.st.... mcf-form.php
+2022/08/31 13:36:53 [13563] <f.st.... rsync.log
+2022/08/31 13:36:53 [13563] .d..t.... .git/
+2022/08/31 13:36:53 [13563] sent 4.41K bytes  received 406 bytes  3.21K bytes/sec
+2022/08/31 13:36:53 [13563] total size is 1.36M  speedup is 282.24
+2022/08/31 13:38:00 [13686] building file list
+2022/08/31 13:38:00 [13686] 134 files to consider
+2022/08/31 13:38:00 [13686] <f.st.... mcf-form.php
+2022/08/31 13:38:00 [13686] <f.st.... rsync.log
+2022/08/31 13:38:00 [13686] .d..t.... .git/
+2022/08/31 13:38:01 [13686] sent 4.06K bytes  received 406 bytes  2.98K bytes/sec
+2022/08/31 13:38:01 [13686] total size is 1.36M  speedup is 304.20
+2022/08/31 13:40:40 [13837] building file list
+2022/08/31 13:40:40 [13837] 134 files to consider
+2022/08/31 13:40:40 [13837] <f.st.... mcf-form.php
+2022/08/31 13:40:40 [13837] <f.st.... rsync.log
+2022/08/31 13:40:40 [13837] .d..t.... .git/
+2022/08/31 13:40:40 [13837] sent 4.04K bytes  received 412 bytes  2.97K bytes/sec
+2022/08/31 13:40:40 [13837] total size is 1.36M  speedup is 305.33
+2022/08/31 13:40:54 [13961] building file list
+2022/08/31 13:40:54 [13961] 134 files to consider
+2022/08/31 13:40:54 [13961] <f.st.... mcf-form.php
+2022/08/31 13:40:54 [13961] <f.st.... rsync.log
+2022/08/31 13:40:54 [13961] .d..t.... .git/
+2022/08/31 13:40:54 [13961] sent 4.07K bytes  received 406 bytes  2.98K bytes/sec
+2022/08/31 13:40:54 [13961] total size is 1.36M  speedup is 303.71
+2022/08/31 13:44:48 [14128] building file list
+2022/08/31 13:44:48 [14128] 134 files to consider
+2022/08/31 13:44:48 [14128] <f.st.... mcf-form.php
+2022/08/31 13:44:48 [14128] <f.st.... rsync.log
+2022/08/31 13:44:48 [14128] .d..t.... .git/
+2022/08/31 13:44:48 [14128] sent 4.04K bytes  received 412 bytes  2.97K bytes/sec
+2022/08/31 13:44:48 [14128] total size is 1.36M  speedup is 305.25
+2022/08/31 13:47:10 [14267] building file list
+2022/08/31 13:47:10 [14267] 134 files to consider
+2022/08/31 13:47:10 [14267] <f.st.... mcf-form.php
+2022/08/31 13:47:10 [14267] <f.st.... rsync.log
+2022/08/31 13:47:10 [14267] .d..t.... .git/
+2022/08/31 13:47:10 [14267] sent 3.90K bytes  received 418 bytes  2.88K bytes/sec
+2022/08/31 13:47:10 [14267] total size is 1.36M  speedup is 314.89
+2022/08/31 13:47:39 [14377] building file list
+2022/08/31 13:47:39 [14377] 134 files to consider
+2022/08/31 13:47:39 [14377] <f.st.... mcf-form.php
+2022/08/31 13:47:39 [14377] <f.st.... rsync.log
+2022/08/31 13:47:39 [14377] .d..t.... .git/
+2022/08/31 13:47:39 [14377] sent 4.04K bytes  received 418 bytes  2.97K bytes/sec
+2022/08/31 13:47:39 [14377] total size is 1.36M  speedup is 305.16
+2022/08/31 13:49:40 [14520] building file list
+2022/08/31 13:49:40 [14520] 134 files to consider
+2022/08/31 13:49:40 [14520] <f.st.... mcf-form.php
+2022/08/31 13:49:40 [14520] <f.st.... rsync.log
+2022/08/31 13:49:40 [14520] .d..t.... .git/
+2022/08/31 13:49:41 [14520] sent 3.94K bytes  received 424 bytes  8.73K bytes/sec
+2022/08/31 13:49:41 [14520] total size is 1.36M  speedup is 311.76
+2022/08/31 13:50:38 [14648] building file list
+2022/08/31 13:50:38 [14648] 134 files to consider
+2022/08/31 13:50:39 [14648] <f.st.... mcf-form.php
+2022/08/31 13:50:39 [14648] <f.st.... rsync.log
+2022/08/31 13:50:39 [14648] .d..t.... .git/
+2022/08/31 13:50:39 [14648] <f.st.... css/style.css
+2022/08/31 13:50:39 [14648] sent 4.31K bytes  received 470 bytes  3.19K bytes/sec
+2022/08/31 13:50:39 [14648] total size is 1.36M  speedup is 284.60
+2022/08/31 13:58:28 [14890] building file list
+2022/08/31 13:58:28 [14890] 134 files to consider
+2022/08/31 13:58:28 [14890] <f.st.... mcf-form.php
+2022/08/31 13:58:28 [14890] <f.st.... rsync.log
+2022/08/31 13:58:28 [14890] .d..t.... .git/
+2022/08/31 13:58:28 [14890] sent 4.56K bytes  received 424 bytes  3.32K bytes/sec
+2022/08/31 13:58:28 [14890] total size is 1.36M  speedup is 273.35
+2022/08/31 14:02:51 [15072] building file list
+2022/08/31 14:02:51 [15072] 134 files to consider
+2022/08/31 14:02:51 [15072] <f.st.... mcf-form.php
+2022/08/31 14:02:51 [15072] <f.st.... rsync.log
+2022/08/31 14:02:51 [15072] .d..t.... .git/
+2022/08/31 14:02:51 [15072] sent 4.52K bytes  received 430 bytes  3.30K bytes/sec
+2022/08/31 14:02:51 [15072] total size is 1.36M  speedup is 275.60
+2022/08/31 14:03:18 [15179] building file list
+2022/08/31 14:03:18 [15179] 134 files to consider
+2022/08/31 14:03:18 [15179] <f.st.... mcf-form.php
+2022/08/31 14:03:18 [15179] <f.st.... rsync.log
+2022/08/31 14:03:18 [15179] .d..t.... .git/
+2022/08/31 14:03:18 [15179] sent 4.19K bytes  received 448 bytes  3.09K bytes/sec
+2022/08/31 14:03:18 [15179] total size is 1.36M  speedup is 293.51
+2022/08/31 14:08:16 [15359] building file list
+2022/08/31 14:08:16 [15359] 134 files to consider
+2022/08/31 14:08:16 [15359] <f.st.... mcf-form.php
+2022/08/31 14:08:16 [15359] <f.st.... rsync.log
+2022/08/31 14:08:16 [15359] .d..t.... .git/
+2022/08/31 14:08:16 [15359] sent 4.27K bytes  received 442 bytes  3.14K bytes/sec
+2022/08/31 14:08:16 [15359] total size is 1.36M  speedup is 289.23
+2022/08/31 14:09:00 [15474] building file list
+2022/08/31 14:09:00 [15474] 134 files to consider
+2022/08/31 14:09:00 [15474] <f.st.... mcf-form.php
+2022/08/31 14:09:00 [15474] <f.st.... rsync.log
+2022/08/31 14:09:00 [15474] .d..t.... .git/
+2022/08/31 14:09:00 [15474] sent 4.01K bytes  received 448 bytes  8.92K bytes/sec
+2022/08/31 14:09:00 [15474] total size is 1.36M  speedup is 305.57
+2022/08/31 14:11:19 [15616] building file list
+2022/08/31 14:11:19 [15616] 134 files to consider
+2022/08/31 14:11:19 [15616] <f.st.... mcf-form.php
+2022/08/31 14:11:19 [15616] <f.st.... rsync.log
+2022/08/31 14:11:19 [15616] .d..t.... .git/
+2022/08/31 14:11:19 [15616] sent 3.93K bytes  received 448 bytes  2.92K bytes/sec
+2022/08/31 14:11:19 [15616] total size is 1.36M  speedup is 311.59
+2022/08/31 14:11:46 [15722] building file list
+2022/08/31 14:11:46 [15722] 134 files to consider
+2022/08/31 14:11:46 [15722] <f.st.... mcf-form.php
+2022/08/31 14:11:46 [15722] <f.st.... rsync.log
+2022/08/31 14:11:46 [15722] .d..t.... .git/
+2022/08/31 14:11:46 [15722] sent 4.03K bytes  received 448 bytes  2.99K bytes/sec
+2022/08/31 14:11:46 [15722] total size is 1.36M  speedup is 304.59
+2022/08/31 14:19:38 [15962] building file list
+2022/08/31 14:19:38 [15962] 134 files to consider
+2022/08/31 14:19:38 [15962] <f.st.... mcf-options-page.php
+2022/08/31 14:19:38 [15962] <f.st.... mcf-options.php
+2022/08/31 14:19:38 [15962] <f.st.... mcf.php
+2022/08/31 14:19:38 [15962] <f.st.... rsync.log
+2022/08/31 14:19:38 [15962] .d..t.... .git/
+2022/08/31 14:19:38 [15962] sent 4.58K bytes  received 576 bytes  3.44K bytes/sec
+2022/08/31 14:19:38 [15962] total size is 1.37M  speedup is 264.89
+2022/08/31 14:21:07 [16101] building file list
+2022/08/31 14:21:07 [16101] 134 files to consider
+2022/08/31 14:21:07 [16101] <f.st.... mcf-form.php
+2022/08/31 14:21:07 [16101] <f.st.... rsync.log
+2022/08/31 14:21:07 [16101] .d..t.... .git/
+2022/08/31 14:21:08 [16101] sent 4.09K bytes  received 460 bytes  3.03K bytes/sec
+2022/08/31 14:21:08 [16101] total size is 1.37M  speedup is 300.29
+2022/08/31 14:23:08 [16248] building file list
+2022/08/31 14:23:08 [16248] 134 files to consider
+2022/08/31 14:23:08 [16248] <f.st.... mcf-form.php
+2022/08/31 14:23:08 [16248] <f.st.... rsync.log
+2022/08/31 14:23:08 [16248] .d..t.... .git/
+2022/08/31 14:23:08 [16248] sent 4.35K bytes  received 466 bytes  9.63K bytes/sec
+2022/08/31 14:23:08 [16248] total size is 1.37M  speedup is 283.91
+2022/08/31 14:24:59 [16396] building file list
+2022/08/31 14:24:59 [16396] 134 files to consider
+2022/08/31 14:24:59 [16396] <f.st.... mcf-form.php
+2022/08/31 14:24:59 [16396] <f.st.... rsync.log
+2022/08/31 14:24:59 [16396] .d..t.... .git/
+2022/08/31 14:24:59 [16396] sent 4.14K bytes  received 472 bytes  3.08K bytes/sec
+2022/08/31 14:24:59 [16396] total size is 1.37M  speedup is 296.44
+2022/08/31 14:25:38 [16507] building file list
+2022/08/31 14:25:38 [16507] 134 files to consider
+2022/08/31 14:25:38 [16507] <f.st.... mcf-form.php
+2022/08/31 14:25:38 [16507] <f.st.... rsync.log
+2022/08/31 14:25:38 [16507] .d..t.... .git/
+2022/08/31 14:25:38 [16507] sent 4.18K bytes  received 472 bytes  3.10K bytes/sec
+2022/08/31 14:25:38 [16507] total size is 1.37M  speedup is 294.10
+2022/08/31 14:54:48 [16952] building file list
+2022/08/31 14:54:48 [16952] 134 files to consider
+2022/08/31 14:54:49 [16952] <f.st.... rsync.log
+2022/08/31 14:54:49 [16952] .d..t.... .git/
+2022/08/31 14:54:49 [16952] <f.st.... css/style.css
+2022/08/31 14:54:49 [16952] sent 4.07K bytes  received 436 bytes  3.00K bytes/sec
+2022/08/31 14:54:49 [16952] total size is 1.37M  speedup is 303.53
+2022/08/31 14:57:15 [17084] building file list
+2022/08/31 14:57:15 [17084] 134 files to consider
+2022/08/31 14:57:15 [17084] <f.st.... rsync.log
+2022/08/31 14:57:15 [17084] .d..t.... .git/
+2022/08/31 14:57:15 [17084] <f.st.... css/style.css
+2022/08/31 14:57:15 [17084] sent 4.13K bytes  received 436 bytes  3.04K bytes/sec
+2022/08/31 14:57:15 [17084] total size is 1.37M  speedup is 299.66
+2022/08/31 14:59:08 [17213] building file list
+2022/08/31 14:59:08 [17213] 134 files to consider
+2022/08/31 14:59:08 [17213] <f.st.... rsync.log
+2022/08/31 14:59:08 [17213] .d..t.... .git/
+2022/08/31 14:59:08 [17213] <f.st.... css/style.css
+2022/08/31 14:59:08 [17213] sent 4.06K bytes  received 442 bytes  3.00K bytes/sec
+2022/08/31 14:59:08 [17213] total size is 1.37M  speedup is 304.22
+2022/08/31 15:00:17 [17328] building file list
+2022/08/31 15:00:17 [17328] 134 files to consider
+2022/08/31 15:00:17 [17328] <f.st.... rsync.log
+2022/08/31 15:00:17 [17328] .d..t.... .git/
+2022/08/31 15:00:17 [17328] <f.st.... css/style.css
+2022/08/31 15:00:18 [17328] sent 4.11K bytes  received 442 bytes  9.10K bytes/sec
+2022/08/31 15:00:18 [17328] total size is 1.37M  speedup is 301.03
+2022/08/31 15:01:29 [17448] building file list
+2022/08/31 15:01:29 [17448] 134 files to consider
+2022/08/31 15:01:29 [17448] <f.st.... rsync.log
+2022/08/31 15:01:29 [17448] .d..t.... .git/
+2022/08/31 15:01:29 [17448] <f.st.... css/style.css
+2022/08/31 15:01:29 [17448] sent 4.05K bytes  received 448 bytes  3.00K bytes/sec
+2022/08/31 15:01:29 [17448] total size is 1.37M  speedup is 304.61
+2022/08/31 15:01:57 [17554] building file list
+2022/08/31 15:01:57 [17554] 134 files to consider
+2022/08/31 15:01:57 [17554] <f.st.... rsync.log
+2022/08/31 15:01:57 [17554] .d..t.... .git/
+2022/08/31 15:01:57 [17554] <f.st.... css/style.css
+2022/08/31 15:01:57 [17554] sent 4.08K bytes  received 448 bytes  3.02K bytes/sec
+2022/08/31 15:01:57 [17554] total size is 1.37M  speedup is 302.55
+2022/08/31 15:02:12 [17658] building file list
+2022/08/31 15:02:12 [17658] 134 files to consider
+2022/08/31 15:02:12 [17658] <f.st.... rsync.log
+2022/08/31 15:02:12 [17658] .d..t.... .git/
+2022/08/31 15:02:12 [17658] <f.st.... css/style.css
+2022/08/31 15:02:12 [17658] sent 4.04K bytes  received 454 bytes  3.00K bytes/sec
+2022/08/31 15:02:12 [17658] total size is 1.37M  speedup is 304.86
+2022/08/31 15:02:29 [17765] building file list
+2022/08/31 15:02:29 [17765] 134 files to consider
+2022/08/31 15:02:29 [17765] <f.st.... rsync.log
+2022/08/31 15:02:29 [17765] .d..t.... .git/
+2022/08/31 15:02:29 [17765] <f.st.... css/style.css
+2022/08/31 15:02:29 [17765] sent 4.00K bytes  received 460 bytes  2.97K bytes/sec
+2022/08/31 15:02:29 [17765] total size is 1.37M  speedup is 307.61
+2022/08/31 15:03:31 [17877] building file list
+2022/08/31 15:03:31 [17877] 134 files to consider
+2022/08/31 15:03:31 [17877] <f.st.... rsync.log
+2022/08/31 15:03:31 [17877] .d..t.... .git/
+2022/08/31 15:03:31 [17877] <f.st.... css/style.css
+2022/08/31 15:03:31 [17877] sent 4.05K bytes  received 460 bytes  3.00K bytes/sec
+2022/08/31 15:03:31 [17877] total size is 1.37M  speedup is 304.29
+2022/08/31 15:04:51 [17996] building file list
+2022/08/31 15:04:51 [17996] 134 files to consider
+2022/08/31 15:04:51 [17996] <f.st.... rsync.log
+2022/08/31 15:04:51 [17996] .d..t.... .git/
+2022/08/31 15:04:51 [17996] <f.st.... css/style.css
+2022/08/31 15:04:52 [17996] sent 4.02K bytes  received 466 bytes  2.99K bytes/sec
+2022/08/31 15:04:52 [17996] total size is 1.37M  speedup is 305.60
+2022/08/31 15:05:41 [18117] building file list
+2022/08/31 15:05:41 [18117] 134 files to consider
+2022/08/31 15:05:41 [18117] <f.st.... rsync.log
+2022/08/31 15:05:41 [18117] .d..t.... .git/
+2022/08/31 15:05:41 [18117] <f.st.... css/style.css
+2022/08/31 15:05:42 [18117] sent 4.30K bytes  received 466 bytes  3.17K bytes/sec
+2022/08/31 15:05:42 [18117] total size is 1.37M  speedup is 288.23
+2022/08/31 15:06:40 [18233] building file list
+2022/08/31 15:06:40 [18233] 134 files to consider
+2022/08/31 15:06:40 [18233] <f.st.... rsync.log
+2022/08/31 15:06:40 [18233] .d..t.... .git/
+2022/08/31 15:06:40 [18233] <f.st.... css/style.css
+2022/08/31 15:06:41 [18233] sent 4.03K bytes  received 472 bytes  9.01K bytes/sec
+2022/08/31 15:06:41 [18233] total size is 1.37M  speedup is 304.76
+2022/08/31 15:07:00 [18338] building file list
+2022/08/31 15:07:00 [18338] 134 files to consider
+2022/08/31 15:07:01 [18338] <f.st.... rsync.log
+2022/08/31 15:07:01 [18338] .d..t.... .git/
+2022/08/31 15:07:01 [18338] <f.st.... css/style.css
+2022/08/31 15:07:01 [18338] sent 4.09K bytes  received 472 bytes  3.04K bytes/sec
+2022/08/31 15:07:01 [18338] total size is 1.37M  speedup is 301.03
+2022/08/31 15:09:49 [18483] building file list
+2022/08/31 15:09:49 [18483] 134 files to consider
+2022/08/31 15:09:49 [18483] <f.st.... rsync.log
+2022/08/31 15:09:49 [18483] .d..t.... .git/
+2022/08/31 15:09:49 [18483] <f.st.... css/style.css
+2022/08/31 15:09:49 [18483] sent 4.18K bytes  received 478 bytes  3.11K bytes/sec
+2022/08/31 15:09:49 [18483] total size is 1.37M  speedup is 294.85
+2022/08/31 15:10:35 [18601] building file list
+2022/08/31 15:10:35 [18601] 134 files to consider
+2022/08/31 15:10:35 [18601] <f.st.... rsync.log
+2022/08/31 15:10:35 [18601] .d..t.... .git/
+2022/08/31 15:10:35 [18601] <f.st.... css/style.css
+2022/08/31 15:10:35 [18601] sent 4.23K bytes  received 478 bytes  9.42K bytes/sec
+2022/08/31 15:10:35 [18601] total size is 1.37M  speedup is 291.87
+2022/08/31 15:16:17 [18798] building file list
+2022/08/31 15:16:17 [18798] 134 files to consider
+2022/08/31 15:16:17 [18798] <f.st.... rsync.log
+2022/08/31 15:16:17 [18798] .d..t.... .git/
+2022/08/31 15:16:17 [18798] <f.st.... js/mcf-script.js
+2022/08/31 15:16:18 [18798] sent 4.04K bytes  received 502 bytes  9.09K bytes/sec
+2022/08/31 15:16:18 [18798] total size is 1.37M  speedup is 302.36
+2022/08/31 15:17:35 [18926] building file list
+2022/08/31 15:17:35 [18926] 134 files to consider
+2022/08/31 15:17:35 [18926] <f.st.... mcf-form.php
+2022/08/31 15:17:35 [18926] <f.st.... rsync.log
+2022/08/31 15:17:35 [18926] .d..t.... .git/
+2022/08/31 15:17:35 [18926] sent 4.05K bytes  received 532 bytes  3.05K bytes/sec
+2022/08/31 15:17:35 [18926] total size is 1.37M  speedup is 300.33
+2022/08/31 15:18:56 [19049] building file list
+2022/08/31 15:18:56 [19049] 134 files to consider
+2022/08/31 15:18:56 [19049] <f.st.... mcf-form.php
+2022/08/31 15:18:56 [19049] <f.st.... rsync.log
+2022/08/31 15:18:56 [19049] .d..t.... .git/
+2022/08/31 15:18:56 [19049] sent 4.12K bytes  received 532 bytes  3.10K bytes/sec
+2022/08/31 15:18:56 [19049] total size is 1.38M  speedup is 295.96
+2022/08/31 15:19:40 [19160] building file list
+2022/08/31 15:19:40 [19160] 134 files to consider
+2022/08/31 15:19:40 [19160] <f.st.... mcf-form.php
+2022/08/31 15:19:40 [19160] <f.st.... rsync.log
+2022/08/31 15:19:40 [19160] .d..t.... .git/
+2022/08/31 15:19:40 [19160] sent 4.07K bytes  received 538 bytes  3.07K bytes/sec
+2022/08/31 15:19:40 [19160] total size is 1.38M  speedup is 298.55
+2022/08/31 15:22:05 [19357] building file list
+2022/08/31 15:22:05 [19357] 134 files to consider
+2022/08/31 15:22:05 [19357] <f.st.... mcf-form.php
+2022/08/31 15:22:05 [19357] <f.st.... rsync.log
+2022/08/31 15:22:05 [19357] .d..t.... .git/
+2022/08/31 15:22:05 [19357] <f.st.... js/mcf-script.js
+2022/08/31 15:22:05 [19357] sent 4.33K bytes  received 602 bytes  3.29K bytes/sec
+2022/08/31 15:22:05 [19357] total size is 1.38M  speedup is 278.84
+2022/08/31 15:28:35 [19566] building file list
+2022/08/31 15:28:35 [19566] 134 files to consider
+2022/08/31 15:28:35 [19566] <f.st.... mcf.php
+2022/08/31 15:28:35 [19566] <f.st.... rsync.log
+2022/08/31 15:28:35 [19566] .d..t.... .git/
+2022/08/31 15:28:35 [19566] <f..t.... .git/index
+2022/08/31 15:28:35 [19566] sent 4.90K bytes  received 572 bytes  3.65K bytes/sec
+2022/08/31 15:28:35 [19566] total size is 1.38M  speedup is 251.48
+2022/08/31 15:29:21 [19681] building file list
+2022/08/31 15:29:21 [19681] 134 files to consider
+2022/08/31 15:29:21 [19681] <f.st.... mcf.php
+2022/08/31 15:29:21 [19681] <f.st.... rsync.log
+2022/08/31 15:29:21 [19681] .d..t.... .git/
+2022/08/31 15:29:22 [19681] sent 4.05K bytes  received 526 bytes  3.05K bytes/sec
+2022/08/31 15:29:22 [19681] total size is 1.38M  speedup is 300.71
+2022/08/31 15:32:10 [19816] building file list
+2022/08/31 15:32:10 [19816] 134 files to consider
+2022/08/31 15:32:11 [19816] <f.st.... mcf.php
+2022/08/31 15:32:11 [19816] <f.st.... rsync.log
+2022/08/31 15:32:11 [19816] .d..t.... .git/
+2022/08/31 15:32:11 [19816] sent 4.01K bytes  received 532 bytes  3.03K bytes/sec
+2022/08/31 15:32:11 [19816] total size is 1.38M  speedup is 303.11
+2022/08/31 15:36:07 [19991] building file list
+2022/08/31 15:36:07 [19991] 134 files to consider
+2022/08/31 15:36:07 [19991] <f.st.... mcf.php
+2022/08/31 15:36:07 [19991] <f.st.... rsync.log
+2022/08/31 15:36:07 [19991] .d..t.... .git/
+2022/08/31 15:36:07 [19991] sent 3.99K bytes  received 538 bytes  3.02K bytes/sec
+2022/08/31 15:36:07 [19991] total size is 1.38M  speedup is 304.13
+2022/08/31 15:37:15 [20111] building file list
+2022/08/31 15:37:15 [20111] 134 files to consider
+2022/08/31 15:37:15 [20111] <f.st.... mcf.php
+2022/08/31 15:37:15 [20111] <f.st.... rsync.log
+2022/08/31 15:37:15 [20111] .d..t.... .git/
+2022/08/31 15:37:16 [20111] sent 4.03K bytes  received 538 bytes  9.13K bytes/sec
+2022/08/31 15:37:16 [20111] total size is 1.38M  speedup is 301.82
+2022/08/31 15:41:49 [20275] building file list
+2022/08/31 15:41:49 [20275] 134 files to consider
+2022/08/31 15:41:49 [20275] <f.st.... mcf.php
+2022/08/31 15:41:49 [20275] <f.st.... rsync.log
+2022/08/31 15:41:49 [20275] .d..t.... .git/
+2022/08/31 15:41:49 [20275] sent 4.24K bytes  received 544 bytes  9.57K bytes/sec
+2022/08/31 15:41:49 [20275] total size is 1.38M  speedup is 288.25
+2022/08/31 15:42:11 [20382] building file list
+2022/08/31 15:42:11 [20382] 134 files to consider
+2022/08/31 15:42:11 [20382] <f.st.... mcf.php
+2022/08/31 15:42:11 [20382] <f.st.... rsync.log
+2022/08/31 15:42:11 [20382] .d..t.... .git/
+2022/08/31 15:42:11 [20382] sent 4.08K bytes  received 544 bytes  3.08K bytes/sec
+2022/08/31 15:42:11 [20382] total size is 1.38M  speedup is 298.44
+2022/08/31 15:43:38 [20509] building file list
+2022/08/31 15:43:38 [20509] 134 files to consider
+2022/08/31 15:43:38 [20509] <f.st.... mcf.php
+2022/08/31 15:43:38 [20509] <f.st.... rsync.log
+2022/08/31 15:43:38 [20509] .d..t.... .git/
+2022/08/31 15:43:38 [20509] sent 4.04K bytes  received 550 bytes  9.18K bytes/sec
+2022/08/31 15:43:38 [20509] total size is 1.38M  speedup is 300.67
+2022/08/31 15:45:12 [20625] building file list
+2022/08/31 15:45:12 [20625] 134 files to consider
+2022/08/31 15:45:12 [20625] <f.st.... mcf.php
+2022/08/31 15:45:12 [20625] <f.st.... rsync.log
+2022/08/31 15:45:12 [20625] .d..t.... .git/
+2022/08/31 15:45:12 [20625] sent 4.04K bytes  received 550 bytes  9.18K bytes/sec
+2022/08/31 15:45:12 [20625] total size is 1.38M  speedup is 300.48
+2022/08/31 15:47:20 [20761] building file list
+2022/08/31 15:47:20 [20761] 134 files to consider
+2022/08/31 15:47:20 [20761] <f..t.... mcf.php
+2022/08/31 15:47:20 [20761] <f.st.... rsync.log
+2022/08/31 15:47:20 [20761] .d..t.... .git/
+2022/08/31 15:47:21 [20761] sent 4.29K bytes  received 556 bytes  3.23K bytes/sec
+2022/08/31 15:47:21 [20761] total size is 1.38M  speedup is 284.69
+2022/08/31 15:51:32 [20930] building file list
+2022/08/31 15:51:32 [20930] 134 files to consider
+2022/08/31 15:51:32 [20930] <f.st.... mcf.php
+2022/08/31 15:51:32 [20930] <f.st.... rsync.log
+2022/08/31 15:51:32 [20930] .d..t.... .git/
+2022/08/31 15:51:33 [20930] sent 4.35K bytes  received 556 bytes  9.81K bytes/sec
+2022/08/31 15:51:33 [20930] total size is 1.38M  speedup is 281.46
+2022/08/31 15:54:16 [21062] building file list
+2022/08/31 15:54:16 [21062] 134 files to consider
+2022/08/31 15:54:16 [21062] <f.st.... mcf.php
+2022/08/31 15:54:16 [21062] <f.st.... rsync.log
+2022/08/31 15:54:16 [21062] .d..t.... .git/
+2022/08/31 15:54:16 [21062] sent 4.05K bytes  received 562 bytes  3.08K bytes/sec
+2022/08/31 15:54:16 [21062] total size is 1.38M  speedup is 299.36
+2022/08/31 15:55:34 [21191] building file list
+2022/08/31 15:55:34 [21191] 134 files to consider
+2022/08/31 15:55:34 [21191] <f.st.... mcf.php
+2022/08/31 15:55:34 [21191] <f.st.... rsync.log
+2022/08/31 15:55:34 [21191] .d..t.... .git/
+2022/08/31 15:55:34 [21191] sent 3.98K bytes  received 568 bytes  3.03K bytes/sec
+2022/08/31 15:55:34 [21191] total size is 1.38M  speedup is 303.72
+2022/08/31 15:57:49 [21325] building file list
+2022/08/31 15:57:49 [21325] 134 files to consider
+2022/08/31 15:57:49 [21325] <f.st.... rsync.log
+2022/08/31 15:57:49 [21325] .d..t.... .git/
+2022/08/31 15:57:49 [21325] <f.st.... css/style.css
+2022/08/31 15:57:49 [21325] sent 4.26K bytes  received 544 bytes  3.20K bytes/sec
+2022/08/31 15:57:49 [21325] total size is 1.38M  speedup is 287.77
+2022/08/31 15:58:34 [21436] building file list
+2022/08/31 15:58:34 [21436] 134 files to consider
+2022/08/31 15:58:34 [21436] <f.st.... rsync.log
+2022/08/31 15:58:34 [21436] .d..t.... .git/
+2022/08/31 15:58:34 [21436] <f.st.... css/style.css
+2022/08/31 15:58:34 [21436] sent 4.03K bytes  received 550 bytes  3.06K bytes/sec
+2022/08/31 15:58:34 [21436] total size is 1.38M  speedup is 301.55
+2022/08/31 15:59:23 [21548] building file list
+2022/08/31 15:59:23 [21548] 134 files to consider
+2022/08/31 15:59:23 [21548] <f.st.... rsync.log
+2022/08/31 15:59:23 [21548] .d..t.... .git/
+2022/08/31 15:59:23 [21548] <f.st.... css/style.css
+2022/08/31 15:59:23 [21548] sent 4.29K bytes  received 550 bytes  3.23K bytes/sec
+2022/08/31 15:59:23 [21548] total size is 1.38M  speedup is 285.32
+2022/08/31 16:02:49 [21701] building file list
+2022/08/31 16:02:49 [21701] 134 files to consider
+2022/08/31 16:02:50 [21701] <f.st.... rsync.log
+2022/08/31 16:02:50 [21701] .d..t.... .git/
+2022/08/31 16:02:50 [21701] <f.st.... css/style.css
+2022/08/31 16:02:50 [21701] sent 4.16K bytes  received 556 bytes  1.35K bytes/sec
+2022/08/31 16:02:50 [21701] total size is 1.38M  speedup is 293.40
+2022/08/31 16:09:29 [21899] building file list
+2022/08/31 16:09:29 [21899] 134 files to consider
+2022/08/31 16:09:29 [21899] <f.st.... rsync.log
+2022/08/31 16:09:29 [21899] .d..t.... .git/
+2022/08/31 16:09:29 [21899] <f.st.... css/style.css
+2022/08/31 16:09:29 [21899] sent 4.04K bytes  received 556 bytes  3.06K bytes/sec
+2022/08/31 16:09:29 [21899] total size is 1.38M  speedup is 300.91
+2022/08/31 16:12:06 [22041] building file list
+2022/08/31 16:12:06 [22041] 134 files to consider
+2022/08/31 16:12:06 [22041] <f.st.... rsync.log
+2022/08/31 16:12:06 [22041] .d..t.... .git/
+2022/08/31 16:12:06 [22041] <f.st.... css/style.css
+2022/08/31 16:12:06 [22041] sent 4.00K bytes  received 568 bytes  3.04K bytes/sec
+2022/08/31 16:12:06 [22041] total size is 1.38M  speedup is 303.18
+2022/08/31 16:13:52 [22181] building file list
+2022/08/31 16:13:52 [22181] 134 files to consider
+2022/08/31 16:13:52 [22181] <f.st.... mcf-form.php
+2022/08/31 16:13:52 [22181] <f.st.... rsync.log
+2022/08/31 16:13:52 [22181] .d..t.... .git/
+2022/08/31 16:13:52 [22181] sent 4.11K bytes  received 604 bytes  3.14K bytes/sec
+2022/08/31 16:13:52 [22181] total size is 1.38M  speedup is 293.42
+2022/08/31 16:16:09 [22310] building file list
+2022/08/31 16:16:09 [22310] 134 files to consider
+2022/08/31 16:16:09 [22310] <f.st.... mcf-form.php
+2022/08/31 16:16:09 [22310] <f.st.... rsync.log
+2022/08/31 16:16:09 [22310] .d..t.... .git/
+2022/08/31 16:16:09 [22310] sent 4.04K bytes  received 610 bytes  3.10K bytes/sec
+2022/08/31 16:16:09 [22310] total size is 1.38M  speedup is 297.55
+2022/08/31 16:17:49 [22435] building file list
+2022/08/31 16:17:49 [22435] 134 files to consider
+2022/08/31 16:17:49 [22435] <f.st.... mcf-form.php
+2022/08/31 16:17:49 [22435] <f.st.... rsync.log
+2022/08/31 16:17:49 [22435] .d..t.... .git/
+2022/08/31 16:17:49 [22435] sent 4.26K bytes  received 616 bytes  3.25K bytes/sec
+2022/08/31 16:17:49 [22435] total size is 1.38M  speedup is 283.73
+2022/08/31 16:19:21 [22561] building file list
+2022/08/31 16:19:21 [22561] 134 files to consider
+2022/08/31 16:19:21 [22561] <f.st.... rsync.log
+2022/08/31 16:19:21 [22561] .d..t.... .git/
+2022/08/31 16:19:21 [22561] <f.st.... css/style.css
+2022/08/31 16:19:21 [22561] sent 4.09K bytes  received 580 bytes  9.35K bytes/sec
+2022/08/31 16:19:21 [22561] total size is 1.39M  speedup is 296.32
+2022/08/31 16:20:47 [22680] building file list
+2022/08/31 16:20:47 [22680] 134 files to consider
+2022/08/31 16:20:47 [22680] <f.st.... rsync.log
+2022/08/31 16:20:47 [22680] .d..t.... .git/
+2022/08/31 16:20:47 [22680] <f.st.... css/style.css
+2022/08/31 16:20:47 [22680] sent 4.05K bytes  received 586 bytes  3.09K bytes/sec
+2022/08/31 16:20:47 [22680] total size is 1.39M  speedup is 298.96
+2022/08/31 16:23:40 [22821] building file list
+2022/08/31 16:23:40 [22821] 134 files to consider
+2022/08/31 16:23:40 [22821] <f.st.... rsync.log
+2022/08/31 16:23:40 [22821] .d..t.... .git/
+2022/08/31 16:23:40 [22821] <f.st.... css/style.css
+2022/08/31 16:23:41 [22821] sent 4.02K bytes  received 586 bytes  3.07K bytes/sec
+2022/08/31 16:23:41 [22821] total size is 1.39M  speedup is 300.88
+2022/08/31 16:25:41 [22961] building file list
+2022/08/31 16:25:41 [22961] 134 files to consider
+2022/08/31 16:25:41 [22961] <f.st.... mcf.php
+2022/08/31 16:25:41 [22961] <f.st.... rsync.log
+2022/08/31 16:25:41 [22961] .d..t.... .git/
+2022/08/31 16:25:41 [22961] sent 4.09K bytes  received 610 bytes  3.14K bytes/sec
+2022/08/31 16:25:41 [22961] total size is 1.39M  speedup is 294.70
+2022/08/31 16:52:46 [23434] building file list
+2022/08/31 16:52:46 [23434] 134 files to consider
+2022/08/31 16:52:46 [23434] <f.st.... rsync.log
+2022/08/31 16:52:46 [23434] .d..t.... .git/
+2022/08/31 16:52:46 [23434] .d..t.... languages/
+2022/08/31 16:52:46 [23434] <f..t.... languages/mcf-de_DE.mo
+2022/08/31 16:52:46 [23434] <f..t.... languages/mcf-de_DE.po
+2022/08/31 16:52:46 [23434] <f..t.... languages/mcf-de_DE_formal.mo
+2022/08/31 16:52:46 [23434] <f..t.... languages/mcf-de_DE_formal.po
+2022/08/31 16:52:46 [23434] <f..t.... languages/mcf.pot
+2022/08/31 16:52:46 [23434] sent 4.01K bytes  received 890 bytes  3.27K bytes/sec
+2022/08/31 16:52:46 [23434] total size is 1.38M  speedup is 281.40

@@ -72,9 +72,6 @@ function mcf_validate_options($input) {
 
   // user
   $validated['user'] = (isset($input['user'])) ? (int)$input['user'] : 1;
-  // phone
-  if (!isset($input['phone'])) $input['phone'] = 0;
-  $validated['phone'] = ($input['phone'] == 1) ? 1 : 0;
   // gdpr
   if (!isset($input['gdpr'])) $input['gdpr'] = 0;
   $validated['gdpr'] = ($input['gdpr'] == 1) ? 1 : 0;
@@ -84,6 +81,23 @@ function mcf_validate_options($input) {
   // phpmail
   if (!isset($input['phpmail'])) $input['phpmail'] = 0;
   $validated['phpmail'] = ($input['phpmail'] == 1) ? 1 : 0;
+  
+  // phone
+  if (!isset($input['phone'])) $input['phone'] = 0;
+  $validated['phone'] = ($input['phone'] == 1) ? 1 : 0;
+  // hide subject
+  if (!isset($input['hidesubject'])) $input['hidesubject'] = 0;
+  $validated['hidesubject'] = ($input['hidesubject'] == 1) ? 1 : 0;
+  // one line
+  if (!isset($input['oneline'])) $input['oneline'] = 0;
+  $validated['oneline'] = ($input['oneline'] == 1) ? 1 : 0;
+  // labels
+  if (!isset($input['labels'])) $input['labels'] = 0;
+  $validated['labels'] = ($input['labels'] == 1) ? 1 : 0;
+  // css
+  if (!isset($input['css'])) $input['css'] = '';
+  $validated['css'] = trim((string)$input['css']);
+
 
   return $validated;
 }

@@ -2,3 +2,4 @@
 deploy.sh
 push.sh
 .synchronize
+rsync.log

@@ -8,3 +8,15 @@
   list-style-type: disc;
   padding-left: 3em;
 }
+
+#mcf-plugin #mcf-custom-css {
+  width: 80%;
+  background-color: #2c3338;
+  color: #fff;
+  font-family:'Courier New', Courier, monospace;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 960px) {
+  #mcf-plugin #mcf-custom-css { width: 100%; }
+}

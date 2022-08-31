@@ -46,7 +46,16 @@ include 'mcf-form.php';
 function mcf_plugin_activation() {
   
   // Write default options to database
-  add_option( 'mcf_options', array('user' => 1, 'gdpr' => 0, 'phone' => 0, 'spam' => 1, 'phpmail' => 0), '', 'yes');  
+  add_option( 'mcf_options', array(
+    'user' => 1,
+    'gdpr' => 0,
+    'spam' => 1,
+    'phpmail' => 0,
+    'phone' => 0,
+    'hidesubject' => 0,
+    'oneline' => 0,
+    'labels' => 0,
+    'css' => '#minimal-contact-form {}'), '', 'yes');
 }
 register_activation_hook( __FILE__, 'mcf_plugin_activation' );
 
@@ -130,14 +139,19 @@ function mcf_version__error() {
  * @since 0.1.0
  */
 function mcf_scripts() {
+  global $mcf_options;
+
   if(!is_admin())	{
     wp_enqueue_script('jquery');
     wp_enqueue_script('mcf-script', plugins_url( '/js/mcf-script.js', __FILE__ ), 'jquery', true);
     wp_enqueue_style('mcf-style', plugins_url('/css/style.css',__FILE__));
     wp_localize_script( 'mcf-script', 'minimal_contact_form', array( 'mcf_ajaxurl' => admin_url( 'admin-ajax.php')));
+    
+    wp_add_inline_style('mcf-style', isset($mcf_options['css']) ? $mcf_options['css'] . "\r\n" : '');
   }
 }
 add_action('wp_enqueue_scripts', 'mcf_scripts');
+
 
 
 /**

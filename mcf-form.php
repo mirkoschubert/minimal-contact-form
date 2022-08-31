@@ -26,34 +26,90 @@ function mcf_display_contact_form() {
 
   global $mcf_options;
 
-  $content  = '<div id="minimal-contact-form">';
+  $content  = '<div id="minimal-contact-form" class="' . ($mcf_options['labels'] === 1 ? 'with-labels' : '') . ($mcf_options['oneline'] === 1 ? ' one-line' : ''). '">';
   $content .= '  <div class="notice"></div>';
   $content .= '  <form method="POST">';
 
-  $content .= '    <input class="name" name="name" placeholder="' . __('Your Name', 'mcf') . __(' (required)', 'mcf')  . '" type="text" required>';
-  $content .= '    <input class="email" name="email" placeholder="' . __('Your Email Address', 'mcf') . __(' (required)', 'mcf')  . '" type="email" required>';
-  $content .= ($mcf_options['phone'] === 1) ? '    <input class="phone" name="phone" placeholder="' . __('Your Phone Number', 'mcf') . '" type="text">' : '';
-  $content .= ($mcf_options['spam'] === 1) ? '    <input class="address" name="address" placeholder="' . __('Your Address', 'mcf') . '" type="text">' : '';
-  $content .= '    <input class="subject" name="subject" placeholder="' . __('Subject', 'mcf') . '" type="text">';
-  $content .= '    <textarea class="message" name="message" placeholder="' . __('Your Message', 'mcf') . __(' (required)', 'mcf')  . '" rows="5" required></textarea>';
+  $content .= mcf_input('name', __('Name', 'mcf'), 'text', true);
+  $content .= mcf_input('email', __('Email Address', 'mcf'), 'email', true);
+  $content .= $mcf_options['phone'] === 1 ? mcf_input('phone', __('Phone Number', 'mcf'), 'tel') : '';
+  $content .= $mcf_options['spam'] === 1 ? mcf_input('address', __('Address', 'mcf'), 'text', false, false) : '';
+  $content .= $mcf_options['hidesubject'] === 0 ? mcf_input('subject', __('Subject', 'mcf')) : '';
+  $content .= mcf_textarea('message', __('Message', 'mcf'), true);
+  $content .= mcf_gdpr();
+  $content .= mcf_submit();
 
+  $content .= '  </form>';
+  $content .= '</div>';
+
+  return $content;
+}
+
+
+/**
+ * Returns a input field with the given arguments
+ * @since 0.9.0
+ */
+function mcf_input($name, $label, $type = 'text', $required = false, $has_label = true) {
+  global $mcf_options;
+
+  $content  = "<div class='item item-$name'>";
+  $content .= "  <label class='" . ($has_label ? 'label' : 'no-label') . "' for='$name'>$label" . ($required ? '<span class="required">*</span>' : '') . "</label>";
+  $content .= "  <input type='$type' class='$name' name='$name' placeholder='" . ($mcf_options['labels'] !== 1 ? $label . ($required ? '*' : '') : '') . "' " . ($required ? 'required' : '') . " />";
+  $content .= "</div>";
+
+  return $content;
+}
+
+
+/**
+ * Returns a textarea with the given arguments
+ * @since 0.9.0
+ */
+function mcf_textarea($name, $label, $required = false) {
+  global $mcf_options;
+
+  $content  = "<div class='item item-$name'>";
+  $content .= "  <label class='label' for='$name'>$label" . ($required ? '<span class="required">*</span>' : '') . "</label>";
+  $content .= "  <textarea class='$name' name='$name' placeholder='" . ($mcf_options['labels'] !== 1 ? $label . ($required ? '*' : '') : '')  . "' rows='5' " . ($required ? 'required' : '') . "></textarea>";
+  $content .= "</div>";
+
+  return $content;
+}
+
+
+/**
+ * Returns the GDPR text or checkbox
+ * @since 0.9.0
+ */
+function mcf_gdpr() {
+  global $mcf_options;
+
+  $content  = "<div class='item item-gdpr'>";
   if (get_option('wp_page_for_privacy_policy') || (int)get_option('wp_page_for_privacy_policy') > 0) {
     $pp_url = get_permalink(get_option('wp_page_for_privacy_policy'));
-
     if ($mcf_options['gdpr'] === 1) {
       // Opt-In
       $content .= '<input class="consent" name="consent" type="checkbox" value="1" />';
-      $content .= '<label class="consent-caption" for="consent">' . __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.<span class="required">' . __(' (required)', 'mcf') . '<span></label>';
+      $content .= '<label class="consent-caption" for="consent">' . __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.<span class="required">' . __('*', 'mcf') . '<span></label>';
     } else {
       // Only Information
       $content .= '<p class="privacy">' . __('Your submitted information will only be processed to respond to your inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.</p>';
 
     }
-
   }
+  $content .= "</div>";
 
-  $content .= '    <button class="submit" type="button">' . __('Submit', 'mcf') . '</button>';
-  $content .= '  </form>';
+  return $content;
+}
+
+/**
+ * Returns the submit button
+ * @since 0.9.0
+ */
+function mcf_submit() {
+  $content  = '<div class="item item-submit">';
+  $content .= '  <button class="submit" type="button">' . __('Submit', 'mcf') . '</button>';
   $content .= '</div>';
 
   return $content;
@@ -86,12 +142,13 @@ function mcf_ajax_send_mail() {
   global $mcf_options;
 
   $data = $_POST['data'];
+
   // AJAX data
   $name = sanitize_text_field($data['name']);
   $email = sanitize_email($data['email']);
   $phone = ($mcf_options['phone'] === 1) ? sanitize_text_field($data['phone']) : false;
   $address = ($mcf_options['spam'] === 1) ? sanitize_text_field($data['address']) : false; // honeypot
-  $subject = ($data['subject'] !== '') ? sanitize_text_field($data['subject']) : __('Someone left you a message!', 'mcf');
+  $subject = (isset($data['subject']) && $data['subject'] !== '') ? sanitize_text_field($data['subject']) : __('Someone left you a message!', 'mcf');
   $msg = sanitize_textarea_field($data['message']);
   $consent = (int)$data['consent'];
   // Plugin data
