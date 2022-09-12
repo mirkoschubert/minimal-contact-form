@@ -55,7 +55,7 @@ function mcf_input($name, $label, $type = 'text', $required = false, $has_label 
 
   $content  = "<div class='item item-$name'>";
   $content .= "  <label class='" . ($has_label ? 'label' : 'no-label') . "' for='$name'>$label" . ($required ? '<span class="required">*</span>' : '') . "</label>";
-  $content .= "  <input type='$type' class='$name' name='$name' placeholder='" . ($mcf_options['labels'] !== 1 ? $label . ($required ? '*' : '') : '') . "' " . ($required ? 'required' : '') . " />";
+  $content .= "  <input type='$type' id='$name' class='$name' name='$name' placeholder='" . ($mcf_options['labels'] !== 1 ? $label . ($required ? '*' : '') : '') . "' " . ($required ? 'required' : '') . " />";
   $content .= "</div>";
 
   return $content;
@@ -71,7 +71,7 @@ function mcf_textarea($name, $label, $required = false) {
 
   $content  = "<div class='item item-$name'>";
   $content .= "  <label class='label' for='$name'>$label" . ($required ? '<span class="required">*</span>' : '') . "</label>";
-  $content .= "  <textarea class='$name' name='$name' placeholder='" . ($mcf_options['labels'] !== 1 ? $label . ($required ? '*' : '') : '')  . "' rows='5' " . ($required ? 'required' : '') . "></textarea>";
+  $content .= "  <textarea id='$name' class='$name' name='$name' placeholder='" . ($mcf_options['labels'] !== 1 ? $label . ($required ? '*' : '') : '')  . "' rows='5' " . ($required ? 'required' : '') . "></textarea>";
   $content .= "</div>";
 
   return $content;
@@ -90,7 +90,7 @@ function mcf_gdpr() {
     $pp_url = get_permalink(get_option('wp_page_for_privacy_policy'));
     if ($mcf_options['gdpr'] === 1) {
       // Opt-In
-      $content .= '<input class="consent" name="consent" type="checkbox" value="1" />';
+      $content .= '<input id="consent" class="consent" name="consent" type="checkbox" value="1" />';
       $content .= '<label class="consent-caption" for="consent">' . __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.<span class="required">' . __('*', 'mcf') . '<span></label>';
     } else {
       // Only Information

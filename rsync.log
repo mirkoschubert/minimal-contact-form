@@ -1049,3 +1049,75 @@
 2022/08/31 16:52:46 [23434] <f..t.... languages/mcf.pot
 2022/08/31 16:52:46 [23434] sent 4.01K bytes  received 890 bytes  3.27K bytes/sec
 2022/08/31 16:52:46 [23434] total size is 1.38M  speedup is 281.40
+2022/09/12 09:51:06 [24355] building file list
+2022/09/12 09:51:06 [24355] 172 files to consider
+2022/09/12 09:51:06 [24355] <f.st.... mcf-form.php
+2022/09/12 09:51:06 [24355] <f.st.... readme.txt
+2022/09/12 09:51:06 [24355] <f.st.... rsync.log
+2022/09/12 09:51:06 [24355] .d..t.... .git/
+2022/09/12 09:51:06 [24355] <f.st.... .git/COMMIT_EDITMSG
+2022/09/12 09:51:06 [24355] <f..t.... .git/index
+2022/09/12 09:51:06 [24355] <f.st.... .git/logs/HEAD
+2022/09/12 09:51:06 [24355] <f.st.... .git/logs/refs/heads/master
+2022/09/12 09:51:06 [24355] <f.st.... .git/logs/refs/remotes/origin/master
+2022/09/12 09:51:06 [24355] .d..t.... .git/objects/
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/02/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/02/1b908187a25b8f361b77a81c5ef3a9e77308aa
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/07/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/07/b381a5892e907738f66d7c0f48f97ca3a9cc30
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/09/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/09/68affcc6f4b3b6723008c512e8b07e75a67781
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/19/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/19/cdcbf9bf1ab020a60602c5c4c98d394d7a2ead
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/52/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/52/088703c2e58dccac6540f0c89a7bbd8c910604
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/54/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/54/ab2d73d48f5558ff52320c3cbe8e3b0ba2f89b
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/57/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/57/808534cfb9d4c4141c090763539db5250c49f1
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/76/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/76/34686a3f63c37ed388d4d6ab18f902798606ef
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/78/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/78/3bc120e2fe71d7ed9603c9bc8c609b57abd6d8
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/7e/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/7e/4d8486e0745d9b482fdaf3faad1920263d3ba1
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/9c/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/9c/61e823d2fe621bd5d3bc9d3bbe3c47dbe55e26
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/b8/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/b8/8d61eb8b3e750ce4c3c21b92d646c4d98d375f
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/c5/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/c5/7db1c63a95ea8bfbbcc82c1d7ed3f6ed69b5b0
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/c6/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/c6/824553e528886e2638383dbacb61c53af7b1bb
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/c6/e3cdd927ae009eff394585e39fc4e355b88b58
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/c9/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/c9/73d62751d052b0bb01e1abddfa3278b9247c09
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/db/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/db/1a36411af1c330fea20720bf520b031b250b65
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/df/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/df/36241327e8212d05c69be60a897b7baa1b4207
+2022/09/12 09:51:06 [24355] .d..t.... .git/objects/fa/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/fa/89be8b62673bc3c0f0552b18fe87ba9ca083ae
+2022/09/12 09:51:06 [24355] cd+++++++ .git/objects/ff/
+2022/09/12 09:51:06 [24355] <f+++++++ .git/objects/ff/c14c3ebea69ee1c22cf41a28e9fedf4b0e06a4
+2022/09/12 09:51:06 [24355] .d..t.... .git/refs/heads/
+2022/09/12 09:51:06 [24355] <f..t.... .git/refs/heads/master
+2022/09/12 09:51:06 [24355] .d..t.... .git/refs/remotes/origin/
+2022/09/12 09:51:06 [24355] <f..t.... .git/refs/remotes/origin/master
+2022/09/12 09:51:06 [24355] sent 41.98K bytes  received 1.50K bytes  86.95K bytes/sec
+2022/09/12 09:51:06 [24355] total size is 1.41M  speedup is 32.52
+2022/09/12 09:53:42 [24513] building file list
+2022/09/12 09:53:42 [24513] 172 files to consider
+2022/09/12 09:53:42 [24513] <f..t.... mcf.php
+2022/09/12 09:53:42 [24513] <f.st.... readme.txt
+2022/09/12 09:53:42 [24513] <f.st.... rsync.log
+2022/09/12 09:53:42 [24513] .d..t.... .git/
+2022/09/12 09:53:42 [24513] sent 6.93K bytes  received 686 bytes  15.24K bytes/sec
+2022/09/12 09:53:42 [24513] total size is 1.42M  speedup is 186.08
+2022/09/12 09:58:24 [24678] building file list
+2022/09/12 09:58:24 [24678] 172 files to consider
+2022/09/12 09:58:24 [24678] <f..t.... readme.txt
+2022/09/12 09:58:24 [24678] <f.st.... rsync.log
+2022/09/12 09:58:24 [24678] .d..t.... .git/
+2022/09/12 09:58:24 [24678] sent 5.47K bytes  received 652 bytes  12.24K bytes/sec
+2022/09/12 09:58:24 [24678] total size is 1.42M  speedup is 231.65

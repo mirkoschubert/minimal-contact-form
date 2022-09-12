@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/mirkoschubert
 Requires at least: 4.9.6
 Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 0.9.0
+Stable tag: 0.9.1
 License: GPL3
 License URI: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 
@@ -79,6 +79,10 @@ If you have any questions, please use the [support forum](https://wordpress.org/
 2. Minimal Contact Form Settings
 
 == Changelog ==
+
+= 0.9.1 =
+
+* Bugfix: Labels didn't have a required id in the form fields
 
 = 0.9.0 =
 

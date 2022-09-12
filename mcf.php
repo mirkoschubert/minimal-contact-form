@@ -3,7 +3,7 @@
 Plugin Name:  Minimal Contact Form
 Plugin URI:   https://github.com/mirkoschubert/minimal-contact-form
 Description:  A WordPress Plugin for a simple, clean and secure contact form.
-Version:      0.9.0
+Version:      0.9.1
 Author:       Mirko Schubert
 Author URI:   https://mirkoschubert.de/
 License:      GPL 3.0
@@ -29,7 +29,7 @@ along with Minimal Contact Form. If not, see https://github.com/mirkoschubert/mi
 if (!defined( 'ABSPATH' )) exit();
 
 $mcf_wp_version = '4.9.6';
-$mcf_version = '0.9.0';
+$mcf_version = '0.9.1';
 $mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
 $mcf_slug = dirname(plugin_basename(__FILE__));
 $mcf_path    = plugin_basename(__FILE__);
