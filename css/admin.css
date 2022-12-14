@@ -17,6 +17,28 @@
   padding: 1rem;
 }
 
+#tab-panel-mcf-variables-help-tab table.variables {
+  width: 100%;
+  border-spacing: 0;
+}
+
+#tab-panel-mcf-variables-help-tab table.variables thead {
+  background-color: #2c3338;
+  color: #fff;
+  text-align: left;
+}
+#tab-panel-mcf-variables-help-tab table.variables thead tr th,
+#tab-panel-mcf-variables-help-tab table.variables tbody tr td {
+  padding: 2px 4px;
+}
+
+#tab-panel-mcf-variables-help-tab table.variables tbody tr.headline {
+  background-color: #d2d2d2;
+  color: #2c3338;
+  font-weight: 500;
+}
+
 @media screen and (max-width: 960px) {
   #mcf-plugin #mcf-custom-css { width: 100%; }
 }
+

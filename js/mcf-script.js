@@ -5,7 +5,7 @@ jQuery(document).ready(function(e) {
     var email = e('#minimal-contact-form input.email');
     var phone = e('#minimal-contact-form input.phone');
     var message = e('#minimal-contact-form textarea.message');
-    var consent = e('#minimal-contact-form label.consent-caption');
+    var gdpr = e('#minimal-contact-form label.gdpr-caption');
 
     if (name.val() === null || name.val() === '') {
       name.addClass('not-valid');
@@ -27,10 +27,10 @@ jQuery(document).ready(function(e) {
     } else {
       message.removeClass('not-valid');
     }
-    if (!e('#minimal-contact-form input.consent').prop('checked')) {
-      consent.addClass('not-valid');
+    if (!e('#minimal-contact-form input.gdpr').prop('checked')) {
+      gdpr.addClass('not-valid');
     } else {
-      consent.removeClass('not-valid');
+      gdpr.removeClass('not-valid');
     }
   });
 
@@ -45,8 +45,8 @@ jQuery(document).ready(function(e) {
     data.subject = e('#minimal-contact-form input.subject').val();
     data.message = e('#minimal-contact-form textarea.message').val();
 
-    if (typeof e('#minimal-contact-form input.consent') !== 'undefined' && e('#minimal-contact-form input.consent').length > 0) {
-      data.consent = (e('#minimal-contact-form input.consent').prop('checked')) ? 1 : 0;
+    if (typeof e('#minimal-contact-form input.gdpr') !== 'undefined' && e('#minimal-contact-form input.gdpr').length > 0) {
+      data.consent = (e('#minimal-contact-form input.gdpr').prop('checked')) ? 1 : 0;
     } else {
       data.consent = 1;
     }

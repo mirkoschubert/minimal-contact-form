@@ -1,100 +1,103 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Minimal Contact Form\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 17:59+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"POT-Creation-Date: 2022-08-31 14:30+0000\n"
+"PO-Revision-Date: 2022-12-14 09:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: Français\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.2-alpha-54965"
 
 #: mcf-form.php:94
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #. Description of the plugin
 msgid "A WordPress Plugin for a simple, clean and secure contact form."
 msgstr ""
+"Un plugin WordPress pour un formulaire de contact simple, propre et sécurisé."
 
 #: mcf-options.php:84
 msgid "About"
-msgstr ""
+msgstr "A propos de nous"
 
 #: mcf-options.php:51
 msgid "About the settings"
-msgstr ""
+msgstr "A propos des paramètres"
 
 #: mcf-options-page.php:81
 msgid "Add a phone number field to the contact form."
-msgstr ""
+msgstr "Ajouter un champ de numéro de téléphone au formulaire de contact."
 
 #: mcf-form.php:36
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 #: mcf-options-page.php:45
 msgid "Antispam"
-msgstr ""
+msgstr "Antispam"
 
 #: mcf-options.php:73
 msgid "Button"
-msgstr ""
+msgstr "Bouton"
 
 #: mcf-options.php:16
 msgid "Contact Form"
-msgstr ""
+msgstr "Formulaire de contact"
 
 #: mcf-options.php:53 mcf-options.php:94
 msgid "CSS Variables"
-msgstr ""
+msgstr "Variables CSS"
 
 #: mcf-options-page.php:106
 msgid "Custom CSS"
-msgstr ""
+msgstr "CSS personnalisé"
 
 #: mcf-options.php:53
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #: mcf-form.php:34
 msgid "Email Address"
-msgstr ""
+msgstr "Adresse électronique"
 
 #: mcf-form.php:94 mcf-form.php:97
 msgid "For further information please visit our"
-msgstr ""
+msgstr "Pour de plus amples informations, veuillez consulter notre site Web"
 
 #: mcf-options-page.php:38
 msgid "GDPR"
-msgstr ""
+msgstr "GDPR"
 
 #: mcf-options.php:55
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #: mcf-options-page.php:88
 msgid "Hide the subject item."
-msgstr ""
+msgstr "Masquer l'objet."
 
 #. URI of the plugin
 msgid "https://github.com/mirkoschubert/minimal-contact-form"
-msgstr ""
+msgstr "https://github.com/mirkoschubert/minimal-contact-form"
 
 #. Author URI of the plugin
 msgid "https://mirkoschubert.de/"
-msgstr ""
+msgstr "https://mirkoschubert.de/"
 
 #: mcf-form.php:94
 msgid ""
 "I consent to having you process my submitted information so you can respond "
 "to my inquiry."
 msgstr ""
+"Je consens à ce que vous traitiez les informations que j'ai fournies afin "
+"que vous puissiez répondre à ma demande."
 
 #: mcf-options.php:51
 msgid ""
@@ -102,141 +105,150 @@ msgid ""
 "do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should "
 "you tick the relevant checkbox."
 msgstr ""
+"Si vous faites référence à l'art. 6 (1) let. b ou let. f GDPR dans votre "
+"politique de confidentialité, vous n'avez pas besoin d'un opt-in. Seulement "
+"si vous faites référence à l'art. 6 (1) let. a GDPR que vous devez cocher la "
+"case correspondante."
 
 #: mcf-options.php:53
 msgid ""
 "Instead of writing pure CSS you can use predefined CSS variables to style "
 "your form. Please choose some of the following variables:"
 msgstr ""
+"Au lieu d'écrire du CSS pur, vous pouvez utiliser des variables CSS "
+"prédéfinies pour styliser votre formulaire. Veuillez choisir certaines des "
+"variables suivantes:"
 
 #: mcf-options.php:49
 msgid "is a simple, clean and secure contact form."
-msgstr ""
+msgstr "est un formulaire de contact simple, propre et sécurisé."
 
 #: mcf-options.php:66
 msgid "Item"
-msgstr ""
+msgstr "Élément"
 
 #: mcf-options.php:70
 msgid "Label"
-msgstr ""
+msgstr "Étiquette"
 
 #: mcf-options-page.php:92
 msgid "Layout"
-msgstr ""
+msgstr "Mise en page"
 
 #: mcf-options-page.php:52
 msgid "Mail Service"
-msgstr ""
+msgstr "Service de courrier"
 
 #: mcf-form.php:38
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #. Name of the plugin
 #: mcf-options-page.php:3 mcf.php:33
 msgid "Minimal Contact Form"
-msgstr ""
+msgstr "Minimal Contact Form"
 
 #. Author of the plugin
 msgid "Mirko Schubert"
-msgstr ""
+msgstr "Mirko Schubert"
 
 #: mcf-form.php:33
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: mcf-options-page.php:10
 msgid "Options"
-msgstr ""
+msgstr "Options"
 
 #: mcf.php:130
 msgid "or higher!"
-msgstr ""
+msgstr "ou plus!"
 
 #: mcf-options-page.php:78 mcf-form.php:35 mcf-form.php:169
 msgid "Phone Number"
-msgstr ""
+msgstr "Numéro de téléphone"
 
 #: mcf.php:131
 msgid "Please upgrade WordPress and try again."
-msgstr ""
+msgstr "Veuillez mettre à jour WordPress et réessayer."
 
 #: mcf-options-page.php:31 mcf-form.php:94 mcf-form.php:97
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Politique de confidentialité"
 
 #: mcf-options-page.php:33
 msgid "Privacy Settings"
-msgstr ""
+msgstr "Paramètres de confidentialité"
 
 #: mcf-options-page.php:23
 msgid "Recipient"
-msgstr ""
+msgstr "Destinataire"
 
 #: mcf.php:129
 msgid "requires WordPress"
-msgstr ""
+msgstr "nécessite WordPress"
 
 #: mcf-options-page.php:26
 msgid "Select the administrator or editor who should receive the emails."
 msgstr ""
+"Sélectionnez l'administrateur ou l'éditeur qui doit recevoir les e-mails."
 
 #: mcf-options.php:89 mcf.php:178
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres de confidentialité"
 
 #: mcf-options-page.php:99
 msgid "Show Labels"
-msgstr ""
+msgstr "Afficher les étiquettes"
 
 #: mcf-options-page.php:102
 msgid "Show labels instead of placeholders."
-msgstr ""
+msgstr "Afficher les étiquettes au lieu des caractères de remplacement."
 
 #: mcf-options-page.php:95
 msgid "Show name and email in one line."
-msgstr ""
+msgstr "Affichez le nom et l'adresse électronique sur une seule ligne."
 
 #: mcf-form.php:151
 msgid "Someone left you a message!"
-msgstr ""
+msgstr "Quelqu'un vous a laissé un message!"
 
 #: mcf-form.php:128
 msgid "Sorry! Please enter a valid phone number."
-msgstr ""
+msgstr "Désolé! Veuillez entrer un numéro de téléphone valide."
 
 #: mcf-form.php:127
 msgid "Sorry! Please fill in all required fields correctly."
-msgstr ""
+msgstr "Désolé! Veuillez remplir correctement tous les champs obligatoires."
 
 #: mcf-form.php:181
 msgid "Sorry! Your message couldn't be sent. Please try again later."
 msgstr ""
+"Désolé! Votre message n'a pas pu être envoyé. Veuillez réessayer plus tard."
 
 #: mcf-options-page.php:65
 msgid "Styling"
-msgstr ""
+msgstr "Style"
 
 #: mcf-options-page.php:85 mcf-form.php:37
 msgid "Subject"
-msgstr ""
+msgstr "Sujet"
 
 #: mcf-form.php:112
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #: mcf-form.php:179
 msgid "Thank you for sending us a message! You will hear from us shortly."
-msgstr ""
+msgstr "Merci de nous envoyer un message ! Nous vous contacterons sous peu."
 
 #: mcf-form.php:168
 msgid "The user has agreed to the data collection."
-msgstr ""
+msgstr "L'utilisateur a accepté la collecte de données."
 
 #: mcf-form.php:168
 msgid "The user has not agreed to the data collection."
-msgstr ""
+msgstr "L'utilisateur n'a pas accepté la collecte de données."
 
 #: mcf-options.php:51
 msgid ""
@@ -244,6 +256,10 @@ msgid ""
 "an error, please turn on the PHP mail function. However, the emails will end "
 "up in the recipient's spam folder more likely."
 msgstr ""
+"Le PHPmailer (SMTP) de WordPress devrait être utilisé par défaut. Si vous "
+"rencontrez une erreur, veuillez activer la fonction de messagerie PHP. "
+"Cependant, les courriels aboutiront plus probablement dans le dossier spam "
+"du destinataire."
 
 #: mcf-options.php:49
 msgid ""
@@ -252,37 +268,51 @@ msgid ""
 "passing on data to third parties. In addition, it automatically inserts a "
 "corresponding notice to comply with the requirements of the GDPR."
 msgstr ""
+"Ce plugin a été développé dans un souci de convivialité et utilise des "
+"données qui existent déjà. Il offre des fonctions de sécurité pour empêcher "
+"la réception de spam sans transmettre de données à des tiers. En outre, il "
+"insère automatiquement un avis correspondant pour se conformer aux exigences "
+"du GDPR."
 
 #: mcf-options.php:51
 msgid "To display the form on any WP Post or Page, simply add the shortcode:"
 msgstr ""
+"Pour afficher le formulaire sur n'importe quel billet ou page WP, il suffit "
+"d'ajouter le shortcode:"
 
 #: mcf-options-page.php:41
 msgid "Use an opt-in instead of just informing the visitor about the GDPR."
 msgstr ""
+"Utilisez un opt-in au lieu de simplement informer le visiteur sur le GDPR."
 
 #: mcf-options-page.php:48
 msgid "Use the honeypot mechanism to protect against SPAM emails."
 msgstr ""
+"Utilisez le mécanisme de pot de miel pour vous protéger contre les courriels "
+"de SPAM."
 
 #: mcf-options-page.php:55
 msgid "Use the PHP mail function instead of the WordPress PHP mailer."
-msgstr ""
+msgstr "Utilisez la fonction mail PHP au lieu du mailer PHP de WordPress."
 
 #: mcf-options.php:53
 msgid "Variable"
-msgstr ""
+msgstr "Variable"
 
 #: mcf-options-page.php:109
 msgid "Write your own CSS to alter the styling of the contact form."
 msgstr ""
+"Écrivez votre propre CSS pour modifier le style du formulaire de contact."
 
 #: mcf-options-page.php:33
 #, php-format
 msgid "You have to set a privacy policy page in the %1$s!"
 msgstr ""
+"Vous devez définir une page de politique de confidentialité dans le %1$s!"
 
 #: mcf-form.php:97
 msgid ""
 "Your submitted information will only be processed to respond to your inquiry."
 msgstr ""
+"Les informations que vous avez fournies ne seront traitées que pour répondre "
+"à votre demande."

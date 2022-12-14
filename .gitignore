@@ -3,3 +3,4 @@ deploy.sh
 push.sh
 .synchronize
 rsync.log
+translation.txt

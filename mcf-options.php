@@ -46,19 +46,53 @@ function mcf_add_contextual_help() {
 
   $current_screen = get_current_screen();
 
-  $about = '<p><strong>' . $mcf_plugin . '</strong> ' . esc_html('is a simple, clean and secure contact form.', 'mcf') . '</p><p>' . esc_html('This plugin was developed with usability in mind and uses data that already exists. It provides security features to prevent the receipt of spam without passing on data to third parties. In addition, it automatically inserts a corresponding notice to comply with the requirements of the GDPR.', 'mcf') . '</p>';
+  $about = '<p><strong>' . $mcf_plugin . '</strong> ' . __('is a simple, clean and secure contact form.', 'mcf') . '</p><p>' . __('This plugin was developed with usability in mind and uses data that already exists. It provides security features to prevent the receipt of spam without passing on data to third parties. In addition, it automatically inserts a corresponding notice to comply with the requirements of the GDPR.', 'mcf') . '</p>';
 
-  $settings = '<h4>' . esc_html('About the settings', 'mcf') . '</h4><ul><li>' . esc_html('If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should you tick the relevant checkbox.', 'mcf') . '</li><li>' . esc_html("The WordPress PHPmailer (SMTP) should be used by default. If you encounter an error, please turn on the PHP mail function. However, the emails will end up in the recipient's spam folder more likely.", 'mcf') . '</li><li>' . esc_html('To display the form on any WP Post or Page, simply add the shortcode:', 'mcf') . ' <code>[minimal_contact_form]</code>.</li></ul>';
+  $settings = '<h4>' . __('About the settings', 'mcf') . '</h4><ul><li>' . __('If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should you tick the relevant checkbox.', 'mcf') . '</li><li>' . __("The WordPress PHPmailer (SMTP) should be used by default. If you encounter an error, please turn on the PHP mail function. However, the emails will end up in the recipient's spam folder more likely.", 'mcf') . '</li><li>' . __('To display the form on any WP Post or Page, simply add the shortcode:', 'mcf') . ' <code>[minimal_contact_form]</code>.</li></ul>';
+
+  $variables = '<h4>' . __('CSS Variables', 'mcf') . '</h4><p>' . __('Instead of writing pure CSS you can use predefined CSS variables to style your form. Please choose some of the following variables:', 'mcf') . '</p><table class="variables"><thead><tr><th>' . __('Variable', 'mcf') . '</th><th>' .__('Default', 'mcf') .'</th></tr></thead><tbody>';
+
+  $variables .= '<tr class="headline"><td colspan="2">' . __('General', 'mcf') . '</td></tr>';
+  $variables .= '<tr><td><code>--mcf-text-color</code></td><td>#ccc</td></tr>';
+  $variables .= '<tr><td><code>--mcf-placeholder-color</code></td><td>#999</td></tr>';
+  $variables .= '<tr><td><code>--mcf-border-color</code></td><td>#bbb</td></tr>';
+  $variables .= '<tr><td><code>--mcf-border-radius</code></td><td>0.25rem</td></tr>';
+  $variables .= '<tr><td><code>--mcf-checkbox-color</code></td><td>#dc3232</td></tr>';
+  $variables .= '<tr><td><code>--mcf-success-color</code></td><td>#46b450</td></tr>';
+  $variables .= '<tr><td><code>--mcf-warning-color</code></td><td>#ffb900</td></tr>';
+  $variables .= '<tr><td><code>--mcf-error-color</code></td><td>#dc3232</td></tr>';
+  $variables .= '<tr><td><code>--mcf-gdpr-font-size</code></td><td>1rem</td></tr>';
+  $variables .= '<tr><td><code>--mcf-desktop-max-width</code></td><td>36em</td></tr>';
+  $variables .= '<tr class="headline"><td colspan="2">' . __('Item', 'mcf') . '</td></tr>';
+  $variables .= '<tr><td><code>--mcf-item-background-color</code></td><td>#fff</td></tr>';
+  $variables .= '<tr><td><code>--mcf-item-padding</code></td><td>1rem</td></tr>';
+  $variables .= '<tr><td><code>--mcf-item-spacing</code></td><td>1.5rem</td></tr>';
+  $variables .= '<tr class="headline"><td colspan="2">' . __('Label', 'mcf') . '</td></tr>';
+  $variables .= '<tr><td><code>--mcf-label-font-size</code></td><td>inherit</td></tr>';
+  $variables .= '<tr><td><code>--mcf-label-font-weight</code></td><td>inherit</td></tr>';
+  $variables .= '<tr class="headline"><td colspan="2">' . __('Button', 'mcf') . '</td></tr>';
+  $variables .= '<tr><td><code>--mcf-button-color</code></td><td>#fff</td></tr>';
+  $variables .= '<tr><td><code>--mcf-button-hover-color</code></td><td>#fff</td></tr>';
+  $variables .= '<tr><td><code>--mcf-button-background-color</code></td><td>#222</td></tr>';
+  $variables .= '<tr><td><code>--mcf-button-background-hover-color</code></td><td>#555</td></tr>';
+  $variables .= '<tr><td><code>--mcf-button-padding</code></td><td>1rem 2rem</td></tr>';
+  $variables .= '<tr><td><code>--mcf-button-font-weight</code></td><td>700</td></tr>';
+  $variables .= '</tbody></table>';
 
   $current_screen->add_help_tab(array(
     'id' => 'mcf-about-help-tab',
-    'title' => __('About'),
+    'title' => __('About', 'mcf'),
     'content' => $about
   ));
   $current_screen->add_help_tab(array(
     'id' => 'mcf-settings-help-tab',
-    'title' => __('Settings'),
+    'title' => __('Settings', 'mcf'),
     'content' => $settings
+  ));
+  $current_screen->add_help_tab(array(
+    'id' => 'mcf-variables-help-tab',
+    'title' => __('CSS Variables', 'mcf'),
+    'content' => $variables
   ));
 }
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Minimal Contact Form\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-24 11:48+0000\n"
-"PO-Revision-Date: 2022-08-31 14:47+0000\n"
+"PO-Revision-Date: 2022-12-13 18:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch (Sie)\n"
 "Language: de_DE_formal\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Template: languages/mcf-de_DE.po\n"
-"X-Loco-Version: 2.6.2; wp-6.1-alpha-53960"
+"X-Loco-Version: 2.6.3; wp-6.2-alpha-54960"
 
 #: mcf-form.php:94
 msgid "*"
@@ -24,6 +24,14 @@ msgid "A WordPress Plugin for a simple, clean and secure contact form."
 msgstr ""
 "Ein WordPress Plugin für ein einfaches, übersichtliches und sicheres "
 "Kontaktformular."
+
+#: mcf-options.php:84
+msgid "About"
+msgstr "Über"
+
+#: mcf-options.php:51
+msgid "About the settings"
+msgstr "Über die Einstellungen"
 
 #: mcf-options-page.php:81
 msgid "Add a phone number field to the contact form."
@@ -37,13 +45,25 @@ msgstr "Adresse"
 msgid "Antispam"
 msgstr "Antispam"
 
+#: mcf-options.php:73
+msgid "Button"
+msgstr "Button"
+
 #: mcf-options.php:16
 msgid "Contact Form"
 msgstr "Kontaktformular"
 
+#: mcf-options.php:53 mcf-options.php:94
+msgid "CSS Variables"
+msgstr "CSS-Variablen"
+
 #: mcf-options-page.php:106
 msgid "Custom CSS"
 msgstr "Eigenes CSS"
+
+#: mcf-options.php:53
+msgid "Default"
+msgstr "Ausgangswert"
 
 #: mcf-form.php:34
 msgid "Email Address"
@@ -56,6 +76,10 @@ msgstr "Für weitere Informationen besuchen Sie bitte unsere"
 #: mcf-options-page.php:38
 msgid "GDPR"
 msgstr "DSGVO"
+
+#: mcf-options.php:55
+msgid "General"
+msgstr "Allgemein"
 
 #: mcf-options-page.php:88
 msgid "Hide the subject item."
@@ -76,6 +100,37 @@ msgid ""
 msgstr ""
 "Ich bin damit einverstanden, dass meine Angaben verarbeitet werden, damit "
 "auf meine Anfrage geantwortet werden kann."
+
+#: mcf-options.php:51
+msgid ""
+"If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you "
+"do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should "
+"you tick the relevant checkbox."
+msgstr ""
+"Wenn Sie in Ihrer Datenschutzerklärung auf Art. 6 Abs. 1 lit. b oder lit. f "
+"DSGVO verweisen, benötigen Sie keinen Opt-in. Nur wenn Sie auf Art. 6 Abs. 1 "
+"lit. a DSGVO verweisen, sollten Sie das entsprechende Kästchen ankreuzen."
+
+#: mcf-options.php:53
+msgid ""
+"Instead of writing pure CSS you can use predefined CSS variables to style "
+"your form. Please choose some of the following variables:"
+msgstr ""
+"Anstatt reines CSS zu schreiben, können Sie vordefinierte CSS-Variablen "
+"verwenden, um Ihr Formular zu gestalten. Bitte wählen Sie einige der "
+"folgenden Variablen aus:"
+
+#: mcf-options.php:49
+msgid "is a simple, clean and secure contact form."
+msgstr "ist ein einfaches, sauberes und sicheres Kontaktformular."
+
+#: mcf-options.php:66
+msgid "Item"
+msgstr "Element"
+
+#: mcf-options.php:70
+msgid "Label"
+msgstr "Label"
 
 #: mcf-options-page.php:92
 msgid "Layout"
@@ -139,7 +194,7 @@ msgid "Select the administrator or editor who should receive the emails."
 msgstr ""
 "Wählen Sie den Administrator oder Redakteur, der die E-Mails erhalten soll."
 
-#: mcf.php:178
+#: mcf-options.php:89 mcf.php:178
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -197,6 +252,35 @@ msgstr "Der Nutzer hat der Datenerhebung zugestimmt."
 msgid "The user has not agreed to the data collection."
 msgstr "Der Nutzer hat der Datenerhebung nicht zugestimmt."
 
+#: mcf-options.php:51
+msgid ""
+"The WordPress PHPmailer (SMTP) should be used by default. If you encounter "
+"an error, please turn on the PHP mail function. However, the emails will end "
+"up in the recipient's spam folder more likely."
+msgstr ""
+"Der WordPress PHPmailer (SMTP) sollte standardmäßig verwendet werden. Wenn "
+"Sie auf einen Fehler stoßen, schalten Sie bitte die PHP-Mail-Funktion ein. "
+"Allerdings werden die E-Mails dann eher im Spam-Ordner des Empfängers landen."
+
+#: mcf-options.php:49
+msgid ""
+"This plugin was developed with usability in mind and uses data that already "
+"exists. It provides security features to prevent the receipt of spam without "
+"passing on data to third parties. In addition, it automatically inserts a "
+"corresponding notice to comply with the requirements of the GDPR."
+msgstr ""
+"Dieses Plugin wurde unter dem Gesichtspunkt der Benutzerfreundlichkeit "
+"entwickelt und verwendet bereits vorhandene Daten. Es bietet "
+"Sicherheitsfunktionen, um den Empfang von Spam zu verhindern, ohne Daten an "
+"Dritte weiterzugeben. Darüber hinaus fügt es automatisch einen "
+"entsprechenden Hinweis ein, um die Anforderungen der DSGVO zu erfüllen."
+
+#: mcf-options.php:51
+msgid "To display the form on any WP Post or Page, simply add the shortcode:"
+msgstr ""
+"Um das Formular in einem WP-Beitrag oder einer WP-Seite anzuzeigen, fügen "
+"Sie einfach den Shortcode hinzu:"
+
 #: mcf-options-page.php:41
 msgid "Use an opt-in instead of just informing the visitor about the GDPR."
 msgstr ""
@@ -210,6 +294,10 @@ msgstr ""
 #: mcf-options-page.php:55
 msgid "Use the PHP mail function instead of the WordPress PHP mailer."
 msgstr "Die PHP-Mail-Funktion anstatt des WordPress-PHP-Mailers verwenden."
+
+#: mcf-options.php:53
+msgid "Variable"
+msgstr "Variable"
 
 #: mcf-options-page.php:109
 msgid "Write your own CSS to alter the styling of the contact form."

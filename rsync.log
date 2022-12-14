@@ -1121,3 +1121,809 @@
 2022/09/12 09:58:24 [24678] .d..t.... .git/
 2022/09/12 09:58:24 [24678] sent 5.47K bytes  received 652 bytes  12.24K bytes/sec
 2022/09/12 09:58:24 [24678] total size is 1.42M  speedup is 231.65
+2022/12/13 09:10:47 [79035] building file list
+2022/12/13 09:10:47 [79035] 192 files to consider
+2022/12/13 09:10:47 [79035] <f.st.... .DS_Store
+2022/12/13 09:10:47 [79035] <f.st.... rsync.log
+2022/12/13 09:10:47 [79035] .d..t.... .git/
+2022/12/13 09:10:47 [79035] <f.st.... .git/COMMIT_EDITMSG
+2022/12/13 09:10:47 [79035] <f..t.... .git/index
+2022/12/13 09:10:47 [79035] <f.st.... .git/logs/HEAD
+2022/12/13 09:10:47 [79035] <f.st.... .git/logs/refs/heads/master
+2022/12/13 09:10:47 [79035] <f.st.... .git/logs/refs/remotes/origin/master
+2022/12/13 09:10:47 [79035] .d..t.... .git/objects/
+2022/12/13 09:10:47 [79035] cd+++++++ .git/objects/0f/
+2022/12/13 09:10:48 [79035] <f+++++++ .git/objects/0f/849ffc0f261e6ca3a771584e71a33cc6e1f966
+2022/12/13 09:10:48 [79035] cd+++++++ .git/objects/25/
+2022/12/13 09:10:48 [79035] <f+++++++ .git/objects/25/9488f0d41a69d679df3db3e1292245ffd10524
+2022/12/13 09:10:48 [79035] cd+++++++ .git/objects/6f/
+2022/12/13 09:10:48 [79035] <f+++++++ .git/objects/6f/c278f6f5a3dbded3f7171dc7527c69ea72dddf
+2022/12/13 09:10:48 [79035] cd+++++++ .git/objects/89/
+2022/12/13 09:10:48 [79035] <f+++++++ .git/objects/89/6563be59185d3b632a05f5aa53f39caee33d23
+2022/12/13 09:10:48 [79035] cd+++++++ .git/objects/d6/
+2022/12/13 09:10:48 [79035] <f+++++++ .git/objects/d6/d7ca4a1c46590993ffbda25ff642da1a895400
+2022/12/13 09:10:48 [79035] cd+++++++ .git/objects/f3/
+2022/12/13 09:10:48 [79035] <f+++++++ .git/objects/f3/d464cecb35944221746e54ab22d9179eb2c18c
+2022/12/13 09:10:48 [79035] .d..t.... .git/refs/heads/
+2022/12/13 09:10:48 [79035] <f..t.... .git/refs/heads/master
+2022/12/13 09:10:48 [79035] .d..t.... .git/refs/remotes/origin/
+2022/12/13 09:10:48 [79035] <f..t.... .git/refs/remotes/origin/master
+2022/12/13 09:10:48 [79035] .d..t.... languages/
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-es_ES.mo
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-es_ES.po
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-fr_FR.mo
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-fr_FR.po
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-it_IT.mo
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-it_IT.po
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-ru_RU.mo
+2022/12/13 09:10:48 [79035] <f+++++++ languages/mcf-ru_RU.po
+2022/12/13 09:10:48 [79035] sent 36.63K bytes  received 1.27K bytes  25.27K bytes/sec
+2022/12/13 09:10:48 [79035] total size is 1.47M  speedup is 38.68
+2022/12/13 10:20:47 [80792] building file list
+2022/12/13 10:20:47 [80792] 192 files to consider
+2022/12/13 10:20:47 [80792] *deleting languages/mcf-es_ES-backup-202212130902100.po~
+2022/12/13 10:20:47 [80792] <f.st.... mcf-form.php
+2022/12/13 10:20:47 [80792] <f.st.... rsync.log
+2022/12/13 10:20:47 [80792] .d..t.... .git/
+2022/12/13 10:20:47 [80792] .d..t.... languages/
+2022/12/13 10:20:47 [80792] <f..t.... languages/mcf-es_ES.mo
+2022/12/13 10:20:47 [80792] <f..t.... languages/mcf-es_ES.po
+2022/12/13 10:20:47 [80792] sent 6.43K bytes  received 828 bytes  14.52K bytes/sec
+2022/12/13 10:20:47 [80792] total size is 1.47M  speedup is 202.77
+2022/12/13 10:29:58 [81160] building file list
+2022/12/13 10:29:58 [81160] 194 files to consider
+2022/12/13 10:29:58 [81160] .d..t.... ./
+2022/12/13 10:29:58 [81160] <f..t.... .DS_Store
+2022/12/13 10:29:58 [81160] <f.st.... rsync.log
+2022/12/13 10:29:58 [81160] .d..t.... .git/
+2022/12/13 10:29:58 [81160] <f.st.... css/style.css
+2022/12/13 10:29:58 [81160] cd+++++++ img/
+2022/12/13 10:29:58 [81160] <f+++++++ img/uncheck-switcher.svg
+2022/12/13 10:29:58 [81160] sent 7.02K bytes  received 792 bytes  15.62K bytes/sec
+2022/12/13 10:29:58 [81160] total size is 1.47M  speedup is 188.69
+2022/12/13 10:31:57 [81305] building file list
+2022/12/13 10:31:57 [81305] 194 files to consider
+2022/12/13 10:31:57 [81305] <f.st.... rsync.log
+2022/12/13 10:31:57 [81305] .d..t.... .git/
+2022/12/13 10:31:57 [81305] <f..t.... css/style.css
+2022/12/13 10:31:57 [81305] sent 6.01K bytes  received 670 bytes  4.45K bytes/sec
+2022/12/13 10:31:57 [81305] total size is 1.47M  speedup is 220.83
+2022/12/13 10:32:56 [81419] building file list
+2022/12/13 10:32:56 [81419] 194 files to consider
+2022/12/13 10:32:56 [81419] <f.st.... rsync.log
+2022/12/13 10:32:56 [81419] .d..t.... .git/
+2022/12/13 10:32:56 [81419] <f.st.... css/style.css
+2022/12/13 10:32:56 [81419] sent 5.94K bytes  received 676 bytes  4.41K bytes/sec
+2022/12/13 10:32:56 [81419] total size is 1.47M  speedup is 222.79
+2022/12/13 10:35:52 [81588] building file list
+2022/12/13 10:35:52 [81588] 194 files to consider
+2022/12/13 10:35:52 [81588] <f.st.... rsync.log
+2022/12/13 10:35:52 [81588] .d..t.... .git/
+2022/12/13 10:35:52 [81588] <f.st.... css/style.css
+2022/12/13 10:35:52 [81588] sent 6.23K bytes  received 676 bytes  4.60K bytes/sec
+2022/12/13 10:35:52 [81588] total size is 1.48M  speedup is 213.72
+2022/12/13 10:38:02 [81734] building file list
+2022/12/13 10:38:02 [81734] 194 files to consider
+2022/12/13 10:38:02 [81734] <f.st.... rsync.log
+2022/12/13 10:38:02 [81734] .d..t.... .git/
+2022/12/13 10:38:02 [81734] <f.st.... css/style.css
+2022/12/13 10:38:02 [81734] sent 6.04K bytes  received 682 bytes  4.48K bytes/sec
+2022/12/13 10:38:02 [81734] total size is 1.48M  speedup is 219.73
+2022/12/13 10:41:42 [81906] building file list
+2022/12/13 10:41:42 [81906] 194 files to consider
+2022/12/13 10:41:42 [81906] <f.st.... rsync.log
+2022/12/13 10:41:42 [81906] .d..t.... .git/
+2022/12/13 10:41:42 [81906] <f.st.... css/style.css
+2022/12/13 10:41:42 [81906] sent 5.92K bytes  received 694 bytes  13.22K bytes/sec
+2022/12/13 10:41:42 [81906] total size is 1.48M  speedup is 223.35
+2022/12/13 10:42:37 [82020] building file list
+2022/12/13 10:42:37 [82020] 194 files to consider
+2022/12/13 10:42:37 [82020] <f.st.... rsync.log
+2022/12/13 10:42:37 [82020] .d..t.... .git/
+2022/12/13 10:42:37 [82020] <f..t.... css/style.css
+2022/12/13 10:42:37 [82020] sent 5.73K bytes  received 694 bytes  12.86K bytes/sec
+2022/12/13 10:42:37 [82020] total size is 1.48M  speedup is 229.73
+2022/12/13 10:44:49 [82164] building file list
+2022/12/13 10:44:49 [82164] 194 files to consider
+2022/12/13 10:44:49 [82164] <f.st.... rsync.log
+2022/12/13 10:44:49 [82164] .d..t.... .git/
+2022/12/13 10:44:49 [82164] <f.st.... css/style.css
+2022/12/13 10:44:49 [82164] sent 6.09K bytes  received 700 bytes  13.59K bytes/sec
+2022/12/13 10:44:49 [82164] total size is 1.48M  speedup is 217.45
+2022/12/13 10:45:48 [82277] building file list
+2022/12/13 10:45:48 [82277] 194 files to consider
+2022/12/13 10:45:48 [82277] <f.st.... rsync.log
+2022/12/13 10:45:48 [82277] .d..t.... .git/
+2022/12/13 10:45:48 [82277] <f.st.... css/style.css
+2022/12/13 10:45:48 [82277] sent 5.98K bytes  received 700 bytes  4.46K bytes/sec
+2022/12/13 10:45:48 [82277] total size is 1.48M  speedup is 221.06
+2022/12/13 10:47:11 [82409] building file list
+2022/12/13 10:47:11 [82409] 194 files to consider
+2022/12/13 10:47:11 [82409] <f.st.... rsync.log
+2022/12/13 10:47:11 [82409] .d..t.... .git/
+2022/12/13 10:47:11 [82409] <f.st.... css/style.css
+2022/12/13 10:47:11 [82409] sent 5.91K bytes  received 706 bytes  4.41K bytes/sec
+2022/12/13 10:47:11 [82409] total size is 1.48M  speedup is 223.56
+2022/12/13 10:57:24 [82731] building file list
+2022/12/13 10:57:24 [82731] 194 files to consider
+2022/12/13 10:57:24 [82731] <f.st.... rsync.log
+2022/12/13 10:57:24 [82731] .d..t.... .git/
+2022/12/13 10:57:24 [82731] <f.st.... css/style.css
+2022/12/13 10:57:24 [82731] sent 6.27K bytes  received 706 bytes  4.65K bytes/sec
+2022/12/13 10:57:24 [82731] total size is 1.48M  speedup is 211.77
+2022/12/13 10:58:43 [82851] building file list
+2022/12/13 10:58:43 [82851] 194 files to consider
+2022/12/13 10:58:43 [82851] <f.st.... rsync.log
+2022/12/13 10:58:43 [82851] .d..t.... .git/
+2022/12/13 10:58:43 [82851] <f.st.... css/style.css
+2022/12/13 10:58:43 [82851] sent 6.01K bytes  received 706 bytes  4.48K bytes/sec
+2022/12/13 10:58:43 [82851] total size is 1.48M  speedup is 220.12
+2022/12/13 11:01:38 [83007] building file list
+2022/12/13 11:01:38 [83007] 194 files to consider
+2022/12/13 11:01:38 [83007] <f.st.... rsync.log
+2022/12/13 11:01:38 [83007] .d..t.... .git/
+2022/12/13 11:01:38 [83007] <f.st.... css/style.css
+2022/12/13 11:01:38 [83007] sent 6.01K bytes  received 712 bytes  13.44K bytes/sec
+2022/12/13 11:01:38 [83007] total size is 1.48M  speedup is 220.02
+2022/12/13 11:03:49 [83144] building file list
+2022/12/13 11:03:49 [83144] 194 files to consider
+2022/12/13 11:03:49 [83144] <f.st.... rsync.log
+2022/12/13 11:03:49 [83144] .d..t.... .git/
+2022/12/13 11:03:49 [83144] <f.st.... css/style.css
+2022/12/13 11:03:49 [83144] sent 5.95K bytes  received 718 bytes  13.33K bytes/sec
+2022/12/13 11:03:49 [83144] total size is 1.48M  speedup is 221.99
+2022/12/13 11:05:54 [83281] building file list
+2022/12/13 11:05:54 [83281] 194 files to consider
+2022/12/13 11:05:54 [83281] <f.st.... rsync.log
+2022/12/13 11:05:54 [83281] .d..t.... .git/
+2022/12/13 11:05:54 [83281] <f.st.... css/style.css
+2022/12/13 11:05:54 [83281] sent 5.92K bytes  received 724 bytes  4.43K bytes/sec
+2022/12/13 11:05:54 [83281] total size is 1.48M  speedup is 222.72
+2022/12/13 11:10:59 [83485] building file list
+2022/12/13 11:10:59 [83485] 194 files to consider
+2022/12/13 11:10:59 [83485] <f.st.... rsync.log
+2022/12/13 11:10:59 [83485] .d..t.... .git/
+2022/12/13 11:10:59 [83485] <f.st.... css/style.css
+2022/12/13 11:10:59 [83485] sent 6.00K bytes  received 724 bytes  13.45K bytes/sec
+2022/12/13 11:10:59 [83485] total size is 1.48M  speedup is 220.14
+2022/12/13 11:11:39 [83592] building file list
+2022/12/13 11:11:39 [83592] 194 files to consider
+2022/12/13 11:11:39 [83592] <f.st.... rsync.log
+2022/12/13 11:11:39 [83592] .d..t.... .git/
+2022/12/13 11:11:39 [83592] <f.st.... css/style.css
+2022/12/13 11:11:39 [83592] sent 5.95K bytes  received 730 bytes  13.36K bytes/sec
+2022/12/13 11:11:39 [83592] total size is 1.48M  speedup is 221.65
+2022/12/13 12:37:59 [85713] building file list
+2022/12/13 12:37:59 [85713] 194 files to consider
+2022/12/13 12:37:59 [85713] <f.st.... mcf-form.php
+2022/12/13 12:37:59 [85713] <f.st.... rsync.log
+2022/12/13 12:37:59 [85713] .d..t.... .git/
+2022/12/13 12:37:59 [85713] sent 6.16K bytes  received 760 bytes  13.85K bytes/sec
+2022/12/13 12:37:59 [85713] total size is 1.48M  speedup is 213.92
+2022/12/13 12:38:47 [85821] building file list
+2022/12/13 12:38:47 [85821] 194 files to consider
+2022/12/13 12:38:47 [85821] <f.st.... rsync.log
+2022/12/13 12:38:47 [85821] .d..t.... .git/
+2022/12/13 12:38:47 [85821] <f.st.... css/style.css
+2022/12/13 12:38:47 [85821] sent 5.86K bytes  received 736 bytes  13.19K bytes/sec
+2022/12/13 12:38:47 [85821] total size is 1.48M  speedup is 224.54
+2022/12/13 12:39:23 [85930] building file list
+2022/12/13 12:39:23 [85930] 194 files to consider
+2022/12/13 12:39:23 [85930] <f.st.... rsync.log
+2022/12/13 12:39:23 [85930] .d..t.... .git/
+2022/12/13 12:39:23 [85930] <f..t.... css/style.css
+2022/12/13 12:39:23 [85930] sent 6.21K bytes  received 736 bytes  13.88K bytes/sec
+2022/12/13 12:39:23 [85930] total size is 1.48M  speedup is 213.44
+2022/12/13 12:42:57 [86101] building file list
+2022/12/13 12:42:57 [86101] 194 files to consider
+2022/12/13 12:42:57 [86101] <f.st.... rsync.log
+2022/12/13 12:42:57 [86101] .d..t.... .git/
+2022/12/13 12:42:57 [86101] <f.st.... css/style.css
+2022/12/13 12:42:57 [86101] sent 6.20K bytes  received 742 bytes  4.62K bytes/sec
+2022/12/13 12:42:57 [86101] total size is 1.48M  speedup is 213.65
+2022/12/13 12:47:56 [86321] building file list
+2022/12/13 12:47:56 [86321] 194 files to consider
+2022/12/13 12:47:56 [86321] <f.st.... rsync.log
+2022/12/13 12:47:56 [86321] .d..t.... .git/
+2022/12/13 12:47:56 [86321] <f.st.... css/style.css
+2022/12/13 12:47:56 [86321] sent 6.14K bytes  received 742 bytes  13.76K bytes/sec
+2022/12/13 12:47:56 [86321] total size is 1.48M  speedup is 215.49
+2022/12/13 13:04:43 [86929] building file list
+2022/12/13 13:04:43 [86929] 194 files to consider
+2022/12/13 13:04:43 [86929] <f.st.... rsync.log
+2022/12/13 13:04:43 [86929] .d..t.... .git/
+2022/12/13 13:04:43 [86929] <f.st.... css/style.css
+2022/12/13 13:04:43 [86929] sent 5.94K bytes  received 748 bytes  4.46K bytes/sec
+2022/12/13 13:04:43 [86929] total size is 1.48M  speedup is 221.74
+2022/12/13 13:08:41 [87109] building file list
+2022/12/13 13:08:41 [87109] 194 files to consider
+2022/12/13 13:08:41 [87109] <f.st.... rsync.log
+2022/12/13 13:08:41 [87109] .d..t.... .git/
+2022/12/13 13:08:41 [87109] <f.st.... css/style.css
+2022/12/13 13:08:41 [87109] sent 5.88K bytes  received 754 bytes  4.42K bytes/sec
+2022/12/13 13:08:41 [87109] total size is 1.48M  speedup is 223.83
+2022/12/13 13:11:23 [87269] building file list
+2022/12/13 13:11:23 [87269] 194 files to consider
+2022/12/13 13:11:23 [87269] <f.st.... mcf-form.php
+2022/12/13 13:11:23 [87269] <f.st.... rsync.log
+2022/12/13 13:11:23 [87269] .d..t.... .git/
+2022/12/13 13:11:23 [87269] <f.st.... css/style.css
+2022/12/13 13:11:23 [87269] sent 6.29K bytes  received 842 bytes  4.75K bytes/sec
+2022/12/13 13:11:23 [87269] total size is 1.48M  speedup is 208.21
+2022/12/13 13:14:04 [87423] building file list
+2022/12/13 13:14:04 [87423] 194 files to consider
+2022/12/13 13:14:04 [87423] <f.st.... rsync.log
+2022/12/13 13:14:04 [87423] .d..t.... .git/
+2022/12/13 13:14:04 [87423] <f.st.... css/style.css
+2022/12/13 13:14:04 [87423] sent 6.05K bytes  received 760 bytes  13.62K bytes/sec
+2022/12/13 13:14:04 [87423] total size is 1.48M  speedup is 218.07
+2022/12/13 13:15:13 [87549] building file list
+2022/12/13 13:15:13 [87549] 194 files to consider
+2022/12/13 13:15:13 [87549] <f.st.... rsync.log
+2022/12/13 13:15:13 [87549] .d..t.... .git/
+2022/12/13 13:15:13 [87549] <f.st.... css/style.css
+2022/12/13 13:15:13 [87549] sent 5.95K bytes  received 766 bytes  13.43K bytes/sec
+2022/12/13 13:15:13 [87549] total size is 1.49M  speedup is 221.09
+2022/12/13 13:16:44 [87673] building file list
+2022/12/13 13:16:44 [87673] 194 files to consider
+2022/12/13 13:16:44 [87673] <f.st.... rsync.log
+2022/12/13 13:16:44 [87673] .d..t.... .git/
+2022/12/13 13:16:44 [87673] <f.st.... css/style.css
+2022/12/13 13:16:44 [87673] sent 5.91K bytes  received 772 bytes  4.45K bytes/sec
+2022/12/13 13:16:44 [87673] total size is 1.49M  speedup is 222.41
+2022/12/13 15:08:08 [90582] building file list
+2022/12/13 15:08:08 [90582] 194 files to consider
+2022/12/13 15:08:08 [90582] <f.st.... rsync.log
+2022/12/13 15:08:08 [90582] .d..t.... .git/
+2022/12/13 15:08:08 [90582] <f.st.... css/style.css
+2022/12/13 15:08:08 [90582] sent 5.94K bytes  received 772 bytes  13.42K bytes/sec
+2022/12/13 15:08:08 [90582] total size is 1.49M  speedup is 221.37
+2022/12/13 15:14:53 [90811] building file list
+2022/12/13 15:14:53 [90811] 194 files to consider
+2022/12/13 15:14:53 [90811] <f.st.... rsync.log
+2022/12/13 15:14:53 [90811] .d..t.... .git/
+2022/12/13 15:14:53 [90811] <f.st.... css/style.css
+2022/12/13 15:14:53 [90811] sent 5.92K bytes  received 778 bytes  4.47K bytes/sec
+2022/12/13 15:14:53 [90811] total size is 1.49M  speedup is 221.86
+2022/12/13 15:15:28 [90924] building file list
+2022/12/13 15:15:28 [90924] 194 files to consider
+2022/12/13 15:15:28 [90924] <f.st.... rsync.log
+2022/12/13 15:15:28 [90924] .d..t.... .git/
+2022/12/13 15:15:28 [90924] <f.st.... css/style.css
+2022/12/13 15:15:28 [90924] sent 5.87K bytes  received 784 bytes  4.43K bytes/sec
+2022/12/13 15:15:28 [90924] total size is 1.49M  speedup is 223.56
+2022/12/13 15:16:18 [91038] building file list
+2022/12/13 15:16:18 [91038] 194 files to consider
+2022/12/13 15:16:18 [91038] <f.st.... rsync.log
+2022/12/13 15:16:18 [91038] .d..t.... .git/
+2022/12/13 15:16:18 [91038] <f.st.... css/style.css
+2022/12/13 15:16:18 [91038] sent 5.92K bytes  received 784 bytes  13.40K bytes/sec
+2022/12/13 15:16:18 [91038] total size is 1.49M  speedup is 221.92
+2022/12/13 15:18:01 [91170] building file list
+2022/12/13 15:18:01 [91170] 194 files to consider
+2022/12/13 15:18:01 [91170] <f.st.... rsync.log
+2022/12/13 15:18:01 [91170] .d..t.... .git/
+2022/12/13 15:18:01 [91170] <f.st.... css/style.css
+2022/12/13 15:18:01 [91170] sent 6.04K bytes  received 790 bytes  4.55K bytes/sec
+2022/12/13 15:18:01 [91170] total size is 1.49M  speedup is 217.82
+2022/12/13 15:20:01 [91304] building file list
+2022/12/13 15:20:01 [91304] 194 files to consider
+2022/12/13 15:20:01 [91304] <f.st.... rsync.log
+2022/12/13 15:20:01 [91304] .d..t.... .git/
+2022/12/13 15:20:01 [91304] <f.st.... css/style.css
+2022/12/13 15:20:01 [91304] sent 5.91K bytes  received 790 bytes  4.47K bytes/sec
+2022/12/13 15:20:01 [91304] total size is 1.49M  speedup is 221.97
+2022/12/13 15:22:54 [91450] building file list
+2022/12/13 15:22:54 [91450] 194 files to consider
+2022/12/13 15:22:54 [91450] <f.st.... rsync.log
+2022/12/13 15:22:54 [91450] .d..t.... .git/
+2022/12/13 15:22:54 [91450] <f.st.... css/style.css
+2022/12/13 15:22:54 [91450] sent 5.90K bytes  received 796 bytes  13.39K bytes/sec
+2022/12/13 15:22:54 [91450] total size is 1.49M  speedup is 222.23
+2022/12/13 15:35:24 [91815] building file list
+2022/12/13 15:35:24 [91815] 194 files to consider
+2022/12/13 15:35:24 [91815] <f.st.... rsync.log
+2022/12/13 15:35:24 [91815] .d..t.... .git/
+2022/12/13 15:35:24 [91815] <f..t.... css/style.css
+2022/12/13 15:35:24 [91815] sent 5.95K bytes  received 796 bytes  4.50K bytes/sec
+2022/12/13 15:35:24 [91815] total size is 1.49M  speedup is 220.74
+2022/12/13 15:36:47 [91933] building file list
+2022/12/13 15:36:47 [91933] 194 files to consider
+2022/12/13 15:36:47 [91933] <f.st.... rsync.log
+2022/12/13 15:36:47 [91933] .d..t.... .git/
+2022/12/13 15:36:47 [91933] <f.st.... css/style.css
+2022/12/13 15:36:47 [91933] sent 6.06K bytes  received 802 bytes  13.72K bytes/sec
+2022/12/13 15:36:47 [91933] total size is 1.49M  speedup is 217.12
+2022/12/13 15:43:19 [92189] building file list
+2022/12/13 15:43:19 [92189] 194 files to consider
+2022/12/13 15:43:19 [92189] <f.st.... rsync.log
+2022/12/13 15:43:19 [92189] .d..t.... .git/
+2022/12/13 15:43:19 [92189] <f.st.... css/style.css
+2022/12/13 15:43:19 [92189] sent 5.94K bytes  received 802 bytes  4.50K bytes/sec
+2022/12/13 15:43:19 [92189] total size is 1.49M  speedup is 220.85
+2022/12/13 15:44:29 [92307] building file list
+2022/12/13 15:44:29 [92307] 194 files to consider
+2022/12/13 15:44:29 [92307] <f.st.... rsync.log
+2022/12/13 15:44:29 [92307] .d..t.... .git/
+2022/12/13 15:44:29 [92307] <f.st.... css/style.css
+2022/12/13 15:44:29 [92307] sent 5.90K bytes  received 808 bytes  4.47K bytes/sec
+2022/12/13 15:44:29 [92307] total size is 1.49M  speedup is 222.03
+2022/12/13 15:45:25 [92422] building file list
+2022/12/13 15:45:25 [92422] 194 files to consider
+2022/12/13 15:45:25 [92422] <f.st.... rsync.log
+2022/12/13 15:45:25 [92422] .d..t.... .git/
+2022/12/13 15:45:25 [92422] <f.st.... css/style.css
+2022/12/13 15:45:25 [92422] sent 5.85K bytes  received 814 bytes  13.33K bytes/sec
+2022/12/13 15:45:25 [92422] total size is 1.49M  speedup is 223.55
+2022/12/13 15:46:38 [92540] building file list
+2022/12/13 15:46:38 [92540] 194 files to consider
+2022/12/13 15:46:38 [92540] <f.st.... rsync.log
+2022/12/13 15:46:38 [92540] .d..t.... .git/
+2022/12/13 15:46:38 [92540] <f.st.... css/style.css
+2022/12/13 15:46:38 [92540] sent 5.89K bytes  received 814 bytes  4.47K bytes/sec
+2022/12/13 15:46:38 [92540] total size is 1.49M  speedup is 222.27
+2022/12/13 15:49:04 [92690] building file list
+2022/12/13 15:49:04 [92690] 194 files to consider
+2022/12/13 15:49:04 [92690] <f.st.... rsync.log
+2022/12/13 15:49:04 [92690] .d..t.... .git/
+2022/12/13 15:49:04 [92690] <f.st.... css/style.css
+2022/12/13 15:49:04 [92690] sent 6.08K bytes  received 820 bytes  13.79K bytes/sec
+2022/12/13 15:49:04 [92690] total size is 1.49M  speedup is 216.23
+2022/12/13 15:50:03 [92801] building file list
+2022/12/13 15:50:03 [92801] 194 files to consider
+2022/12/13 15:50:03 [92801] <f.st.... rsync.log
+2022/12/13 15:50:03 [92801] .d..t.... .git/
+2022/12/13 15:50:03 [92801] <f.st.... css/style.css
+2022/12/13 15:50:03 [92801] sent 5.93K bytes  received 820 bytes  13.51K bytes/sec
+2022/12/13 15:50:03 [92801] total size is 1.49M  speedup is 220.77
+2022/12/13 15:51:59 [92932] building file list
+2022/12/13 15:51:59 [92932] 194 files to consider
+2022/12/13 15:51:59 [92932] <f.st.... rsync.log
+2022/12/13 15:51:59 [92932] .d..t.... .git/
+2022/12/13 15:51:59 [92932] <f.st.... js/mcf-script.js
+2022/12/13 15:51:59 [92932] sent 6.13K bytes  received 826 bytes  4.64K bytes/sec
+2022/12/13 15:51:59 [92932] total size is 1.49M  speedup is 214.35
+2022/12/13 15:53:45 [93062] building file list
+2022/12/13 15:53:46 [93062] 194 files to consider
+2022/12/13 15:53:46 [93062] <f.st.... rsync.log
+2022/12/13 15:53:46 [93062] .d..t.... .git/
+2022/12/13 15:53:46 [93062] <f.st.... css/style.css
+2022/12/13 15:53:46 [93062] sent 5.97K bytes  received 826 bytes  4.53K bytes/sec
+2022/12/13 15:53:46 [93062] total size is 1.49M  speedup is 219.66
+2022/12/13 15:55:45 [93208] building file list
+2022/12/13 15:55:45 [93208] 194 files to consider
+2022/12/13 15:55:45 [93208] <f.st.... rsync.log
+2022/12/13 15:55:45 [93208] .d..t.... .git/
+2022/12/13 15:55:45 [93208] <f.st.... css/style.css
+2022/12/13 15:55:45 [93208] sent 6.07K bytes  received 832 bytes  13.80K bytes/sec
+2022/12/13 15:55:45 [93208] total size is 1.49M  speedup is 216.31
+2022/12/13 16:03:07 [93463] building file list
+2022/12/13 16:03:07 [93463] 194 files to consider
+2022/12/13 16:03:07 [93463] <f.st.... rsync.log
+2022/12/13 16:03:07 [93463] .d..t.... .git/
+2022/12/13 16:03:07 [93463] <f.st.... css/style.css
+2022/12/13 16:03:07 [93463] sent 6.64K bytes  received 832 bytes  14.95K bytes/sec
+2022/12/13 16:03:07 [93463] total size is 1.49M  speedup is 199.83
+2022/12/13 16:08:14 [93670] building file list
+2022/12/13 16:08:14 [93670] 194 files to consider
+2022/12/13 16:08:14 [93670] <f.st.... rsync.log
+2022/12/13 16:08:14 [93670] .d..t.... .git/
+2022/12/13 16:08:14 [93670] <f.st.... css/style.css
+2022/12/13 16:08:14 [93670] sent 6.50K bytes  received 838 bytes  4.89K bytes/sec
+2022/12/13 16:08:14 [93670] total size is 1.49M  speedup is 203.50
+2022/12/13 16:10:14 [93812] building file list
+2022/12/13 16:10:14 [93812] 194 files to consider
+2022/12/13 16:10:14 [93812] <f.st.... rsync.log
+2022/12/13 16:10:14 [93812] .d..t.... .git/
+2022/12/13 16:10:14 [93812] <f.st.... css/style.css
+2022/12/13 16:10:14 [93812] sent 6.08K bytes  received 850 bytes  13.86K bytes/sec
+2022/12/13 16:10:14 [93812] total size is 1.49M  speedup is 215.60
+2022/12/13 16:13:13 [93970] building file list
+2022/12/13 16:13:13 [93970] 194 files to consider
+2022/12/13 16:13:13 [93970] <f.st.... rsync.log
+2022/12/13 16:13:13 [93970] .d..t.... .git/
+2022/12/13 16:13:13 [93970] <f.st.... css/style.css
+2022/12/13 16:13:13 [93970] sent 6.28K bytes  received 850 bytes  4.75K bytes/sec
+2022/12/13 16:13:13 [93970] total size is 1.49M  speedup is 209.73
+2022/12/13 16:18:57 [94192] building file list
+2022/12/13 16:18:57 [94192] 194 files to consider
+2022/12/13 16:18:57 [94192] <f.st.... rsync.log
+2022/12/13 16:18:57 [94192] .d..t.... .git/
+2022/12/13 16:18:57 [94192] <f.st.... css/style.css
+2022/12/13 16:18:57 [94192] sent 6.68K bytes  received 856 bytes  5.03K bytes/sec
+2022/12/13 16:18:57 [94192] total size is 1.50M  speedup is 198.32
+2022/12/13 16:25:04 [94426] building file list
+2022/12/13 16:25:04 [94426] 194 files to consider
+2022/12/13 16:25:04 [94426] <f.st.... rsync.log
+2022/12/13 16:25:04 [94426] .d..t.... .git/
+2022/12/13 16:25:04 [94426] <f.st.... css/style.css
+2022/12/13 16:25:05 [94426] sent 6.65K bytes  received 856 bytes  15.02K bytes/sec
+2022/12/13 16:25:05 [94426] total size is 1.50M  speedup is 199.22
+2022/12/13 16:27:27 [94570] building file list
+2022/12/13 16:27:27 [94570] 194 files to consider
+2022/12/13 16:27:27 [94570] <f.st.... rsync.log
+2022/12/13 16:27:27 [94570] .d..t.... .git/
+2022/12/13 16:27:27 [94570] <f.st.... css/style.css
+2022/12/13 16:27:27 [94570] sent 5.88K bytes  received 862 bytes  13.49K bytes/sec
+2022/12/13 16:27:27 [94570] total size is 1.50M  speedup is 221.81
+2022/12/13 16:29:23 [94710] building file list
+2022/12/13 16:29:23 [94710] 194 files to consider
+2022/12/13 16:29:23 [94710] <f.st.... rsync.log
+2022/12/13 16:29:23 [94710] .d..t.... .git/
+2022/12/13 16:29:23 [94710] <f.st.... css/style.css
+2022/12/13 16:29:23 [94710] sent 5.91K bytes  received 868 bytes  4.52K bytes/sec
+2022/12/13 16:29:23 [94710] total size is 1.50M  speedup is 220.90
+2022/12/13 16:31:54 [94855] building file list
+2022/12/13 16:31:54 [94855] 194 files to consider
+2022/12/13 16:31:54 [94855] <f.st.... rsync.log
+2022/12/13 16:31:54 [94855] .d..t.... .git/
+2022/12/13 16:31:54 [94855] <f.st.... css/style.css
+2022/12/13 16:31:54 [94855] sent 5.91K bytes  received 868 bytes  4.52K bytes/sec
+2022/12/13 16:31:54 [94855] total size is 1.50M  speedup is 220.93
+2022/12/13 16:34:17 [95003] building file list
+2022/12/13 16:34:17 [95003] 194 files to consider
+2022/12/13 16:34:17 [95003] <f.st.... rsync.log
+2022/12/13 16:34:17 [95003] .d..t.... .git/
+2022/12/13 16:34:17 [95003] <f.st.... css/style.css
+2022/12/13 16:34:17 [95003] sent 6.03K bytes  received 868 bytes  13.80K bytes/sec
+2022/12/13 16:34:17 [95003] total size is 1.50M  speedup is 217.08
+2022/12/13 16:34:53 [95103] building file list
+2022/12/13 16:34:53 [95103] 194 files to consider
+2022/12/13 16:34:53 [95103] <f.st.... rsync.log
+2022/12/13 16:34:53 [95103] .d..t.... .git/
+2022/12/13 16:34:53 [95103] <f.st.... css/style.css
+2022/12/13 16:34:53 [95103] sent 5.86K bytes  received 874 bytes  4.49K bytes/sec
+2022/12/13 16:34:53 [95103] total size is 1.50M  speedup is 222.36
+2022/12/13 16:39:41 [95299] building file list
+2022/12/13 16:39:41 [95299] 194 files to consider
+2022/12/13 16:39:41 [95299] <f.st.... rsync.log
+2022/12/13 16:39:41 [95299] .d..t.... .git/
+2022/12/13 16:39:41 [95299] <f.st.... css/style.css
+2022/12/13 16:39:41 [95299] sent 5.97K bytes  received 880 bytes  4.57K bytes/sec
+2022/12/13 16:39:41 [95299] total size is 1.50M  speedup is 218.63
+2022/12/13 16:42:44 [95455] building file list
+2022/12/13 16:42:44 [95455] 194 files to consider
+2022/12/13 16:42:44 [95455] <f.st.... rsync.log
+2022/12/13 16:42:44 [95455] .d..t.... .git/
+2022/12/13 16:42:44 [95455] <f.st.... css/style.css
+2022/12/13 16:42:44 [95455] sent 6.03K bytes  received 886 bytes  4.61K bytes/sec
+2022/12/13 16:42:44 [95455] total size is 1.50M  speedup is 216.84
+2022/12/13 16:45:30 [95613] building file list
+2022/12/13 16:45:30 [95613] 194 files to consider
+2022/12/13 16:45:30 [95613] <f.st.... rsync.log
+2022/12/13 16:45:30 [95613] .d..t.... .git/
+2022/12/13 16:45:30 [95613] <f.st.... css/style.css
+2022/12/13 16:45:30 [95613] sent 5.99K bytes  received 886 bytes  13.76K bytes/sec
+2022/12/13 16:45:30 [95613] total size is 1.50M  speedup is 217.98
+2022/12/13 16:47:53 [95750] building file list
+2022/12/13 16:47:53 [95750] 194 files to consider
+2022/12/13 16:47:53 [95750] <f.st.... rsync.log
+2022/12/13 16:47:53 [95750] .d..t.... .git/
+2022/12/13 16:47:53 [95750] <f.st.... css/style.css
+2022/12/13 16:47:53 [95750] sent 5.97K bytes  received 886 bytes  4.57K bytes/sec
+2022/12/13 16:47:53 [95750] total size is 1.50M  speedup is 218.72
+2022/12/13 17:34:11 [96864] building file list
+2022/12/13 17:34:11 [96864] 194 files to consider
+2022/12/13 17:34:11 [96864] <f.st.... mcf-options.php
+2022/12/13 17:34:11 [96864] <f.st.... rsync.log
+2022/12/13 17:34:11 [96864] .d..t.... .git/
+2022/12/13 17:34:11 [96864] <f.st.... css/style.css
+2022/12/13 17:34:11 [96864] sent 6.72K bytes  received 956 bytes  3.07K bytes/sec
+2022/12/13 17:34:11 [96864] total size is 1.50M  speedup is 195.35
+2022/12/13 17:34:36 [96964] building file list
+2022/12/13 17:34:36 [96964] 194 files to consider
+2022/12/13 17:34:36 [96964] <f.st.... mcf-options.php
+2022/12/13 17:34:36 [96964] <f.st.... rsync.log
+2022/12/13 17:34:36 [96964] .d..t.... .git/
+2022/12/13 17:34:36 [96964] sent 6.00K bytes  received 880 bytes  4.58K bytes/sec
+2022/12/13 17:34:36 [96964] total size is 1.50M  speedup is 218.23
+2022/12/13 17:37:44 [97120] building file list
+2022/12/13 17:37:44 [97120] 194 files to consider
+2022/12/13 17:37:44 [97120] <f.st.... mcf-options.php
+2022/12/13 17:37:44 [97120] <f.st.... rsync.log
+2022/12/13 17:37:44 [97120] .d..t.... .git/
+2022/12/13 17:37:44 [97120] sent 6.02K bytes  received 886 bytes  4.60K bytes/sec
+2022/12/13 17:37:44 [97120] total size is 1.50M  speedup is 217.30
+2022/12/13 17:37:53 [97209] building file list
+2022/12/13 17:37:53 [97209] 194 files to consider
+2022/12/13 17:37:53 [97209] <f.st.... mcf-options.php
+2022/12/13 17:37:53 [97209] <f.st.... rsync.log
+2022/12/13 17:37:53 [97209] .d..t.... .git/
+2022/12/13 17:37:53 [97209] sent 5.90K bytes  received 892 bytes  4.53K bytes/sec
+2022/12/13 17:37:53 [97209] total size is 1.50M  speedup is 220.94
+2022/12/13 17:40:37 [97376] building file list
+2022/12/13 17:40:37 [97376] 194 files to consider
+2022/12/13 17:40:37 [97376] <f.st.... mcf-options.php
+2022/12/13 17:40:37 [97376] <f.st.... rsync.log
+2022/12/13 17:40:37 [97376] .d..t.... .git/
+2022/12/13 17:40:38 [97376] sent 6.00K bytes  received 892 bytes  4.59K bytes/sec
+2022/12/13 17:40:38 [97376] total size is 1.50M  speedup is 217.87
+2022/12/13 17:41:16 [97485] building file list
+2022/12/13 17:41:16 [97485] 194 files to consider
+2022/12/13 17:41:16 [97485] <f..t.... mcf-options.php
+2022/12/13 17:41:16 [97485] <f.st.... rsync.log
+2022/12/13 17:41:16 [97485] .d..t.... .git/
+2022/12/13 17:41:16 [97485] sent 5.95K bytes  received 904 bytes  4.57K bytes/sec
+2022/12/13 17:41:16 [97485] total size is 1.50M  speedup is 219.13
+2022/12/13 17:41:44 [97583] building file list
+2022/12/13 17:41:44 [97583] 194 files to consider
+2022/12/13 17:41:44 [97583] <f.st.... mcf-options.php
+2022/12/13 17:41:44 [97583] <f.st.... rsync.log
+2022/12/13 17:41:44 [97583] .d..t.... .git/
+2022/12/13 17:41:44 [97583] sent 5.99K bytes  received 904 bytes  13.79K bytes/sec
+2022/12/13 17:41:44 [97583] total size is 1.50M  speedup is 217.98
+2022/12/13 17:42:28 [97695] building file list
+2022/12/13 17:42:28 [97695] 194 files to consider
+2022/12/13 17:42:28 [97695] <f.st.... mcf-options.php
+2022/12/13 17:42:28 [97695] <f.st.... rsync.log
+2022/12/13 17:42:28 [97695] .d..t.... .git/
+2022/12/13 17:42:28 [97695] sent 5.93K bytes  received 910 bytes  4.56K bytes/sec
+2022/12/13 17:42:28 [97695] total size is 1.50M  speedup is 219.59
+2022/12/13 17:44:40 [97832] building file list
+2022/12/13 17:44:40 [97832] 194 files to consider
+2022/12/13 17:44:40 [97832] <f.st.... mcf-options.php
+2022/12/13 17:44:40 [97832] <f.st.... rsync.log
+2022/12/13 17:44:40 [97832] .d..t.... .git/
+2022/12/13 17:44:40 [97832] sent 6.03K bytes  received 904 bytes  2.77K bytes/sec
+2022/12/13 17:44:40 [97832] total size is 1.50M  speedup is 216.94
+2022/12/13 17:45:57 [97955] building file list
+2022/12/13 17:45:57 [97955] 194 files to consider
+2022/12/13 17:45:57 [97955] <f.st.... mcf-options.php
+2022/12/13 17:45:57 [97955] <f.st.... rsync.log
+2022/12/13 17:45:57 [97955] .d..t.... .git/
+2022/12/13 17:45:57 [97955] sent 5.99K bytes  received 916 bytes  4.60K bytes/sec
+2022/12/13 17:45:57 [97955] total size is 1.50M  speedup is 217.85
+2022/12/13 17:48:31 [98106] building file list
+2022/12/13 17:48:31 [98106] 194 files to consider
+2022/12/13 17:48:31 [98106] <f.st.... mcf-options.php
+2022/12/13 17:48:31 [98106] <f.st.... rsync.log
+2022/12/13 17:48:31 [98106] .d..t.... .git/
+2022/12/13 17:48:31 [98106] sent 5.96K bytes  received 922 bytes  4.59K bytes/sec
+2022/12/13 17:48:31 [98106] total size is 1.50M  speedup is 218.67
+2022/12/13 17:51:11 [98280] building file list
+2022/12/13 17:51:11 [98280] 194 files to consider
+2022/12/13 17:51:11 [98280] <f.st.... mcf-options.php
+2022/12/13 17:51:11 [98280] <f.st.... rsync.log
+2022/12/13 17:51:11 [98280] .d..t.... .git/
+2022/12/13 17:51:11 [98280] <f.st.... css/admin.css
+2022/12/13 17:51:12 [98280] sent 6.34K bytes  received 950 bytes  14.58K bytes/sec
+2022/12/13 17:51:12 [98280] total size is 1.50M  speedup is 206.45
+2022/12/13 17:51:53 [98379] building file list
+2022/12/13 17:51:53 [98379] 194 files to consider
+2022/12/13 17:51:53 [98379] <f.st.... rsync.log
+2022/12/13 17:51:53 [98379] .d..t.... .git/
+2022/12/13 17:51:53 [98379] <f.st.... css/admin.css
+2022/12/13 17:51:53 [98379] sent 5.99K bytes  received 892 bytes  13.77K bytes/sec
+2022/12/13 17:51:53 [98379] total size is 1.51M  speedup is 218.59
+2022/12/13 17:52:55 [98494] building file list
+2022/12/13 17:52:55 [98494] 194 files to consider
+2022/12/13 17:52:55 [98494] <f.st.... rsync.log
+2022/12/13 17:52:55 [98494] .d..t.... .git/
+2022/12/13 17:52:55 [98494] <f.st.... css/admin.css
+2022/12/13 17:52:55 [98494] sent 6.06K bytes  received 892 bytes  13.91K bytes/sec
+2022/12/13 17:52:55 [98494] total size is 1.51M  speedup is 216.50
+2022/12/13 17:53:34 [98607] building file list
+2022/12/13 17:53:35 [98607] 194 files to consider
+2022/12/13 17:53:35 [98607] <f.st.... rsync.log
+2022/12/13 17:53:35 [98607] .d..t.... .git/
+2022/12/13 17:53:35 [98607] <f.st.... css/admin.css
+2022/12/13 17:53:35 [98607] sent 6.02K bytes  received 898 bytes  4.61K bytes/sec
+2022/12/13 17:53:35 [98607] total size is 1.51M  speedup is 217.68
+2022/12/13 17:55:44 [98748] building file list
+2022/12/13 17:55:44 [98748] 194 files to consider
+2022/12/13 17:55:44 [98748] <f.st.... mcf-options.php
+2022/12/13 17:55:44 [98748] <f.st.... rsync.log
+2022/12/13 17:55:44 [98748] .d..t.... .git/
+2022/12/13 17:55:44 [98748] sent 6.04K bytes  received 934 bytes  13.94K bytes/sec
+2022/12/13 17:55:44 [98748] total size is 1.51M  speedup is 216.18
+2022/12/13 17:58:56 [98916] building file list
+2022/12/13 17:58:56 [98916] 194 files to consider
+2022/12/13 17:58:56 [98916] <f.st.... mcf-options.php
+2022/12/13 17:58:56 [98916] <f.st.... rsync.log
+2022/12/13 17:58:56 [98916] .d..t.... .git/
+2022/12/13 17:58:57 [98916] sent 6.06K bytes  received 940 bytes  4.67K bytes/sec
+2022/12/13 17:58:57 [98916] total size is 1.51M  speedup is 215.34
+2022/12/13 18:01:10 [99057] building file list
+2022/12/13 18:01:10 [99057] 194 files to consider
+2022/12/13 18:01:10 [99057] <f.st.... mcf-options.php
+2022/12/13 18:01:10 [99057] <f.st.... rsync.log
+2022/12/13 18:01:10 [99057] .d..t.... .git/
+2022/12/13 18:01:10 [99057] sent 5.95K bytes  received 952 bytes  13.80K bytes/sec
+2022/12/13 18:01:10 [99057] total size is 1.51M  speedup is 218.62
+2022/12/13 18:03:08 [99203] building file list
+2022/12/13 18:03:08 [99203] 194 files to consider
+2022/12/13 18:03:08 [99203] <f.st.... mcf-options.php
+2022/12/13 18:03:08 [99203] <f.st.... rsync.log
+2022/12/13 18:03:08 [99203] .d..t.... .git/
+2022/12/13 18:03:08 [99203] <f.st.... css/admin.css
+2022/12/13 18:03:08 [99203] sent 6.37K bytes  received 980 bytes  14.70K bytes/sec
+2022/12/13 18:03:08 [99203] total size is 1.51M  speedup is 205.20
+2022/12/13 18:03:55 [99307] building file list
+2022/12/13 18:03:55 [99307] 194 files to consider
+2022/12/13 18:03:55 [99307] <f.st.... rsync.log
+2022/12/13 18:03:55 [99307] .d..t.... .git/
+2022/12/13 18:03:55 [99307] <f.st.... css/admin.css
+2022/12/13 18:03:55 [99307] sent 5.98K bytes  received 922 bytes  4.60K bytes/sec
+2022/12/13 18:03:55 [99307] total size is 1.51M  speedup is 218.62
+2022/12/13 18:04:42 [99422] building file list
+2022/12/13 18:04:42 [99422] 194 files to consider
+2022/12/13 18:04:43 [99422] <f.st.... mcf-options.php
+2022/12/13 18:04:43 [99422] <f.st.... rsync.log
+2022/12/13 18:04:43 [99422] .d..t.... .git/
+2022/12/13 18:04:43 [99422] <f.st.... css/admin.css
+2022/12/13 18:04:43 [99422] sent 5.98K bytes  received 992 bytes  4.65K bytes/sec
+2022/12/13 18:04:43 [99422] total size is 1.51M  speedup is 216.49
+2022/12/13 18:13:41 [99743] building file list
+2022/12/13 18:13:41 [99743] 194 files to consider
+2022/12/13 18:13:41 [99743] <f.st.... mcf-options.php
+2022/12/13 18:13:41 [99743] <f.st.... rsync.log
+2022/12/13 18:13:41 [99743] .d..t.... .git/
+2022/12/13 18:13:41 [99743] sent 6.13K bytes  received 964 bytes  4.73K bytes/sec
+2022/12/13 18:13:41 [99743] total size is 1.51M  speedup is 212.82
+2022/12/13 18:18:46 [99959] building file list
+2022/12/13 18:18:46 [99959] 194 files to consider
+2022/12/13 18:18:46 [99959] <f.st.... mcf-options.php
+2022/12/13 18:18:46 [99959] <f.st.... rsync.log
+2022/12/13 18:18:46 [99959] .d..t.... .git/
+2022/12/13 18:18:46 [99959] sent 5.98K bytes  received 976 bytes  13.91K bytes/sec
+2022/12/13 18:18:46 [99959] total size is 1.51M  speedup is 217.28
+2022/12/13 18:20:25 [270] building file list
+2022/12/13 18:20:25 [270] 194 files to consider
+2022/12/13 18:20:25 [270] <f.st.... rsync.log
+2022/12/13 18:20:25 [270] .d..t.... .git/
+2022/12/13 18:20:25 [270] <f.st.... css/admin.css
+2022/12/13 18:20:25 [270] sent 5.98K bytes  received 934 bytes  4.61K bytes/sec
+2022/12/13 18:20:25 [270] total size is 1.51M  speedup is 218.74
+2022/12/13 18:21:11 [467] building file list
+2022/12/13 18:21:11 [467] 194 files to consider
+2022/12/13 18:21:11 [467] <f.st.... rsync.log
+2022/12/13 18:21:11 [467] .d..t.... .git/
+2022/12/13 18:21:11 [467] <f.st.... css/admin.css
+2022/12/13 18:21:11 [467] sent 5.99K bytes  received 940 bytes  13.86K bytes/sec
+2022/12/13 18:21:11 [467] total size is 1.51M  speedup is 218.18
+2022/12/13 18:21:48 [593] building file list
+2022/12/13 18:21:48 [593] 194 files to consider
+2022/12/13 18:21:48 [593] <f.st.... rsync.log
+2022/12/13 18:21:48 [593] .d..t.... .git/
+2022/12/13 18:21:48 [593] <f.st.... css/admin.css
+2022/12/13 18:21:48 [593] sent 6.00K bytes  received 940 bytes  4.63K bytes/sec
+2022/12/13 18:21:48 [593] total size is 1.51M  speedup is 217.86
+2022/12/13 18:22:36 [707] building file list
+2022/12/13 18:22:36 [707] 194 files to consider
+2022/12/13 18:22:36 [707] <f.st.... rsync.log
+2022/12/13 18:22:36 [707] .d..t.... .git/
+2022/12/13 18:22:36 [707] <f.st.... css/admin.css
+2022/12/13 18:22:36 [707] sent 5.95K bytes  received 946 bytes  4.60K bytes/sec
+2022/12/13 18:22:36 [707] total size is 1.51M  speedup is 219.37
+2022/12/13 18:23:05 [817] building file list
+2022/12/13 18:23:05 [817] 194 files to consider
+2022/12/13 18:23:05 [817] <f.st.... rsync.log
+2022/12/13 18:23:05 [817] .d..t.... .git/
+2022/12/13 18:23:05 [817] <f.st.... css/admin.css
+2022/12/13 18:23:05 [817] sent 5.80K bytes  received 946 bytes  4.50K bytes/sec
+2022/12/13 18:23:05 [817] total size is 1.51M  speedup is 224.24
+2022/12/13 18:23:26 [924] building file list
+2022/12/13 18:23:26 [924] 194 files to consider
+2022/12/13 18:23:26 [924] <f.st.... rsync.log
+2022/12/13 18:23:26 [924] .d..t.... .git/
+2022/12/13 18:23:26 [924] <f..t.... css/admin.css
+2022/12/13 18:23:27 [924] sent 5.77K bytes  received 952 bytes  4.48K bytes/sec
+2022/12/13 18:23:27 [924] total size is 1.51M  speedup is 225.33
+2022/12/13 18:28:30 [1122] building file list
+2022/12/13 18:28:30 [1122] 194 files to consider
+2022/12/13 18:28:30 [1122] <f.st.... rsync.log
+2022/12/13 18:28:30 [1122] .d..t.... .git/
+2022/12/13 18:28:30 [1122] <f.st.... css/admin.css
+2022/12/13 18:28:30 [1122] sent 6.08K bytes  received 952 bytes  4.69K bytes/sec
+2022/12/13 18:28:30 [1122] total size is 1.51M  speedup is 215.23
+2022/12/13 18:29:04 [1233] building file list
+2022/12/13 18:29:04 [1233] 194 files to consider
+2022/12/13 18:29:04 [1233] <f.st.... rsync.log
+2022/12/13 18:29:04 [1233] .d..t.... .git/
+2022/12/13 18:29:04 [1233] <f.st.... css/admin.css
+2022/12/13 18:29:04 [1233] sent 5.98K bytes  received 958 bytes  4.62K bytes/sec
+2022/12/13 18:29:04 [1233] total size is 1.51M  speedup is 218.29
+2022/12/13 18:33:17 [1432] building file list
+2022/12/13 18:33:17 [1432] 194 files to consider
+2022/12/13 18:33:17 [1432] <f.st.... mcf-options.php
+2022/12/13 18:33:17 [1432] <f.st.... rsync.log
+2022/12/13 18:33:17 [1432] .d..t.... .git/
+2022/12/13 18:33:17 [1432] <f..t.... css/style.css
+2022/12/13 18:33:17 [1432] sent 6.25K bytes  received 1.07K bytes  14.65K bytes/sec
+2022/12/13 18:33:17 [1432] total size is 1.52M  speedup is 206.88
+2022/12/13 18:35:42 [1578] building file list
+2022/12/13 18:35:42 [1578] 194 files to consider
+2022/12/13 18:35:42 [1578] <f.st.... mcf.php
+2022/12/13 18:35:42 [1578] <f.st.... rsync.log
+2022/12/13 18:35:42 [1578] .d..t.... .git/
+2022/12/13 18:35:42 [1578] sent 6.05K bytes  received 1000 bytes  4.70K bytes/sec
+2022/12/13 18:35:42 [1578] total size is 1.52M  speedup is 215.05
+2022/12/13 18:48:57 [1982] building file list
+2022/12/13 18:48:57 [1982] 194 files to consider
+2022/12/13 18:48:57 [1982] <f.st.... mcf-options.php
+2022/12/13 18:48:57 [1982] <f.st.... rsync.log
+2022/12/13 18:48:57 [1982] .d..t.... .git/
+2022/12/13 18:48:57 [1982] sent 6.11K bytes  received 1.02K bytes  4.75K bytes/sec
+2022/12/13 18:48:57 [1982] total size is 1.52M  speedup is 212.60
+2022/12/13 18:53:55 [2192] building file list
+2022/12/13 18:53:55 [2192] 194 files to consider
+2022/12/13 18:53:55 [2192] <f.st.... mcf-options.php
+2022/12/13 18:53:55 [2192] <f.st.... rsync.log
+2022/12/13 18:53:55 [2192] .d..t.... .git/
+2022/12/13 18:53:55 [2192] sent 6.07K bytes  received 1.02K bytes  4.72K bytes/sec
+2022/12/13 18:53:55 [2192] total size is 1.52M  speedup is 214.03
+2022/12/13 18:57:44 [2375] building file list
+2022/12/13 18:57:44 [2375] 194 files to consider
+2022/12/13 18:57:44 [2375] *deleting languages/mcf-de_DE-backup-202212131756280.po~
+2022/12/13 18:57:44 [2375] *deleting languages/mcf-backup-202212131754230.pot~
+2022/12/13 18:57:44 [2375] <f.st.... mcf-options.php
+2022/12/13 18:57:44 [2375] <f.st.... rsync.log
+2022/12/13 18:57:44 [2375] .d..t.... .git/
+2022/12/13 18:57:44 [2375] .d..t.... languages/
+2022/12/13 18:57:44 [2375] sent 6.06K bytes  received 1.03K bytes  4.73K bytes/sec
+2022/12/13 18:57:44 [2375] total size is 1.52M  speedup is 213.88
+2022/12/13 18:58:45 [2494] building file list
+2022/12/13 18:58:45 [2494] 194 files to consider
+2022/12/13 18:58:45 [2494] <f.st.... mcf-options.php
+2022/12/13 18:58:45 [2494] <f.st.... rsync.log
+2022/12/13 18:58:45 [2494] .d..t.... .git/
+2022/12/13 18:58:45 [2494] sent 6.55K bytes  received 1.02K bytes  5.05K bytes/sec
+2022/12/13 18:58:45 [2494] total size is 1.52M  speedup is 200.26
+2022/12/14 10:36:52 [23266] rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+2022/12/14 10:36:52 [23266] rsync error: unexplained error (code 255) at /AppleInternal/Library/BuildRoots/a0876c02-1788-11ed-b9c4-96898e02b808/Library/Caches/com.apple.xbs/Sources/rsync/rsync/io.c(453) [sender=2.6.9]
+2022/12/14 10:37:07 [23369] rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+2022/12/14 10:37:07 [23369] rsync error: unexplained error (code 255) at /AppleInternal/Library/BuildRoots/a0876c02-1788-11ed-b9c4-96898e02b808/Library/Caches/com.apple.xbs/Sources/rsync/rsync/io.c(453) [sender=2.6.9]
+2022/12/14 10:37:20 [23471] building file list
+2022/12/14 10:37:20 [23471] 195 files to consider
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-ru_RU-backup-202212140922590.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-it_IT-backup-202212140902080.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-fr_FR-backup-202212140930030.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-fr_FR-backup-202212140913170.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-es_ES-backup-202212131826110.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-es_ES-backup-202212131818470.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-de_DE_formal-backup-202212131815370.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-de_DE_formal-backup-202212131812240.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-de_DE_formal-backup-202212131810210.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-de_DE-backup-202212131812420.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-de_DE-backup-202212131806380.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-de_DE-backup-202212131805260.po~
+2022/12/14 10:37:20 [23471] *deleting languages/mcf-backup-202212131759020.pot~
+2022/12/14 10:37:20 [23471] .d..t.... ./
+2022/12/14 10:37:20 [23471] <f.st.... .gitignore
+2022/12/14 10:37:20 [23471] <f.st.... rsync.log
+2022/12/14 10:37:20 [23471] <f+++++++ translation.txt
+2022/12/14 10:37:20 [23471] .d..t.... .git/
+2022/12/14 10:37:20 [23471] .d..t.... languages/
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-de_DE.mo
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-de_DE.po
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-de_DE_formal.mo
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-de_DE_formal.po
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-es_ES.mo
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-es_ES.po
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-fr_FR.mo
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-fr_FR.po
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-it_IT.mo
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-it_IT.po
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-ru_RU.mo
+2022/12/14 10:37:20 [23471] <f..t.... languages/mcf-ru_RU.po
+2022/12/14 10:37:20 [23471] <f..tp... languages/mcf.pot
+2022/12/14 10:37:20 [23471] sent 7.70K bytes  received 2.23K bytes  19.86K bytes/sec
+2022/12/14 10:37:20 [23471] total size is 1.57M  speedup is 157.99
+2022/12/14 11:22:21 [24724] building file list
+2022/12/14 11:22:21 [24724] 195 files to consider
+2022/12/14 11:22:21 [24724] <f.st.... mcf.php
+2022/12/14 11:22:21 [24724] <f.st.... readme.txt
+2022/12/14 11:22:21 [24724] <f.st.... rsync.log
+2022/12/14 11:22:21 [24724] .d..t.... .git/
+2022/12/14 11:22:21 [24724] sent 8.74K bytes  received 1.10K bytes  6.56K bytes/sec
+2022/12/14 11:22:21 [24724] total size is 1.57M  speedup is 159.79
+2022/12/14 11:29:14 [24976] building file list
+2022/12/14 11:29:14 [24976] 193 files to consider
+2022/12/14 11:29:15 [24976] *deleting img/uncheck-switcher.svg
+2022/12/14 11:29:15 [24976] *deleting img/
+2022/12/14 11:29:15 [24976] .d..t.... ./
+2022/12/14 11:29:15 [24976] <f.st.... rsync.log
+2022/12/14 11:29:15 [24976] .d..t.... .git/
+2022/12/14 11:29:15 [24976] <f.st.... js/mcf-script.js
+2022/12/14 11:29:15 [24976] sent 5.87K bytes  received 1.05K bytes  4.61K bytes/sec
+2022/12/14 11:29:15 [24976] total size is 1.57M  speedup is 227.43

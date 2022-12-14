@@ -3,9 +3,9 @@ Contributors: mirkoschubert
 Tags: contact, contact form, email, feedback, form, gdpr, dsgvo, simple, minimal
 Donate link: https://www.paypal.me/mirkoschubert
 Requires at least: 4.9.6
-Tested up to: 6.1
+Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 0.9.1
+Stable tag: 0.10.0
 License: GPL3
 License URI: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 
@@ -30,9 +30,7 @@ Either you end up with huge form builders that are simply too bulky for a single
 * Predefined GDPR-compliant messages with or without checkbox will be displayed.
 * Those messages are linked directly to the privacy policy.
 * In case of consent, the recipient will be informed directly in the e-mail.
-* The plugin is completely translatable (English & German already available).
-
-All this with a total of **four** settings!
+* The plugin is completely translatable (English, German, Spanisch, Italian, French and Russian already available).
 
 = Requirements =
 
@@ -41,7 +39,7 @@ All this with a total of **four** settings!
 
 = Translations =
 
-If you want to translate this plugin into another language, you are welcome! English and German (informal) are already there. I used the plugin [Loco Translate](https://wordpress.org/plugins/loco-translate/), but I suppose that other ways should be compatible as well.
+If you want to translate this plugin into another language, you are welcome! English, German (informal & formal), Spanish, Italian, French and Russian are already there. I used the plugin [Loco Translate](https://wordpress.org/plugins/loco-translate/), but I suppose that other ways should be compatible as well.
 
 = See room for improvement? =
 
@@ -61,7 +59,7 @@ You can also [**buy me a coffee**](https://www.buymeacoffee.com/musikuss) to sup
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. Place the shortcode `[minimal_contact_form]` in your contact page.
 
-You will find 'Contact Form' menu in your WordPress options panel.
+You will find 'Contact Form' menu in your WordPress options panel. Please also read the contextual help.
 
 For basic usage, please read the 'Overview' section directly in the plugin settings.
 
@@ -73,12 +71,33 @@ You will be notified in your WordPress installation under `Dashboard`-`Updates` 
 
 If you have any questions, please use the [support forum](https://wordpress.org/support/plugin/minimal-contact-form). If there are frequently asked question I will sum them up here.
 
+= Can I have feature X? =
+
+Since **Minimal Contact Form** is designed for ease of use, I choose new features very carefully. Also, updates should always take into account existing web pages and should not include breaking changes. Nevertheless, you are welcome to submit requests for new features.
+
+= Where are the styling options? =
+
+**Minimal Contact Form** is configured in such a way that you can use it without much configuration. The look of the form is kept very neutral. However, if you want to customize it, you can use the Custom CSS field in the settings. Since version `0.10.0` you can also use predefined CSS variables. You can find an overview of them in the help of the plugin.
+
+= How do I use Minimal Contact Form in Gutenberg or a builder theme? =
+
+Currently you can only embed **Minimal Contact Form** with a shortcode. However, I am working on making the plugin available as a module in Gutenberg, Divi and Breakdance in version `1.0`. Help is welcome for these builders as well as for others.
+
 == Screenshots ==
 
 1. Contact form on frontend with GDPR Opt-In option on
 2. Minimal Contact Form Settings
 
 == Changelog ==
+
+= 0.10.0 =
+
+* Tested up to WordPress 6.2
+* Bugfix: GDPR consent checkbox gets blocked by Brave browser's cookie notice filter
+* Custom styling for GDPR opt-in checkbox
+* CSS Variables for easier styling the contact form
+* Contextual help for CSS variables
+* New languages: Spanish, Italian, French & Russian
 
 = 0.9.1 =
 

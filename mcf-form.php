@@ -90,8 +90,8 @@ function mcf_gdpr() {
     $pp_url = get_permalink(get_option('wp_page_for_privacy_policy'));
     if ($mcf_options['gdpr'] === 1) {
       // Opt-In
-      $content .= '<input id="consent" class="consent" name="consent" type="checkbox" value="1" />';
-      $content .= '<label class="consent-caption" for="consent">' . __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.<span class="required">' . __('*', 'mcf') . '<span></label>';
+      $content .= '<input id="gdpr" class="gdpr" name="gdpr" type="checkbox" value="1" />';
+      $content .= '<label class="gdpr-caption" for="gdpr">' . __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.<span class="required">' . __('*', 'mcf') . '</span></label>';
     } else {
       // Only Information
       $content .= '<p class="privacy">' . __('Your submitted information will only be processed to respond to your inquiry.', 'mcf') . ' ' . __('For further information please visit our', 'mcf') . ' <a href="' . $pp_url . '" target="_blank">' . __('Privacy Policy', 'mcf') . '</a>.</p>';
