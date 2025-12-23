@@ -22,21 +22,25 @@ class Activator
     {
         $options = get_option('mcf_options');
 
-        // If options don't exist, create default structure for fresh install
+        // Run migration for existing installations
+        Migration::maybe_migrate();
+
+        // If options still don't exist (fresh install), create default structure
+        $options = get_option('mcf_options');
         if (false === $options) {
             add_option(
                 'mcf_options',
-                array(
+                [
                     'version' => '1.0.0',
-                    'settings' => array(
+                    'settings' => [
                         'recipient_user_id' => 1,
                         'gdpr_mode' => 'inform',
                         'antispam_enabled' => true,
                         'mail_service' => 'wp_mail',
-                    ),
-                    'fields' => array(
-                        'order' => array('first-name', 'last-name', 'email', 'subject', 'message'),
-                        'enabled' => array(
+                    ],
+                    'fields' => [
+                        'order' => ['first-name', 'last-name', 'email', 'subject', 'message'],
+                        'enabled' => [
                             'company' => false,
                             'first-name' => true,
                             'last-name' => true,
@@ -45,31 +49,31 @@ class Activator
                             'email' => true,
                             'subject' => true,
                             'message' => true,
-                        ),
-                        'labels' => array(
-                            'company' => __('Company', 'mcf'),
-                            'first-name' => __('First Name', 'mcf'),
-                            'last-name' => __('Last Name', 'mcf'),
-                            'name' => __('Name', 'mcf'),
-                            'phone' => __('Phone', 'mcf'),
-                            'email' => __('Email', 'mcf'),
-                            'subject' => __('Subject', 'mcf'),
-                            'message' => __('Message', 'mcf'),
-                        ),
-                        'placeholders' => array(),
-                        'custom_fields' => array(),
-                    ),
-                    'privacy_texts' => array(
-                        'optin_text' => __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf'),
-                        'inform_text' => __('Your submitted information will only be processed to respond to your inquiry.', 'mcf'),
-                    ),
-                    'styling' => array(
+                        ],
+                        'labels' => [
+                            'company' => 'Company',
+                            'first-name' => 'First Name',
+                            'last-name' => 'Last Name',
+                            'name' => 'Name',
+                            'phone' => 'Phone',
+                            'email' => 'Email',
+                            'subject' => 'Subject',
+                            'message' => 'Message',
+                        ],
+                        'placeholders' => [],
+                        'custom_fields' => [],
+                    ],
+                    'privacy_texts' => [
+                        'optin_text' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
+                        'inform_text' => 'Your submitted information will only be processed to respond to your inquiry.',
+                    ],
+                    'styling' => [
                         'theme_preset' => 'light',
-                        'advanced' => array(),
-                    ),
-                ),
+                        'advanced' => [],
+                    ],
+                ],
                 '',
-                'yes'
+                true
             );
         }
     }
