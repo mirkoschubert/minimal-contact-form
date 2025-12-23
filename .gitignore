@@ -14,6 +14,7 @@ composer.lock
 # Node
 /admin-app/node_modules/
 /admin-app/package-lock.json
+/admin-app/pnpm-lock.yaml
 
 # Built assets (uncomment if you want to exclude from git)
 # /assets/admin/js/

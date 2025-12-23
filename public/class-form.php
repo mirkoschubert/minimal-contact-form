@@ -256,6 +256,7 @@ class MCF_Form
     register_rest_route('minimal-contact-form/v1', '/submit', [
       'methods' => 'POST',
       'callback' => array($this, 'process_form'),
+      'permission_callback' => '__return_true', // Public endpoint
     ]);
   }
 

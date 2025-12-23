@@ -1,9 +1,18 @@
 /.wordpress-org
 /.git
 /.github
+/admin-app
 /node_modules
 
 .distignore
 .gitignore
 .DS_Store
 deploy.sh
+push.sh
+push.ps1
+composer.json
+composer.lock
+package.json
+pnpm-lock.yaml
+rsync.log
+rclone.log
