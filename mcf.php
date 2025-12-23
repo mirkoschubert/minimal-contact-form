@@ -3,7 +3,7 @@
 Plugin Name:  Minimal Contact Form
 Plugin URI:   https://github.com/mirkoschubert/minimal-contact-form
 Description:  A WordPress Plugin for a simple, clean and secure contact form.
-Version:      0.10.0
+Version:      1.0.0
 Author:       Mirko Schubert
 Author URI:   https://mirkoschubert.de/
 License:      GPL 3.0
@@ -28,49 +28,39 @@ along with Minimal Contact Form. If not, see https://github.com/mirkoschubert/mi
 // Disable direct access
 if (!defined( 'ABSPATH' )) exit();
 
+define('MCF_VERSION', '1.0.0');
+define('MCF_PLUGIN_URL', plugin_dir_url(__FILE__));
+
 $mcf_wp_version = '4.9.6';
 $mcf_version = '0.10.0';
-$mcf_plugin  = esc_html__('Minimal Contact Form', 'mcf');
+$mcf_plugin  = 'Minimal Contact Form';
 $mcf_slug = dirname(plugin_basename(__FILE__));
 $mcf_path    = plugin_basename(__FILE__);
 $mcf_options = get_option('mcf_options');
 
-include 'mcf-options.php';
-include 'mcf-form.php';
 
 
 /**
- * Activation Hook
- * @since 0.3.0
+ * The code that runs during plugin activation.
+ * @since 1.0.0
  */
-function mcf_plugin_activation() {
-  
-  // Write default options to database
-  add_option( 'mcf_options', array(
-    'user' => 1,
-    'gdpr' => 0,
-    'spam' => 1,
-    'phpmail' => 0,
-    'phone' => 0,
-    'hidesubject' => 0,
-    'oneline' => 0,
-    'labels' => 0,
-    'css' => '#minimal-contact-form {}'), '', 'yes');
+function activate_mcf() {
+  require_once plugin_dir_path(__FILE__) . 'core/class-activator.php';
+  MCF_Activator::activate();
 }
-register_activation_hook( __FILE__, 'mcf_plugin_activation' );
+register_activation_hook(__FILE__, 'activate_mcf');
 
 
 /**
- * Deactivation Hook
- * @since 0.3.0
+ * The code that runs during plugin deactivation.
+ * @since 1.0.0
  */
-function mcf_plugin_deactivation() {
-
-  // FOR TESTING: delete options from database
-  //delete_option('mcf_options');
-  
+function deactivate_mcf() {
+  require_once plugin_dir_path(__FILE__) . 'core/class-deactivator.php';
+  MCF_Deactivator::deactivate();
 }
-register_deactivation_hook( __FILE__, 'mcf_plugin_deactivation' );
+register_deactivation_hook(__FILE__, 'deactivate_mcf');
+
 
 
 /**
@@ -86,15 +76,27 @@ register_uninstall_hook (__FILE__, 'mcf_plugin_uninstall');
 
 
 /**
- * Loads the text domain of the plugin
+ * The core plugin class that is used to define internationalization,
+ * @since 1.0.0
+ */
+require plugin_dir_path(__FILE__) . 'core/helpers.php';
+require plugin_dir_path(__FILE__) . 'core/class-mcf.php';
+
+
+/**
+ * Begins execution of the plugin.
  * @since 0.1.0
  */
-function mcf_init() {
-  global $mcf_slug;
-  load_plugin_textdomain('mcf', false, $mcf_slug .'/languages/');
-}
-add_action( 'plugins_loaded', 'mcf_init' );
+function run_mcf() {
 
+  $plugin = new MCF();
+  $plugin->run();
+}
+run_mcf();
+
+
+
+/** TODO!!! */
 
 /**
  * Checks the version of WordPress and deactivates the Plugin when necessary
@@ -133,38 +135,6 @@ function mcf_version__error() {
 	printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $msg ); 
 }
 
-
-/**
- * Enqueues plugin frontend scripts
- * @since 0.1.0
- */
-function mcf_scripts() {
-  global $mcf_options;
-
-  if(!is_admin())	{
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('mcf-script', plugins_url( '/js/mcf-script.js', __FILE__ ), 'jquery', true);
-    wp_enqueue_style('mcf-style', plugins_url('/css/style.css',__FILE__));
-    wp_localize_script( 'mcf-script', 'minimal_contact_form', array( 'mcf_ajaxurl' => admin_url( 'admin-ajax.php')));
-    
-    wp_add_inline_style('mcf-style', isset($mcf_options['css']) ? $mcf_options['css'] . "\r\n" : '');
-  }
-}
-add_action('wp_enqueue_scripts', 'mcf_scripts');
-
-
-
-/**
- * Enqueues plugin admin scripts
- * @since 0.2.0
- */
-function mcf_admin_scripts($hook) {
-  global $mcf_slug;
-
-  if($hook !== 'settings_page_' . $mcf_slug) return;
-  wp_enqueue_style('mcf-admin-style', plugins_url('/css/admin.css',__FILE__));
-}
-add_action('admin_enqueue_scripts', 'mcf_admin_scripts');
 
 
 /**

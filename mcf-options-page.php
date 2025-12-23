@@ -22,7 +22,14 @@
                   <tr>
                     <th scope="row"><label class="" for="mcf_options[user]"><?php esc_html_e('Recipient', 'mcf'); ?></label></th>
                     <td>
-                      <?php wp_dropdown_users(array('name' => 'mcf_options[user]', 'selected' => $mcf_options['user'], 'include_selected' => true, 'role__in' => array('administrator', 'editor'))); ?>
+                      <?php wp_dropdown_users(
+                        array(
+                          'name' => 'mcf_options[user]',
+                          'selected' => $mcf_options['user'],
+                          'include_selected' => true,
+                          'role__in' => array('administrator', 'editor')
+                          )
+                        ); ?>
                       <p class="description"><?php esc_html_e('Select the administrator or editor who should receive the emails.', 'mcf'); ?></p>
                     </td>
                   </tr>

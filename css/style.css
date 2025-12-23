@@ -32,7 +32,6 @@
   color: var(--mcf-error-color, #dc3232);
 }
 
-
 #minimal-contact-form input,
 #minimal-contact-form textarea {
   background: var(--mcf-item-background-color, #fff);
@@ -55,7 +54,10 @@
   color: var(--mcf-placeholder-color, #999);
 }
 
-
+#minimal-contact-form input.missing,
+#minimal-contact-form textarea.missing {
+  border-color: var(--mcf-error-color, #dc3232) !important;
+}
 
 #minimal-contact-form label.label,
 #minimal-contact-form label.no-label {
@@ -168,6 +170,7 @@
   text-shadow: none;
   transition: background 0.2s;
   -webkit-transition: background 0.2s;
+  appearance: button;
   -webkit-appearance: button;
 }
 

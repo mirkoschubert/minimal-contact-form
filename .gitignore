@@ -1,6 +1,8 @@
 .DS_Store
 deploy.sh
 push.sh
+push.ps1
 .synchronize
 rsync.log
+rclone.log
 translation.txt
