@@ -1,0 +1,27 @@
+{
+  "name": "mirkoschubert/minimal-contact-form",
+  "description": "A simple, clean and secure contact form for WordPress",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Mirko Schubert",
+      "email": "office@mirkoschubert.de"
+    }
+  ],
+  "require": {
+    "php": ">=7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "MinimalContactForm\\": "src/"
+    }
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7"
+  },
+  "scripts": {
+    "cs-check": "phpcs --standard=PSR12 src/",
+    "cs-fix": "phpcbf --standard=PSR12 src/"
+  }
+}

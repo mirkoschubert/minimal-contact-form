@@ -6,3 +6,16 @@ push.ps1
 rsync.log
 rclone.log
 translation.txt
+
+# Composer
+/vendor/
+composer.lock
+
+# Node
+/admin-app/node_modules/
+/admin-app/package-lock.json
+
+# Built assets (uncomment if you want to exclude from git)
+# /assets/admin/js/
+# /assets/admin/css/
+# *.asset.php
