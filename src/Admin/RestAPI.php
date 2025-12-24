@@ -64,6 +64,13 @@ class RestAPI
             'callback' => [$this, 'get_users'],
             'permission_callback' => [$this, 'check_admin_permission'],
         ]);
+
+        // Reset database to fresh v1.0.0 (DEV ONLY)
+        register_rest_route('mcf/v1', '/reset-database', [
+            'methods' => 'POST',
+            'callback' => [$this, 'reset_database'],
+            'permission_callback' => [$this, 'check_admin_permission'],
+        ]);
     }
 
     /**
@@ -82,6 +89,13 @@ class RestAPI
             // Use Activator defaults
             require_once plugin_dir_path(dirname(__FILE__, 2)) . 'src/Core/Activator.php';
             \MinimalContactForm\Core\Activator::activate();
+            $options = get_option('mcf_options');
+        }
+
+        // If fields structure is missing (old version), run migration
+        if (!isset($options['fields'])) {
+            require_once plugin_dir_path(dirname(__FILE__, 2)) . 'src/Core/Migration.php';
+            \MinimalContactForm\Core\Migration::maybe_migrate();
             $options = get_option('mcf_options');
         }
 
@@ -128,8 +142,10 @@ class RestAPI
             'inform_text' => sanitize_textarea_field($params['privacy_texts']['inform_text']),
         ];
         $options['styling'] = [
-            'theme_preset' => sanitize_text_field($params['styling']['theme_preset']),
-            'advanced' => $params['styling']['advanced'] ?? [],
+            'theme_preset' => sanitize_text_field($params['styling']['theme_preset'] ?? 'modern'),
+            'variant' => sanitize_text_field($params['styling']['variant'] ?? 'light'),
+            'primary_color' => sanitize_hex_color($params['styling']['primary_color'] ?? ''),
+            'custom_css' => wp_strip_all_tags($params['styling']['custom_css'] ?? ''),
         ];
 
         // Update options
@@ -179,6 +195,85 @@ class RestAPI
         }, $users);
 
         return new \WP_REST_Response($formatted_users, 200);
+    }
+
+    /**
+     * Reset database to fresh v1.0.0 structure (DEV ONLY)
+     *
+     * @since 1.0.0
+     * @param \WP_REST_Request $request Request object
+     * @return \WP_REST_Response Response object
+     */
+    public function reset_database($request)
+    {
+        // Delete old options
+        delete_option('mcf_options');
+        delete_option('mcf_options_backup_v0');
+        delete_transient('mcf_migration_notice');
+
+        // Create fresh v1.0.0 structure
+        $fresh_options = [
+            'version' => '1.0.0',
+            'settings' => [
+                'recipient_user_id' => 1,
+                'gdpr_mode' => 'inform',
+                'antispam_enabled' => true,
+                'mail_service' => 'wp_mail',
+                'smtp_config' => [
+                    'enabled' => false,
+                    'host' => '',
+                    'port' => 587,
+                    'username' => '',
+                    'password' => '',
+                    'encryption' => 'tls',
+                    'from_name' => '',
+                    'from_email' => '',
+                ],
+            ],
+            'fields' => [
+                'field_groups' => [
+                    'company' => ['enabled' => false],
+                    'name' => ['mode' => 'split', 'enabled' => true],
+                    'contact' => ['mode' => 'email', 'enabled' => true],
+                    'subject' => ['enabled' => false],
+                    'message' => ['enabled' => true],
+                    'gdpr' => ['enabled' => true],
+                    'submit' => ['alignment' => 'left'],
+                ],
+                'labels' => [
+                    'company' => 'Company',
+                    'first-name' => 'First Name',
+                    'last-name' => 'Last Name',
+                    'name' => 'Name',
+                    'phone' => 'Phone',
+                    'email' => 'Email',
+                    'subject' => 'Subject',
+                    'message' => 'Message',
+                    'submit' => 'Submit',
+                    'gdpr-optin' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
+                    'gdpr-inform' => 'Your submitted information will only be processed to respond to your inquiry.',
+                ],
+                'placeholders' => [],
+            ],
+            'privacy_texts' => [
+                'optin_text' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
+                'inform_text' => 'Your submitted information will only be processed to respond to your inquiry.',
+            ],
+            'styling' => [
+                'theme_preset' => 'modern',
+                'variant' => 'light',
+                'primary_color' => '',
+                'custom_css' => '',
+            ],
+        ];
+
+        add_option('mcf_options', $fresh_options, '', true);
+
+        return new \WP_REST_Response([
+            'success' => true,
+            'message' => 'Database reset to fresh v1.0.0 structure',
+            'data' => $fresh_options,
+        ], 200);
     }
 
     /**

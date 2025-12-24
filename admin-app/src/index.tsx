@@ -1,9 +1,10 @@
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 import App from './App';
-import './style.scss';
+import './admin.scss';
 
-const root = document.getElementById('mcf-admin-root');
+const container = document.getElementById('mcf-admin-root');
+const root = createRoot(container!);
 
 if (root) {
-	render(<App />, root);
+	root.render(<App />);
 }

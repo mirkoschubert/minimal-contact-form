@@ -7,20 +7,20 @@ interface AdvancedStylingProps {
 	onStylingChange: (advanced: Record<string, string>) => void;
 }
 
-export default function AdvancedStyling({ styling, onStylingChange }: AdvancedStylingProps) {
+export default function AdvancedStyling({ styling }: AdvancedStylingProps) {
 	// Only show when Custom theme is selected
 	if (styling.theme_preset !== 'custom') {
 		return null;
 	}
 
-	// TODO: Implement full styling controls in Phase 4
+	// TODO: Implement full styling controls in a future version
 	return (
 		<Panel>
 			<PanelBody title={__('Advanced Styling', 'mcf')} initialOpen={false}>
-				<p>{__('Advanced styling controls will be implemented in Phase 4', 'mcf')}</p>
+				<p>{__('Advanced styling controls will be implemented in a future version.', 'mcf')}</p>
 				<p>
 					{__(
-						'All 23+ color pickers, sliders, and styling options will be available here',
+						'All color pickers, sliders, and styling options for full customization will be available here.',
 						'mcf'
 					)}
 				</p>

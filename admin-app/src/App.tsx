@@ -5,7 +5,7 @@ import { Button, Spinner, Notice } from '@wordpress/components';
 
 import SettingsPanel from './components/SettingsPanel';
 import ThemeSelector from './components/ThemeSelector';
-import FieldManager from './components/FieldManager';
+import FieldGroupManager from './components/FieldGroupManager';
 import AdvancedStyling from './components/AdvancedStyling';
 import PrivacyTexts from './components/PrivacyTexts';
 
@@ -58,6 +58,36 @@ export default function App() {
 				setNotice({
 					type: 'error',
 					message: error.message || __('Failed to save settings. Please try again.', 'mcf'),
+				});
+			});
+	};
+
+	// Reset database (DEV ONLY)
+	const handleResetDatabase = () => {
+		if (!confirm(__('⚠️ WARNING: This will delete ALL settings and reset to v1.0.0 defaults!\n\nAre you sure?', 'mcf'))) {
+			return;
+		}
+
+		setLoading(true);
+		setNotice(null);
+
+		apiFetch({
+			path: '/mcf/v1/reset-database',
+			method: 'POST',
+		})
+			.then(() => {
+				setNotice({
+					type: 'success',
+					message: __('Database reset successful! Reloading...', 'mcf'),
+				});
+				// Reload page after 1 second
+				setTimeout(() => window.location.reload(), 1000);
+			})
+			.catch((error: Error) => {
+				setLoading(false);
+				setNotice({
+					type: 'error',
+					message: error.message || __('Reset failed!', 'mcf'),
 				});
 			});
 	};
@@ -130,8 +160,11 @@ export default function App() {
 				</div>
 
 				<div className="mcf-admin-main">
-					<FieldManager
+					<FieldGroupManager
 						fields={settings.fields}
+						customCSS={settings.styling?.custom_css || ''}
+						theme={settings.styling?.theme_preset || 'modern'}
+						variant={settings.styling?.variant || 'light'}
 						onFieldsChange={(fields) => setSettings({ ...settings, fields })}
 					/>
 
@@ -150,6 +183,15 @@ export default function App() {
 			<div className="mcf-admin-footer">
 				<Button variant="primary" onClick={handleSave} isBusy={saving} disabled={saving}>
 					{saving ? __('Saving...', 'mcf') : __('Save Settings', 'mcf')}
+				</Button>
+				<Button
+					variant="secondary"
+					isDestructive
+					onClick={handleResetDatabase}
+					disabled={loading || saving}
+					style={{ marginLeft: '10px' }}
+				>
+					{__('🔄 Reset Database (DEV)', 'mcf')}
 				</Button>
 			</div>
 		</div>

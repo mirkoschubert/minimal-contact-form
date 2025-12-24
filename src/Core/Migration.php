@@ -74,6 +74,16 @@ class Migration
             'gdpr_mode' => isset($settings['gdpr']) && $settings['gdpr'] === 1 ? 'optin' : 'inform',
             'antispam_enabled' => !isset($settings['spam']) || $settings['spam'] === 1,
             'mail_service' => isset($settings['phpmail']) && $settings['phpmail'] === 1 ? 'php_mail' : 'wp_mail',
+            'smtp_config' => [
+                'enabled' => false,
+                'host' => '',
+                'port' => 587,
+                'username' => '',
+                'password' => '',
+                'encryption' => 'tls',
+                'from_name' => '',
+                'from_email' => '',
+            ],
         ];
     }
 
@@ -87,34 +97,93 @@ class Migration
     private static function transform_fields($old)
     {
         $layout = isset($old['layout']) ? $old['layout'] : [];
+        $labels = isset($old['labels']) ? $old['labels'] : [];
+        $placeholders = isset($old['placeholders']) ? $old['placeholders'] : [];
 
-        // Default order (all available fields)
-        $default_order = ['company', 'first-name', 'last-name', 'name', 'phone', 'email', 'subject', 'message'];
-
-        return [
-            'order' => $default_order,
+        // Build old-style structure for migration
+        $old_fields = [
             'enabled' => [
                 'company' => isset($layout['company']) && $layout['company'] === 1,
                 'first-name' => !isset($layout['first-name']) || $layout['first-name'] === 1,
                 'last-name' => !isset($layout['last-name']) || $layout['last-name'] === 1,
                 'name' => isset($layout['name']) && $layout['name'] === 1,
                 'phone' => isset($layout['phone']) && $layout['phone'] === 1,
-                'email' => true, // Always enabled
+                'email' => true,
                 'subject' => !isset($layout['subject']) || $layout['subject'] === 1,
-                'message' => true, // Always enabled
+                'message' => true,
             ],
-            'labels' => [
-                'company' => 'Company',
-                'first-name' => 'First Name',
-                'last-name' => 'Last Name',
-                'name' => 'Name',
-                'phone' => 'Phone',
-                'email' => 'Email',
-                'subject' => 'Subject',
-                'message' => 'Message',
+            'labels' => $labels,
+            'placeholders' => $placeholders,
+        ];
+
+        return self::migrate_to_field_groups($old_fields);
+    }
+
+    /**
+     * Migrate old fields structure to new field_groups structure
+     *
+     * @since 1.0.0
+     * @param array $old_fields Old fields structure
+     * @return array New field_groups structure
+     */
+    private static function migrate_to_field_groups($old_fields)
+    {
+        $enabled = $old_fields['enabled'] ?? [];
+
+        // Detect name mode
+        $name_mode = 'split';
+        if (isset($enabled['name']) && $enabled['name']) {
+            // Single name field is enabled
+            $name_mode = 'single';
+        } elseif (
+            (!isset($enabled['first-name']) || !$enabled['first-name']) &&
+            (!isset($enabled['last-name']) || !$enabled['last-name'])
+        ) {
+            // Both split fields disabled = user prefers single
+            $name_mode = 'single';
+        }
+
+        // Detect contact mode
+        $contact_mode = 'email';
+        if (isset($enabled['phone']) && $enabled['phone']) {
+            $contact_mode = 'email-phone';
+        }
+
+        return [
+            'field_groups' => [
+                'company' => ['enabled' => $enabled['company'] ?? false],
+                'name' => ['mode' => $name_mode, 'enabled' => true],
+                'contact' => ['mode' => $contact_mode, 'enabled' => true],
+                'subject' => ['enabled' => $enabled['subject'] ?? true],
+                'message' => ['enabled' => true],
+                'gdpr' => ['enabled' => true],
+                'submit' => ['alignment' => 'left'],
             ],
-            'placeholders' => [],
-            'custom_fields' => [],
+            'labels' => $old_fields['labels'] ?: self::get_default_labels(),
+            'placeholders' => $old_fields['placeholders'] ?: [],
+        ];
+    }
+
+    /**
+     * Get default labels
+     *
+     * @since 1.0.0
+     * @return array Default labels
+     */
+    private static function get_default_labels()
+    {
+        return [
+            'company' => 'Company',
+            'first-name' => 'First Name',
+            'last-name' => 'Last Name',
+            'name' => 'Name',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'subject' => 'Subject',
+            'message' => 'Message',
+            'submit' => 'Submit',
+            'gdpr-optin' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
+            'gdpr-inform' => 'Your submitted information will only be processed to respond to your inquiry.',
         ];
     }
 
@@ -143,12 +212,35 @@ class Migration
     {
         $styling = isset($old['styling']) ? $old['styling'] : [];
 
+        // Extract custom CSS from old structure
+        $custom_css = $old['css'] ?? '';
+        if (empty($custom_css) && isset($styling['misc-custom-css'])) {
+            $custom_css = $styling['misc-custom-css'];
+        }
+
         // Detect closest theme preset
-        $theme_preset = self::detect_theme_preset($styling);
+        $old_theme = self::detect_theme_preset($styling);
+
+        // Map old themes to new structure
+        $theme_map = [
+            'light' => 'modern',
+            'dark' => 'modern',
+            'modern' => 'modern',
+            'minimal' => 'minimal',
+            'custom' => 'modern',
+        ];
+
+        $new_theme = $theme_map[$old_theme] ?? 'modern';
+        $variant = in_array($old_theme, ['dark']) ? 'dark' : 'light';
+
+        // Extract primary color from button background
+        $primary_color = $styling['button-background-color'] ?? '';
 
         return [
-            'theme_preset' => $theme_preset,
-            'advanced' => $styling, // Preserve all old styling settings in advanced
+            'theme_preset' => $new_theme,
+            'variant' => $variant,
+            'primary_color' => $primary_color,
+            'custom_css' => $custom_css,
         ];
     }
 

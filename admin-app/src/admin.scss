@@ -1,0 +1,266 @@
+.mcf-admin-app {
+    margin: 20px 0;
+}
+
+.mcf-admin-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+
+    p {
+        margin-top: 16px;
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+.mcf-admin-error {
+    margin: 20px 0;
+}
+
+.mcf-admin-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    @media (max-width: 782px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mcf-admin-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mcf-admin-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mcf-admin-footer {
+    padding: 16px 0;
+    border-top: 1px solid #ddd;
+}
+
+// Field Groups styling
+.mcf-field-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .mcf-field-group {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #dcdcde;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        h4 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d2327;
+        }
+
+        .description {
+            margin: 8px 0 0 0;
+            color: #646970;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        // WordPress Component spacing fixes
+        .components-toggle-control,
+        .components-radio-control {
+            margin-bottom: 0;
+        }
+
+        .components-radio-control__option {
+            margin-bottom: 8px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.mcf-privacy-preview {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    font-size: 13px;
+
+    p {
+        margin: 4px 0;
+    }
+}
+
+// Form Preview WYSIWYG Styles
+.mcf-form-preview {
+    margin-top: 20px;
+    padding: 32px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+
+    .description {
+        margin: 0 0 16px 0;
+        color: #646970;
+        font-size: 13px;
+    }
+}
+
+.mcf-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @media (max-width: 782px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mcf-preview-field {
+    position: relative;
+    min-height: 60px;
+
+    // Full width fields span both columns
+    &[data-full-width="true"] {
+        grid-column: 1 / -1;
+    }
+
+    // Controls only visible on hover
+    .mcf-preview-field-controls {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        gap: 4px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        z-index: 10;
+    }
+
+    &:hover .mcf-preview-field-controls {
+        opacity: 1;
+    }
+}
+
+.mcf-field-control {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: #f0f0f0;
+        border-color: #999;
+    }
+
+    &.mcf-drag-handle {
+        cursor: grab;
+
+        &:active {
+            cursor: grabbing;
+        }
+    }
+
+    .dashicons {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+        color: #555;
+    }
+}
+
+.mcf-preview-field-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mcf-preview-label {
+    font-size: 14px;
+    color: #1d2327;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+
+    .required {
+        color: #d63638;
+        margin-left: 2px;
+    }
+}
+
+.mcf-preview-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #2c3338;
+    background-color: #fff;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.4;
+
+    &::placeholder {
+        color: #a7aaad;
+    }
+
+    &:read-only {
+        cursor: default;
+        background-color: #f6f7f7;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #2271b1;
+        box-shadow: 0 0 0 1px #2271b1;
+    }
+}
+
+.mcf-preview-button {
+    padding: 10px 24px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #2271b1;
+    border: none;
+    border-radius: 4px;
+    cursor: not-allowed;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.mcf-preview-submit {
+    margin-top: 8px;
+
+    &.mcf-submit-left {
+        text-align: left;
+    }
+
+    &.mcf-submit-right {
+        text-align: right;
+    }
+}

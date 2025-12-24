@@ -53,16 +53,14 @@ class FieldConfig
     public static function get_defaults()
     {
         return [
-            'order' => ['first-name', 'last-name', 'email', 'subject', 'message'],
-            'enabled' => [
-                'company' => false,
-                'first-name' => true,
-                'last-name' => true,
-                'name' => false,
-                'phone' => false,
-                'email' => true,
-                'subject' => true,
-                'message' => true,
+            'field_groups' => [
+                'company' => ['enabled' => false],
+                'name' => ['mode' => 'split', 'enabled' => true],
+                'contact' => ['mode' => 'email', 'enabled' => true],
+                'subject' => ['enabled' => false],
+                'message' => ['enabled' => true],
+                'gdpr' => ['enabled' => true],
+                'submit' => ['alignment' => 'left'],
             ],
             'labels' => [
                 'company' => 'Company',
@@ -73,56 +71,47 @@ class FieldConfig
                 'email' => 'Email',
                 'subject' => 'Subject',
                 'message' => 'Message',
+                'submit' => 'Submit',
+                'gdpr-optin' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
+                'gdpr-inform' => 'Your submitted information will only be processed to respond to your inquiry.',
             ],
             'placeholders' => [],
-            'custom_fields' => [],
         ];
     }
 
     /**
-     * Get field order
+     * Get field groups
      *
      * @since 1.0.0
-     * @return array Field order
+     * @return array Field groups configuration
      */
-    public function get_order()
+    public function get_field_groups()
     {
-        return $this->data['order'];
+        return $this->data['field_groups'];
     }
 
     /**
-     * Set field order
+     * Get a specific field group
      *
      * @since 1.0.0
-     * @param array $order New field order
+     * @param string $group Group name
+     * @return array|null Group configuration or null
      */
-    public function set_order($order)
+    public function get_group($group)
     {
-        $this->data['order'] = array_values($order);
+        return $this->data['field_groups'][$group] ?? null;
     }
 
     /**
-     * Check if a field is enabled
+     * Update a field group
      *
      * @since 1.0.0
-     * @param string $field_id Field ID
-     * @return bool True if enabled
+     * @param string $group Group name
+     * @param array $config Group configuration
      */
-    public function is_enabled($field_id)
+    public function set_group($group, $config)
     {
-        return $this->data['enabled'][$field_id] ?? false;
-    }
-
-    /**
-     * Enable/disable a field
-     *
-     * @since 1.0.0
-     * @param string $field_id Field ID
-     * @param bool $enabled Enable or disable
-     */
-    public function set_enabled($field_id, $enabled)
-    {
-        $this->data['enabled'][$field_id] = (bool) $enabled;
+        $this->data['field_groups'][$group] = $config;
     }
 
     /**
@@ -173,27 +162,6 @@ class FieldConfig
         $this->data['placeholders'][$field_id] = sanitize_text_field($placeholder);
     }
 
-    /**
-     * Get custom fields
-     *
-     * @since 1.0.0
-     * @return array Custom fields
-     */
-    public function get_custom_fields()
-    {
-        return $this->data['custom_fields'];
-    }
-
-    /**
-     * Add a custom field
-     *
-     * @since 1.0.0
-     * @param array $field Custom field data
-     */
-    public function add_custom_field($field)
-    {
-        $this->data['custom_fields'][] = $field;
-    }
 
     /**
      * Get all field configuration
@@ -216,19 +184,35 @@ class FieldConfig
     {
         $errors = [];
 
-        // Validate order contains valid field IDs
-        foreach ($this->data['order'] as $field_id) {
-            if (!in_array($field_id, self::$available_fields)) {
-                $errors['order'][] = "Invalid field ID in order: {$field_id}";
-            }
+        // Validate field_groups structure exists
+        if (!isset($this->data['field_groups'])) {
+            $errors['field_groups'] = 'field_groups configuration is required';
+            return $errors;
         }
 
-        // Validate email and message are always enabled (required)
-        if (!$this->is_enabled('email')) {
-            $errors['enabled'] = 'Email field must be enabled';
+        $groups = $this->data['field_groups'];
+
+        // Validate name mode
+        if (isset($groups['name']['mode']) && !in_array($groups['name']['mode'], ['single', 'split'])) {
+            $errors['name_mode'] = 'Name mode must be "single" or "split"';
         }
-        if (!$this->is_enabled('message')) {
-            $errors['enabled'] = 'Message field must be enabled';
+
+        // Validate contact mode
+        if (isset($groups['contact']['mode']) && !in_array($groups['contact']['mode'], ['email', 'email-phone'])) {
+            $errors['contact_mode'] = 'Contact mode must be "email" or "email-phone"';
+        }
+
+        // Validate submit alignment
+        if (isset($groups['submit']['alignment']) && !in_array($groups['submit']['alignment'], ['left', 'right'])) {
+            $errors['submit_alignment'] = 'Submit alignment must be "left" or "right"';
+        }
+
+        // Message and contact (email) are always required
+        if (!isset($groups['message']['enabled']) || !$groups['message']['enabled']) {
+            $errors['message'] = 'Message field must be enabled';
+        }
+        if (!isset($groups['contact']['enabled']) || !$groups['contact']['enabled']) {
+            $errors['contact'] = 'Contact field must be enabled';
         }
 
         return empty($errors) ? true : $errors;
