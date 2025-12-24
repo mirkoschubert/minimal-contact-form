@@ -242,35 +242,20 @@ class FormRenderer
     }
 
     /**
-     * Render security fields (honeypot, CSRF, timestamp)
+     * Render security fields (honeypot, nonce)
      *
      * @since 1.0.0
      */
     private function render_security()
     {
-        // Start session if not already started
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        // Generate CSRF token
-        if (empty($_SESSION['mcf_csrf_token'])) {
-            $_SESSION['mcf_csrf_token'] = bin2hex(random_bytes(32));
-        }
-
-        // Generate timestamp and nonce
-        $timestamp = time();
-        $nonce = wp_create_nonce('mcf_timestamp_' . $timestamp);
+        // Generate WordPress nonce
+        $nonce = wp_create_nonce('mcf_submit');
 
         ?>
         <!-- Security Fields -->
         <div class="mcf-security" style="display: none;" aria-hidden="true">
-            <!-- CSRF Token -->
-            <input type="hidden" name="csrf_token" value="<?php echo esc_attr($_SESSION['mcf_csrf_token']); ?>" />
-
-            <!-- Time-based Check -->
-            <input type="hidden" name="mcf_timestamp" value="<?php echo esc_attr($timestamp); ?>" />
-            <input type="hidden" name="mcf_nonce" value="<?php echo esc_attr($nonce); ?>" />
+            <!-- WordPress Nonce -->
+            <input type="hidden" name="_wpnonce" value="<?php echo esc_attr($nonce); ?>" />
         </div>
 
         <!-- Honeypot Fields (multiple for better bot detection) -->

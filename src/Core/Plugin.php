@@ -5,6 +5,7 @@ namespace MinimalContactForm\Core;
 use MinimalContactForm\Admin\AdminPanel;
 use MinimalContactForm\Public\Frontend;
 use MinimalContactForm\Public\FormHandler;
+use MinimalContactForm\Public\FormRenderer;
 
 /**
  * The core plugin class.
@@ -16,6 +17,8 @@ use MinimalContactForm\Public\FormHandler;
  */
 class Plugin
 {
+    public const TEXT_DOMAIN = 'mcf';
+
     protected $mcf;
     protected $version;
     protected $loader;
@@ -113,11 +116,13 @@ class Plugin
     private function define_public_hooks()
     {
         $plugin_public = new Frontend($this->get_mcf(), $this->get_version());
-        $plugin_form = new FormHandler($this->get_mcf(), $this->get_version());
+        $plugin_form_handler = new FormHandler();
+        $plugin_form_renderer = new FormRenderer($this->get_version());
 
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-        $this->loader->add_action('rest_api_init', $plugin_form, 'register_routes');
+        $this->loader->add_action('init', $plugin_form_handler, 'register');
+        $this->loader->add_action('init', $plugin_form_renderer, 'register');
     }
 
     /**
