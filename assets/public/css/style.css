@@ -1,0 +1,249 @@
+/**
+ * Minimal Contact Form - Base Structure CSS
+ *
+ * This file contains only structural styles and layout.
+ * Theme-specific colors and styling are defined in theme files.
+ *
+ * @since 1.0.0
+ */
+
+/* Reset & Base */
+.mcf-form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mcf-form *,
+.mcf-form *::before,
+.mcf-form *::after {
+    box-sizing: border-box;
+}
+
+/* Form Container */
+.mcf-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Notice Messages */
+.mcf-notice {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--mcf-border-radius, 0.25rem);
+    display: none;
+}
+
+.mcf-notice.show {
+    display: block;
+}
+
+.mcf-notice.success {
+    color: var(--mcf-success-color, #46b450);
+    background-color: rgba(70, 180, 80, 0.1);
+    border: 1px solid var(--mcf-success-color, #46b450);
+}
+
+.mcf-notice.warning {
+    color: var(--mcf-warning-color, #ffb900);
+    background-color: rgba(255, 185, 0, 0.1);
+    border: 1px solid var(--mcf-warning-color, #ffb900);
+}
+
+.mcf-notice.error {
+    color: var(--mcf-error-color, #dc3232);
+    background-color: rgba(220, 50, 50, 0.1);
+    border: 1px solid var(--mcf-error-color, #dc3232);
+}
+
+/* Form Fields */
+.mcf-form .mcf-field {
+    width: 100%;
+}
+
+/* Form grid layout */
+.mcf-form .mcf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--mcf-item-spacing, 1.5rem);
+    margin-bottom: 1rem;
+}
+
+.mcf-form .mcf-grid .mcf-field[data-full-width="true"] {
+    grid-column: 1 / -1;
+}
+
+.mcf-form .mcf-label {
+    display: block;
+    font-size: var(--mcf-label-font-size, inherit);
+    font-weight: var(--mcf-label-font-weight, inherit);
+    margin-bottom: 0.5rem;
+}
+
+.mcf-form .mcf-label .required {
+    color: var(--mcf-error-color, #dc3232);
+    margin-left: 2px;
+}
+
+/* Screen Reader Only / Visually Hidden */
+.mcf-form .mcf-label.mcf-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.mcf-form .mcf-input,
+.mcf-form .mcf-textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: var(--mcf-item-padding, 1rem) !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: 1.5 !important;
+    color: var(--mcf-text-color, #333) !important;
+    background-color: var(--mcf-item-background-color, #fff) !important;
+    border: 1px solid var(--mcf-border-color, #bbb) !important;
+    border-radius: var(--mcf-border-radius, 0.25rem) !important;
+    transition: border-color 0.2s ease !important;
+    box-shadow: none !important;
+}
+
+.mcf-form .mcf-input::placeholder,
+.mcf-form .mcf-textarea::placeholder {
+    color: var(--mcf-placeholder-color, #999) !important;
+    opacity: 1 !important;
+}
+
+.mcf-form .mcf-input:focus,
+.mcf-form .mcf-textarea:focus {
+    outline: none !important;
+    border-color: var(--mcf-checkbox-color, #dc3232) !important;
+    box-shadow: none !important;
+}
+
+.mcf-form .mcf-input.error,
+.mcf-form .mcf-textarea.error {
+    border-color: var(--mcf-error-color, #dc3232) !important;
+}
+
+.mcf-form .mcf-textarea {
+    resize: vertical !important;
+    min-height: 120px !important;
+}
+
+/* Privacy/GDPR Fields */
+.mcf-form .mcf-field-privacy {
+    grid-column: 1 / -1;
+}
+
+.mcf-form .mcf-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.mcf-form .mcf-checkbox {
+    flex-shrink: 0;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    min-width: 1.25rem !important;
+    margin: 0.125rem 0 0 0 !important;
+    padding: 0 !important;
+    border: 1px solid var(--mcf-border-color, #bbb) !important;
+    border-radius: var(--mcf-border-radius, 0.25rem) !important;
+    background-color: var(--mcf-item-background-color, #fff) !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    position: relative !important;
+    box-shadow: none !important;
+}
+
+.mcf-form .mcf-checkbox:checked {
+    background-color: var(--mcf-checkbox-color, #dc3232) !important;
+    border-color: var(--mcf-checkbox-color, #dc3232) !important;
+}
+
+.mcf-form .mcf-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -60%) rotate(45deg);
+}
+
+.mcf-form .mcf-checkbox-text {
+    flex: 1;
+    font-size: var(--mcf-gdpr-font-size, 1rem);
+    line-height: 1.5;
+    color: var(--mcf-text-color, #333);
+}
+
+.mcf-form .mcf-privacy-text {
+    font-size: var(--mcf-gdpr-font-size, 1rem);
+    line-height: 1.5;
+    color: var(--mcf-text-color, #333);
+    margin: 0;
+}
+
+/* Security Fields (hidden) */
+.mcf-security {
+    display: none !important;
+}
+
+/* Submit Button */
+.mcf-form .mcf-field-submit {
+    margin-bottom: 0;
+}
+
+.mcf-form .mcf-submit-left {
+    text-align: left;
+}
+
+.mcf-form .mcf-submit-right {
+    text-align: right;
+}
+
+.mcf-form .mcf-submit-button {
+    display: inline-block !important;
+    padding: var(--mcf-button-padding, 1rem 2rem) !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: var(--mcf-button-font-weight, 700) !important;
+    line-height: 1.5 !important;
+    color: var(--mcf-button-color, #fff) !important;
+    background-color: var(--mcf-button-background-color, #222) !important;
+    border: none !important;
+    border-radius: var(--mcf-border-radius, 0.25rem) !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+    appearance: button !important;
+    -webkit-appearance: button !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    text-decoration: none !important;
+}
+
+.mcf-form .mcf-submit-button:hover {
+    background-color: var(--mcf-button-background-hover-color, #555) !important;
+    color: var(--mcf-button-hover-color, #fff) !important;
+}
+
+/* Responsive Layout */
+/* @media screen and (min-width: 48em) {
+    .mcf-form {
+        max-width: var(--mcf-desktop-max-width, 36em);
+    }
+} */

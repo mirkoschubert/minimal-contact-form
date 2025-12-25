@@ -1,0 +1,82 @@
+/**
+ * Minimal Theme - Light & Dark Variants
+ *
+ * Contains CSS custom properties for both light and dark variants
+ * using [data-theme-variant] selectors.
+ */
+
+/* ===== LIGHT VARIANT ===== */
+.mcf-form[data-theme-variant="light"] {
+    /* Base Colors */
+    --mcf-text-color: #333333;
+    --mcf-placeholder-color: #999999;
+    --mcf-border-color: #dddddd;
+    --mcf-border-radius: 0;
+
+    /* Status Colors */
+    --mcf-checkbox-color: #000000;
+    --mcf-success-color: #28a745;
+    --mcf-warning-color: #ffc107;
+    --mcf-error-color: #dc3545;
+
+    /* GDPR/Privacy */
+    --mcf-gdpr-font-size: 0.875rem;
+
+    /* Layout */
+    --mcf-desktop-max-width: 36em;
+
+    /* Form Items */
+    --mcf-item-background-color: #ffffff;
+    --mcf-item-padding: 0.75rem;
+    --mcf-item-spacing: 1rem;
+
+    /* Labels */
+    --mcf-label-font-size: inherit;
+    --mcf-label-font-weight: 400;
+
+    /* Button */
+    --mcf-button-color: #ffffff;
+    --mcf-button-hover-color: #ffffff;
+    --mcf-button-background-color: #000000;
+    --mcf-button-background-hover-color: #333333;
+    --mcf-button-padding: 0.75rem 1.5rem;
+    --mcf-button-font-weight: 400;
+}
+
+/* ===== DARK VARIANT ===== */
+.mcf-form[data-theme-variant="dark"] {
+    /* Base Colors */
+    --mcf-text-color: #e0e0e0;
+    --mcf-placeholder-color: #888888;
+    --mcf-border-color: #444444;
+    --mcf-border-radius: 0;
+
+    /* Status Colors */
+    --mcf-checkbox-color: #ffffff;
+    --mcf-success-color: #28a745;
+    --mcf-warning-color: #ffc107;
+    --mcf-error-color: #dc3545;
+
+    /* GDPR/Privacy */
+    --mcf-gdpr-font-size: 0.875rem;
+
+    /* Layout */
+    --mcf-desktop-max-width: 36em;
+
+    /* Form Items */
+    --mcf-item-background-color: #1a1a1a;
+    --mcf-item-padding: 0.75rem;
+    --mcf-item-spacing: 1rem;
+
+    /* Labels */
+    --mcf-label-font-size: inherit;
+    --mcf-label-font-weight: 400;
+
+    /* Button */
+    --mcf-button-color: #000000;
+    --mcf-button-hover-color: #000000;
+    --mcf-button-background-color: #ffffff;
+    --mcf-button-background-hover-color: #e0e0e0;
+    --mcf-button-padding: 0.75rem 1.5rem;
+    --mcf-button-font-weight: 400;
+}

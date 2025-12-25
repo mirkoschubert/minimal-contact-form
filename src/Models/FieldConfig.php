@@ -47,36 +47,14 @@ class FieldConfig
     /**
      * Get default field configuration
      *
+     * Uses centralized Defaults class for consistency.
+     *
      * @since 1.0.0
      * @return array Default field configuration
      */
     public static function get_defaults()
     {
-        return [
-            'field_groups' => [
-                'company' => ['enabled' => false],
-                'name' => ['mode' => 'split', 'enabled' => true],
-                'contact' => ['mode' => 'email', 'enabled' => true],
-                'subject' => ['enabled' => false],
-                'message' => ['enabled' => true],
-                'gdpr' => ['enabled' => true],
-                'submit' => ['alignment' => 'left'],
-            ],
-            'labels' => [
-                'company' => 'Company',
-                'first-name' => 'First Name',
-                'last-name' => 'Last Name',
-                'name' => 'Name',
-                'phone' => 'Phone',
-                'email' => 'Email',
-                'subject' => 'Subject',
-                'message' => 'Message',
-                'submit' => 'Submit',
-                'gdpr-optin' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
-                'gdpr-inform' => 'Your submitted information will only be processed to respond to your inquiry.',
-            ],
-            'placeholders' => [],
-        ];
+        return \MinimalContactForm\Core\Defaults::get_options()['fields'];
     }
 
     /**
@@ -205,6 +183,11 @@ class FieldConfig
         // Validate submit alignment
         if (isset($groups['submit']['alignment']) && !in_array($groups['submit']['alignment'], ['left', 'right'])) {
             $errors['submit_alignment'] = 'Submit alignment must be "left" or "right"';
+        }
+
+        // Validate GDPR mode
+        if (isset($groups['gdpr']['mode']) && !in_array($groups['gdpr']['mode'], ['inform', 'optin'])) {
+            $errors['gdpr_mode'] = 'GDPR mode must be "inform" or "optin"';
         }
 
         // Message and contact (email) are always required

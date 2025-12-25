@@ -71,7 +71,6 @@ class Migration
 
         return [
             'recipient_user_id' => $settings['user'] ?? 1,
-            'gdpr_mode' => isset($settings['gdpr']) && $settings['gdpr'] === 1 ? 'optin' : 'inform',
             'antispam_enabled' => !isset($settings['spam']) || $settings['spam'] === 1,
             'mail_service' => isset($settings['phpmail']) && $settings['phpmail'] === 1 ? 'php_mail' : 'wp_mail',
             'smtp_config' => [
@@ -99,6 +98,7 @@ class Migration
         $layout = isset($old['layout']) ? $old['layout'] : [];
         $labels = isset($old['labels']) ? $old['labels'] : [];
         $placeholders = isset($old['placeholders']) ? $old['placeholders'] : [];
+        $settings = isset($old['settings']) ? $old['settings'] : [];
 
         // Build old-style structure for migration
         $old_fields = [
@@ -116,7 +116,10 @@ class Migration
             'placeholders' => $placeholders,
         ];
 
-        return self::migrate_to_field_groups($old_fields);
+        // Extract GDPR mode from old settings
+        $gdpr_mode = isset($settings['gdpr']) && $settings['gdpr'] === 1 ? 'optin' : 'inform';
+
+        return self::migrate_to_field_groups($old_fields, $gdpr_mode);
     }
 
     /**
@@ -124,9 +127,10 @@ class Migration
      *
      * @since 1.0.0
      * @param array $old_fields Old fields structure
+     * @param string $gdpr_mode GDPR mode from old settings
      * @return array New field_groups structure
      */
-    private static function migrate_to_field_groups($old_fields)
+    private static function migrate_to_field_groups($old_fields, $gdpr_mode = 'inform')
     {
         $enabled = $old_fields['enabled'] ?? [];
 
@@ -156,11 +160,12 @@ class Migration
                 'contact' => ['mode' => $contact_mode, 'enabled' => true],
                 'subject' => ['enabled' => $enabled['subject'] ?? true],
                 'message' => ['enabled' => true],
-                'gdpr' => ['enabled' => true],
+                'gdpr' => ['enabled' => true, 'mode' => $gdpr_mode],
                 'submit' => ['alignment' => 'left'],
             ],
             'labels' => $old_fields['labels'] ?: self::get_default_labels(),
             'placeholders' => $old_fields['placeholders'] ?: [],
+            'hide_labels' => false,
         ];
     }
 

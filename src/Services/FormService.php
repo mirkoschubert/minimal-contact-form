@@ -4,7 +4,7 @@ namespace MinimalContactForm\Services;
 
 use MinimalContactForm\Core\Plugin;
 
-class FormHandler
+class FormService
 {
     private SecurityService $security;
     private EmailService $email;

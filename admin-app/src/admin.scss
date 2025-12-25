@@ -121,52 +121,50 @@
     }
 }
 
-.mcf-preview-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
+// Preview field controls for edit buttons (only in preview context)
+.mcf-form-preview {
+    .mcf-field {
+        position: relative;
 
-    @media (max-width: 782px) {
-        grid-template-columns: 1fr;
-    }
-}
+        .mcf-preview-field-controls {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            display: flex;
+            gap: 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+        }
 
-.mcf-preview-field {
-    position: relative;
-    min-height: 60px;
-
-    // Full width fields span both columns
-    &[data-full-width="true"] {
-        grid-column: 1 / -1;
-    }
-
-    // Controls only visible on hover
-    .mcf-preview-field-controls {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        display: flex;
-        gap: 4px;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-        z-index: 10;
+        &:hover .mcf-preview-field-controls {
+            opacity: 1;
+        }
     }
 
-    &:hover .mcf-preview-field-controls {
-        opacity: 1;
+    // Override readonly/disabled styling to look normal in preview
+    .mcf-input:read-only,
+    .mcf-textarea:read-only {
+        cursor: default !important;
+    }
+
+    .mcf-submit-button:disabled {
+        opacity: 1 !important;
+        cursor: not-allowed !important;
     }
 }
 
 .mcf-field-control {
-    width: 32px;
-    height: 32px;
-    padding: 0;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -185,82 +183,162 @@
         }
     }
 
-    .dashicons {
-        font-size: 18px;
+    svg {
         width: 18px;
         height: 18px;
-        color: #555;
     }
 }
 
-.mcf-preview-field-content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+// Field Settings Modal
+.mcf-field-settings-modal {
+    .components-modal__content {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        max-height: 80vh;
+    }
+
+    .components-modal__header {
+        border-bottom: 1px solid #dcdcde;
+        flex-shrink: 0;
+    }
 }
 
-.mcf-preview-label {
+.mcf-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.mcf-modal-footer {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    border-top: 1px solid #dcdcde;
+    background: #f6f7f7;
+    flex-shrink: 0;
+}
+
+// Hide Labels Toggle Section
+.mcf-hide-labels-section {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dcdcde;
+
+    .components-toggle-control {
+        margin-bottom: 0;
+    }
+
+    .description {
+        margin-top: 8px;
+        color: #646970;
+        font-size: 12px;
+    }
+}
+
+// Field Row Layout - Card Style
+.mcf-field-row {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    min-height: 56px; // Ensure consistent height
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Field Row Grid (for side-by-side fields)
+.mcf-field-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    .mcf-field-row {
+        margin-bottom: 0;
+    }
+}
+
+.mcf-field-row-content {
+    width: 100%;
+}
+
+.mcf-field-row-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mcf-field-row-label {
+    font-weight: 600;
     font-size: 14px;
     color: #1d2327;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 4px;
+}
 
-    .required {
-        color: #d63638;
-        margin-left: 2px;
+.mcf-field-row-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .components-button {
+        color: #1d2327;
+
+        &:hover {
+            color: #2271b1;
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+
+            &:hover {
+                color: #1d2327;
+            }
+        }
     }
 }
 
-.mcf-preview-input {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #2c3338;
-    background-color: #fff;
-    border: 1px solid #8c8f94;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    line-height: 1.4;
-
-    &::placeholder {
-        color: #a7aaad;
-    }
-
-    &:read-only {
-        cursor: default;
-        background-color: #f6f7f7;
-    }
-
-    &:focus {
-        outline: none;
-        border-color: #2271b1;
-        box-shadow: 0 0 0 1px #2271b1;
-    }
+// Screen Reader Only / Visually Hidden (for hide_labels feature)
+.mcf-label.mcf-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
-.mcf-preview-button {
-    padding: 10px 24px;
-    font-size: 14px;
-    color: #fff;
-    background-color: #2271b1;
-    border: none;
-    border-radius: 4px;
-    cursor: not-allowed;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-}
+// Edit Fields Button in Preview Panel
+.mcf-preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
 
-.mcf-preview-submit {
-    margin-top: 8px;
-
-    &.mcf-submit-left {
-        text-align: left;
+    .description {
+        margin: 0;
+        flex: 1;
     }
 
-    &.mcf-submit-right {
-        text-align: right;
+    .mcf-edit-fields-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .dashicons {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+        }
     }
 }

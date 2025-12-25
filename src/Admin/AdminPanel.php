@@ -107,11 +107,32 @@ class AdminPanel
             true
         );
 
+        // Read theme CSS files and make them available to JavaScript
+        $base_css_content = '';
+        $theme_css_contents = [];
+
+        $base_css_path = plugin_dir_path(dirname(__FILE__, 2)) . 'assets/public/css/style.css';
+        if (file_exists($base_css_path)) {
+            $base_css_content = file_get_contents($base_css_path);
+        }
+
+        $themes = ['default', 'modern', 'minimal'];
+        foreach ($themes as $theme) {
+            $theme_path = plugin_dir_path(dirname(__FILE__, 2)) . 'assets/public/css/themes/' . $theme . '.css';
+            if (file_exists($theme_path)) {
+                $theme_css_contents[$theme] = file_get_contents($theme_path);
+            }
+        }
+
         // Localize script with WordPress data
         wp_localize_script('mcf-admin', 'mcfAdmin', [
             'apiUrl' => rest_url('mcf/v1'),
             'nonce' => wp_create_nonce('wp_rest'),
             'pluginUrl' => plugin_dir_url(dirname(__FILE__, 2)),
+            'previewCSS' => [
+                'base' => $base_css_content,
+                'themes' => $theme_css_contents,
+            ],
         ]);
 
         // Set REST API nonce

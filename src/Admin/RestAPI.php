@@ -99,6 +99,14 @@ class RestAPI
             $options = get_option('mcf_options');
         }
 
+        // Ensure labels and placeholders are objects, not arrays (for JSON serialization)
+        if (empty($options['fields']['labels'])) {
+            $options['fields']['labels'] = new \stdClass();
+        }
+        if (empty($options['fields']['placeholders'])) {
+            $options['fields']['placeholders'] = new \stdClass();
+        }
+
         return new \WP_REST_Response($options, 200);
     }
 
@@ -123,7 +131,25 @@ class RestAPI
             ], 400);
         }
 
-        // Validate fields
+        // Filter labels: only save non-empty custom labels
+        $custom_labels = [];
+        foreach ($params['fields']['labels'] as $key => $value) {
+            // Only save if not empty (empty = back to default)
+            if (!empty(trim($value))) {
+                $custom_labels[$key] = sanitize_text_field($value);
+            }
+        }
+
+        // Filter placeholders: only save non-empty custom placeholders
+        $custom_placeholders = [];
+        foreach ($params['fields']['placeholders'] as $key => $value) {
+            // Only save if not empty
+            if (!empty(trim($value))) {
+                $custom_placeholders[$key] = sanitize_text_field($value);
+            }
+        }
+
+        // Validate fields (still need validation for field_groups)
         $fields = new FieldConfig($params['fields']);
         $validation = $fields->validate();
         if ($validation !== true) {
@@ -136,7 +162,12 @@ class RestAPI
         // Build options array
         $options = get_option('mcf_options');
         $options['settings'] = $settings->to_array();
-        $options['fields'] = $fields->to_array();
+        $options['fields'] = [
+            'field_groups' => $params['fields']['field_groups'],
+            'labels' => $custom_labels,  // Only custom labels!
+            'placeholders' => $custom_placeholders,  // Only custom placeholders!
+            'hide_labels' => $params['fields']['hide_labels'] ?? false,
+        ];
         $options['privacy_texts'] = [
             'optin_text' => sanitize_textarea_field($params['privacy_texts']['optin_text']),
             'inform_text' => sanitize_textarea_field($params['privacy_texts']['inform_text']),
@@ -211,61 +242,8 @@ class RestAPI
         delete_option('mcf_options_backup_v0');
         delete_transient('mcf_migration_notice');
 
-        // Create fresh v1.0.0 structure
-        $fresh_options = [
-            'version' => '1.0.0',
-            'settings' => [
-                'recipient_user_id' => 1,
-                'gdpr_mode' => 'inform',
-                'antispam_enabled' => true,
-                'mail_service' => 'wp_mail',
-                'smtp_config' => [
-                    'enabled' => false,
-                    'host' => '',
-                    'port' => 587,
-                    'username' => '',
-                    'password' => '',
-                    'encryption' => 'tls',
-                    'from_name' => '',
-                    'from_email' => '',
-                ],
-            ],
-            'fields' => [
-                'field_groups' => [
-                    'company' => ['enabled' => false],
-                    'name' => ['mode' => 'split', 'enabled' => true],
-                    'contact' => ['mode' => 'email', 'enabled' => true],
-                    'subject' => ['enabled' => false],
-                    'message' => ['enabled' => true],
-                    'gdpr' => ['enabled' => true],
-                    'submit' => ['alignment' => 'left'],
-                ],
-                'labels' => [
-                    'company' => 'Company',
-                    'first-name' => 'First Name',
-                    'last-name' => 'Last Name',
-                    'name' => 'Name',
-                    'phone' => 'Phone',
-                    'email' => 'Email',
-                    'subject' => 'Subject',
-                    'message' => 'Message',
-                    'submit' => 'Submit',
-                    'gdpr-optin' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
-                    'gdpr-inform' => 'Your submitted information will only be processed to respond to your inquiry.',
-                ],
-                'placeholders' => [],
-            ],
-            'privacy_texts' => [
-                'optin_text' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
-                'inform_text' => 'Your submitted information will only be processed to respond to your inquiry.',
-            ],
-            'styling' => [
-                'theme_preset' => 'modern',
-                'variant' => 'light',
-                'primary_color' => '',
-                'custom_css' => '',
-            ],
-        ];
+        // Create fresh v1.0.0 structure using centralized defaults
+        $fresh_options = \MinimalContactForm\Core\Defaults::get_options();
 
         add_option('mcf_options', $fresh_options, '', true);
 

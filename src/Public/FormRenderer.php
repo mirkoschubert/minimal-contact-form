@@ -78,43 +78,48 @@ class FormRenderer
             <div class="mcf-notice" style="display: none;"></div>
 
             <form class="mcf-contact-form" method="post" novalidate>
+                <div class="mcf-grid">
+                    <?php
+                    // Company field
+                    if (!empty($field_groups['company']['enabled'])) {
+                        $this->render_field('company', 'text', false, 'organization', true);
+                    }
+
+                    // Name fields
+                    if (!empty($field_groups['name']['enabled'])) {
+                        if ($field_groups['name']['mode'] === 'single') {
+                            $this->render_field('name', 'text', true, 'name', true);
+                        } else {
+                            // Split mode (first-name + last-name)
+                            $this->render_field('first-name', 'text', true, 'given-name');
+                            $this->render_field('last-name', 'text', true, 'family-name');
+                        }
+                    }
+
+                    // Contact fields
+                    if (!empty($field_groups['contact']['enabled'])) {
+                        if ($field_groups['contact']['mode'] === 'email-phone') {
+                            $this->render_field('email', 'email', true, 'email');
+                            $this->render_field('phone', 'tel', false, 'tel');
+                        } else {
+                            $this->render_field('email', 'email', true, 'email', true);
+                        }
+                    }
+
+                    // Subject field
+                    if (!empty($field_groups['subject']['enabled'])) {
+                        $this->render_field('subject', 'text', true, 'off', true);
+                    }
+
+                    // Message field (always enabled)
+                    $this->render_textarea('message', true);
+
+                    // GDPR/Privacy
+                    $this->render_privacy();
+                    ?>
+                </div>
+
                 <?php
-                // Company field
-                if (!empty($field_groups['company']['enabled'])) {
-                    $this->render_field('company', 'text', false, 'organization');
-                }
-
-                // Name fields
-                if (!empty($field_groups['name']['enabled'])) {
-                    if ($field_groups['name']['mode'] === 'single') {
-                        $this->render_field('name', 'text', true, 'name');
-                    } else {
-                        // Split mode (first-name + last-name)
-                        $this->render_field('first-name', 'text', true, 'given-name');
-                        $this->render_field('last-name', 'text', true, 'family-name');
-                    }
-                }
-
-                // Contact fields
-                if (!empty($field_groups['contact']['enabled'])) {
-                    $this->render_field('email', 'email', true, 'email');
-
-                    if ($field_groups['contact']['mode'] === 'email-phone') {
-                        $this->render_field('phone', 'tel', false, 'tel');
-                    }
-                }
-
-                // Subject field
-                if (!empty($field_groups['subject']['enabled'])) {
-                    $this->render_field('subject', 'text', true, 'off');
-                }
-
-                // Message field (always enabled)
-                $this->render_textarea('message', true);
-
-                // GDPR/Privacy
-                $this->render_privacy();
-
                 // Security fields (honeypot, CSRF, timestamp)
                 $this->render_security();
 
@@ -134,18 +139,30 @@ class FormRenderer
      * @param string $type Input type
      * @param bool $required Whether field is required
      * @param string $autocomplete Autocomplete attribute value
+     * @param bool $full_width Whether field should span full width in grid
      */
-    private function render_field($field_id, $type = 'text', $required = false, $autocomplete = 'off')
+    private function render_field($field_id, $type = 'text', $required = false, $autocomplete = 'off', $full_width = false)
     {
         $labels = $this->options['fields']['labels'] ?? [];
         $placeholders = $this->options['fields']['placeholders'] ?? [];
+        $hide_labels = $this->options['fields']['hide_labels'] ?? false;
 
         $label = $labels[$field_id] ?? ucwords(str_replace('-', ' ', $field_id));
-        $placeholder = $placeholders[$field_id] ?? $label;
+
+        // Compute placeholder based on hide_labels setting
+        if ($hide_labels) {
+            // Labels are hidden → Placeholder = Label + asterisk (if required)
+            $placeholder = $required ? $label . ' *' : $label;
+        } else {
+            // Labels are visible → Only use explicitly entered placeholder
+            $placeholder = $placeholders[$field_id] ?? '';
+        }
+
+        $label_class = $hide_labels ? 'mcf-label mcf-sr-only' : 'mcf-label';
 
         ?>
-        <div class="mcf-field mcf-field-<?php echo esc_attr($field_id); ?>">
-            <label for="mcf-<?php echo esc_attr($field_id); ?>" class="mcf-label">
+        <div class="mcf-field mcf-field-<?php echo esc_attr($field_id); ?>" <?php echo $full_width ? 'data-full-width="true"' : ''; ?>>
+            <label for="mcf-<?php echo esc_attr($field_id); ?>" class="<?php echo esc_attr($label_class); ?>">
                 <?php echo esc_html($label); ?>
                 <?php if ($required): ?>
                     <span class="required" aria-label="<?php esc_attr_e('required', 'mcf'); ?>">*</span>
@@ -175,13 +192,24 @@ class FormRenderer
     {
         $labels = $this->options['fields']['labels'] ?? [];
         $placeholders = $this->options['fields']['placeholders'] ?? [];
+        $hide_labels = $this->options['fields']['hide_labels'] ?? false;
 
         $label = $labels[$field_id] ?? ucwords(str_replace('-', ' ', $field_id));
-        $placeholder = $placeholders[$field_id] ?? $label;
+
+        // Compute placeholder based on hide_labels setting
+        if ($hide_labels) {
+            // Labels are hidden → Placeholder = Label + asterisk (if required)
+            $placeholder = $required ? $label . ' *' : $label;
+        } else {
+            // Labels are visible → Only use explicitly entered placeholder
+            $placeholder = $placeholders[$field_id] ?? '';
+        }
+
+        $label_class = $hide_labels ? 'mcf-label mcf-sr-only' : 'mcf-label';
 
         ?>
-        <div class="mcf-field mcf-field-<?php echo esc_attr($field_id); ?>">
-            <label for="mcf-<?php echo esc_attr($field_id); ?>" class="mcf-label">
+        <div class="mcf-field mcf-field-<?php echo esc_attr($field_id); ?>" data-full-width="true">
+            <label for="mcf-<?php echo esc_attr($field_id); ?>" class="<?php echo esc_attr($label_class); ?>">
                 <?php echo esc_html($label); ?>
                 <?php if ($required): ?>
                     <span class="required" aria-label="<?php esc_attr_e('required', 'mcf'); ?>">*</span>
@@ -206,11 +234,11 @@ class FormRenderer
      */
     private function render_privacy()
     {
-        $settings = $this->options['settings'] ?? [];
+        $field_groups = $this->options['fields']['field_groups'] ?? [];
         $privacy_texts = $this->options['privacy_texts'] ?? [];
         $labels = $this->options['fields']['labels'] ?? [];
 
-        $gdpr_mode = $settings['gdpr_mode'] ?? 'inform';
+        $gdpr_mode = $field_groups['gdpr']['mode'] ?? 'inform';
 
         if ($gdpr_mode === 'optin') {
             // Opt-in checkbox (required)

@@ -15,7 +15,6 @@ export interface SMTPConfig {
 
 export interface MCFSettings {
 	recipient_user_id: number;
-	gdpr_mode: 'inform' | 'optin';
 	antispam_enabled: boolean;
 	mail_service: 'wp_mail' | 'php_mail' | 'smtp';
 	smtp_config: SMTPConfig;
@@ -28,11 +27,12 @@ export interface MCFFieldConfig {
 		contact: { mode: 'email' | 'email-phone'; enabled: boolean };
 		subject: { enabled: boolean };
 		message: { enabled: boolean };
-		gdpr: { enabled: boolean };
+		gdpr: { enabled: boolean; mode: 'inform' | 'optin' };
 		submit: { alignment: 'left' | 'right' };
 	};
 	labels: Record<string, string>;
 	placeholders: Record<string, string>;
+	hide_labels: boolean;
 }
 
 export interface CustomField {
@@ -50,7 +50,7 @@ export interface MCFPrivacyTexts {
 }
 
 export interface MCFStyling {
-	theme_preset: 'modern' | 'minimal';
+	theme_preset: 'default' | 'modern' | 'minimal';
 	variant: 'light' | 'dark';
 	primary_color?: string;
 	custom_css?: string;
@@ -86,6 +86,15 @@ declare global {
 			apiUrl: string;
 			nonce: string;
 			pluginUrl: string;
+			previewCSS: {
+				base: string;
+				themes: {
+					default: string;
+					modern: string;
+					minimal: string;
+					custom?: string;
+				};
+			};
 		};
 	}
 }

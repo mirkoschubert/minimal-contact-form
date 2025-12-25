@@ -36,26 +36,6 @@ export default function SettingsPanel({ settings, onChange }: SettingsPanelProps
 					__nextHasNoMarginBottom
 				/>
 
-				<RadioControl
-					label={__('GDPR Mode', 'mcf')}
-					selected={settings.gdpr_mode || 'inform'}
-					options={[
-						{
-							label: __('Inform', 'mcf'),
-							value: 'inform',
-						},
-						{
-							label: __('Opt-in', 'mcf'),
-							value: 'optin',
-						},
-					]}
-					onChange={(value) => onChange('gdpr_mode', value as 'inform' | 'optin')}
-					help={__(
-						'Inform: Shows informational text. Opt-in: Requires checkbox consent.',
-						'mcf'
-					)}
-				/>
-
 				<ToggleControl
 					label={__('Enable Antispam', 'mcf')}
 					checked={settings.antispam_enabled ?? true}

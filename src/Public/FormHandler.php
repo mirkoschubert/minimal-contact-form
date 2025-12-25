@@ -2,7 +2,7 @@
 
 namespace MinimalContactForm\Public;
 
-use MinimalContactForm\Services\FormHandler as FormHandlerService;
+use MinimalContactForm\Services\FormService;
 use MinimalContactForm\Services\SecurityService;
 use MinimalContactForm\Services\EmailService;
 
@@ -17,7 +17,7 @@ use MinimalContactForm\Services\EmailService;
 class FormHandler
 {
     /**
-     * @var FormHandlerService
+     * @var FormService
      */
     private $formHandler;
 
@@ -28,7 +28,7 @@ class FormHandler
     {
         $security = new SecurityService();
         $email = new EmailService();
-        $this->formHandler = new FormHandlerService($security, $email);
+        $this->formHandler = new FormService($security, $email);
     }
 
     /**

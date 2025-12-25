@@ -31,17 +31,14 @@ class Settings
     /**
      * Get default settings
      *
+     * Uses centralized Defaults class for consistency.
+     *
      * @since 1.0.0
      * @return array Default settings
      */
     public static function get_defaults()
     {
-        return [
-            'recipient_user_id' => 1,
-            'gdpr_mode' => 'inform',
-            'antispam_enabled' => true,
-            'mail_service' => 'wp_mail',
-        ];
+        return \MinimalContactForm\Core\Defaults::get_options()['settings'];
     }
 
     /**
@@ -92,11 +89,6 @@ class Settings
         // Validate recipient_user_id
         if (!is_numeric($this->data['recipient_user_id'])) {
             $errors['recipient_user_id'] = 'Recipient user ID must be numeric';
-        }
-
-        // Validate gdpr_mode
-        if (!in_array($this->data['gdpr_mode'], ['inform', 'optin'])) {
-            $errors['gdpr_mode'] = 'GDPR mode must be either "inform" or "optin"';
         }
 
         // Validate antispam_enabled
