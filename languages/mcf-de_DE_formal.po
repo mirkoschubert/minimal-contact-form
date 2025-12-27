@@ -2,54 +2,168 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minimal Contact Form\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-24 11:48+0000\n"
-"PO-Revision-Date: 2022-12-13 18:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch (Sie)\n"
-"Language: de_DE_formal\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-02-24 11:48+0000\n"
+"PO-Revision-Date: 2025-12-27 15:56+0000\n"
+"Language: de_DE_formal\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Template: languages/mcf-de_DE.po\n"
-"X-Loco-Version: 2.6.3; wp-6.2-alpha-54960"
+"X-Loco-Version: 2.6.3; wp-6.2-alpha-54960\n"
 
-#: mcf-form.php:94
+#: admin/views/partial-layout.php:56
 msgid "*"
 msgstr "*"
 
+#: admin-app/src/App.tsx:236
+msgid "?? Reset Database (DEV)"
+msgstr ""
+
+#: admin-app/src/App.tsx:74
+msgid ""
+"?? WARNING: This will delete ALL settings and reset to v1.0.0 defaults!"
+"\\n\\nAre you sure?"
+msgstr ""
+
 #. Description of the plugin
+#: mcf.php
 msgid "A WordPress Plugin for a simple, clean and secure contact form."
 msgstr ""
 "Ein WordPress Plugin für ein einfaches, übersichtliches und sicheres "
 "Kontaktformular."
 
-#: mcf-options.php:84
+#: mcf-options.php:84 src/Admin/AdminPanel.php:232
 msgid "About"
 msgstr "Über"
 
-#: mcf-options.php:51
+#: mcf-options.php:51 src/Admin/AdminPanel.php:225
 msgid "About the settings"
 msgstr "Über die Einstellungen"
 
-#: mcf-options-page.php:81
+#: mcf-options-page.php:88
 msgid "Add a phone number field to the contact form."
 msgstr "Das Kontaktformular um ein Telefonnummer-Feld ergänzen."
 
-#: mcf-form.php:36
-msgid "Address"
-msgstr "Adresse"
+#: admin-app/src/components/FormPreview.tsx:183
+msgid "Add phone field"
+msgstr "Telefonfeld hinzufügen"
 
-#: mcf-options-page.php:45
+#: admin-app/src/components/AdvancedStyling.tsx:19
+msgid "Advanced Styling"
+msgstr "Erweitertes Styling"
+
+#: admin-app/src/components/AdvancedStyling.tsx:20
+msgid "Advanced styling controls will be implemented in a future version."
+msgstr ""
+"Erweiterte Styling-Optionen werden in einer zukünftigen Version "
+"implementiert."
+
+#: admin-app/src/components/FormPreview.tsx:209
+msgid "Align left"
+msgstr "Links ausrichten"
+
+#: admin-app/src/components/FormPreview.tsx:208
+msgid "Align right"
+msgstr "Rechts ausrichten"
+
+#: admin/views/partial-styling.php:195
+msgid "Alignment"
+msgstr "Ausrichtung"
+
+#: admin-app/src/components/AdvancedStyling.tsx:22
+msgid ""
+"All color pickers, sliders, and styling options for full customization will "
+"be available here."
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:129
+msgid "Always enabled"
+msgstr "Immer aktiv"
+
+#: admin/views/partial-styling.php:106
+msgid "Always show form elements in a single column."
+msgstr ""
+
+#: admin/views/partial-settings.php:39
+msgid "Antipam"
+msgstr ""
+
+#: mcf-options-page.php:52
 msgid "Antispam"
 msgstr "Antispam"
+
+#: admin-app/src/components/FormPreview.tsx:94
+#: admin-app/src/components/FormPreview.tsx:393
+msgid "Apply"
+msgstr "Übernehmen"
+
+#: admin/views/partial-styling.php:36 admin/views/partial-styling.php:135
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+#: admin/views/partial-styling.php:45 admin/views/partial-styling.php:144
+msgid "Border Color"
+msgstr ""
+
+#: admin/views/partial-styling.php:63 admin/views/partial-styling.php:162
+msgid "Border Radius"
+msgstr ""
+
+#: admin/views/partial-styling.php:72 admin/views/partial-styling.php:171
+msgid "Border Style"
+msgstr ""
+
+#: admin/views/partial-styling.php:54 admin/views/partial-styling.php:153
+msgid "Border Width"
+msgstr ""
 
 #: mcf-options.php:73
 msgid "Button"
 msgstr "Button"
 
-#: mcf-options.php:16
+#: admin-app/src/components/FormPreview.tsx:86
+#: admin-app/src/components/FormPreview.tsx:390
+msgid "Cancel"
+msgstr ""
+
+#: admin-app/src/components/ThemeSelector.tsx:82
+msgid "Change Color"
+msgstr "Farbe ändern"
+
+#: admin-app/src/components/ThemeSelector.tsx:64
+msgid "Choose between light and dark color schemes."
+msgstr ""
+
+#: admin-app/src/components/ThemeSelector.tsx:82
+msgid "Choose Color"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:706
+msgid ""
+"Click the edit icon on any field to customize its label and placeholder."
+msgstr ""
+
+#: admin-app/src/components/ThemeSelector.tsx:48
+msgid "Color Variant"
+msgstr ""
+
+#: admin/views/partial-styling.php:105
+msgid "Columns"
+msgstr "Spalten"
+
+#: admin-app/src/components/FormPreview.tsx:403
+msgid "Company"
+msgstr "Unternehmen"
+
+#: src/Admin/AdminPanel.php:197
+msgid "Configure your contact form with the modern React interface below."
+msgstr ""
+
+#: mcf-options.php:16 src/Admin/AdminPanel.php:176
 msgid "Contact Form"
 msgstr "Kontaktformular"
 
@@ -57,23 +171,101 @@ msgstr "Kontaktformular"
 msgid "CSS Variables"
 msgstr "CSS-Variablen"
 
-#: mcf-options-page.php:106
+#: admin-app/src/components/ThemeSelector.tsx:117
+msgid "Current:"
+msgstr ""
+
+#: mcf-options-page.php:113 admin/views/partial-styling.php:232
 msgid "Custom CSS"
 msgstr "Eigenes CSS"
+
+#: admin-app/src/components/ThemeSelector.tsx:57
+msgid "Dark"
+msgstr "Dunkel"
+
+#: admin-app/src/App.tsx:93
+msgid "Database reset successful! Reloading..."
+msgstr ""
 
 #: mcf-options.php:53
 msgid "Default"
 msgstr "Ausgangswert"
 
-#: mcf-form.php:34
-msgid "Email Address"
-msgstr "E-Mail-Adresse"
+#: admin-app/src/components/ThemeSelector.tsx:27
+msgid "Default (Classic)"
+msgstr ""
 
-#: mcf-form.php:94 mcf-form.php:97
+#: admin-app/src/components/ThemeSelector.tsx:42
+msgid ""
+"Default theme matches v0.10.0 styling. Modern has rounded corners, Minimal "
+"is flat."
+msgstr ""
+
+#: admin/views/partial-styling.php:172
+msgid "Don't show any border for the button."
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:61
+msgid "Edit Field"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:715
+msgid "Edit Fields"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:587
+msgid "Edit label & placeholder"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:408
+msgid "Email"
+msgstr "E-Mail"
+
+#: admin-app/src/components/SettingsPanel.tsx:40
+msgid "Enable Antispam"
+msgstr ""
+
+#: admin/views/partial-styling.php:227
+msgid "Error Color"
+msgstr ""
+
+#: admin-app/src/App.tsx:31 admin-app/src/App.tsx:137
+msgid "Failed to load settings. Please refresh the page."
+msgstr ""
+
+#: admin-app/src/App.tsx:65
+msgid "Failed to save settings. Please try again."
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:288
+msgid "Field Settings"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:404
+msgid "First Name"
+msgstr "Vorname"
+
+#: admin/views/partial-styling.php:39 admin/views/partial-styling.php:48
+msgid "Focus"
+msgstr ""
+
+#: admin/views/partial-styling.php:96 admin/views/partial-styling.php:186
+msgid "Font Size"
+msgstr ""
+
+#: admin/views/partial-layout.php:56 admin/views/partial-layout.php:59
 msgid "For further information please visit our"
 msgstr "Für weitere Informationen besuchen Sie bitte unsere"
 
-#: mcf-options-page.php:38
+#: admin-app/src/components/FormPreview.tsx:533
+msgid "Form Fields"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:703
+msgid "Form Preview"
+msgstr ""
+
+#: mcf-options-page.php:45 admin/views/partial-settings.php:33
 msgid "GDPR"
 msgstr "DSGVO"
 
@@ -81,19 +273,43 @@ msgstr "DSGVO"
 msgid "General"
 msgstr "Allgemein"
 
-#: mcf-options-page.php:88
+#: admin-app/src/components/SettingsPanel.tsx:28
+msgid "General Settings"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:120
+msgid "Hide field"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:295
+msgid "Hide Labels Visually"
+msgstr ""
+
+#: mcf-options-page.php:95
 msgid "Hide the subject item."
 msgstr "Die Betreffzeile verstecken."
 
-#. URI of the plugin
+#: admin/views/partial-styling.php:129 admin/views/partial-styling.php:138
+#: admin/views/partial-styling.php:147
+msgid "Hover"
+msgstr "Hiver"
+
+#. Url of the plugin
+#: mcf.php
 msgid "https://github.com/mirkoschubert/minimal-contact-form"
 msgstr "https://github.com/mirkoschubert/minimal-contact-form"
 
 #. Author URI of the plugin
+#: mcf.php
 msgid "https://mirkoschubert.de/"
 msgstr "https://mirkoschubert.de/"
 
-#: mcf-form.php:94
+#: admin-app/src/components/FormPreview.tsx:667
+msgid "I agree to the privacy policy"
+msgstr ""
+
+#: src/Core/Defaults.php:89 admin/views/partial-layout.php:56
+#: admin-app/src/components/FormPreview.tsx:412
 msgid ""
 "I consent to having you process my submitted information so you can respond "
 "to my inquiry."
@@ -101,7 +317,7 @@ msgstr ""
 "Ich bin damit einverstanden, dass meine Angaben verarbeitet werden, damit "
 "auf meine Anfrage geantwortet werden kann."
 
-#: mcf-options.php:51
+#: mcf-options.php:51 src/Admin/AdminPanel.php:226
 msgid ""
 "If you refer to Art. 6 (1) let. b or let. f GDPR in your privacy policy, you "
 "do not need an opt-in. Only if you reference Art. 6 (1) let. a GDPR should "
@@ -110,6 +326,10 @@ msgstr ""
 "Wenn Sie in Ihrer Datenschutzerklärung auf Art. 6 Abs. 1 lit. b oder lit. f "
 "DSGVO verweisen, benötigen Sie keinen Opt-in. Nur wenn Sie auf Art. 6 Abs. 1 "
 "lit. a DSGVO verweisen, sollten Sie das entsprechende Kästchen ankreuzen."
+
+#: admin-app/src/components/PrivacyTexts.tsx:24
+msgid "Inform Text"
+msgstr ""
 
 #: mcf-options.php:53
 msgid ""
@@ -120,7 +340,7 @@ msgstr ""
 "verwenden, um Ihr Formular zu gestalten. Bitte wählen Sie einige der "
 "folgenden Variablen aus:"
 
-#: mcf-options.php:49
+#: mcf-options.php:49 src/Admin/AdminPanel.php:222
 msgid "is a simple, clean and secure contact form."
 msgstr "ist ein einfaches, sauberes und sicheres Kontaktformular."
 
@@ -128,131 +348,298 @@ msgstr "ist ein einfaches, sauberes und sicheres Kontaktformular."
 msgid "Item"
 msgstr "Element"
 
-#: mcf-options.php:70
+#: mcf-options.php:70 admin-app/src/components/FormPreview.tsx:63
 msgid "Label"
 msgstr "Label"
 
-#: mcf-options-page.php:92
+#: admin/views/partial-styling.php:111
+msgid "Labels"
+msgstr "Labels"
+
+#: admin-app/src/components/FormPreview.tsx:300
+msgid ""
+"Labels will be hidden visually but remain accessible to screen readers for "
+"better accessibility."
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:405
+msgid "Last Name"
+msgstr "Nachname"
+
+#: mcf-options-page.php:99 admin/views/partial-layout.php:6
 msgid "Layout"
 msgstr "Layout"
 
-#: mcf-options-page.php:52
+#: admin/views/partial-styling.php:198
+msgid "Left"
+msgstr "Links"
+
+#: admin-app/src/components/ThemeSelector.tsx:53
+msgid "Light"
+msgstr "Hell"
+
+#: admin-app/src/components/FormPreview.tsx:534
+msgid "Loading fields..."
+msgstr ""
+
+#: admin-app/src/App.tsx:128
+msgid "Loading settings..."
+msgstr ""
+
+#: mcf-options-page.php:59 admin/views/partial-settings.php:45
+#: admin-app/src/components/SettingsPanel.tsx:48
 msgid "Mail Service"
 msgstr "Mail-Dienst"
 
-#: mcf-form.php:38
+#: mcf-options-page.php:115
+msgid "mcf_options['css'"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:410
 msgid "Message"
 msgstr "Nachricht"
 
+#: admin-app/src/components/ThemeSelector.tsx:35
+msgid "Minimal"
+msgstr "Minimal"
+
 #. Name of the plugin
-#: mcf-options-page.php:3 mcf.php:33
+#: mcf.php mcf-options-page.php:3 src/Admin/AdminPanel.php:175
+#: src/Admin/AdminPanel.php:196 src/Admin/AdminPanel.php:221
+#: admin/views/admin.php:6
 msgid "Minimal Contact Form"
 msgstr "Minimal Contact Form"
 
 #. Author of the plugin
+#: mcf.php
 msgid "Mirko Schubert"
 msgstr "Mirko Schubert"
 
-#: mcf-form.php:33
+#: admin-app/src/components/ThemeSelector.tsx:31
+msgid "Modern"
+msgstr "Modern"
+
+#: admin-app/src/components/FormPreview.tsx:406
 msgid "Name"
 msgstr "Name"
+
+#: admin/views/partial-styling.php:38 admin/views/partial-styling.php:47
+#: admin/views/partial-styling.php:128 admin/views/partial-styling.php:137
+#: admin/views/partial-styling.php:146
+msgid "Normal"
+msgstr "Normal"
+
+#: admin/views/partial-styling.php:212
+msgid "Notice Color"
+msgstr ""
+
+#: admin/views/partial-styling.php:73
+msgid "Only show the bottom line of the border."
+msgstr ""
+
+#: admin-app/src/components/PrivacyTexts.tsx:15
+msgid "Opt-in Text"
+msgstr ""
+
+#: admin-app/src/components/ThemeSelector.tsx:72
+msgid "Optional: Override the default button and accent color."
+msgstr ""
 
 #: mcf-options-page.php:10
 msgid "Options"
 msgstr "Optionen"
 
-#: mcf.php:130
+#: src/Core/Requirements.php:83
 msgid "or higher!"
 msgstr "oder höher!"
 
-#: mcf-options-page.php:78 mcf-form.php:35 mcf-form.php:169
+#: admin/views/partial-styling.php:78 admin/views/partial-styling.php:177
+msgid "Padding"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:407
+msgid "Phone"
+msgstr "Telefon"
+
+#: mcf-options-page.php:85
 msgid "Phone Number"
 msgstr "Telefonnummer"
 
-#: mcf.php:131
+#: admin-app/src/components/SettingsPanel.tsx:56
+msgid "PHP mail() function"
+msgstr ""
+
+#: admin-app/src/components/SettingsPanel.tsx:61
+msgid "PHPMailer is more reliable. Use PHP mail() only if PHPMailer fails."
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:71
+msgid "Placeholder"
+msgstr ""
+
+#: admin/views/partial-styling.php:31
+msgid "Placeholder Color"
+msgstr ""
+
+#: src/Admin/AdminPanel.php:205
+msgid "Please enable JavaScript to use the Minimal Contact Form settings."
+msgstr ""
+
+#: src/Core/Requirements.php:84
 msgid "Please upgrade WordPress and try again."
 msgstr "Bitte aktualisieren Sie WordPress und versuchen es erneut."
 
-#: mcf-options-page.php:31 mcf-form.php:94 mcf-form.php:97
+#: admin-app/src/components/ThemeSelector.tsx:70
+msgid "Primary Color Override"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:372
+msgid "Privacy"
+msgstr "Datenschutz"
+
+#: mcf-options-page.php:38 admin/views/partial-settings.php:27
+#: admin/views/partial-layout.php:56 admin/views/partial-layout.php:59
 msgid "Privacy Policy"
 msgstr "Datenschutzerklärung"
 
-#: mcf-options-page.php:33
+#: mcf-options-page.php:40 admin/views/partial-layout.php:63
 msgid "Privacy Settings"
 msgstr "Datenschutz-Einstellungen"
 
-#: mcf-options-page.php:23
+#: admin-app/src/components/PrivacyTexts.tsx:13
+msgid "Privacy Texts"
+msgstr "Datenschutz-Texte"
+
+#: src/Admin/AdminPanel.php:92
+msgid ""
+"React admin bundle not found. Please run <code>npm run build</code> in the "
+"admin-app directory."
+msgstr ""
+
+#: mcf-options-page.php:23 admin-app/src/components/SettingsPanel.tsx:30
 msgid "Recipient"
 msgstr "Empfänger"
 
-#: mcf.php:129
+#: admin-app/src/components/FormPreview.tsx:184
+msgid "Remove phone field"
+msgstr ""
+
+#: src/Public/FormRenderer.php:168 src/Public/FormRenderer.php:215
+msgid "required"
+msgstr "erforderlich"
+
+#: src/Core/Requirements.php:82
 msgid "requires WordPress"
 msgstr "benötigt WordPress"
 
-#: mcf-options-page.php:26
+#: admin-app/src/components/ThemeSelector.tsx:95
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: admin-app/src/App.tsx:102
+msgid "Reset failed!"
+msgstr ""
+
+#: admin/views/partial-styling.php:197
+msgid "Right"
+msgstr "Rechts"
+
+#: admin-app/src/App.tsx:228
+msgid "Save Settings"
+msgstr ""
+
+#: admin-app/src/App.tsx:228
+msgid "Saving..."
+msgstr ""
+
+#: mcf-options-page.php:33 admin/views/partial-settings.php:24
 msgid "Select the administrator or editor who should receive the emails."
 msgstr ""
 "Wählen Sie den Administrator oder Redakteur, der die E-Mails erhalten soll."
 
-#: mcf-options.php:89 mcf.php:178
+#: mcf-options.php:89 src/Core/Plugin.php:90 src/Admin/AdminPanel.php:238
+#: admin/views/partial-settings.php:6 admin/views/partial-settings.php:10
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: mcf-options-page.php:99
+#: admin-app/src/App.tsx:54
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:120
+msgid "Show field"
+msgstr ""
+
+#: mcf-options-page.php:106
 msgid "Show Labels"
 msgstr "Labels"
 
-#: mcf-options-page.php:102
+#: admin/views/partial-styling.php:112
+msgid "Show labels instead of placeholders"
+msgstr ""
+
+#: mcf-options-page.php:109
 msgid "Show labels instead of placeholders."
 msgstr "Labels statt Placeholder anzeigen."
 
-#: mcf-options-page.php:95
+#: mcf-options-page.php:102
 msgid "Show name and email in one line."
 msgstr "Namen und E-Mail in einer Zeile anzeigen."
 
-#: mcf-form.php:151
-msgid "Someone left you a message!"
-msgstr "Jemand hat Ihnen eine Nachricht hinterlassen!"
-
-#: mcf-form.php:128
-msgid "Sorry! Please enter a valid phone number."
-msgstr "Sorry! Bitte geben Sie eine gültige Telefonnummer ein."
-
-#: mcf-form.php:127
-msgid "Sorry! Please fill in all required fields correctly."
-msgstr "Sorry! Bitte füllen Sie alle Pflichtfelder ordnungsgemäß aus."
-
-#: mcf-form.php:181
-msgid "Sorry! Your message couldn't be sent. Please try again later."
+#: admin/views/partial-styling.php:196
+msgid "Show the button left or right."
 msgstr ""
-"Sorry! Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es "
-"später noch einmal."
 
-#: mcf-options-page.php:65
+#: admin-app/src/components/PrivacyTexts.tsx:27
+msgid "Shown when GDPR mode is set to Inform in Field Settings"
+msgstr ""
+
+#: admin-app/src/components/PrivacyTexts.tsx:18
+msgid "Shown when GDPR mode is set to Opt-in in Field Settings"
+msgstr ""
+
+#: admin/views/partial-styling.php:87
+msgid "Spacing"
+msgstr ""
+
+#: mcf-options-page.php:72 admin/views/partial-styling.php:6
+#: admin/views/partial-styling.php:10 admin/views/partial-layout.php:10
 msgid "Styling"
 msgstr "Design"
 
-#: mcf-options-page.php:85 mcf-form.php:37
+#: mcf-options-page.php:92 admin-app/src/components/FormPreview.tsx:409
 msgid "Subject"
 msgstr "Betreff"
 
-#: mcf-form.php:112
+#: src/Public/FormRenderer.php:307 admin-app/src/components/FormPreview.tsx:411
 msgid "Submit"
 msgstr "Absenden"
 
-#: mcf-form.php:179
-msgid "Thank you for sending us a message! You will hear from us shortly."
-msgstr "Vielen Dank für Ihre Nachricht! Sie werden in Kürze von uns hören."
+#: admin/views/partial-styling.php:217
+msgid "Success Color"
+msgstr ""
 
-#: mcf-form.php:168
-msgid "The user has agreed to the data collection."
-msgstr "Der Nutzer hat der Datenerhebung zugestimmt."
+#: admin-app/src/components/FormPreview.tsx:234
+msgid "Switch to Inform"
+msgstr ""
 
-#: mcf-form.php:168
-msgid "The user has not agreed to the data collection."
-msgstr "Der Nutzer hat der Datenerhebung nicht zugestimmt."
+#: admin-app/src/components/FormPreview.tsx:233
+msgid "Switch to Opt-in"
+msgstr ""
 
-#: mcf-options.php:51
+#: admin-app/src/components/FormPreview.tsx:159
+msgid "Switch to single name field"
+msgstr ""
+
+#: admin-app/src/components/FormPreview.tsx:158
+msgid "Switch to split name fields"
+msgstr ""
+
+#: admin/views/partial-styling.php:26 admin/views/partial-styling.php:126
+msgid "Text Color"
+msgstr ""
+
+#: mcf-options.php:51 src/Admin/AdminPanel.php:227
 msgid ""
 "The WordPress PHPmailer (SMTP) should be used by default. If you encounter "
 "an error, please turn on the PHP mail function. However, the emails will end "
@@ -262,7 +649,15 @@ msgstr ""
 "Sie auf einen Fehler stoßen, schalten Sie bitte die PHP-Mail-Funktion ein. "
 "Allerdings werden die E-Mails dann eher im Spam-Ordner des Empfängers landen."
 
-#: mcf-options.php:49
+#: admin-app/src/components/ThemeSelector.tsx:22
+msgid "Theme Preset"
+msgstr ""
+
+#: admin-app/src/components/ThemeSelector.tsx:19
+msgid "Theme Settings"
+msgstr ""
+
+#: mcf-options.php:49 src/Admin/AdminPanel.php:223
 msgid ""
 "This plugin was developed with usability in mind and uses data that already "
 "exists. It provides security features to prevent the receipt of spam without "
@@ -275,41 +670,66 @@ msgstr ""
 "Dritte weiterzugeben. Darüber hinaus fügt es automatisch einen "
 "entsprechenden Hinweis ein, um die Anforderungen der DSGVO zu erfüllen."
 
-#: mcf-options.php:51
+#: mcf-options.php:51 src/Admin/AdminPanel.php:228
 msgid "To display the form on any WP Post or Page, simply add the shortcode:"
 msgstr ""
 "Um das Formular in einem WP-Beitrag oder einer WP-Seite anzuzeigen, fügen "
 "Sie einfach den Shortcode hinzu:"
 
-#: mcf-options-page.php:41
+#: mcf-options-page.php:48 admin/views/partial-settings.php:34
 msgid "Use an opt-in instead of just informing the visitor about the GDPR."
 msgstr ""
 "Ein Opt-In nutzen, anstatt den Besucher nur über die DSGVO zu informieren."
 
-#: mcf-options-page.php:48
+#: mcf-options-page.php:55 admin/views/partial-settings.php:40
 msgid "Use the honeypot mechanism to protect against SPAM emails."
 msgstr ""
 "Das Honeypot-Verfahren verwenden, um sich gegen SPAM-E-Mails zu schützen."
 
-#: mcf-options-page.php:55
+#: mcf-options-page.php:62 admin/views/partial-settings.php:46
 msgid "Use the PHP mail function instead of the WordPress PHP mailer."
 msgstr "Die PHP-Mail-Funktion anstatt des WordPress-PHP-Mailers verwenden."
+
+#: admin/views/partial-settings.php:23
+msgid "User"
+msgstr "Nutzer"
+
+#: admin-app/src/components/SettingsPanel.tsx:34
+msgid "User who receives contact form submissions"
+msgstr ""
+
+#: admin-app/src/components/SettingsPanel.tsx:43
+msgid "Uses honeypot field to prevent spam submissions"
+msgstr ""
 
 #: mcf-options.php:53
 msgid "Variable"
 msgstr "Variable"
 
-#: mcf-options-page.php:109
+#: admin/views/partial-styling.php:222
+msgid "Warning Color"
+msgstr ""
+
+#: admin-app/src/components/SettingsPanel.tsx:52
+msgid "WordPress PHPMailer (Recommended)"
+msgstr ""
+
+#: mcf-options-page.php:116 admin/views/partial-styling.php:233
 msgid "Write your own CSS to alter the styling of the contact form."
 msgstr ""
 "Schreiben Sie eigenes CSS, um das Design des Kontaktformulars anzupassen."
 
-#: mcf-options-page.php:33
-#, php-format
+#: mcf-options-page.php:40 admin/views/partial-settings.php:28
+#: admin/views/partial-layout.php:63
 msgid "You have to set a privacy policy page in the %1$s!"
 msgstr "Sie müssen eine Datenschutzseite in den %1$s festlegen!"
 
-#: mcf-form.php:97
+#: admin-app/src/components/FormPreview.tsx:670
+msgid "Your data will be processed according to our privacy policy"
+msgstr ""
+
+#: src/Core/Defaults.php:90 admin/views/partial-layout.php:59
+#: admin-app/src/components/FormPreview.tsx:416
 msgid ""
 "Your submitted information will only be processed to respond to your inquiry."
 msgstr "Ihre Angaben werden nur zur Beantwortung Ihrer Anfrage verarbeitet."

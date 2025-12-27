@@ -135,8 +135,12 @@ class AdminPanel
             ],
         ]);
 
-        // Set REST API nonce
-        wp_set_script_translations('mcf-admin', 'mcf');
+        // Set script translations with explicit path to languages directory
+        wp_set_script_translations(
+            'mcf-admin',
+            'mcf',
+            plugin_dir_path(dirname(__FILE__, 2)) . 'languages'
+        );
     }
 
     /**

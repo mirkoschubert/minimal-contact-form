@@ -43,6 +43,32 @@ interface FieldRowProps {
   isStatic?: boolean;
 }
 
+const getDefaultLabel = (fieldId: string): string => {
+  const defaults: Record<string, string> = {
+    company: __('Company', 'mcf'),
+    'first-name': __('First Name', 'mcf'),
+    'last-name': __('Last Name', 'mcf'),
+    name: __('Name', 'mcf'),
+    phone: __('Phone', 'mcf'),
+    email: __('Email', 'mcf'),
+    subject: __('Subject', 'mcf'),
+    message: __('Message', 'mcf'),
+    submit: __('Submit', 'mcf'),
+    'gdpr-optin': __(
+      'I consent to having you process my submitted information so you can respond to my inquiry.',
+      'mcf'
+    ),
+    'gdpr-inform': __(
+      'Your submitted information will only be processed to respond to your inquiry.',
+      'mcf'
+    ),
+  };
+  return (
+    defaults[fieldId] ||
+    fieldId.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
+  );
+};
+
 function EditModal({
   fieldId,
   label,
@@ -53,9 +79,7 @@ function EditModal({
   const [editLabel, setEditLabel] = useState(label);
   const [editPlaceholder, setEditPlaceholder] = useState(placeholder);
 
-  const displayFieldName = fieldId
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, (l) => l.toUpperCase());
+  const defaultLabel = getDefaultLabel(fieldId);
 
   return (
     <Modal title={__('Edit Field', 'mcf')} onRequestClose={onClose}>
@@ -63,15 +87,15 @@ function EditModal({
         label={__('Label', 'mcf')}
         value={editLabel}
         onChange={setEditLabel}
-        placeholder={displayFieldName}
+        placeholder={defaultLabel}
         __next40pxDefaultSize
-        __nextHasNoMarginBottom
+        /* __nextHasNoMarginBottom */
       />
       <TextControl
         label={__('Placeholder', 'mcf')}
         value={editPlaceholder}
         onChange={setEditPlaceholder}
-        placeholder={editLabel || displayFieldName}
+        placeholder={editLabel || defaultLabel}
         __next40pxDefaultSize
         __nextHasNoMarginBottom
       />
@@ -396,33 +420,6 @@ function FieldSettingsModal({
     </Modal>
   );
 }
-
-// Default labels with i18n
-const getDefaultLabel = (fieldId: string): string => {
-  const defaults: Record<string, string> = {
-    company: __('Company', 'mcf'),
-    'first-name': __('First Name', 'mcf'),
-    'last-name': __('Last Name', 'mcf'),
-    name: __('Name', 'mcf'),
-    phone: __('Phone', 'mcf'),
-    email: __('Email', 'mcf'),
-    subject: __('Subject', 'mcf'),
-    message: __('Message', 'mcf'),
-    submit: __('Submit', 'mcf'),
-    'gdpr-optin': __(
-      'I consent to having you process my submitted information so you can respond to my inquiry.',
-      'mcf'
-    ),
-    'gdpr-inform': __(
-      'Your submitted information will only be processed to respond to your inquiry.',
-      'mcf'
-    ),
-  };
-  return (
-    defaults[fieldId] ||
-    fieldId.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
-  );
-};
 
 export default function FormPreview({
   fields,

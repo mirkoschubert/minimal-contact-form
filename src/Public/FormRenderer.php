@@ -2,6 +2,8 @@
 
 namespace MinimalContactForm\Public;
 
+use MinimalContactForm\Core\Defaults;
+
 /**
  * Form Renderer
  *
@@ -147,7 +149,7 @@ class FormRenderer
         $placeholders = $this->options['fields']['placeholders'] ?? [];
         $hide_labels = $this->options['fields']['hide_labels'] ?? false;
 
-        $label = $labels[$field_id] ?? ucwords(str_replace('-', ' ', $field_id));
+        $label = $labels[$field_id] ?? Defaults::get_field_label($field_id);
 
         // Compute placeholder based on hide_labels setting
         if ($hide_labels) {
@@ -194,7 +196,7 @@ class FormRenderer
         $placeholders = $this->options['fields']['placeholders'] ?? [];
         $hide_labels = $this->options['fields']['hide_labels'] ?? false;
 
-        $label = $labels[$field_id] ?? ucwords(str_replace('-', ' ', $field_id));
+        $label = $labels[$field_id] ?? Defaults::get_field_label($field_id);
 
         // Compute placeholder based on hide_labels setting
         if ($hide_labels) {
@@ -242,7 +244,7 @@ class FormRenderer
 
         if ($gdpr_mode === 'optin') {
             // Opt-in checkbox (required)
-            $label = $labels['gdpr-optin'] ?? $privacy_texts['optin_text'] ?? '';
+            $label = $labels['gdpr-optin'] ?? $privacy_texts['optin_text'];
             ?>
             <div class="mcf-field mcf-field-privacy">
                 <label class="mcf-checkbox-label">
@@ -260,7 +262,7 @@ class FormRenderer
             <?php
         } else {
             // Inform mode (no checkbox, just text)
-            $label = $labels['gdpr-inform'] ?? $privacy_texts['inform_text'] ?? '';
+            $label = $labels['gdpr-inform'] ?? $privacy_texts['inform_text'];
             ?>
             <div class="mcf-field mcf-field-privacy">
                 <p class="mcf-privacy-text"><?php echo esc_html($label); ?></p>
@@ -304,7 +306,7 @@ class FormRenderer
     private function render_submit($alignment = 'left')
     {
         $labels = $this->options['fields']['labels'] ?? [];
-        $label = $labels['submit'] ?? __('Submit', 'mcf');
+        $label = $labels['submit'] ?? Defaults::get_field_label('submit');
 
         ?>
         <div class="mcf-field mcf-field-submit mcf-submit-<?php echo esc_attr($alignment); ?>">

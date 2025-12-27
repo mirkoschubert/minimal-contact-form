@@ -17,9 +17,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["admin-app/src/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "build", "../assets"]
+  "include": ["admin-app/src/**/*"],
+  "exclude": ["node_modules", "build", "assets"]
 }

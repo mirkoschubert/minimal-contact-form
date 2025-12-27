@@ -22,7 +22,7 @@ class I18n
         load_plugin_textdomain(
             'mcf',
             false,
-            dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
+            dirname(plugin_basename(dirname(dirname(__FILE__)))) . '/languages'
         );
     }
 }

@@ -1,16 +1,18 @@
 <?php
-/*
-Plugin Name:  Minimal Contact Form
-Plugin URI:   https://github.com/mirkoschubert/minimal-contact-form
-Description:  A WordPress Plugin for a simple, clean and secure contact form.
-Version:      1.0.0
-Author:       Mirko Schubert
-Author URI:   https://mirkoschubert.de/
-License:      GPL 3.0
-License URI:  https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
-Text Domain:  mcf
-Domain Path:  /languages
+/**
+ * Plugin Name: Minimal Contact Form
+ * Plugin URI: https://github.com/mirkoschubert/minimal-contact-form
+ * Description: A WordPress Plugin for a simple, clean and secure contact form.
+ * Version: 1.0.0
+ * Author: Mirko Schubert
+ * Author URI: https://mirkoschubert.de/
+ * License: LGPL-3.0-or-later
+ * License URI: https://www.gnu.org/licenses/lgpl-3.0.html
+ * Text Domain: mcf
+ * Domain Path: /languages
+ */
 
+/*
 Minimal Contact Form is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
@@ -37,11 +39,6 @@ define('MCF_PLUGIN_URL', plugin_dir_url(__FILE__));
 if (file_exists(plugin_dir_path(__FILE__) . 'vendor/autoload.php')) {
     require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 }
-
-// Load old classes temporarily (will be removed after full migration)
-require_once plugin_dir_path(__FILE__) . 'admin/class-admin.php';
-require_once plugin_dir_path(__FILE__) . 'public/class-public.php';
-require_once plugin_dir_path(__FILE__) . 'public/class-form.php';
 
 use MinimalContactForm\Core\Plugin;
 use MinimalContactForm\Core\Activator;

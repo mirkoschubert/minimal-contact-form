@@ -1,0 +1,36 @@
+{
+  "name": "minimal-contact-form",
+  "version": "1.0.0",
+  "description": "A WordPress Plugin for a simple, clean and secure contact form.",
+  "author": "Mirko Schubert <office@mirkoschubert.de>",
+  "private": true,
+  "scripts": {
+    "dev": "wp-scripts start",
+    "build": "pnpm run build:scripts && pnpm run build:css",
+    "build:scripts": "wp-scripts build",
+    "build:css": "mv assets/admin/*.css assets/admin/css/ 2>/dev/null || true",
+    "build:pot": "pnpm exec makepot . languages --domain plugin --slug mcf",
+    "build:json": "pnpm exec makejson languages --scriptName ../assets/admin/js/admin.js",
+    "lint:js": "wp-scripts lint-js",
+    "format": "wp-scripts format",
+    "check-types": "tsc --noEmit"
+  },
+  "keywords": [],
+  "license": "LGPL-3.0-or-later",
+  "packageManager": "pnpm@10.26.2",
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.0.0",
+    "@wordpress/components": "^30.9.0",
+    "@wordpress/element": "^6.0.0",
+    "@wordpress/i18n": "^6.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@wordpress/browserslist-config": "^6.37.0",
+    "@wordpress/scripts": "^31.1.0",
+    "@wp-blocks/make-pot": "^1.6.3",
+    "minimatch": "^9.0.5",
+    "typescript": "^5.3.0"
+  }
+}

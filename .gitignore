@@ -1,10 +1,10 @@
 .DS_Store
 deploy.sh
 push.sh
-push.ps1
 .synchronize
 rsync.log
 rclone.log
+audit.log
 translation.txt
 
 # Composer
@@ -12,9 +12,9 @@ translation.txt
 composer.lock
 
 # Node
-/admin-app/node_modules/
-/admin-app/package-lock.json
-/admin-app/pnpm-lock.yaml
+node_modules
+package-lock.json
+pnpm-lock.yaml
 
 # Built assets (uncomment if you want to exclude from git)
 # /assets/admin/js/

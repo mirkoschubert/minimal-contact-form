@@ -106,4 +106,37 @@ class Defaults
             'custom_css' => '',
         ];
     }
+
+    /**
+     * Get translatable default label for a field ID.
+     *
+     * Returns translated default labels for all form field IDs.
+     * This ensures consistent translations across frontend rendering
+     * and admin preview.
+     *
+     * @since 1.0.0
+     * @param string $field_id The field ID (e.g., 'name', 'email', 'company')
+     * @return string Translated default label
+     */
+    public static function get_field_label($field_id)
+    {
+        $defaults = [
+            'company'      => __('Company', 'mcf'),
+            'name'         => __('Name', 'mcf'),
+            'first-name'   => __('First Name', 'mcf'),
+            'last-name'    => __('Last Name', 'mcf'),
+            'email'        => __('Email', 'mcf'),
+            'phone'        => __('Phone', 'mcf'),
+            'subject'      => __('Subject', 'mcf'),
+            'message'      => __('Message', 'mcf'),
+            'submit'       => __('Submit', 'mcf'),
+        ];
+
+        if (isset($defaults[$field_id])) {
+            return $defaults[$field_id];
+        }
+
+        // Fallback: Convert field ID to title case
+        return ucwords(str_replace('-', ' ', $field_id));
+    }
 }
