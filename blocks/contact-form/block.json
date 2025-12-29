@@ -37,6 +37,5 @@
   },
   "editorScript": "file:../../assets/blocks/contact-form/index.js",
   "editorStyle": ["file:../../assets/blocks/contact-form/index.css", "file:../../assets/public/css/style.css"],
-  "style": "file:../../assets/public/css/style.css",
   "viewScript": "file:../../assets/blocks/contact-form/index.js"
 }

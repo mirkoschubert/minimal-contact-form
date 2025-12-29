@@ -2,8 +2,6 @@
 
 namespace MinimalContactForm\Core;
 
-use MinimalContactForm\Admin\ThemePresets;
-
 /**
  * Handle plugin data migration from old versions.
  *

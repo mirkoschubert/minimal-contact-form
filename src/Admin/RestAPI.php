@@ -51,24 +51,31 @@ class RestAPI
             ],
         ]);
 
-        // Get theme presets
-        register_rest_route('mcf/v1', '/presets', [
-            'methods' => 'GET',
-            'callback' => [$this, 'get_presets'],
+        // Reset database to fresh v1.0.0 (DEV ONLY)
+        register_rest_route('mcf/v1', '/reset-database', [
+            'methods' => 'POST',
+            'callback' => [$this, 'reset_database'],
             'permission_callback' => [$this, 'check_admin_permission'],
+        ]);
+
+        // Get preview CSS (Base + Theme CSS only)
+        register_rest_route('mcf/v1', '/preview-css', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_preview_css'],
+            'permission_callback' => [$this, 'check_admin_permission'],
+            'args' => [
+                'theme' => [
+                    'required' => true,
+                    'type' => 'string',
+                    'enum' => ['default', 'modern', 'minimal', 'custom'],
+                ],
+            ],
         ]);
 
         // Get users for recipient dropdown
         register_rest_route('mcf/v1', '/users', [
             'methods' => 'GET',
             'callback' => [$this, 'get_users'],
-            'permission_callback' => [$this, 'check_admin_permission'],
-        ]);
-
-        // Reset database to fresh v1.0.0 (DEV ONLY)
-        register_rest_route('mcf/v1', '/reset-database', [
-            'methods' => 'POST',
-            'callback' => [$this, 'reset_database'],
             'permission_callback' => [$this, 'check_admin_permission'],
         ]);
     }
@@ -118,6 +125,20 @@ class RestAPI
         if (empty($options['fields']['placeholders'])) {
             $options['fields']['placeholders'] = new \stdClass();
         }
+
+        // Add translated default labels for empty label fields
+        // This ensures that the Gutenberg block preview shows translated labels
+        $default_labels = $this->get_default_labels();
+        $labels = (array) $options['fields']['labels'];
+
+        foreach ($default_labels as $field_id => $default_label) {
+            // Only add default label if custom label is not set or empty
+            if (!isset($labels[$field_id]) || empty(trim($labels[$field_id]))) {
+                $labels[$field_id] = $default_label;
+            }
+        }
+
+        $options['fields']['labels'] = (object) $labels;
 
         return new \WP_REST_Response($options, 200);
     }
@@ -202,20 +223,6 @@ class RestAPI
     }
 
     /**
-     * Get theme presets
-     *
-     * @since 1.0.0
-     * @param \WP_REST_Request $request Request object
-     * @return \WP_REST_Response Response object
-     */
-    public function get_presets($request)
-    {
-        $presets = ThemePresets::get_presets();
-
-        return new \WP_REST_Response($presets, 200);
-    }
-
-    /**
      * Get users for recipient dropdown
      *
      * @since 1.0.0
@@ -264,6 +271,74 @@ class RestAPI
             'message' => 'Database reset to fresh v1.0.0 structure',
             'data' => $fresh_options,
         ], 200);
+    }
+
+    /**
+     * Get preview CSS for FormPreview component
+     *
+     * Returns Base CSS + Theme CSS only (NO primary_color, NO custom_css).
+     * Primary color and custom CSS are handled client-side for live updates.
+     *
+     * @since 1.0.0
+     * @param \WP_REST_Request $request Request object
+     * @return \WP_REST_Response Response object
+     */
+    public function get_preview_css($request)
+    {
+        $theme = $request->get_param('theme');
+
+        // Prepare styling array for CSSService (base + theme only)
+        $styling = [
+            'theme_preset' => $theme,
+            'variant' => 'light',  // Variant is handled via HTML attribute only
+            'primary_color' => '', // NOT included - handled client-side
+            'custom_css' => '',    // NOT included - handled client-side
+        ];
+
+        // Use CSSService to get Base CSS + Theme CSS only
+        // Note: Use 'mcf-preview' as instance ID for admin preview
+        $css = \MinimalContactForm\Services\CSSService::consolidate_inline_css(
+            $styling,
+            'mcf-preview'
+        );
+
+        return new \WP_REST_Response([
+            'success' => true,
+            'css' => $css,
+            'theme' => $theme,
+        ], 200);
+    }
+
+    /**
+     * Get translated default labels for all form fields
+     *
+     * Returns an array of translated default labels using WordPress __() function.
+     * These labels match the defaults used in the admin FormPreview component.
+     *
+     * @since 1.0.0
+     * @return array Associative array of field_id => translated_label
+     */
+    private function get_default_labels()
+    {
+        return [
+            'company' => __('Company', 'mcf'),
+            'first-name' => __('First Name', 'mcf'),
+            'last-name' => __('Last Name', 'mcf'),
+            'name' => __('Name', 'mcf'),
+            'phone' => __('Phone', 'mcf'),
+            'email' => __('Email', 'mcf'),
+            'subject' => __('Subject', 'mcf'),
+            'message' => __('Message', 'mcf'),
+            'submit' => __('Submit', 'mcf'),
+            'gdpr-optin' => __(
+                'I consent to having you process my submitted information so you can respond to my inquiry.',
+                'mcf'
+            ),
+            'gdpr-inform' => __(
+                'Your submitted information will only be processed to respond to your inquiry.',
+                'mcf'
+            ),
+        ];
     }
 
     /**

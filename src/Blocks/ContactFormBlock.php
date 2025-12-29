@@ -117,162 +117,54 @@ class ContactFormBlock
         // Merge block attributes with global settings
         $merged_settings = $this->merge_settings($attributes);
 
-        // Enqueue block-specific theme CSS (only if different from global)
-        $this->enqueue_block_theme_css($merged_settings);
+        // Generate unique block ID
+        static $block_counter = 0;
+        $block_counter++;
+        $block_id = 'mcf-block-' . $block_counter;
 
-        // Render form with merged settings
-        $output = $this->form_renderer->render_with_options($merged_settings);
+        // Enqueue inline CSS for this block
+        $this->enqueue_block_inline_css($merged_settings['styling'], $block_id);
 
-        // Generate unique form ID for multiple blocks on same page
-        $form_id = 'mcf-form-' . uniqid();
-        $output = str_replace(
-            'id="minimal-contact-form"',
-            'id="' . esc_attr($form_id) . '"',
-            $output
+        // Render form with merged settings (skip CSS enqueue since we handle it here)
+        // Note: FormRenderer will generate its own instance ID (e.g., mcf-form-1)
+        // which won't match our block_id (e.g., mcf-block-1), so we need to replace it
+        $output = $this->form_renderer->render_with_options($merged_settings, true);
+
+        // Replace FormRenderer's instance ID with our block ID
+        // FormRenderer generates IDs like "mcf-form-1", we need "mcf-block-1"
+        $output = preg_replace(
+            '/id="mcf-form-\d+"/',
+            'id="' . esc_attr($block_id) . '"',
+            $output,
+            1  // Only replace first occurrence
         );
 
         return $output;
     }
 
     /**
-     * Enqueue block-specific theme CSS
+     * Enqueue inline CSS for this block instance
      *
-     * Only enqueues CSS if block theme differs from global theme.
-     * Uses wp_enqueue_style to properly handle dependencies.
-     *
-     * @since 1.0.0
-     * @param array $settings Merged settings for this block
-     */
-    private function enqueue_block_theme_css($settings)
-    {
-        static $block_counter = 0;
-        $block_counter++;
-
-        $global_options = get_option('mcf_options');
-        $global_styling = $global_options['styling'] ?? [];
-        $block_styling = $settings['styling'] ?? [];
-
-        $global_theme = $global_styling['theme_preset'] ?? 'default';
-        $block_theme = $block_styling['theme_preset'] ?? 'default';
-        $block_custom_css = $block_styling['custom_css'] ?? '';
-        $block_primary_color = $block_styling['primary_color'] ?? '';
-
-        // Check if block differs from global
-        $theme_differs = ($block_theme !== $global_theme);
-        $has_block_primary_color = !empty($block_primary_color) && ($block_primary_color !== ($global_styling['primary_color'] ?? ''));
-
-        if (!$theme_differs && !$has_block_primary_color) {
-            // Block uses global settings, rely on Frontend::enqueue_styles()
-            return;
-        }
-
-        // Block has different theme - enqueue it
-        if ($theme_differs && $block_theme !== 'custom') {
-            $theme_handle = 'mcf-block-theme-' . $block_counter;
-            $theme_path = plugin_dir_path(dirname(dirname(__FILE__))) . 'assets/public/css/themes/' . $block_theme . '.css';
-
-            if (file_exists($theme_path)) {
-                wp_enqueue_style(
-                    $theme_handle,
-                    plugin_dir_url(dirname(dirname(__FILE__))) . 'assets/public/css/themes/' . $block_theme . '.css',
-                    ['mcf-contact-form-style'],  // Depends on block.json's style
-                    filemtime($theme_path)
-                );
-
-                // Add primary color override if set
-                if ($has_block_primary_color) {
-                    wp_add_inline_style($theme_handle, $this->generate_primary_color_css($block_primary_color));
-                }
-            }
-        } elseif ($theme_differs && $block_theme === 'custom' && !empty($block_custom_css)) {
-            // Custom theme with custom CSS
-            $custom_handle = 'mcf-block-custom-' . $block_counter;
-            wp_register_style($custom_handle, false, ['mcf-contact-form-style'], $this->version);
-            wp_enqueue_style($custom_handle);
-            wp_add_inline_style($custom_handle, $block_custom_css);
-
-            // Add primary color override if set
-            if ($has_block_primary_color) {
-                wp_add_inline_style($custom_handle, $this->generate_primary_color_css($block_primary_color));
-            }
-        } elseif (!$theme_differs && $has_block_primary_color) {
-            // Same theme but different primary color
-            $color_handle = 'mcf-block-color-' . $block_counter;
-            wp_register_style($color_handle, false, ['mcf-contact-form-style'], $this->version);
-            wp_enqueue_style($color_handle);
-            wp_add_inline_style($color_handle, $this->generate_primary_color_css($block_primary_color));
-        }
-    }
-
-    /**
-     * Generate primary color override CSS
+     * Uses CSSService to consolidate all CSS layers (base, theme, custom, primary color)
+     * and inject them inline for this specific block instance.
      *
      * @since 1.0.0
-     * @param string $color Hex color value
-     * @return string CSS rules
+     * @param array $styling Styling settings
+     * @param string $block_id Unique block identifier (e.g., 'mcf-block-1')
      */
-    private function generate_primary_color_css($color)
+    private function enqueue_block_inline_css($styling, $block_id)
     {
-        // Calculate hover color (20% darker)
-        $hover_color = $this->adjust_brightness($color, -20);
+        // Use CSSService to consolidate CSS
+        $inline_css = \MinimalContactForm\Services\CSSService::consolidate_inline_css(
+            $styling,
+            $block_id
+        );
 
-        // Calculate contrast color for text
-        $text_color = $this->get_contrast_color($color);
-        $text_hover_color = $this->get_contrast_color($hover_color);
-
-        return "
-.mcf-form[data-theme-variant=\"light\"],
-.mcf-form[data-theme-variant=\"dark\"] {
-    --mcf-button-background-color: {$color} !important;
-    --mcf-button-background-hover-color: {$hover_color} !important;
-    --mcf-button-color: {$text_color} !important;
-    --mcf-button-hover-color: {$text_hover_color} !important;
-    --mcf-checkbox-color: {$color} !important;
-}";
-    }
-
-    /**
-     * Adjust brightness of a hex color
-     *
-     * @param string $hex Hex color
-     * @param int $steps Brightness adjustment (-255 to 255)
-     * @return string Adjusted hex color
-     */
-    private function adjust_brightness($hex, $steps)
-    {
-        $hex = ltrim($hex, '#');
-        $r = hexdec(substr($hex, 0, 2));
-        $g = hexdec(substr($hex, 2, 2));
-        $b = hexdec(substr($hex, 4, 2));
-
-        $r = max(0, min(255, $r + $steps));
-        $g = max(0, min(255, $g + $steps));
-        $b = max(0, min(255, $b + $steps));
-
-        return \sprintf('#%02x%02x%02x', $r, $g, $b);
-    }
-
-    /**
-     * Get contrast color (black or white) for given background
-     *
-     * @param string $hex Background hex color
-     * @return string '#000000' or '#ffffff'
-     */
-    private function get_contrast_color($hex)
-    {
-        $hex = ltrim($hex, '#');
-        $r = hexdec(substr($hex, 0, 2)) / 255;
-        $g = hexdec(substr($hex, 2, 2)) / 255;
-        $b = hexdec(substr($hex, 4, 2)) / 255;
-
-        // Calculate relative luminance (WCAG 2.0)
-        $r = $r <= 0.03928 ? $r / 12.92 : pow(($r + 0.055) / 1.055, 2.4);
-        $g = $g <= 0.03928 ? $g / 12.92 : pow(($g + 0.055) / 1.055, 2.4);
-        $b = $b <= 0.03928 ? $b / 12.92 : pow(($b + 0.055) / 1.055, 2.4);
-
-        $luminance = 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
-
-        return $luminance > 0.5 ? '#000000' : '#ffffff';
+        // Register inline-only style
+        // Handle will be: mcf-block-1, mcf-block-2, etc.
+        wp_register_style($block_id, false, [], $this->version);
+        wp_enqueue_style($block_id);
+        wp_add_inline_style($block_id, $inline_css);
     }
 
     /**

@@ -58,8 +58,20 @@ class FormRenderer
      */
     public function render_shortcode($atts = [])
     {
+        // Parse and sanitize shortcode attributes
+        $atts = shortcode_atts([
+            'theme' => '',           // 'default', 'modern', 'minimal', 'custom'
+            'variant' => '',         // 'light', 'dark'
+            'primary_color' => '',   // '#RRGGBB'
+        ], $atts, 'minimal_contact_form');
+
+        // Sanitize attributes
+        $atts['theme'] = sanitize_text_field($atts['theme']);
+        $atts['variant'] = sanitize_text_field($atts['variant']);
+        $atts['primary_color'] = sanitize_hex_color($atts['primary_color']);
+
         ob_start();
-        $this->render_form();
+        $this->render_form($atts);
         return ob_get_clean();
     }
 
@@ -68,15 +80,16 @@ class FormRenderer
      *
      * @since 1.0.0
      * @param array|null $custom_options Custom options to use for rendering
+     * @param bool $skip_css_enqueue Skip CSS enqueuing (used when called from blocks)
      * @return string Form HTML
      */
-    public function render_with_options($custom_options = null)
+    public function render_with_options($custom_options = null, $skip_css_enqueue = false)
     {
         $original_options = $this->options;
         $this->options = $custom_options ?? $this->options;
 
         ob_start();
-        $this->render_form();
+        $this->render_form([], $skip_css_enqueue);
         $output = ob_get_clean();
 
         $this->options = $original_options;
@@ -87,16 +100,29 @@ class FormRenderer
      * Render the complete form
      *
      * @since 1.0.0
+     * @param array $shortcode_atts Optional shortcode attributes for styling overrides
+     * @param bool $skip_css_enqueue Skip CSS enqueuing (used when called from blocks)
      */
-    private function render_form()
+    private function render_form($shortcode_atts = [], $skip_css_enqueue = false)
     {
-        $styling = $this->options['styling'] ?? [];
+        // Merge shortcode attributes with global settings
+        $styling = $this->merge_styling_settings($shortcode_atts);
         $variant = $styling['variant'] ?? 'light';
         $field_groups = $this->options['fields']['field_groups'] ?? [];
 
+        // Generate unique instance ID
+        static $instance_counter = 0;
+        $instance_counter++;
+        $instance_id = 'mcf-form-' . $instance_counter;
+
+        // Enqueue inline CSS for this instance (only for shortcodes)
+        if (!$skip_css_enqueue) {
+            $this->enqueue_instance_css($styling, $instance_id);
+        }
+
         ?>
         <!-- Minimal Contact Form v<?php echo esc_attr($this->version); ?> -->
-        <div id="minimal-contact-form" class="mcf-form" data-theme-variant="<?php echo esc_attr($variant); ?>">
+        <div id="<?php echo esc_attr($instance_id); ?>" class="mcf-form" data-theme-variant="<?php echo esc_attr($variant); ?>">
             <div class="mcf-notice" style="display: none;"></div>
 
             <form class="mcf-contact-form" method="post" novalidate>
@@ -335,5 +361,57 @@ class FormRenderer
             </button>
         </div>
         <?php
+    }
+
+    /**
+     * Merge shortcode attributes with global settings
+     *
+     * Priority: Shortcode attributes > Global settings > Defaults
+     *
+     * @since 1.0.0
+     * @param array $shortcode_atts Shortcode attributes
+     * @return array Merged styling settings
+     */
+    private function merge_styling_settings($shortcode_atts)
+    {
+        $global_styling = $this->options['styling'] ?? [];
+
+        return [
+            'theme_preset' => !empty($shortcode_atts['theme'])
+                ? $shortcode_atts['theme']
+                : ($global_styling['theme_preset'] ?? 'default'),
+            'variant' => !empty($shortcode_atts['variant'])
+                ? $shortcode_atts['variant']
+                : ($global_styling['variant'] ?? 'light'),
+            'primary_color' => !empty($shortcode_atts['primary_color'])
+                ? $shortcode_atts['primary_color']
+                : ($global_styling['primary_color'] ?? ''),
+            'custom_css' => $global_styling['custom_css'] ?? '',
+        ];
+    }
+
+    /**
+     * Enqueue inline CSS for this form instance
+     *
+     * Uses CSSService to consolidate all CSS layers (base, theme, custom, primary color)
+     * and inject them inline for this specific form instance.
+     *
+     * @since 1.0.0
+     * @param array $styling Styling settings
+     * @param string $instance_id Unique instance identifier (e.g., 'mcf-form-1')
+     */
+    private function enqueue_instance_css($styling, $instance_id)
+    {
+        // Use CSSService to consolidate CSS
+        $inline_css = \MinimalContactForm\Services\CSSService::consolidate_inline_css(
+            $styling,
+            $instance_id
+        );
+
+        // Register inline-only style
+        // Handle will be: mcf-form-1, mcf-form-2, etc.
+        wp_register_style($instance_id, false, [], $this->version);
+        wp_enqueue_style($instance_id);
+        wp_add_inline_style($instance_id, $inline_css);
     }
 }

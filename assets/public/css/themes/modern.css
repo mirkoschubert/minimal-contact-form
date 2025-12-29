@@ -26,7 +26,7 @@
     --mcf-desktop-max-width: 40em;
 
     /* Form Items */
-    --mcf-item-background-color: #ffffff;
+    --mcf-item-background-color: #e0f0ff; /* TEST: Light Blue for MODERN LIGHT - original: #ffffff */
     --mcf-item-padding: 0.875rem 1rem;
     --mcf-item-spacing: 1.25rem;
 
@@ -64,7 +64,7 @@
     --mcf-desktop-max-width: 40em;
 
     /* Form Items */
-    --mcf-item-background-color: #2c3e50;
+    --mcf-item-background-color: #001a33; /* TEST: Dark Blue for MODERN DARK - original: #2c3e50 */
     --mcf-item-padding: 0.875rem 1rem;
     --mcf-item-spacing: 1.25rem;
 

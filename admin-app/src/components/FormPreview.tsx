@@ -537,80 +537,87 @@ export default function FormPreview({
     return luminance > 0.5 ? '#000000' : '#ffffff';
   };
 
-  // Generate primary color CSS
-  const primaryColorCSS = primaryColor
-    ? (() => {
-        const hoverColor = adjustBrightness(primaryColor, -20);
-        const textColor = getContrastColor(primaryColor);
-        const textHoverColor = getContrastColor(hoverColor);
+  // Generate primary color CSS client-side (LIVE, no API calls)
+  const generatePrimaryColorCSS = (color: string): string => {
+    if (!color) return '';
 
-        return `
-.mcf-form[data-theme-variant="light"],
-.mcf-form[data-theme-variant="dark"] {
-	--mcf-button-background-color: ${primaryColor} !important;
-	--mcf-button-background-hover-color: ${hoverColor} !important;
-	--mcf-button-color: ${textColor} !important;
-	--mcf-button-hover-color: ${textHoverColor} !important;
-	--mcf-checkbox-color: ${primaryColor} !important;
-}
-		`;
-      })()
-    : '';
+    const hoverColor = adjustBrightness(color, -20);
+    const textColor = getContrastColor(color);
+    const textHoverColor = getContrastColor(hoverColor);
 
-  // Inject theme CSS from preloaded content
+    return `
+#mcf-preview[data-theme-variant="light"],
+#mcf-preview[data-theme-variant="dark"] {
+  --mcf-button-background-color: ${color} !important;
+  --mcf-button-background-hover-color: ${hoverColor} !important;
+  --mcf-button-color: ${textColor} !important;
+  --mcf-button-hover-color: ${textHoverColor} !important;
+  --mcf-checkbox-color: ${color} !important;
+}`;
+  };
+
+  const primaryColorCSS = generatePrimaryColorCSS(primaryColor || '');
+
+  // State for Base + Theme CSS from API
+  const [baseThemeCSS, setBaseThemeCSS] = useState<string>('');
+
+  // Load Base + Theme CSS via API (only when theme changes)
   useEffect(() => {
-    const baseStyleId = 'mcf-base-preview-css';
-    const themeStyleId = 'mcf-theme-preview-css';
+    const loadBaseThemeCSS = async () => {
+      try {
+        const response = await fetch(
+          `${window.mcfAdmin.apiUrl}/preview-css?theme=${theme}`,
+          {
+            headers: {
+              'X-WP-Nonce': window.mcfAdmin.nonce,
+            },
+          }
+        );
 
-    const customStyleId = 'mcf-custom-preview-css';
+        const data = await response.json();
 
-    // Remove existing style elements
-    document.getElementById(baseStyleId)?.remove();
-    document.getElementById(themeStyleId)?.remove();
-    document.getElementById(customStyleId)?.remove();
-
-    // Get CSS content from window.mcfAdmin
-    const previewCSS = window.mcfAdmin?.previewCSS;
-    if (!previewCSS) {
-      console.error('Preview CSS not available in window.mcfAdmin');
-      return;
-    }
-
-    // Inject base CSS
-    if (previewCSS.base) {
-      const baseStyleEl = document.createElement('style');
-      baseStyleEl.id = baseStyleId;
-      baseStyleEl.textContent = previewCSS.base;
-      document.head.appendChild(baseStyleEl);
-    }
-
-    // Inject theme CSS (unless custom)
-    if (theme !== 'custom') {
-      const themeCSS =
-        previewCSS.themes?.[theme as 'default' | 'modern' | 'minimal'];
-      if (themeCSS) {
-        const themeStyleEl = document.createElement('style');
-        themeStyleEl.id = themeStyleId;
-        themeStyleEl.textContent = themeCSS;
-        document.head.appendChild(themeStyleEl);
+        if (data.success) {
+          setBaseThemeCSS(data.css);
+        }
+      } catch (error) {
+        console.error('Failed to load base/theme CSS:', error);
       }
+    };
+
+    loadBaseThemeCSS();
+  }, [theme]); // Only trigger on theme change
+
+  // Consolidate all CSS layers and inject into document head
+  useEffect(() => {
+    // Layer 1: Base + Theme CSS (from API)
+    let consolidatedCSS = baseThemeCSS;
+
+    // Layer 2: Custom CSS (if theme is 'custom')
+    if (theme === 'custom' && customCSS) {
+      consolidatedCSS += '\n\n' + customCSS;
     }
 
-    // Inject custom CSS if custom theme
-    if (theme === 'custom' && customCSS) {
-      const customStyleEl = document.createElement('style');
-      customStyleEl.id = customStyleId;
-      customStyleEl.textContent = customCSS;
-      document.head.appendChild(customStyleEl);
+    // Layer 3: Primary Color CSS (client-side generated)
+    if (primaryColor) {
+      consolidatedCSS += '\n\n' + primaryColorCSS;
+    }
+
+    // Inject into document head
+    const styleElement = document.getElementById('mcf-preview-css');
+
+    if (styleElement) {
+      styleElement.textContent = consolidatedCSS;
+    } else if (consolidatedCSS) {
+      const style = document.createElement('style');
+      style.id = 'mcf-preview-css';
+      style.textContent = consolidatedCSS;
+      document.head.appendChild(style);
     }
 
     return () => {
-      // Cleanup on unmount
-      document.getElementById(baseStyleId)?.remove();
-      document.getElementById(themeStyleId)?.remove();
-      document.getElementById(customStyleId)?.remove();
+      document.getElementById('mcf-preview-css')?.remove();
     };
-  }, [theme, customCSS, primaryColor]); // Added primaryColor to dependencies
+  }, [baseThemeCSS, theme, customCSS, primaryColor, primaryColorCSS]);
 
   if (!fields?.field_groups) {
     return (
@@ -803,14 +810,9 @@ export default function FormPreview({
           </div>
 
           <div className="mcf-form-preview">
-            {/* Inject primary color CSS */}
-            {primaryColorCSS && <style>{primaryColorCSS}</style>}
-
-            {/* Inject custom CSS inline */}
-            {customCSS && <style>{customCSS}</style>}
-
             {/* Form with theme variant data attribute */}
             <div
+              id="mcf-preview"
               className="mcf-form mcf-contact-form"
               data-theme-variant={variant}>
               {/* Notice Preview with Controls */}

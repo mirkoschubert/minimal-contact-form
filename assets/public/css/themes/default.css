@@ -26,7 +26,7 @@
     --mcf-desktop-max-width: 36em;
 
     /* Form Items */
-    --mcf-item-background-color: #ffffff;
+    --mcf-item-background-color: #ffe0e0; /* TEST: Light Pink for DEFAULT LIGHT - original: #ffffff */
     --mcf-item-padding: 1rem;
     --mcf-item-spacing: 1.5rem;
 
@@ -64,7 +64,7 @@
     --mcf-desktop-max-width: 36em;
 
     /* Form Items */
-    --mcf-item-background-color: #222222;
+    --mcf-item-background-color: #4a0000; /* TEST: Dark Red for DEFAULT DARK - original: #222222 */
     --mcf-item-padding: 1rem;
     --mcf-item-spacing: 1.5rem;
 
