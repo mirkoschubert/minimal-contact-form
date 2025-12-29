@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mcf/contact-form",
+  "version": "1.0.0",
+  "title": "Contact Form",
+  "category": "widgets",
+  "icon": "email",
+  "description": "A minimal, secure contact form with customizable styling",
+  "keywords": ["contact", "form", "email", "minimal"],
+  "supports": {
+    "html": false,
+    "multiple": true,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": ""
+    },
+    "customCSS": {
+      "type": "string",
+      "default": ""
+    },
+    "privacyMode": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:../../assets/blocks/contact-form/index.js",
+  "editorStyle": ["file:../../assets/blocks/contact-form/index.css", "file:../../assets/public/css/style.css"],
+  "style": "file:../../assets/public/css/style.css",
+  "viewScript": "file:../../assets/blocks/contact-form/index.js"
+}

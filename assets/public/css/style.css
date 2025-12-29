@@ -28,7 +28,7 @@
 
 /* Notice Messages */
 .mcf-notice {
-    padding: 1rem;
+    padding: 1rem !important;
     margin-bottom: 1rem;
     border-radius: var(--mcf-border-radius, 0.25rem);
     display: none;
@@ -39,21 +39,21 @@
 }
 
 .mcf-notice.success {
-    color: var(--mcf-success-color, #46b450);
-    background-color: rgba(70, 180, 80, 0.1);
-    border: 1px solid var(--mcf-success-color, #46b450);
+    color: var(--mcf-success-text-color, #0f5132);
+    background-color: var(--mcf-success-bg-color, #d1e7dd);
+    border: 1px solid var(--mcf-success-border-color, #a3cfbb);
 }
 
 .mcf-notice.warning {
-    color: var(--mcf-warning-color, #ffb900);
-    background-color: rgba(255, 185, 0, 0.1);
-    border: 1px solid var(--mcf-warning-color, #ffb900);
+    color: var(--mcf-warning-text-color, #664d03);
+    background-color: var(--mcf-warning-bg-color, #fff3cd);
+    border: 1px solid var(--mcf-warning-border-color, #ffd966);
 }
 
 .mcf-notice.error {
-    color: var(--mcf-error-color, #dc3232);
-    background-color: rgba(220, 50, 50, 0.1);
-    border: 1px solid var(--mcf-error-color, #dc3232);
+    color: var(--mcf-error-text-color, #842029);
+    background-color: var(--mcf-error-bg-color, #f8d7da);
+    border: 1px solid var(--mcf-error-border-color, #f1aeb5);
 }
 
 /* Form Fields */

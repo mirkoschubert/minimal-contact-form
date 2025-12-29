@@ -133,6 +133,12 @@ class AdminPanel
                 'base' => $base_css_content,
                 'themes' => $theme_css_contents,
             ],
+            'privacyPage' => [
+                'exists' => (bool) get_option('wp_page_for_privacy_policy'),
+                'id' => get_option('wp_page_for_privacy_policy'),
+                'url' => admin_url('options-privacy.php'),
+                'pageUrl' => get_privacy_policy_url() ?: '',
+            ],
         ]);
 
         // Set script translations with explicit path to languages directory

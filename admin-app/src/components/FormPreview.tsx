@@ -3,12 +3,23 @@ import {
   Panel,
   PanelBody,
   ToggleControl,
-  RadioControl,
   Modal,
   TextControl,
   Button,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import {
+  Eye,
+  EyeOff,
+  RotateCw,
+  CheckCircle2,
+  AlertTriangle,
+  Info,
+  Pencil,
+  AlignLeft,
+  AlignRight,
+  Settings,
+} from 'lucide-react';
 import type { MCFFieldConfig, MCFPrivacyTexts } from '../types';
 
 interface FormPreviewProps {
@@ -82,30 +93,29 @@ function EditModal({
   const defaultLabel = getDefaultLabel(fieldId);
 
   return (
-    <Modal title={__('Edit Field', 'mcf')} onRequestClose={onClose}>
-      <TextControl
-        label={__('Label', 'mcf')}
-        value={editLabel}
-        onChange={setEditLabel}
-        placeholder={defaultLabel}
-        __next40pxDefaultSize
-        /* __nextHasNoMarginBottom */
-      />
-      <TextControl
-        label={__('Placeholder', 'mcf')}
-        value={editPlaceholder}
-        onChange={setEditPlaceholder}
-        placeholder={editLabel || defaultLabel}
-        __next40pxDefaultSize
-        __nextHasNoMarginBottom
-      />
-      <div
-        style={{
-          marginTop: '20px',
-          display: 'flex',
-          gap: '8px',
-          justifyContent: 'flex-end',
-        }}>
+    <Modal
+      title={__('Edit Field', 'mcf')}
+      onRequestClose={onClose}
+      className="mcf-edit-modal">
+      <div className="mcf-modal-body">
+        <TextControl
+          label={__('Label', 'mcf')}
+          value={editLabel}
+          onChange={setEditLabel}
+          placeholder={defaultLabel}
+          __next40pxDefaultSize
+          __nextHasNoMarginBottom
+        />
+        <TextControl
+          label={__('Placeholder', 'mcf')}
+          value={editPlaceholder}
+          onChange={setEditPlaceholder}
+          placeholder={editLabel || defaultLabel}
+          __next40pxDefaultSize
+          __nextHasNoMarginBottom
+        />
+      </div>
+      <div className="mcf-modal-footer">
         <Button variant="secondary" onClick={onClose}>
           {__('Cancel', 'mcf')}
         </Button>
@@ -139,7 +149,8 @@ function FieldRow({
               {children}
               {!isStatic && onToggle && (
                 <Button
-                  icon={enabled ? 'visibility' : 'hidden'}
+                  icon={enabled ? <Eye size={18} /> : <EyeOff size={18} />}
+                  iconSize={18}
                   label={
                     enabled ? __('Hide field', 'mcf') : __('Show field', 'mcf')
                   }
@@ -149,7 +160,8 @@ function FieldRow({
               )}
               {isStatic && (
                 <Button
-                  icon="visibility"
+                  icon={<Eye size={18} />}
+                  iconSize={18}
                   label={__('Always enabled', 'mcf')}
                   size="small"
                   disabled
@@ -176,7 +188,8 @@ function NameModeToggle({
 
   return (
     <Button
-      icon="update"
+      icon={<RotateCw size={18} />}
+      iconSize={18}
       label={
         mode === 'single'
           ? __('Switch to split name fields', 'mcf')
@@ -201,7 +214,8 @@ function ContactModeToggle({
 
   return (
     <Button
-      icon="update"
+      icon={<RotateCw size={18} />}
+      iconSize={18}
       label={
         mode === 'email'
           ? __('Add phone field', 'mcf')
@@ -226,7 +240,8 @@ function SubmitAlignmentToggle({
 
   return (
     <Button
-      icon={alignment === 'left' ? 'align-left' : 'align-right'}
+      icon={alignment === 'left' ? <AlignLeft size={18} /> : <AlignRight size={18} />}
+      iconSize={18}
       label={
         alignment === 'left'
           ? __('Align right', 'mcf')
@@ -251,7 +266,8 @@ function PrivacyModeToggle({
 
   return (
     <Button
-      icon={mode === 'inform' ? 'info' : 'yes'}
+      icon={mode === 'inform' ? <Info size={18} /> : <CheckCircle2 size={18} />}
+      iconSize={18}
       label={
         mode === 'inform'
           ? __('Switch to Opt-in', 'mcf')
@@ -260,6 +276,63 @@ function PrivacyModeToggle({
       onClick={toggleMode}
       size="small"
     />
+  );
+}
+
+const getNoticeMessage = (type: 'success' | 'error' | 'warning'): string => {
+  switch (type) {
+    case 'success':
+      return __('Thank you for your message! We will get back to you soon.', 'mcf');
+    case 'error':
+      return __('There was an error submitting your form. Please check your entries and try again.', 'mcf');
+    case 'warning':
+      return __('Please note: This is a warning message example.', 'mcf');
+  }
+};
+
+function NoticeTypeSelector({
+  noticeType,
+  onChange,
+}: {
+  noticeType: 'success' | 'error' | 'warning';
+  onChange: (type: 'success' | 'error' | 'warning') => void;
+}) {
+  return (
+    <div className="mcf-notice-type-controls">
+      <Button
+        icon={<CheckCircle2 size={18} />}
+        iconSize={18}
+        label={__('Success', 'mcf')}
+        onClick={() => onChange('success')}
+        className={`mcf-field-control mcf-notice-control ${noticeType === 'success' ? 'active' : ''}`}
+        size="small"
+        style={{
+          backgroundColor: noticeType === 'success' ? '#d1e7dd' : undefined,
+        }}
+      />
+      <Button
+        icon={<AlertTriangle size={18} />}
+        iconSize={18}
+        label={__('Error', 'mcf')}
+        onClick={() => onChange('error')}
+        className={`mcf-field-control mcf-notice-control ${noticeType === 'error' ? 'active' : ''}`}
+        size="small"
+        style={{
+          backgroundColor: noticeType === 'error' ? '#f8d7da' : undefined,
+        }}
+      />
+      <Button
+        icon={<Info size={18} />}
+        iconSize={18}
+        label={__('Warning', 'mcf')}
+        onClick={() => onChange('warning')}
+        className={`mcf-field-control mcf-notice-control ${noticeType === 'warning' ? 'active' : ''}`}
+        size="small"
+        style={{
+          backgroundColor: noticeType === 'warning' ? '#fff3cd' : undefined,
+        }}
+      />
+    </div>
   );
 }
 
@@ -432,6 +505,7 @@ export default function FormPreview({
 }: FormPreviewProps) {
   const [editingField, setEditingField] = useState<string | null>(null);
   const [isFieldSettingsOpen, setIsFieldSettingsOpen] = useState(false);
+  const [noticeType, setNoticeType] = useState<'success' | 'error' | 'warning'>('success');
 
   // Helper functions for color calculations
   const adjustBrightness = (hex: string, steps: number): string => {
@@ -488,9 +562,12 @@ export default function FormPreview({
     const baseStyleId = 'mcf-base-preview-css';
     const themeStyleId = 'mcf-theme-preview-css';
 
+    const customStyleId = 'mcf-custom-preview-css';
+
     // Remove existing style elements
     document.getElementById(baseStyleId)?.remove();
     document.getElementById(themeStyleId)?.remove();
+    document.getElementById(customStyleId)?.remove();
 
     // Get CSS content from window.mcfAdmin
     const previewCSS = window.mcfAdmin?.previewCSS;
@@ -507,22 +584,33 @@ export default function FormPreview({
       document.head.appendChild(baseStyleEl);
     }
 
-    // Inject theme CSS
-    const themeCSS =
-      previewCSS.themes?.[theme as 'default' | 'modern' | 'minimal'];
-    if (themeCSS) {
-      const themeStyleEl = document.createElement('style');
-      themeStyleEl.id = themeStyleId;
-      themeStyleEl.textContent = themeCSS;
-      document.head.appendChild(themeStyleEl);
+    // Inject theme CSS (unless custom)
+    if (theme !== 'custom') {
+      const themeCSS =
+        previewCSS.themes?.[theme as 'default' | 'modern' | 'minimal'];
+      if (themeCSS) {
+        const themeStyleEl = document.createElement('style');
+        themeStyleEl.id = themeStyleId;
+        themeStyleEl.textContent = themeCSS;
+        document.head.appendChild(themeStyleEl);
+      }
+    }
+
+    // Inject custom CSS if custom theme
+    if (theme === 'custom' && customCSS) {
+      const customStyleEl = document.createElement('style');
+      customStyleEl.id = customStyleId;
+      customStyleEl.textContent = customCSS;
+      document.head.appendChild(customStyleEl);
     }
 
     return () => {
       // Cleanup on unmount
       document.getElementById(baseStyleId)?.remove();
       document.getElementById(themeStyleId)?.remove();
+      document.getElementById(customStyleId)?.remove();
     };
-  }, [theme]);
+  }, [theme, customCSS, primaryColor]); // Added primaryColor to dependencies
 
   if (!fields?.field_groups) {
     return (
@@ -580,12 +668,12 @@ export default function FormPreview({
         data-full-width={fullWidth}>
         <div className="mcf-preview-field-controls">
           <Button
-            icon="edit"
+            icon={<Pencil size={18} />}
+            iconSize={18}
             label={__('Edit label & placeholder', 'mcf')}
             onClick={() => setEditingField(fieldId)}
             className="mcf-field-control mcf-edit"
             size="small"
-            iconSize={18}
           />
         </div>
         <label
@@ -710,7 +798,7 @@ export default function FormPreview({
               onClick={() => setIsFieldSettingsOpen(true)}
               className="mcf-edit-fields-btn">
               {__('Edit Fields', 'mcf')}
-              <span className="dashicons dashicons-admin-generic"></span>
+              <Settings size={16} />
             </Button>
           </div>
 
@@ -725,6 +813,17 @@ export default function FormPreview({
             <div
               className="mcf-form mcf-contact-form"
               data-theme-variant={variant}>
+              {/* Notice Preview with Controls */}
+              <div className="mcf-notice-wrapper" style={{ position: 'relative' }}>
+                <NoticeTypeSelector
+                  noticeType={noticeType}
+                  onChange={setNoticeType}
+                />
+                <div className={`mcf-notice show ${noticeType}`}>
+                  {getNoticeMessage(noticeType)}
+                </div>
+              </div>
+
               <div className="mcf-grid">{activeFields}</div>
 
               {/* Submit button */}

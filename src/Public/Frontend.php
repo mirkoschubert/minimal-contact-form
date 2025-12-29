@@ -51,15 +51,22 @@ class Frontend
      * Register the stylesheets for the public-facing side of the site.
      *
      * Enqueues in this order:
-     * 1. Base structure CSS (style.css from css/ directory)
+     * 1. Base structure CSS (style.css) - only if not using blocks
      * 2. Theme CSS (modern.css or minimal.css with both variants)
      * 3. Primary color override (inline)
      * 4. Custom CSS (inline)
+     *
+     * Note: Blocks handle their own CSS via block.json
      *
      * @since 1.0.0
      */
     public function enqueue_styles()
     {
+        // Skip if using blocks (blocks handle their own CSS via block.json)
+        if (has_block('mcf/contact-form')) {
+            return;
+        }
+
         $styling = $this->options['styling'] ?? [];
         $theme_preset = $styling['theme_preset'] ?? 'default';
         $primary_color = $styling['primary_color'] ?? '';
@@ -77,26 +84,50 @@ class Frontend
             );
         }
 
-        // 2. Theme CSS (contains both light and dark variants)
-        $theme_css_path = plugin_dir_path(dirname(__FILE__, 2)) . 'assets/public/css/themes/' . $theme_preset . '.css';
-        if (file_exists($theme_css_path)) {
-            wp_enqueue_style(
-                $this->mcf . '-theme',
-                plugin_dir_url(dirname(__FILE__, 2)) . 'assets/public/css/themes/' . $theme_preset . '.css',
+        // 2. Theme CSS (skip for 'custom' theme)
+        if ($theme_preset !== 'custom') {
+            $theme_css_path = plugin_dir_path(dirname(__FILE__, 2)) . 'assets/public/css/themes/' . $theme_preset . '.css';
+            if (file_exists($theme_css_path)) {
+                wp_enqueue_style(
+                    $this->mcf . '-theme',
+                    plugin_dir_url(dirname(__FILE__, 2)) . 'assets/public/css/themes/' . $theme_preset . '.css',
+                    [$this->mcf . '-base'],
+                    filemtime($theme_css_path),
+                    'all'
+                );
+            }
+        }
+
+        // 3. Custom CSS with its own handle (for 'custom' theme only)
+        if ($theme_preset === 'custom' && !empty($custom_css)) {
+            wp_register_style(
+                $this->mcf . '-custom',
+                false, // No file, inline only
                 [$this->mcf . '-base'],
-                filemtime($theme_css_path),
+                $this->version,
                 'all'
             );
+            wp_enqueue_style($this->mcf . '-custom');
+            wp_add_inline_style($this->mcf . '-custom', $custom_css);
         }
 
-        // 3. Primary color override (inline)
+        // 4. Primary color override
         if (!empty($primary_color)) {
             $primary_color_css = $this->generate_primary_color_css($primary_color);
-            wp_add_inline_style($this->mcf . '-theme', $primary_color_css);
+
+            // Attach to appropriate handle
+            if ($theme_preset === 'custom' && !empty($custom_css)) {
+                // For custom theme with CSS: attach to mcf-custom handle
+                wp_add_inline_style($this->mcf . '-custom', $primary_color_css);
+            } elseif ($theme_preset !== 'custom') {
+                // For other themes: attach to mcf-theme handle
+                wp_add_inline_style($this->mcf . '-theme', $primary_color_css);
+            }
+            // Note: If custom theme without Custom CSS, Primary Color won't load (acceptable)
         }
 
-        // 4. Custom CSS (inline)
-        if (!empty($custom_css)) {
+        // 5. Custom CSS for non-custom themes (inline addition to theme)
+        if ($theme_preset !== 'custom' && !empty($custom_css)) {
             wp_add_inline_style($this->mcf . '-theme', $custom_css);
         }
     }

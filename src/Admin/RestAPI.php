@@ -99,6 +99,18 @@ class RestAPI
             $options = get_option('mcf_options');
         }
 
+        // Auto-populate sender fields if empty (one-time conversion)
+        if (empty($options['settings']['sender_email']) && !empty($options['settings']['recipient_user_id'])) {
+            $user = get_user_by('id', $options['settings']['recipient_user_id']);
+            if ($user) {
+                $options['settings']['sender_name'] = $user->display_name;
+                $options['settings']['sender_email'] = $user->user_email;
+                $options['settings']['reply_to'] = '';
+                // Save updated options
+                update_option('mcf_options', $options);
+            }
+        }
+
         // Ensure labels and placeholders are objects, not arrays (for JSON serialization)
         if (empty($options['fields']['labels'])) {
             $options['fields']['labels'] = new \stdClass();

@@ -1,13 +1,15 @@
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, lazy, Suspense } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { __ } from '@wordpress/i18n';
 import { Button, Spinner, Notice } from '@wordpress/components';
 
-import SettingsPanel from './components/SettingsPanel';
-import ThemeSelector from './components/ThemeSelector';
+import EmailPanel from './components/EmailPanel';
+import ThemePanel from './components/ThemePanel';
 import FormPreview from './components/FormPreview';
-import AdvancedStyling from './components/AdvancedStyling';
-import PrivacyTexts from './components/PrivacyTexts';
+import PrivacyPanel from './components/PrivacyPanel';
+
+// Lazy load CustomCSSPanel to reduce initial bundle size (~160KB saved)
+const CustomCSSPanel = lazy(() => import('./components/CustomCSSPanel'));
 
 import type { MCFOptions, Notice as NoticeType } from './types';
 
@@ -153,22 +155,26 @@ export default function App() {
 
       <div className="mcf-admin-layout">
         <div className="mcf-admin-sidebar">
-          <SettingsPanel
+          <EmailPanel
             settings={settings.settings}
             onChange={(key, value) => updateSettings('settings', key, value)}
           />
 
-          <ThemeSelector
+          <ThemePanel
             styling={settings.styling}
             onStylingChange={(key, value) =>
               updateSettings('styling', key, value)
             }
           />
 
-          <PrivacyTexts
+          <PrivacyPanel
             texts={settings.privacy_texts}
-            onChange={(key, value) =>
+            antispamEnabled={settings.settings.antispam_enabled ?? true}
+            onTextsChange={(key, value) =>
               updateSettings('privacy_texts', key, value)
+            }
+            onAntispamChange={(value) =>
+              updateSettings('settings', 'antispam_enabled', value)
             }
           />
         </div>
@@ -207,15 +213,26 @@ export default function App() {
             }}
           />
 
-          <AdvancedStyling
-            styling={settings.styling}
-            onStylingChange={(advanced) =>
-              setSettings({
-                ...settings,
-                styling: { ...settings.styling, advanced },
-              })
-            }
-          />
+          {/* Show CustomCSSPanel when theme is "custom" - lazy loaded */}
+          {settings.styling?.theme_preset === 'custom' && (
+            <Suspense
+              fallback={
+                <div style={{ padding: '1rem', textAlign: 'center' }}>
+                  <Spinner />
+                  <p style={{ marginTop: '0.5rem', color: '#646970', fontSize: '0.875rem' }}>
+                    {__('Loading CSS Editor...', 'mcf')}
+                  </p>
+                </div>
+              }
+            >
+              <CustomCSSPanel
+                customCSS={settings.styling?.custom_css || ''}
+                onCustomCSSChange={(css) =>
+                  updateSettings('styling', 'custom_css', css)
+                }
+              />
+            </Suspense>
+          )}
         </div>
       </div>
 

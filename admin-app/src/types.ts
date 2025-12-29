@@ -14,7 +14,10 @@ export interface SMTPConfig {
 }
 
 export interface MCFSettings {
-	recipient_user_id: number;
+	recipient_user_id?: number;        // Legacy (optional, kept for backwards compat)
+	sender_name?: string;              // New flexible email field
+	sender_email?: string;             // New flexible email field
+	reply_to?: string;                 // New flexible email field
 	antispam_enabled: boolean;
 	mail_service: 'wp_mail' | 'php_mail' | 'smtp';
 	smtp_config: SMTPConfig;
@@ -50,7 +53,7 @@ export interface MCFPrivacyTexts {
 }
 
 export interface MCFStyling {
-	theme_preset: 'default' | 'modern' | 'minimal';
+	theme_preset: 'default' | 'modern' | 'minimal' | 'custom';
 	variant: 'light' | 'dark';
 	primary_color?: string;
 	custom_css?: string;
@@ -94,6 +97,12 @@ declare global {
 					minimal: string;
 					custom?: string;
 				};
+			};
+			privacyPage: {
+				exists: boolean;
+				id: number | false;
+				url: string;
+				pageUrl: string | false;
 			};
 		};
 	}

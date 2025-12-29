@@ -86,9 +86,23 @@ class Settings
     {
         $errors = [];
 
-        // Validate recipient_user_id
-        if (!is_numeric($this->data['recipient_user_id'])) {
-            $errors['recipient_user_id'] = 'Recipient user ID must be numeric';
+        // Validate new email fields (required if not using recipient_user_id)
+        if (empty($this->data['recipient_user_id'])) {
+            // New format validation
+            if (empty($this->data['sender_name'])) {
+                $errors['sender_name'] = 'Sender name is required';
+            }
+            if (empty($this->data['sender_email']) || !is_email($this->data['sender_email'])) {
+                $errors['sender_email'] = 'Valid sender email is required';
+            }
+            if (!empty($this->data['reply_to']) && !is_email($this->data['reply_to'])) {
+                $errors['reply_to'] = 'Reply-to must be a valid email address';
+            }
+        } else {
+            // Legacy format validation
+            if (!is_numeric($this->data['recipient_user_id'])) {
+                $errors['recipient_user_id'] = 'Recipient user ID must be numeric';
+            }
         }
 
         // Validate antispam_enabled
@@ -97,8 +111,33 @@ class Settings
         }
 
         // Validate mail_service
-        if (!in_array($this->data['mail_service'], ['wp_mail', 'php_mail'])) {
-            $errors['mail_service'] = 'Mail service must be either "wp_mail" or "php_mail"';
+        if (!in_array($this->data['mail_service'], ['wp_mail', 'php_mail', 'smtp'])) {
+            $errors['mail_service'] = 'Mail service must be "wp_mail", "php_mail", or "smtp"';
+        }
+
+        // Validate SMTP config if SMTP is selected
+        if ($this->data['mail_service'] === 'smtp') {
+            $smtp = $this->data['smtp_config'];
+
+            if (empty($smtp['host'])) {
+                $errors['smtp_host'] = 'SMTP host is required when using SMTP';
+            }
+
+            if (!is_numeric($smtp['port']) || $smtp['port'] < 1 || $smtp['port'] > 65535) {
+                $errors['smtp_port'] = 'SMTP port must be between 1 and 65535';
+            }
+
+            if (empty($smtp['username'])) {
+                $errors['smtp_username'] = 'SMTP username is required';
+            }
+
+            if (empty($smtp['password'])) {
+                $errors['smtp_password'] = 'SMTP password is required';
+            }
+
+            if (!in_array($smtp['encryption'], ['tls', 'ssl', 'none'])) {
+                $errors['smtp_encryption'] = 'SMTP encryption must be "tls", "ssl", or "none"';
+            }
         }
 
         return empty($errors) ? true : $errors;

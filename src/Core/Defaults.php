@@ -38,7 +38,10 @@ class Defaults
     private static function get_settings()
     {
         return [
-            'recipient_user_id' => 1,
+            'recipient_user_id' => 1,        // Keep for backwards compat
+            'sender_name' => '',             // New
+            'sender_email' => '',            // New
+            'reply_to' => '',                // New
             'antispam_enabled' => true,
             'mail_service' => 'wp_mail',
             'smtp_config' => [

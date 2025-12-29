@@ -1,0 +1,23 @@
+/**
+ * Editor styles for Contact Form block
+ *
+ * These styles are applied in the block editor to provide
+ * a nice preview container and integrate with the WordPress editor theme
+ */
+
+.mcf-block-editor {
+  margin: 16px 0;
+
+  .mcf-block-preview {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .mcf-form {
+      // Disable interaction in preview
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+}
+
+

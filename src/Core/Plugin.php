@@ -3,6 +3,7 @@
 namespace MinimalContactForm\Core;
 
 use MinimalContactForm\Admin\AdminPanel;
+use MinimalContactForm\Blocks\ContactFormBlock;
 use MinimalContactForm\Public\Frontend;
 use MinimalContactForm\Public\FormHandler;
 use MinimalContactForm\Public\FormRenderer;
@@ -118,11 +119,13 @@ class Plugin
         $plugin_public = new Frontend($this->get_mcf(), $this->get_version());
         $plugin_form_handler = new FormHandler();
         $plugin_form_renderer = new FormRenderer($this->get_version());
+        $plugin_block = new ContactFormBlock($this->get_version());
 
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
         $this->loader->add_action('init', $plugin_form_handler, 'register');
         $this->loader->add_action('init', $plugin_form_renderer, 'register');
+        $this->loader->add_action('init', $plugin_block, 'register');
     }
 
     /**

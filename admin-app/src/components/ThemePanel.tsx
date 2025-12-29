@@ -3,22 +3,23 @@ import { Panel, PanelBody, RadioControl, ColorPicker, ColorIndicator, Button, Po
 import { __ } from '@wordpress/i18n';
 import type { MCFStyling } from '../types';
 
-interface ThemeSelectorProps {
+interface ThemePanelProps {
 	styling: MCFStyling;
 	onStylingChange: (key: keyof MCFStyling, value: any) => void;
 }
 
-export default function ThemeSelector({ styling, onStylingChange }: ThemeSelectorProps) {
+export default function ThemePanel({ styling, onStylingChange }: ThemePanelProps) {
 	const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
 	const themePreset = styling.theme_preset || 'default';
 	const variant = styling.variant || 'light';
-	const primaryColor = styling.primary_color || '';
+	// Always read from styling prop to ensure we have latest value
+	const primaryColor = styling.primary_color || undefined;
 
 	return (
 		<Panel>
 			<PanelBody title={__('Theme Settings', 'mcf')} initialOpen={true}>
 				{/* Theme Preset */}
-				<div className="mcf-theme-group">
+				<div className="mcf-panel-group">
 					<h4>{__('Theme Preset', 'mcf')}</h4>
 					<RadioControl
 						selected={themePreset}
@@ -35,8 +36,12 @@ export default function ThemeSelector({ styling, onStylingChange }: ThemeSelecto
 								label: __('Minimal', 'mcf'),
 								value: 'minimal',
 							},
+							{
+								label: __('Custom', 'mcf'),
+								value: 'custom',
+							},
 						]}
-						onChange={(value) => onStylingChange('theme_preset', value as 'default' | 'modern' | 'minimal')}
+						onChange={(value) => onStylingChange('theme_preset', value as MCFStyling['theme_preset'])}
 					/>
 					<p className="description">
 						{__('Default theme matches v0.10.0 styling. Modern has rounded corners, Minimal is flat.', 'mcf')}
@@ -44,7 +49,7 @@ export default function ThemeSelector({ styling, onStylingChange }: ThemeSelecto
 				</div>
 
 				{/* Variant (Light/Dark) */}
-				<div className="mcf-theme-group" style={{ marginTop: '20px' }}>
+				<div className="mcf-panel-group">
 					<h4>{__('Color Variant', 'mcf')}</h4>
 					<RadioControl
 						selected={variant}
@@ -66,7 +71,7 @@ export default function ThemeSelector({ styling, onStylingChange }: ThemeSelecto
 				</div>
 
 				{/* Primary Color Override */}
-				<div className="mcf-theme-group" style={{ marginTop: '20px' }}>
+				<div className="mcf-panel-group">
 					<h4>{__('Primary Color Override', 'mcf')}</h4>
 					<p className="description" style={{ marginBottom: '10px' }}>
 						{__('Optional: Override the default button and accent color.', 'mcf')}
@@ -88,7 +93,7 @@ export default function ThemeSelector({ styling, onStylingChange }: ThemeSelecto
 								variant="secondary"
 								size='small'
 								onClick={() => {
-									onStylingChange('primary_color', '');
+									onStylingChange('primary_color', undefined);
 									setIsColorPickerOpen(false);
 								}}
 							>
@@ -105,7 +110,9 @@ export default function ThemeSelector({ styling, onStylingChange }: ThemeSelecto
 							<div style={{ padding: '10px' }}>
 								<ColorPicker
 									color={primaryColor || '#222222'}
-									onChangeComplete={(color) => onStylingChange('primary_color', color.hex)}
+									onChangeComplete={(color) => {
+										onStylingChange('primary_color', color.hex);
+									}}
 									enableAlpha={false}
 								/>
 							</div>

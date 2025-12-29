@@ -64,6 +64,26 @@ class FormRenderer
     }
 
     /**
+     * Render form with custom options
+     *
+     * @since 1.0.0
+     * @param array|null $custom_options Custom options to use for rendering
+     * @return string Form HTML
+     */
+    public function render_with_options($custom_options = null)
+    {
+        $original_options = $this->options;
+        $this->options = $custom_options ?? $this->options;
+
+        ob_start();
+        $this->render_form();
+        $output = ob_get_clean();
+
+        $this->options = $original_options;
+        return $output;
+    }
+
+    /**
      * Render the complete form
      *
      * @since 1.0.0
