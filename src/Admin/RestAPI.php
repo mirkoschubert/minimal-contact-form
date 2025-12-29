@@ -4,6 +4,7 @@ namespace MinimalContactForm\Admin;
 
 use MinimalContactForm\Models\Settings;
 use MinimalContactForm\Models\FieldConfig;
+use MinimalContactForm\Core\Defaults;
 
 /**
  * REST API endpoints for React admin
@@ -139,6 +140,17 @@ class RestAPI
         }
 
         $options['fields']['labels'] = (object) $labels;
+
+        // Add translated default privacy texts if empty
+        // This ensures that the block preview shows translated privacy texts
+        $default_privacy_texts = Defaults::get_privacy_texts();
+
+        if (empty($options['privacy_texts']['optin_text'])) {
+            $options['privacy_texts']['optin_text'] = $default_privacy_texts['optin_text'];
+        }
+        if (empty($options['privacy_texts']['inform_text'])) {
+            $options['privacy_texts']['inform_text'] = $default_privacy_texts['inform_text'];
+        }
 
         return new \WP_REST_Response($options, 200);
     }
@@ -330,14 +342,6 @@ class RestAPI
             'subject' => __('Subject', 'mcf'),
             'message' => __('Message', 'mcf'),
             'submit' => __('Submit', 'mcf'),
-            'gdpr-optin' => __(
-                'I consent to having you process my submitted information so you can respond to my inquiry.',
-                'mcf'
-            ),
-            'gdpr-inform' => __(
-                'Your submitted information will only be processed to respond to your inquiry.',
-                'mcf'
-            ),
         ];
     }
 

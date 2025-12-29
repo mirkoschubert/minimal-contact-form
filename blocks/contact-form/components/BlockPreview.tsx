@@ -1,4 +1,5 @@
 import { useMemo, useEffect } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 import type { MCFOptions } from '../types';
 
 interface BlockPreviewProps {
@@ -19,11 +20,32 @@ declare global {
         custom: string;
       };
       globalTheme: string;
+      privacyPage: {
+        exists: boolean;
+        url: string;
+      };
     };
   }
 }
 
 // No need for local getDefaultLabel - labels come from global settings via REST API
+
+const buildPrivacyTextWithLink = (baseText: string, mode: 'optin' | 'inform'): string => {
+  const privacyUrl = window.mcfBlockEditor?.privacyPage?.url;
+
+  let text = baseText;
+
+  if (privacyUrl) {
+    text += ` ${__('For further information please visit our', 'mcf')} <a href="${privacyUrl}" target="_blank" rel="noopener noreferrer">${__('Privacy Policy', 'mcf')}</a>.`;
+  }
+
+  // Add asterisk for opt-in mode
+  if (mode === 'optin') {
+    text += ' <span class="required">*</span>';
+  }
+
+  return text;
+};
 
 /**
  * Helper functions for color calculations
@@ -62,7 +84,10 @@ export default function BlockPreview({ settings, clientId }: BlockPreviewProps) 
   const { theme_preset, variant, primary_color } = settings.styling;
   const { optin_text, inform_text } = settings.privacy_texts;
 
-  // Generate primary color CSS
+  // Generate unique instance ID for this block
+  const instanceId = `mcf-block-${clientId}`;
+
+  // Generate primary color CSS scoped to this instance
   const primaryColorCSS = primary_color
     ? (() => {
         const hoverColor = adjustBrightness(primary_color, -20);
@@ -70,8 +95,8 @@ export default function BlockPreview({ settings, clientId }: BlockPreviewProps) 
         const textHoverColor = getContrastColor(hoverColor);
 
         return `
-.mcf-form[data-theme-variant="light"],
-.mcf-form[data-theme-variant="dark"] {
+#${instanceId}[data-theme-variant="light"],
+#${instanceId}[data-theme-variant="dark"] {
   --mcf-button-background-color: ${primary_color} !important;
   --mcf-button-background-hover-color: ${hoverColor} !important;
   --mcf-button-color: ${textColor} !important;
@@ -101,12 +126,18 @@ export default function BlockPreview({ settings, clientId }: BlockPreviewProps) 
 
     // Theme CSS oder Custom CSS injizieren (nie beides!)
     if (theme_preset !== 'custom') {
-      // Preset-Theme CSS injizieren
+      // Preset-Theme CSS injizieren und zu dieser Instanz scopen
       const themeCSS = previewCSS.themes?.[theme_preset as 'default' | 'modern' | 'minimal'];
       if (themeCSS) {
+        // Scope CSS to this specific instance (replace .mcf-form selectors with #instanceId)
+        const scopedCSS = themeCSS.replace(
+          /\.mcf-form\[data-theme-variant="(light|dark)"\]/g,
+          `#${instanceId}[data-theme-variant="$1"]`
+        );
+
         const themeStyleEl = document.createElement('style');
         themeStyleEl.id = themeStyleId;
-        themeStyleEl.textContent = themeCSS;
+        themeStyleEl.textContent = scopedCSS;
         document.head.appendChild(themeStyleEl);
       }
     } else if (settings.styling.custom_css) {
@@ -229,29 +260,37 @@ export default function BlockPreview({ settings, clientId }: BlockPreviewProps) 
     // GDPR/Privacy field
     if (field_groups.gdpr.enabled) {
       const gdprMode = field_groups.gdpr.mode;
-      const gdprText =
-        gdprMode === 'optin'
-          ? labels['gdpr-optin'] || optin_text
-          : labels['gdpr-inform'] || inform_text;
+
+      // Get base text from privacy_texts (single source of truth)
+      // The REST API already fills in translated defaults if empty
+      const baseText = gdprMode === 'optin' ? optin_text : inform_text;
+
+      // Build complete text with privacy policy link if available
+      const completeText = buildPrivacyTextWithLink(baseText, gdprMode);
+
+      const privacyId = `mcf-privacy`;
 
       fields.push(
         <div className="mcf-field mcf-field-privacy" key="gdpr">
           {gdprMode === 'optin' ? (
-            <label className="mcf-checkbox-label" htmlFor="mcf-privacy">
+            <label className="mcf-checkbox-label" htmlFor={privacyId}>
               <input
                 type="checkbox"
-                id="mcf-privacy"
+                id={privacyId}
                 className="mcf-checkbox"
                 readOnly
                 disabled
               />
-              <span className="mcf-checkbox-text">
-                {gdprText}
-                <span className="required">*</span>
-              </span>
+              <span
+                className="mcf-checkbox-text"
+                dangerouslySetInnerHTML={{ __html: completeText }}
+              />
             </label>
           ) : (
-            <p className="mcf-privacy-text">{gdprText}</p>
+            <p
+              className="mcf-privacy-text"
+              dangerouslySetInnerHTML={{ __html: completeText }}
+            />
           )}
         </div>
       );
@@ -268,8 +307,8 @@ export default function BlockPreview({ settings, clientId }: BlockPreviewProps) 
       {/* Inject primary color CSS */}
       {primaryColorCSS && <style>{primaryColorCSS}</style>}
 
-      {/* Form with theme and variant */}
-      <div className={formClassName} data-theme-variant={variant}>
+      {/* Form with theme and variant - use unique ID for CSS scoping */}
+      <div id={instanceId} className={formClassName} data-theme-variant={variant}>
         <div className="mcf-notice" style={{ display: 'none' }}></div>
 
         <div className="mcf-grid">{activeFields}</div>

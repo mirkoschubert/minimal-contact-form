@@ -99,7 +99,18 @@ class ContactFormBlock
                     'custom' => $global_custom_css,
                 ],
                 'globalTheme' => $global_theme,
+                'privacyPage' => [
+                    'exists' => (bool) get_option('wp_page_for_privacy_policy'),
+                    'url' => get_privacy_policy_url() ?: '',
+                ],
             ]
+        );
+
+        // Set script translations for block editor
+        wp_set_script_translations(
+            'mcf-contact-form-editor-script',
+            'mcf',
+            plugin_dir_path(dirname(dirname(__FILE__))) . 'languages'
         );
     }
 

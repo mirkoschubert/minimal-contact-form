@@ -284,13 +284,25 @@ class FormRenderer
     {
         $field_groups = $this->options['fields']['field_groups'] ?? [];
         $privacy_texts = $this->options['privacy_texts'] ?? [];
-        $labels = $this->options['fields']['labels'] ?? [];
 
         $gdpr_mode = $field_groups['gdpr']['mode'] ?? 'inform';
 
+        // Get base text from privacy_texts (single source of truth)
+        if ($gdpr_mode === 'optin') {
+            $base_text = !empty($privacy_texts['optin_text'])
+                ? $privacy_texts['optin_text']
+                : Defaults::get_privacy_texts()['optin_text'];
+        } else {
+            $base_text = !empty($privacy_texts['inform_text'])
+                ? $privacy_texts['inform_text']
+                : Defaults::get_privacy_texts()['inform_text'];
+        }
+
+        // Build complete text with privacy policy link if available
+        $complete_text = $this->build_privacy_text_with_link($base_text);
+
         if ($gdpr_mode === 'optin') {
             // Opt-in checkbox (required)
-            $label = $labels['gdpr-optin'] ?? $privacy_texts['optin_text'];
             ?>
             <div class="mcf-field mcf-field-privacy">
                 <label class="mcf-checkbox-label">
@@ -302,19 +314,43 @@ class FormRenderer
                         required
                         aria-required="true"
                     />
-                    <span class="mcf-checkbox-text"><?php echo esc_html($label); ?> <span class="required">*</span></span>
+                    <span class="mcf-checkbox-text"><?php echo wp_kses_post($complete_text); ?> <span class="required">*</span></span>
                 </label>
             </div>
             <?php
         } else {
             // Inform mode (no checkbox, just text)
-            $label = $labels['gdpr-inform'] ?? $privacy_texts['inform_text'];
             ?>
             <div class="mcf-field mcf-field-privacy">
-                <p class="mcf-privacy-text"><?php echo esc_html($label); ?></p>
+                <p class="mcf-privacy-text"><?php echo wp_kses_post($complete_text); ?></p>
             </div>
             <?php
         }
+    }
+
+    /**
+     * Build privacy text with privacy policy link if available
+     *
+     * @since 1.0.0
+     * @param string $base_text Base privacy text
+     * @return string Complete privacy text with optional link
+     */
+    private function build_privacy_text_with_link($base_text)
+    {
+        $privacy_url = get_privacy_policy_url();
+
+        if (empty($privacy_url)) {
+            return $base_text;
+        }
+
+        // Append privacy policy link
+        return sprintf(
+            '%s %s <a href="%s" target="_blank" rel="noopener noreferrer">%s</a>.',
+            $base_text,
+            __('For further information please visit our', 'mcf'),
+            esc_url($privacy_url),
+            __('Privacy Policy', 'mcf')
+        );
     }
 
     /**

@@ -65,19 +65,21 @@ const getDefaultLabel = (fieldId: string): string => {
     subject: __('Subject', 'mcf'),
     message: __('Message', 'mcf'),
     submit: __('Submit', 'mcf'),
-    'gdpr-optin': __(
-      'I consent to having you process my submitted information so you can respond to my inquiry.',
-      'mcf'
-    ),
-    'gdpr-inform': __(
-      'Your submitted information will only be processed to respond to your inquiry.',
-      'mcf'
-    ),
   };
   return (
     defaults[fieldId] ||
     fieldId.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
   );
+};
+
+const buildPrivacyTextWithLink = (baseText: string): string => {
+  const privacyUrl = (window as any).mcfAdmin?.privacyPage?.pageUrl;
+
+  if (!privacyUrl) {
+    return baseText;
+  }
+
+  return `${baseText} ${__('For further information please visit our', 'mcf')} <a href="${privacyUrl}" target="_blank" rel="noopener noreferrer">${__('Privacy Policy', 'mcf')}</a>.`;
 };
 
 function EditModal({
@@ -752,17 +754,21 @@ export default function FormPreview({
     // GDPR/Privacy field
     if (field_groups.gdpr.enabled) {
       const gdprMode = field_groups.gdpr.mode;
-      const gdprText =
-        gdprMode === 'optin'
-          ? labels['gdpr-optin'] ||
-            privacyTexts.optin_text ||
-            __('I agree to the privacy policy', 'mcf')
-          : labels['gdpr-inform'] ||
-            privacyTexts.inform_text ||
-            __(
-              'Your data will be processed according to our privacy policy',
-              'mcf'
-            );
+
+      // Get base text from privacy_texts (single source of truth)
+      let baseText = gdprMode === 'optin'
+        ? privacyTexts.optin_text
+        : privacyTexts.inform_text;
+
+      // Fallback to default if empty
+      if (!baseText) {
+        baseText = gdprMode === 'optin'
+          ? __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf')
+          : __('Your submitted information will only be processed to respond to your inquiry.', 'mcf');
+      }
+
+      // Build complete text with privacy policy link if available
+      const completeText = buildPrivacyTextWithLink(baseText);
 
       fields.push(
         <div className="mcf-field mcf-field-privacy" key="gdpr">
@@ -774,13 +780,17 @@ export default function FormPreview({
                 className="mcf-checkbox"
                 readOnly
               />
-              <span className="mcf-checkbox-text">
-                {gdprText}
-                <span className="required">*</span>
-              </span>
+              <span
+                className="mcf-checkbox-text"
+                dangerouslySetInnerHTML={{ __html: completeText }}
+              />
+              <span className="required">*</span>
             </label>
           ) : (
-            <p className="mcf-privacy-text">{gdprText}</p>
+            <p
+              className="mcf-privacy-text"
+              dangerouslySetInnerHTML={{ __html: completeText }}
+            />
           )}
         </div>
       );

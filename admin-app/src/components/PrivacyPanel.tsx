@@ -65,7 +65,7 @@ export default function PrivacyPanel({
 						label={__('Opt-in Text', 'mcf')}
 						value={texts?.optin_text || ''}
 						onChange={(value) => onTextsChange('optin_text', value || '')}
-						help={__('Shown when GDPR mode is set to Opt-in in Field Settings', 'mcf')}
+						help={__('Shown when GDPR mode is set to Opt-in. A link to your Privacy Policy will be automatically appended if configured.', 'mcf')}
 						rows={3}
 						// @ts-ignore - autoComplete is valid but not in types
 						autoComplete="off"
@@ -76,7 +76,7 @@ export default function PrivacyPanel({
 						label={__('Inform Text', 'mcf')}
 						value={texts?.inform_text || ''}
 						onChange={(value) => onTextsChange('inform_text', value || '')}
-						help={__('Shown when GDPR mode is set to Inform in Field Settings', 'mcf')}
+						help={__('Shown when GDPR mode is set to Inform. A link to your Privacy Policy will be automatically appended if configured.', 'mcf')}
 						rows={3}
 						// @ts-ignore - autoComplete is valid but not in types
 						autoComplete="off"

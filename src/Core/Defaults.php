@@ -86,7 +86,7 @@ class Defaults
      * @since 1.0.0
      * @return array Default privacy texts
      */
-    private static function get_privacy_texts()
+    public static function get_privacy_texts()
     {
         return [
             'optin_text' => __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf'),
