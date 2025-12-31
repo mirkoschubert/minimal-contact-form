@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Core;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * Fired during plugin uninstall.
  *

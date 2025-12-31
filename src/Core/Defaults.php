@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Core;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * Central default values for all plugin options
  *
@@ -89,8 +94,8 @@ class Defaults
     public static function get_privacy_texts()
     {
         return [
-            'optin_text' => __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf'),
-            'inform_text' => __('Your submitted information will only be processed to respond to your inquiry.', 'mcf'),
+            'optin_text' => '',
+            'inform_text' => '',
         ];
     }
 
@@ -111,6 +116,29 @@ class Defaults
     }
 
     /**
+     * Get all default field labels as associative array.
+     *
+     * This is the single source of truth for default labels.
+     *
+     * @since 1.0.0
+     * @return array field_id => translated_label
+     */
+    public static function get_all_field_labels()
+    {
+        return [
+            'company'    => __('Company', 'mcf'),
+            'name'       => __('Name', 'mcf'),
+            'first-name' => __('First Name', 'mcf'),
+            'last-name'  => __('Last Name', 'mcf'),
+            'email'      => __('Email', 'mcf'),
+            'phone'      => __('Phone', 'mcf'),
+            'subject'    => __('Subject', 'mcf'),
+            'message'    => __('Message', 'mcf'),
+            'submit'     => __('Submit', 'mcf'),
+        ];
+    }
+
+    /**
      * Get translatable default label for a field ID.
      *
      * Returns translated default labels for all form field IDs.
@@ -123,17 +151,7 @@ class Defaults
      */
     public static function get_field_label($field_id)
     {
-        $defaults = [
-            'company'      => __('Company', 'mcf'),
-            'name'         => __('Name', 'mcf'),
-            'first-name'   => __('First Name', 'mcf'),
-            'last-name'    => __('Last Name', 'mcf'),
-            'email'        => __('Email', 'mcf'),
-            'phone'        => __('Phone', 'mcf'),
-            'subject'      => __('Subject', 'mcf'),
-            'message'      => __('Message', 'mcf'),
-            'submit'       => __('Submit', 'mcf'),
-        ];
+        $defaults = self::get_all_field_labels();
 
         if (isset($defaults[$field_id])) {
             return $defaults[$field_id];

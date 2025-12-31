@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Services;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 use MinimalContactForm\Core\Plugin;
 
 class FormService

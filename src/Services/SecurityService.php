@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Services;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 class SecurityService
 {
     private const RATE_LIMIT_KEY = 'mcf_rate_limit_';

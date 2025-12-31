@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Core;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * Check plugin requirements (WordPress version, PHP version, etc.)
  *

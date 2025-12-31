@@ -41,8 +41,6 @@ if (file_exists(plugin_dir_path(__FILE__) . 'vendor/autoload.php')) {
 }
 
 use MinimalContactForm\Core\Plugin;
-use MinimalContactForm\Core\Activator;
-use MinimalContactForm\Core\Deactivator;
 use MinimalContactForm\Core\Uninstaller;
 
 /**
@@ -50,14 +48,14 @@ use MinimalContactForm\Core\Uninstaller;
  *
  * @since 1.0.0
  */
-register_activation_hook(__FILE__, [Activator::class, 'activate']);
+register_activation_hook(__FILE__, [Plugin::class, 'activate']);
 
 /**
  * Register deactivation hook
  *
  * @since 1.0.0
  */
-register_deactivation_hook(__FILE__, [Deactivator::class, 'deactivate']);
+register_deactivation_hook(__FILE__, [Plugin::class, 'deactivate']);
 
 /**
  * Register uninstall hook

@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Public;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * The public-facing functionality of the plugin.
  *

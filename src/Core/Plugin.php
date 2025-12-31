@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Core;
 
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use MinimalContactForm\Admin\AdminPanel;
 use MinimalContactForm\Blocks\ContactFormBlock;
 use MinimalContactForm\Public\Frontend;
@@ -22,7 +27,46 @@ class Plugin
 
     protected $mcf;
     protected $version;
-    protected $loader;
+
+    /**
+     * Activation hook.
+     *
+     * Writes default options to database and runs migration if needed.
+     *
+     * @since 1.0.0
+     */
+    public static function activate()
+    {
+        // Lazy-Load Migration mit class_exists Check
+        if (!class_exists('MinimalContactForm\Core\Migration')) {
+            require_once plugin_dir_path(__FILE__) . 'Migration.php';
+        }
+        Migration::maybe_migrate();
+
+        // Frische Installation: Default-Optionen erstellen
+        $options = get_option('mcf_options');
+        if (false === $options) {
+            add_option(
+                'mcf_options',
+                Defaults::get_options(),
+                '',
+                true
+            );
+        }
+    }
+
+    /**
+     * Deactivation hook.
+     *
+     * Intentionally empty - we don't delete options on deactivation.
+     * Options are only deleted on uninstall.
+     *
+     * @since 1.0.0
+     */
+    public static function deactivate()
+    {
+        // Intentionally empty - preserve settings when plugin is deactivated
+    }
 
     /**
      * Define the core functionality of the plugin.
@@ -38,7 +82,6 @@ class Plugin
         }
         $this->mcf = 'mcf';
 
-        $this->loader = new Loader();
         $this->set_locale();
         $this->define_global_hooks();
         $this->define_admin_hooks();
@@ -52,8 +95,13 @@ class Plugin
      */
     private function set_locale()
     {
-        $plugin_i18n = new I18n();
-        $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+        add_action('plugins_loaded', function() {
+            load_plugin_textdomain(
+                'mcf',
+                false,
+                dirname(plugin_basename(dirname(dirname(__FILE__)))) . '/languages'
+            );
+        });
     }
 
     /**
@@ -69,13 +117,12 @@ class Plugin
             plugin_basename(dirname(__FILE__, 3) . '/mcf.php'),
             'minimal-contact-form'
         );
-        $this->loader->add_action('admin_init', $requirements, 'check_wordpress_version');
+        add_action('admin_init', [$requirements, 'check_wordpress_version']);
 
         // Add settings link to plugin action links
-        $this->loader->add_filter(
+        add_filter(
             'plugin_action_links_' . plugin_basename(dirname(__FILE__, 3) . '/mcf.php'),
-            $this,
-            'add_plugin_action_links'
+            [$this, 'add_plugin_action_links']
         );
     }
 
@@ -102,11 +149,11 @@ class Plugin
     {
         $plugin_admin = new AdminPanel($this->get_mcf(), $this->get_version());
 
-        $this->loader->add_action('admin_init', $plugin_admin, 'register_settings');
-        $this->loader->add_action('rest_api_init', $plugin_admin, 'register_rest_routes');
-        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-        $this->loader->add_action('admin_menu', $plugin_admin, 'add_admin_menu');
+        add_action('admin_init', [$plugin_admin, 'register_settings']);
+        add_action('rest_api_init', [$plugin_admin, 'register_rest_routes']);
+        add_action('admin_enqueue_scripts', [$plugin_admin, 'enqueue_styles']);
+        add_action('admin_enqueue_scripts', [$plugin_admin, 'enqueue_scripts']);
+        add_action('admin_menu', [$plugin_admin, 'add_admin_menu']);
     }
 
     /**
@@ -121,21 +168,24 @@ class Plugin
         $plugin_form_renderer = new FormRenderer($this->get_version());
         $plugin_block = new ContactFormBlock($this->get_version());
 
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-        $this->loader->add_action('init', $plugin_form_handler, 'register');
-        $this->loader->add_action('init', $plugin_form_renderer, 'register');
-        $this->loader->add_action('init', $plugin_block, 'register');
+        add_action('wp_enqueue_scripts', [$plugin_public, 'enqueue_styles']);
+        add_action('wp_enqueue_scripts', [$plugin_public, 'enqueue_scripts']);
+        add_action('init', [$plugin_form_handler, 'register']);
+        add_action('init', [$plugin_form_renderer, 'register']);
+        add_action('init', [$plugin_block, 'register']);
     }
 
     /**
      * Run the loader to execute all of the hooks with WordPress.
      *
+     * Kept for backward compatibility but no longer needed as hooks
+     * are registered directly in the constructor.
+     *
      * @since 1.0.0
      */
     public function run()
     {
-        $this->loader->run();
+        // Empty - hooks are now registered directly in constructor
     }
 
     /**
@@ -147,17 +197,6 @@ class Plugin
     public function get_mcf()
     {
         return $this->mcf;
-    }
-
-    /**
-     * The reference to the class that orchestrates the hooks with the plugin.
-     *
-     * @since 1.0.0
-     * @return Loader Orchestrates the hooks of the plugin.
-     */
-    public function get_loader()
-    {
-        return $this->loader;
     }
 
     /**

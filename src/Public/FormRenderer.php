@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Public;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 use MinimalContactForm\Core\Defaults;
 
 /**
@@ -291,11 +296,11 @@ class FormRenderer
         if ($gdpr_mode === 'optin') {
             $base_text = !empty($privacy_texts['optin_text'])
                 ? $privacy_texts['optin_text']
-                : Defaults::get_privacy_texts()['optin_text'];
+                : __('I consent to having you process my submitted information so you can respond to my inquiry.', 'mcf');
         } else {
             $base_text = !empty($privacy_texts['inform_text'])
                 ? $privacy_texts['inform_text']
-                : Defaults::get_privacy_texts()['inform_text'];
+                : __('Your submitted information will only be processed to respond to your inquiry.', 'mcf');
         }
 
         // Build complete text with privacy policy link if available

@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Public;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 use MinimalContactForm\Services\FormService;
 use MinimalContactForm\Services\SecurityService;
 use MinimalContactForm\Services\EmailService;

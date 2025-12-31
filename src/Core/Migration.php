@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Core;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * Handle plugin data migration from old versions.
  *
@@ -45,7 +50,7 @@ class Migration
             'version' => '1.0.0',
             'settings' => self::transform_settings($old),
             'fields' => self::transform_fields($old),
-            'privacy_texts' => self::get_default_privacy_texts(),
+            'privacy_texts' => Defaults::get_privacy_texts(),
             'styling' => self::transform_styling($old),
         ];
 
@@ -175,34 +180,9 @@ class Migration
      */
     private static function get_default_labels()
     {
-        return [
-            'company' => 'Company',
-            'first-name' => 'First Name',
-            'last-name' => 'Last Name',
-            'name' => 'Name',
-            'phone' => 'Phone',
-            'email' => 'Email',
-            'subject' => 'Subject',
-            'message' => 'Message',
-            'submit' => 'Submit',
-            'gdpr-optin' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
-            'gdpr-inform' => 'Your submitted information will only be processed to respond to your inquiry.',
-        ];
+        return Defaults::get_all_field_labels();
     }
 
-    /**
-     * Get default privacy texts
-     *
-     * @since 1.0.0
-     * @return array Privacy texts
-     */
-    private static function get_default_privacy_texts()
-    {
-        return [
-            'optin_text' => 'I consent to having you process my submitted information so you can respond to my inquiry.',
-            'inform_text' => 'Your submitted information will only be processed to respond to your inquiry.',
-        ];
-    }
 
     /**
      * Transform legacy styling to new structure with theme detection

@@ -15,11 +15,12 @@
     "noEmit": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
+    "types": [],
     "baseUrl": ".",
     "paths": {
       "@/*": ["admin-app/src/*"]
     }
   },
-  "include": ["admin-app/src/**/*"],
+  "include": ["admin-app/src/**/*", "blocks/**/*"],
   "exclude": ["node_modules", "build", "assets"]
 }

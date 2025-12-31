@@ -453,6 +453,11 @@
     fill: none;
 }
 
+// Fix WordPress button background (prevents black squares on icons)
+.mcf-field-row-controls .components-button {
+    background: transparent !important;
+}
+
 // Custom CSS Editor (CodeMirror)
 .mcf-css-editor-wrapper {
     margin-top: 1rem;
@@ -550,4 +555,37 @@
             background-color: #094771 !important;
         }
     }
+}
+
+// ========================================
+// Accessibility Styles
+// ========================================
+
+// Screen reader only class (visually hidden but accessible)
+.mcf-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// Focus styles for keyboard navigation
+.mcf-edit-modal,
+.mcf-field-settings-modal {
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+        outline: 2px solid var(--wp-admin-theme-color, #007cba);
+        outline-offset: 2px;
+    }
+}
+
+// Live region for screen reader announcements (hidden but accessible)
+#mcf-a11y-announcer {
+    @extend .mcf-sr-only;
 }

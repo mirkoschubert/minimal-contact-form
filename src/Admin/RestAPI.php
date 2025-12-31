@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Admin;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 use MinimalContactForm\Models\Settings;
 use MinimalContactForm\Models\FieldConfig;
 use MinimalContactForm\Core\Defaults;
@@ -94,15 +99,17 @@ class RestAPI
 
         // If no options exist, create defaults (fresh install or after uninstall)
         if (!$options) {
-            // Use Activator defaults
-            require_once plugin_dir_path(dirname(__FILE__, 2)) . 'src/Core/Activator.php';
-            \MinimalContactForm\Core\Activator::activate();
+            // Use Plugin activation to create defaults
+            \MinimalContactForm\Core\Plugin::activate();
             $options = get_option('mcf_options');
         }
 
         // If fields structure is missing (old version), run migration
         if (!isset($options['fields'])) {
-            require_once plugin_dir_path(dirname(__FILE__, 2)) . 'src/Core/Migration.php';
+            // Lazy-Load Migration mit class_exists Check
+            if (!class_exists('MinimalContactForm\Core\Migration')) {
+                require_once plugin_dir_path(dirname(__FILE__, 2)) . 'src/Core/Migration.php';
+            }
             \MinimalContactForm\Core\Migration::maybe_migrate();
             $options = get_option('mcf_options');
         }
@@ -127,30 +134,9 @@ class RestAPI
             $options['fields']['placeholders'] = new \stdClass();
         }
 
-        // Add translated default labels for empty label fields
-        // This ensures that the Gutenberg block preview shows translated labels
-        $default_labels = $this->get_default_labels();
-        $labels = (array) $options['fields']['labels'];
-
-        foreach ($default_labels as $field_id => $default_label) {
-            // Only add default label if custom label is not set or empty
-            if (!isset($labels[$field_id]) || empty(trim($labels[$field_id]))) {
-                $labels[$field_id] = $default_label;
-            }
-        }
-
-        $options['fields']['labels'] = (object) $labels;
-
-        // Add translated default privacy texts if empty
-        // This ensures that the block preview shows translated privacy texts
-        $default_privacy_texts = Defaults::get_privacy_texts();
-
-        if (empty($options['privacy_texts']['optin_text'])) {
-            $options['privacy_texts']['optin_text'] = $default_privacy_texts['optin_text'];
-        }
-        if (empty($options['privacy_texts']['inform_text'])) {
-            $options['privacy_texts']['inform_text'] = $default_privacy_texts['inform_text'];
-        }
+        // NOTE: Default labels are NOT added here anymore!
+        // They are handled in the frontend (FormFieldRenderer, EditModal)
+        // This ensures that only custom labels are stored in the database
 
         return new \WP_REST_Response($options, 200);
     }
@@ -332,17 +318,7 @@ class RestAPI
      */
     private function get_default_labels()
     {
-        return [
-            'company' => __('Company', 'mcf'),
-            'first-name' => __('First Name', 'mcf'),
-            'last-name' => __('Last Name', 'mcf'),
-            'name' => __('Name', 'mcf'),
-            'phone' => __('Phone', 'mcf'),
-            'email' => __('Email', 'mcf'),
-            'subject' => __('Subject', 'mcf'),
-            'message' => __('Message', 'mcf'),
-            'submit' => __('Submit', 'mcf'),
-        ];
+        return \MinimalContactForm\Core\Defaults::get_all_field_labels();
     }
 
     /**

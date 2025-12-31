@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Admin;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * The admin-specific functionality of the plugin.
  *

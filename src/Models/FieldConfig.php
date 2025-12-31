@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Models;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * Field Configuration Data Model
  *

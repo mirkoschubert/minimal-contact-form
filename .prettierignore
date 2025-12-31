@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+assets/
+build/
+dist/
+
+# WordPress core
+wp-admin/
+wp-includes/
+
+# Logs
+*.log
+
+# Other
+.git/
+.github/
+languages/

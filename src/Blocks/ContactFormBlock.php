@@ -2,6 +2,11 @@
 
 namespace MinimalContactForm\Blocks;
 
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
+}
 use MinimalContactForm\Public\FormRenderer;
 
 /**

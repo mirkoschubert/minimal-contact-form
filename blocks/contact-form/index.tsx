@@ -1,9 +1,9 @@
-import { registerBlockType } from '@wordpress/blocks';
-import type { BlockConfiguration } from '@wordpress/blocks';
-import './editor.scss';
-import edit from './edit';
-import save from './save';
-import type { BlockAttributes } from './types';
+import { registerBlockType } from '@wordpress/blocks'
+import type { BlockConfiguration } from '@wordpress/blocks'
+import './editor.scss'
+import edit from './edit'
+import save from './save'
+import type { BlockAttributes } from './types'
 
 // Register block type
 registerBlockType<BlockAttributes>('mcf/contact-form', {
@@ -15,30 +15,30 @@ registerBlockType<BlockAttributes>('mcf/contact-form', {
   supports: {
     html: false,
     multiple: true,
-    align: ['wide', 'full'],
+    align: ['wide', 'full']
   },
   attributes: {
     theme: {
       type: 'string',
-      default: '',
+      default: ''
     },
     variant: {
       type: 'string',
-      default: '',
+      default: ''
     },
     primaryColor: {
       type: 'string',
-      default: '',
+      default: ''
     },
     customCSS: {
       type: 'string',
-      default: '',
+      default: ''
     },
     privacyMode: {
       type: 'string',
-      default: '',
-    },
+      default: ''
+    }
   },
   edit,
-  save,
-} as BlockConfiguration<BlockAttributes>);
+  save
+} as BlockConfiguration<BlockAttributes>)
